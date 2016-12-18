@@ -608,6 +608,7 @@ service rmt_storage /vendor/bin/rmt_storage
     user root
     shutdown critical
     ioprio rt 0
+    seclabel u:r:rmt_storage:s0
 
 service tftp_server /vendor/bin/tftp_server
    class core
@@ -687,6 +688,7 @@ service hciattach /vendor/bin/hci_qcomm_init -e
     group bluetooth net_bt_admin oem_2950 diag radio
     disabled
     oneshot
+    seclabel u:r:bluetooth_loader:s0
 
 on property:bluetooth.hciattach=true
     start hciattach
