@@ -193,6 +193,7 @@ ro.internal.tcpdump.file = /data/logcat_log/capture.pcap
 
 # Time Services
 persist.timed.enable=true
+persist.delta_time.enable=true
 
 # Trim properties
 ro.vendor.qti.sys.fw.use_trim_settings=true
