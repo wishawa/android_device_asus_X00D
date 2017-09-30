@@ -679,15 +679,19 @@ service qmuxd /system/vendor/bin/qmuxd
     group radio audio bluetooth gps nfc diag
     disabled
 
-service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+service hciattach /vendor/bin/hci_qcomm_init -e
     class late_start
     user bluetooth
-    group bluetooth net_bt_admin
+    group bluetooth net_bt_admin oem_2950 diag radio
     disabled
     oneshot
 
 on property:bluetooth.hciattach=true
     start hciattach
+    setprop bluetooth.status on
+
+on property:bluetooth.hciattach=false
+    setprop bluetooth.status off
 
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off
