@@ -145,6 +145,10 @@ BOARD_HAVE_QCOM_FM := true
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
+# HIDL
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
+
 # Init
 TARGET_IGNORE_RO_BOOT_SERIALNO := true
 TARGET_INIT_VENDOR_LIB := libinit_zenfone3
