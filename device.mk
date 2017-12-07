@@ -297,6 +297,7 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 
+
 # Ebtables
 PRODUCT_PACKAGES += \
     ebtables \
@@ -515,8 +516,7 @@ PRODUCT_PACKAGES += \
    
 # FIX
 PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0
+    android.hidl.base@1.0 
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
