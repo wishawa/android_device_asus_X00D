@@ -154,6 +154,9 @@ HWUI_COMPILE_FOR_PERF := true
 # exfat
 TARGET_EXFAT_DRIVER := sdfat
 
+# Exclude serif fonts for saving system.img size.
+EXCLUDE_SERIF_FONTS := true
+
 # FM
 BOARD_HAVE_FM_RADIO := true
 BOARD_DISABLE_FMRADIO_LIBJNI := true
