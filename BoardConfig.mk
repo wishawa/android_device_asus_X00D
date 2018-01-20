@@ -187,9 +187,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
-# Sensors
-USE_SENSOR_MULTI_HAL := true
-
 # GPS
 TARGET_NO_RPC := true
 #USE_DEVICE_SPECIFIC_GPS := true
