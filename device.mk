@@ -620,16 +620,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AsusSplendidCommandAgent
 
-# FlipCover
-PRODUCT_PACKAGES += \
-    FlipCoverWrapper
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/asus.software.cover3_feature_1.xml:/system/etc/permissions/asus.software.cover3_feature_1.xml \
-    $(LOCAL_PATH)/configs/permissions/asus.hardware.transcover_version3.xml:/system/etc/permissions/asus.hardware.transcover_version3.xml \
-    $(LOCAL_PATH)/configs/permissions/asus.hardware.transcover.xml:/system/etc/permissions/asus.hardware.transcover.xml \
-    $(LOCAL_PATH)/configs/permissions/asus.hardware.transcover_info.xml:/system/etc/permissions/asus.hardware.transcover_info.xml
-
 # dataservice
 PRODUCT_PACKAGES += \
     rmnetcli
