@@ -1041,12 +1041,6 @@ etc/sensors/sensor_def_qcomdev.conf
 #lib64/libebtc.so
 #lib/libebtc.so
 
-# Splendid
-bin/GammaSetting
-bin/HSVSetting
--app/AsusSplendidCommandAgent/AsusSplendidCommandAgent.apk
-#-priv-app/AsusSplendid/AsusSplendid.apk
-
 # misc
 lib64/libfilterpack_facedetect.so
 lib64/libDUTUtil-JNI.so
@@ -1114,6 +1108,8 @@ bin/SpeakerCalibrationTest
 bin/climax_hostSW
 bin/BackupCalibrationData
 bin/DR_AP_Service
+bin/GammaSetting
+bin/HSVSetting
 bin/IR_sensor_module_number
 bin/KillMediaserver
 bin/LedTest
@@ -1221,4 +1217,3 @@ bin/hostapd_cmd
 
 #etc/public.libraries.txt
 vendor/etc/public.libraries.txt
-
