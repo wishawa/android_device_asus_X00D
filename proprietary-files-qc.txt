@@ -672,6 +672,7 @@ etc/permissions/qcrilhook.xml
 framework/embmslibrary.jar
 -framework/qcrilhook.jar
 framework/qti-telephony-common.jar
+-framework/telephony-ext.jar
 framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti

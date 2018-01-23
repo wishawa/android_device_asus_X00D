@@ -184,6 +184,9 @@ TARGET_POWERHAL_VARIANT := qcom
 # Radio
 TARGET_RIL_VARIANT := caf
 
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
