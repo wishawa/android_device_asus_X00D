@@ -146,7 +146,8 @@ PRODUCT_PACKAGES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbt-vendor \
-    android.hardware.bluetooth@1.0-impl
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -220,7 +221,9 @@ PRODUCT_PACKAGES += \
     
 # DRM
 PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-service \
     android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service.widevine
 
     
 # Display
@@ -238,7 +241,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.memtrack@1.0-impl
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.configstore@1.0-service
 
 # Connectivity Engine support
 PRODUCT_PACKAGES += \
@@ -250,14 +254,15 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.0-service
+    android.hardware.biometrics.fingerprint@2.1-service
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fpservice.sh:system/etc/fpservice.sh
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
     
 # GPS
 PRODUCT_PACKAGES += \
@@ -288,7 +293,9 @@ PRODUCT_PACKAGES += \
     
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
+
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -322,7 +329,8 @@ PRODUCT_PACKAGES += \
     lights.msm8953
     
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -395,7 +403,8 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2 \
     libtar \
-    libprotobuf-cpp-lite
+    libprotobuf-cpp-lite \
+    android.hardware.radio@1.0
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -451,6 +460,11 @@ PRODUCT_PACKAGES += \
     libshim_ims
 
 # Thermal
+
+PRODUCT_PACKAGES += android.hardware.thermal@1.0-impl \
+                    android.hardware.thermal@1.0-service \
+                    thermal.msm8953
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal/thermal-engine.conf:system/etc/thermal-engine.conf
     
@@ -460,7 +474,8 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
 
 
 # e2fsck
@@ -494,6 +509,11 @@ PRODUCT_PACKAGES += \
 # Doze
 PRODUCT_PACKAGES += \
    ZenfoneDoze
+   
+# FIX
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
