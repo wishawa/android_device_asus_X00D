@@ -97,7 +97,7 @@ PRODUCT_PACKAGES += \
 
 
 PRODUCT_COPY_FILES +=  \
-    $(LOCAL_PATH)/configs/audio/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
+    $(LOCAL_PATH)/configs/audio/audio_tuning_mixer.txt:system/etc/audio_tuning_mixer.txt \
     $(LOCAL_PATH)/configs/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \

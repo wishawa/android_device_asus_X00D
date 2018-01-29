@@ -855,14 +855,10 @@
        <path name="voicemmode1-call usb-headphones" />
     </path>
 
-    <path name="voicemmode1-call speaker">
-        <ctl name="QUIN_MI2S_RX_Voice Mixer VoiceMMode1" value="1" />
-        <ctl name="VoiceMMode1_Tx Mixer TERT_MI2S_TX_MMode1" value="1" />
-    </path>
-
     <path name="voicemmode1-call voice-speaker">
         <ctl name="VOC_EXT_EC MUX" value="QUIN_MI2S_TX" />
-        <path name="voicemmode1-call speaker" />
+        <ctl name="QUIN_MI2S_RX_Voice Mixer VoiceMMode1" value="1" />
+        <ctl name="VoiceMMode1_Tx Mixer TERT_MI2S_TX_MMode1" value="1" />
     </path>
 
     <path name="voicemmode1-call voice-tty-hco-handset">
@@ -893,14 +889,10 @@
        <path name="voicemmode2-call usb-headphones" />
     </path>
 
-    <path name="voicemmode2-call speaker">
-        <ctl name="QUIN_MI2S_RX_Voice Mixer VoiceMMode2" value="1" />
-        <ctl name="VoiceMMode2_Tx Mixer TERT_MI2S_TX_MMode2" value="1" />
-    </path>
-
     <path name="voicemmode2-call voice-speaker">
         <ctl name="VOC_EXT_EC MUX" value="QUIN_MI2S_TX" />
-        <path name="voicemmode2-call speaker" />
+        <ctl name="QUIN_MI2S_RX_Voice Mixer VoiceMMode2" value="1" />
+        <ctl name="VoiceMMode2_Tx Mixer TERT_MI2S_TX_MMode2" value="1" />
     </path>
 
     <path name="voicemmode2-call voice-tty-hco-handset">
@@ -1215,7 +1207,6 @@
 
     <path name="speaker-mic">
         <path name="adc3" />
-        <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
     <path name="handset">
@@ -1228,12 +1219,11 @@
 
     <path name="handset-mic">
         <path name="adc1" />
-        <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
     <path name="headphones-mono">
         <ctl name="MI2S_RX Channels" value="One" />
-        <ctl name="RX1 MIX1 INP1" value="RX1" />
+        <ctl name="RX1 MIX1 INP1" value="RX1" />     
         <ctl name="EAR PA Gain" value="POS_6_DB" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Zero" />
@@ -1272,7 +1262,6 @@
     <path name="headset-mic">
         <path name="adc2" />
         <ctl name="ADC2 MUX" value="INP2" />
-        <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
     <path name="sidetone-iir">

@@ -88,6 +88,7 @@ LensInfo : Information of the lens present in the module.
     <CameraId>0</CameraId>
     <SensorName>csidtg</SensorName>
     <ChromatixName>csidtg_chromatix</ChromatixName>
+    <ActuatorName>pseudo</ActuatorName>
     <ModesSupported>1</ModesSupported>
     <Position>BACK</Position>
     <MountAngle>360</MountAngle>

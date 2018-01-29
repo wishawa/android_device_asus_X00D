@@ -82,6 +82,12 @@ special_mode_mask values:
       <ISPCommon>s5k3m2xx_common</ISPCommon>
       <PostProc>s5k3m2xx_postproc</PostProc>
     </ChromatixName>
+    <ChromatixName special_mode_mask = "ZOOM_UPSCALE">
+      <CPPSnapshot>s5k3m2xx_cpp_snapshot_upscale</CPPSnapshot>
+    </ChromatixName>
+    <ChromatixName special_mode_mask = "ZOOM_DOWNSCALE">
+      <CPPSnapshot>s5k3m2xx_cpp_snapshot_downscale</CPPSnapshot>
+    </ChromatixName>
   </CommonChromatixInfo>
   <ResolutionChromatixInfo>
     <ChromatixName sensor_resolution_index="0">
