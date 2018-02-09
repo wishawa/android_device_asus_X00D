@@ -135,6 +135,8 @@ framework/com.quicinc.cne.jar
 -priv-app/CNEService/CNEService.apk
 vendor/lib/libcne.so
 vendor/lib/libcneqmiutils.so
+vendor/lib/libcneapiclient.so
+vendor/lib64/libcneapiclient.so
 lib/libvendorconn.so
 vendor/lib/libwqe.so
 vendor/lib/libxml.so
@@ -145,6 +147,7 @@ lib64/libvendorconn.so
 vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 vendor/lib64/libwms.so
+
 
 # DPM
 bin/dpmd
@@ -165,6 +168,8 @@ lib64/libdpmfdmgr.so
 lib64/libdpmframework.so
 lib64/libdpmnsrm.so
 lib64/libdpmtcm.so
+vendor/lib/libdpmqmihal.so
+vendor/lib64/libdpmqmihal.so
 
 # DRM
 vendor/bin/qseecomd
@@ -224,6 +229,8 @@ vendor/lib/libloc_ds_api.so
 #lib/libloc_stub.so
 #lib/libgps.utils.so
 #lib/libgnsspps.so
+vendor/lib/libgnsspps.so
+vendor/lib64/libgnsspps.so
 vendor/lib64/libloc_api_v02.so
 vendor/lib64/libloc_ds_api.so
 #lib64/libloc_core.so
