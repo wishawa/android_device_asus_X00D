@@ -161,6 +161,8 @@ vendor/lib/libarcsoft_nighthawk.so
 vendor/lib/libarcsoft_panorama_burstcapture.so
 vendor/lib/libarcsoft_piczoom.so
 vendor/lib/libarcsoft_videostabilizer.so
+vendor/lib/libarcsoft_face_detection.so
+vendor/lib/libarcsoft_picselfie_algorithm.so
 lib/libsarcsoftface.so
 vendor/lib/libsphere3.so
 vendor/lib/libmpbase.so
@@ -1000,12 +1002,6 @@ vendor/etc/sensors/sensor_def_qcomdev.conf
 #lib64/libebtable_nat.so
 #lib64/libebtc.so
 #lib/libebtc.so
-
-# Splendid
-bin/GammaSetting
-bin/HSVSetting
--app/AsusSplendidCommandAgent/AsusSplendidCommandAgent.apk
-#-priv-app/AsusSplendid/AsusSplendid.apk
 
 # misc
 lib64/libfilterpack_facedetect.so

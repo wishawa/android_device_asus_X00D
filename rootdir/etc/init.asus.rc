@@ -19,18 +19,12 @@ on firmware_mounts_complete
 on boot
     chmod 0444 /proc/cmdline
 
-    # ASUS_BSP Paul +++
-    start asus_checkaudbg
-    start spk_amp_cal
-    # ASUS_BSP Paul ---
-    
 on init
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin:/bin
 
 # mount asus partition
     mkdir /factory 0775 system system
     mkdir /asusfw 0775 system system
-    mkdir /asdf
     mkdir /ADF 0775 system system
     mkdir /APD 0775 system system
 
@@ -47,8 +41,8 @@ on fs
     mkdir /persdata 0750 system system
     mkdir /persdata/absolute 0750 system system
     wait /dev/block/mmcblk0p61
-#    check_fs /dev/block/mmcblk0p61 ext4
-    mount ext4 /dev/block/mmcblk0p61 /persdata/absolute nosuid nodev barrier=1
+    check_fs /dev/block/mmcblk0p61 ext4
+    mount ext4 /dev/block/mmcblk0p61 /persdata/absolute nosuid nodev noatime barrier=1
     restorecon_recursive /persdata/absolute
 
     # +++ ASUS_BSP : add for write os info 
@@ -61,13 +55,29 @@ on post-fs
     chown system system /sys/class/timed_output/vibrator/vmax
     chown system system /sys/class/timed_output/vibrator/vmax_level
 
+
+on property:fingerprint.start=true
+    start fps_hal
+    start fpservice
+
+on property:vold.primary_storage=*
     start fpseek
+
+on property:fingerprint.start=false && property:ro.hardware.fingerprint=gxfpa
+	restart gx_fpd
+
+on property:fingerprint.start=false && property:ro.hardware.fingerprint=gxfp3
+	restart gx_fpd_gxfp3
+
+on property:fingerprint.start=false && property:ro.hardware.fingerprint=gxfp5
+	restart gx_fpd_gxfp3
+
 on post-fs-data
 
 # mount factory
     wait /dev/block/bootdevice/by-name/factory
     exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/factory
-    mount ext4 /dev/block/bootdevice/by-name/factory /factory ro nosuid nodev barrier=1 noauto_da_alloc
+    mount ext4 /dev/block/bootdevice/by-name/factory /factory ro nosuid nodev noatime  barrier=1 noauto_da_alloc
     restorecon_recursive /factory
     chmod 0775 /factory
     chown root shell /factory
@@ -75,20 +85,19 @@ on post-fs-data
     start CheckProp
 
 # mount asdf
-    wait /dev/block/bootdevice/by-name/asdf
-    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/asdf
-    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid nodev barrier=1
-    chmod 0777 /asdf
-    restorecon_recursive /asdf
     start check_last
 
 # mount asusfw
     wait /dev/block/bootdevice/by-name/asusfw
     exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/asusfw
-    mount ext4 /dev/block/bootdevice/by-name/asusfw /asusfw nosuid nodev barrier=1 noauto_da_alloc
+    mount ext4 /dev/block/bootdevice/by-name/asusfw /asusfw nosuid nodev noatime  barrier=1 noauto_da_alloc
     restorecon_recursive /asusfw
     chmod 0775 /asusfw
     chown system system /asusfw
+
+# ASUS_BSP+++ RTC
+    mkdir /data/vendor/time 0700 system system
+# ASUS_BSP--- RTC
 
 #    start FWAuto
 
@@ -96,7 +105,7 @@ on post-fs-data
 # mount ADF
     wait /dev/block/bootdevice/by-name/ADF
     exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/ADF
-    mount ext4 /dev/block/bootdevice/by-name/ADF /ADF nosuid nodev barrier=1
+    mount ext4 /dev/block/bootdevice/by-name/ADF /ADF nosuid nodev noatime barrier=1
     chmod 0775 /ADF
     chmod 0775 /ADF/boot
     chown system system /ADF
@@ -105,7 +114,7 @@ on post-fs-data
 #mount APD
     wait /dev/block/bootdevice/by-name/APD
     exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/APD
-    mount ext4 /dev/block/bootdevice/by-name/APD /APD nosuid nodev barrier=1
+    mount ext4 /dev/block/bootdevice/by-name/APD /APD nosuid nodev noatime barrier=1
     chmod 0775 /APD
     chown system system /APD
     restorecon_recursive /APD
@@ -158,7 +167,7 @@ on post-fs-data
     start asusGaugeInit
 
 # ASUS_BSP WeiYu+++ "LaserFocus sensor"
-	chown media shell /proc/driver/LaserFocus_on
+	chown system shell /proc/driver/LaserFocus_on
 	chown media shell /proc/driver/LaserFocus_value
 	chown system shell /proc/driver/LaserFocus_value_more_info
 	chown system shell /proc/driver/LaserFocus_Status
@@ -189,22 +198,47 @@ on post-fs-data
 	#symlink /proc/driver/LaserFocus_debug_dump /data/data/LaserFocus_setK
 	#symlink /proc/driver/LaserFocus_register_dump /data/data/LaserFocus_ProductFamily
 
-#ASUS_BSP Ryan add for Invensense EIS config file+++
- symlink /system/etc/camera/Invensense/VStab_176x144_30_0.conf	/data/data/VStab_176x144_30_0.conf
- symlink /system/etc/camera/Invensense/VStab_176x144_30_1.conf	/data/data/VStab_176x144_30_1.conf
- symlink /system/etc/camera/Invensense/VStab_320x240_30_0.conf	/data/data/VStab_320x240_30_0.conf
- symlink /system/etc/camera/Invensense/VStab_320x240_30_1.conf	/data/data/VStab_320x240_30_1.conf
- symlink /system/etc/camera/Invensense/VStab_352x288_30_0.conf	/data/data/VStab_352x288_30_0.conf
- symlink /system/etc/camera/Invensense/VStab_352x288_30_1.conf	/data/data/VStab_352x288_30_1.conf
- symlink /system/etc/camera/Invensense/VStab_640x480_30_0.conf	/data/data/VStab_640x480_30_0.conf
- symlink /system/etc/camera/Invensense/VStab_640x480_30_1.conf	/data/data/VStab_640x480_30_1.conf
- symlink /system/etc/camera/Invensense/VStab_720x480_30_0.conf	/data/data/VStab_720x480_30_0.conf
- symlink /system/etc/camera/Invensense/VStab_720x480_30_1.conf	/data/data/VStab_720x480_30_1.conf
- symlink /system/etc/camera/Invensense/VStab_1280x720_30_0.conf	/data/data/VStab_1280x720_30_0.conf
- symlink /system/etc/camera/Invensense/VStab_1280x720_30_1.conf	/data/data/VStab_1280x720_30_1.conf
- symlink /system/etc/camera/Invensense/VStab_1920x1080_30_0.conf	/data/data/VStab_1920x1080_30_0.conf
- symlink /system/etc/camera/Invensense/VStab_1920x1080_30_1.conf	/data/data/VStab_1920x1080_30_1.conf
-#ASUS_BSP Ryan add for Invensense EIS config file---
+#ASUS_BSP Mike add for Invensense EIS config file+++
+	rm /data/data/VStab_176x144_30_0.conf
+	rm /data/data/VStab_176x144_30_1.conf
+	
+	rm /data/data/VStab_320x240_30_0.conf
+	rm /data/data/VStab_320x240_30_1.conf
+	
+	rm /data/data/VStab_352x288_30_0.conf
+	rm /data/data/VStab_352x288_30_1.conf
+	
+	rm /data/data/VStab_640x480_30_0.conf
+	rm /data/data/VStab_640x480_30_1.conf
+	
+	rm /data/data/VStab_720x480_30_0.conf
+	rm /data/data/VStab_720x480_30_1.conf
+	
+	rm /data/data/VStab_1280x720_30_0.conf
+	rm /data/data/VStab_1280x720_30_1.conf
+	
+	rm /data/data/VStab_1920x1080_30_0.conf
+	rm /data/data/VStab_1920x1080_30_1.conf
+	
+#ASUS_BSP Mike add for Invensense EIS config file---
+
+#ASUS_BSP Mike add for Invensense EIS config file+++
+ symlink /system/vendor/etc/camera/Invensense/VStab_176x144_30_0.conf	/data/data/VStab_176x144_30_0.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_176x144_30_1.conf	/data/data/VStab_176x144_30_1.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_320x240_30_0.conf	/data/data/VStab_320x240_30_0.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_320x240_30_1.conf	/data/data/VStab_320x240_30_1.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_352x288_30_0.conf	/data/data/VStab_352x288_30_0.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_352x288_30_1.conf	/data/data/VStab_352x288_30_1.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_640x480_30_0.conf	/data/data/VStab_640x480_30_0.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_640x480_30_1.conf	/data/data/VStab_640x480_30_1.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_720x480_30_0.conf	/data/data/VStab_720x480_30_0.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_720x480_30_1.conf	/data/data/VStab_720x480_30_1.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_1280x720_30_0.conf	/data/data/VStab_1280x720_30_0.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_1280x720_30_1.conf	/data/data/VStab_1280x720_30_1.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_1920x1080_30_0.conf	/data/data/VStab_1920x1080_30_0.conf
+ symlink /system/vendor/etc/camera/Invensense/VStab_1920x1080_30_1.conf	/data/data/VStab_1920x1080_30_1.conf
+#ASUS_BSP Mike add for Invensense EIS config file---
+
 
 
 	chown shell camera /dev/LaserSensor	
@@ -310,6 +344,7 @@ on post-fs-data
 
 #ASUS_BSP PJ "add file path for DITNetworkFile"
     mkdir /data/dit_file 0771 camera camera
+    mkdir /dev/socket/dit 0777 cameraserver audio
 
  # ASUS_BSP +++ srhuang "Gsensor after SMMI"
 	chmod 0700 /persist/sensors/sns.reg
@@ -321,6 +356,7 @@ on post-fs-data
 
 #ASUS_BSP Lucien +++: Change for jpegHWCompress
 	chmod 0666 /dev/jpeg0
+	chmod 0666 /dev/video1
 #ASUS_BSP Lucien ---: Change for jpegHWCompress
 #ASUS_BSP+++ YuHeng_Wei "[GPS][NA][Spec] move SUPL cert file for injection"
     mkdir /data/SuplCert
@@ -337,20 +373,21 @@ on post-fs-data
     chmod 777 /data/misc/aw/route_path.info
 #Bruno++
 
-    chmod 666 /sys/bus/i2c/devices/i2c-3/3-0038/dclick_mode
-
 #+++ASUS BSP David : mount asdf folder for charger mode log
 on charger
 #mount asdf
     wait /dev/block/bootdevice/by-name/asdf
-    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid nodev barrier=1
+    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid noatime nodev barrier=1
     restorecon_recursive /asdf
 
     write /proc/asusevtlog "charger: enter charger mode"
 #---ASUS BSP David : mount asdf folder for charger mode log
 
 #ASUS BSP +++ Austin_Tseng charger mode country code
-    mount ext4 /dev/block/bootdevice/by-name/factory /factory ro nosuid nodev barrier=1 noauto_da_alloc
+    mount ext4 /dev/block/bootdevice/by-name/factory /factory ro nosuid noatime nodev barrier=1 noauto_da_alloc
+    service ssn /system/bin/ssn
+    enabled
+    oneshot
 #ASUS BSP --- Austin_Tseng charger mode country code
 
 	chmod 0777 /system/etc/rndisdiag.sh
@@ -705,12 +742,19 @@ on property:persist.asus.debugoneshot=0
     stop debugonce
 
 #ASUS_BSP +++ widevine
-service ins_key /system/bin/install_key_server
+
+service ins_key /system/vendor/bin/install_key_server
     class late_start
     user root
     group root
-    seclabel u:r:install_key_server:s0
     disabled
+
+service widevine /system/vendor/bin/sh /system/vendor/bin/widevine.sh
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
 
 on property:atd.start.key.install=1
     start ins_key
@@ -718,10 +762,6 @@ on property:atd.start.key.install=1
 on property:debug.check.keybox=1
     start widevine
 
-service widevine /system/bin/sh /system/bin/widevine.sh
-    class late_start
-    disabled
-    oneshot
 #ASUS_BSP --- widevine
 
 # ASUS jacob add for NavigationBar mode switch
@@ -816,7 +856,7 @@ on property:sys.usb.config=rndis,serial_smd,diag,adb
 on property:persist.sys.enableAPD=1
     wait /dev/block/bootdevice/by-name/APD
     exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/APD
-    mount ext4 /dev/block/bootdevice/by-name/APD /APD nosuid nodev barrier=1
+    mount ext4 /dev/block/bootdevice/by-name/APD /APD nosuid noatime nodev barrier=1
     chmod 0775 /APD
     chown system system /APD
     restorecon_recursive /APD
@@ -865,49 +905,31 @@ on property:persist.asus.clear_count=0
 service normal_count /system/bin/reboot_count 0
     user root
     group root
-    seclabel u:r:reboot_count:s0
     oneshot
 
 #reboot count
 service reboot_count /system/bin/reboot_count 1
     user root
     group root
-    seclabel u:r:reboot_count:s0
     oneshot
 
 #reboot count
 service clear_count /system/bin/reboot_count 9
     user root
     group root
-    seclabel u:r:reboot_count:s0
     oneshot
 
 # for sp tool
-service sp /bin/sp
+service sp /sbin/sp
     user root
     group root
-    seclabel u:r:asus_sp:s0
     disabled
     oneshot
 
 # for ssn tool
 service ssn /system/bin/ssn
-    seclabel u:r:asus_ssn:s0
     disabled
     oneshot
-
-# ASUS_BSP: install APP on SG +++
-service cust_install_app /system/bin/sh /system/bin/cust_install_app.sh
-    class core
-    user root
-    group root
-    seclabel u:r:cust_install_app:s0
-    disabled
-    oneshot
-
-on property:vold.post_fs_data_done=1
-    start cust_install_app
-# ASUS_BSP: install APP on SG --- 
 
 # unmount APD service
 service umount_apd /system/bin/sh /system/bin/umount_apd.sh
@@ -932,23 +954,15 @@ class late_start
 	user root
 	group root
 	oneshot
-#seclabel u:r:FWAuto:s0
 #ASUS BSP --- Nancy touch firmware update
 
-# ASUS_BSP+++ Yunchung "add for bluetooth DUT mode test"
-service btwifimac /system/bin/sh /system/etc/btwifimac.sh
+# ASUS_BSP+++ Yunchung "add for bluetooth btwifimac service"
+service btwifimac /system/vendor/bin/sh /system/vendor/bin/btwifimac.sh
     class core
     user root
     group root
     oneshot
-
-service save-hcidump /system/bin/sh /system/etc/init.asus.hcidump.sh
-    class late_start
-    user root
-    group root
-    disabled
-    oneshot
-# ASUS_BSP--- Yunchung "add for bluetooth DUT mode test"
+# ASUS_BSP+++ Yunchung "add for bluetooth btwifimac service"
 
 #ASUS_BSP+++ Cumo_Lin "Set audio for FM ATD test"
 service asus_fmaudio /system/bin/sh /system/etc/init.asus.fm.sh
@@ -964,7 +978,6 @@ service debugprofile /system/bin/sh /system/etc/start_debug.sh
     class late_start
     oneshot
     disabled
-    seclabel u:r:debugprofile:s0
 
 # ASUS jacob add for gesture mode switch
 service asusgesture /system/bin/sh /system/etc/init.asus.gesture.sh
@@ -975,7 +988,6 @@ service debugonce /system/bin/sh /system/etc/start_debugonce.sh
     class late_start
     oneshot
     disabled
-    seclabel u:r:debugprofile:s0
 
 #ASUS BSP David : sh for rgb sensor init
 service rgb_sensor_init /system/bin/sh /system/etc/rgb_sensor_init.sh
@@ -1009,54 +1021,31 @@ service ois_init /system/bin/sh /system/etc/ois_init.sh
 #ASUS_BSP --- bill "Implement OIS"
 
 #ASUS_BSP+++: add for fingerprint
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-    onrestart restart zygote
-
-service vfmService /system/bin/vfmService
-    class late_start
-    user system
-    group system
-    oneshot
-    disabled
-
-service gx_fpd /system/bin/gx_fpd
+service gx_fpd /system/vendor/bin/gx_fpd
     class late_start
     group system
     user system
     oneshot
     disabled
 
-service gx_fpd_gxfp3 /system/bin/gx_fpd_gxfp3
+service gx_fpd_gxfp3 /system/vendor/bin/gx_fpd_gxfp3
     class late_start
     group system
     user system
     oneshot
     disabled
-    
-service TEEService /system/bin/TEEService
-    class late_start
-    user system
-    group system
-    oneshot
-    disabled
 
-service fpseek /system/bin/fpseek
-    class main
-    user root
-    group system
-    oneshot
-    disabled
-
-service fpservice /system/bin/sh /system/etc/fpservice.sh
-    class late_start
-    user root
-    group system
-    oneshot
-
-service fplog /system/bin/sh /system/etc/collectfplog.sh
+service fpseek /system/vendor/bin/fpseek
     class core
+    user root
+    group system
+    oneshot
+    disabled
+
+service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
+    class late_start
+    user root
+    group system
     oneshot
     disabled
 
@@ -1105,7 +1094,6 @@ on property:debug.write.asuskey=1
 service VerifyVouchers /system/bin/VerifyVouchers
     class core
     user root
-    seclabel u:r:asus_voucher:s0
     oneshot
     disabled
 
@@ -1117,7 +1105,6 @@ on property:sys.boot_completed=1
 service writeOsInfo /system/bin/writeosinfo
     class core
     user root
-    seclabel u:r:asus_wosinfo:s0
     oneshot
     disabled
 
@@ -1133,72 +1120,30 @@ on property:debug.asus.setfactorydata=1
     copy /data/media/0/laura_cal_data.txt /factory/laura_cal_data.txt
     chown media shell /factory/laura_cal_data.txt
     chmod 0664 /factory/laura_cal_data.txt
-    rm /data/media/0/laura_cal_data.txt
     write /factory/LaserFocus_CSC_Calibration.txt  "Calibration by CSC"
     mount ext4 /dev/block/bootdevice/by-name/factory /factory remount ro nosuid nodev barrier=1 noauto_da_alloc
 # ASUS_BSP WeiYu---
 
-# ASUS_BSP Deeo : improve sd performance +++
-service improve_sd /system/etc/improve_sd.sh
-    class main
-    oneshot
-    seclabel u:r:check_sd_status:s0
-# ASUS_BSP Deeo : improve sd performance ---
-
-# ASUS_BSP Paul +++
-service asus_audbg /system/bin/sh /system/etc/init.asus.audbg.sh
-    user root
-    group root
-    disabled
-    oneshot
-#    seclabel u:r:audio_debug:s0
-
-on property:persist.asus.audbg=0
-    start asus_audbg
-
-on property:persist.asus.audbg=1
-    start asus_audbg
-
-service asus_checkaudbg /system/bin/sh /system/etc/init.asus.checkaudbg.sh
-    class core
-    user root
-    group root
-#    disabled
-    oneshot
-#    seclabel u:r:audio_debug:s0
-
-service spk_amp_cal /system/bin/SpeakerCalibrationTest 1
-    class core
-    user root
-    group root
-#    disabled
-    oneshot
-#    seclabel u:r:audio_debug:s0
-
-service spk_feedback /system/bin/logwrapper /system/bin/tinyfeedback -r 48000 -p 1920 -n 2 -A
-    user root
-    group root
-    disabled
-    oneshot
-#    seclabel u:r:audio_debug:s0
-
-on property:audio.spk.feedback=0
-    stop spk_feedback
-
-on property:audio.spk.feedback=1
-    start spk_feedback
-# ASUS_BSP Paul ---
-# ASUS_BSP Austin_T +++
-service instant_camera /system/etc/init.asus.keycamera.sh
+# ASUS_BSP+++ RTC
+service set_deftime /system/bin/sh /system/etc/init.asus.set_time.sh
+        class core
         user root
-        group root
-        disabled
         oneshot
-        seclabel u:r:instant_camera:s0
+        disabled
+# ASUS_BSP--- RTC
 
-on property:persist.asus.instant_camera=0
-        start instant_camera
+# ASUS_BSP+++ RTC
+on property:sys.boot_completed=1
+	start set_deftime
+# ASUS_BSP--- RTC
 
-on property:persist.asus.instant_camera=1
-    start instant_camera
-# ASUS_BSP Austin_T ---
+#ASUS_BSP Deeo : set io_is_busy while benchmark +++
+service StorageBench /system/bin/sh /system/etc/Storage_Benchmark.sh
+        class core
+        user root
+        oneshot
+        disabled
+
+on property:sys.storage.bchmode=*
+	start StorageBench
+#ASUS_BSP Deeo : set io_is_busy while benchmark ---

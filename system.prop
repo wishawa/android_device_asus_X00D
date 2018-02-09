@@ -226,9 +226,6 @@ ro.vendor.qti.am.reschedule_service=true
 # Create zram disk
 ro.vendor.qti.config.zram=true
 
-# set cutoff voltage to 3400mV
-ro.cutoff_voltage_mv=3400
-
 # ASUS_BSP Deeo : no used +++
 #set device emmc size
 # ro.emmc_size=16GB
@@ -268,14 +265,7 @@ ro.asus.aw.settingentry=1
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
-ro.product.carrier=US-ASUS_Z012D-WW_Phone
 ro.product.first_api_level=23
-dalvik.vm.heapminfree=4m
-dalvik.vm.heapstartsize=16m
-dalvik.vm.heapgrowthlimit=192m
-dalvik.vm.heapsize=512m
-dalvik.vm.heaptargetutilization=0.75
-dalvik.vm.heapmaxfree=8m
 ro.hardware.nfc_nci=nqx.default
 persist.radio.multisim.config=dsds
 persist.sys.modem.restart=28
@@ -287,11 +277,10 @@ persist.asus.qxdmlog.message=0
 persist.asus.qxdmlog.ipath=/sdcard/diag_logs/QXDM_logs
 persist.asus.qxdmlog.epath=/storage/MicroSD/diag_logs/QXDM_logs
 persist.asus.qxdmlog.filter=/system/etc/qxdm/DIAG_V20.cfg
-keyguard.no_require_sim=true
 ro.com.android.dataroaming=true
-ro.carrier=unknown
 ro.vendor.extension_library=libqti-perfd-client.so
 persist.radio.apm_sim_not_pwdn=1
+persist.radio.aosp_usr_pref_sel=true
 persist.vendor.radio.sib16_support=1
 persist.vendor.radio.custom_ecc=0
 persist.vendor.radio.rat_on=combine
@@ -341,24 +330,11 @@ audio.wizard.default.mode=smart
 ro.asus.audiowizard.outdoor=1
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 drm.service.enabled=true
-ro.config.notification_sound=NewMessage.ogg
 ro.config.newmail_sound=NewMail.ogg
 ro.config.calendaralert_sound=CalendarEvent.ogg
-ro.config.alarm_alert=BusyBugs.ogg
 ro.additionalbutton.operation=0
 ro.config.sentmail_sound=SentMail.ogg
-ro.config.ringtone=Festival.ogg
 ro.ril.ecclist=112,911
-asus.software.optiflex=true
-ro.optiflex.maxlist.4gb=4
-ro.optiflex.maxlist.6gb=10
-ro.optiflex.upbound.4gb=1124
-ro.optiflex.upbound.6gb=1124
-ro.optiflex.lowbound.4gb=1024
-ro.optiflex.lowbound.6gb=1024
-ro.optiflex.uplevel.4gb=100
-ro.optiflex.uplevel.6gb=100
-ro.optiflex.mem.cache=false
 ro.com.google.clientidbase=android-asus
 ro.com.google.clientidbase.ms=android-asus-tpin
 ro.control_privapp_permissions=log
@@ -368,7 +344,6 @@ ro.com.google.gmsversion=8.0_r3
 ro.setupwizard.suppress_d2d=true
 ro.setupwizard.suppress_d2d_nfc=false
 persist.sys.mm.wapn.show=0
-persist.asus.thirdparty.app=0
 ro.treble.enabled=false
 persist.sys.dalvik.vm.lib.2=libart.so
 dalvik.vm.isa.arm64.variant=generic
@@ -376,7 +351,8 @@ dalvik.vm.isa.arm64.features=default
 dalvik.vm.isa.arm.variant=cortex-a53
 dalvik.vm.isa.arm.features=default
 ro.build.asus.sku=WW
-net.bt.name=Android
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
-ro.expect.recovery_id=0x0c28dcd9aed48cb314dbe1ffea05807542b35817000000000000000000000000
+
+qcom.bluetooth.soc=smd
+ro.qualcomm.bt.hci_transport=smd
 

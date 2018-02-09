@@ -27,8 +27,6 @@
 #
 #
 
-import init.carrier.rc
-
 on early-init
     mkdir /firmware 0771 system system
     mkdir /system 0777 root root
@@ -36,39 +34,26 @@ on early-init
     mkdir /dsp 0771 media media
 
 on fs
-    wait /dev/block/bootdevice
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    mount_all fstab.qcom
+    mount_all /vendor/etc/fstab.qcom
     write /proc/sys/vm/swappiness 100
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
 
-    wait /dev/block/bootdevice/by-name/cache
-    mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev barrier=1
-
     wait /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
+    mount ext4 /dev/block/bootdevice/by-name/persist /persist noatime nosuid nodev barrier=1
     mkdir /persist/data 0700 system system
     mkdir /persist/bms 0700 root system
     restorecon_recursive /persist
 
-    wait /dev/block/bootdevice/by-name/dsp
-    mount ext4 /dev/block/bootdevice/by-name/dsp /dsp ro nosuid nodev barrier=1
-
-    wait /dev/block/bootdevice/by-name/modem
-    mount vfat /dev/block/bootdevice/by-name/modem /firmware ro context=u:object_r:firmware_file:s0,shortname=lower,uid=1000,gid=1000,dmask=226,fmask=333
     #write /sys/kernel/boot_adsp/boot 1
 
     wait /dev/block/bootdevice/by-name/oem
     mount ext4 /dev/block/bootdevice/by-name/oem /oem ro nosuid nodev barrier=1
-
-    # +++ ASUS_BSP : Add for user unlock (asuskey: mmcblk0p29) +++
-    wait /dev/block/mmcblk0p29
-    chown root system /dev/block/mmcblk0p29
-    chmod 660 /dev/block/mmcblk0p29
-    # --- ASUS_BSP : Add for user unlock ---
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -79,13 +64,14 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
-    mkdir /data/misc/hbtp 0750 system system
+    mkdir /data/vendor/hbtp 0750 system system
 
-#support exFAT format
-    insmod /system/lib/modules/texfat.ko
+
+#Create folder for mm-qcamera-daemon
+    mkdir /data/vendor/camera 0770 camera camera
 
 #start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
@@ -93,7 +79,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 on init
    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
-service qfp-daemon /system/bin/qfp-daemon
+service qfp-daemon /system/vendor/bin/qfp-daemon
    class late_start
    user system
    group system drmrpc
@@ -128,7 +114,7 @@ service qrngp /system/bin/qrngp -f
 on property:sys.boot_completed=1
    start qrngp
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /vendor/bin/qseecomd
    class core
    user root
    group root
@@ -138,10 +124,10 @@ service qseecomd /system/bin/qseecomd
 #   user system
 #   group system net_raw
 
-#service perfd /system/vendor/bin/perfd
-#   class main
-#   user root
-#   disabled
+service perfd /system/vendor/bin/perfd
+   class main
+   user root
+   disabled
 
 service gamed /system/vendor/bin/gamed
    class main
@@ -156,14 +142,15 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-send-client stream 0666 system system
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
+   socket thermal-send-rule stream 0660 system system
    group root
 
-service time_daemon /system/bin/time_daemon
+service time_daemon /system/vendor/bin/time_daemon
    class late_start
    user root
    group root
 
-service audiod /system/bin/audiod
+service audiod /system/vendor/bin/audiod
    class late_start
    user system
    group system
@@ -181,44 +168,52 @@ on boot
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch_enable
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch
 
-service wcnss-service /system/bin/wcnss_service
+# Add a cpuset for the camera daemon
+# We want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-3
+    write /dev/cpuset/camera-daemon/mems 0
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+    chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+service wcnss-service /system/vendor/bin/wcnss_service
     class main
     user system
     group system wifi radio
     oneshot
 
-service imsqmidaemon /system/bin/imsqmidaemon
+service imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
-    group radio net_raw log diag
+    group radio log diag
 
-service imsdatadaemon /system/bin/imsdatadaemon
+service imsdatadaemon /system/vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
-    group system wifi radio inet net_raw log diag net_admin
+    group system wifi radio inet log diag
     disabled
 
-on property:sys.ims.QMI_DAEMON_STATUS=1
+on property:vendor.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
-service ims_rtp_daemon /system/bin/ims_rtp_daemon
+service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    class main
    user system
-   socket ims_rtpd stream 0660 system radio
-   group radio net_raw diag diag inet log
+   group radio diag inet log
    disabled
 
-service imscmservice /system/bin/imscmservice
+service vendor.imsrcsservice /system/vendor/bin/imsrcsd
    class main
    user system
-   group radio net_raw diag diag log
+   group radio diag inet log
    disabled
 
-on property:sys.ims.DATA_DAEMON_STATUS=1
+on property:vendor.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
-    start imscmservice
+    start vendor.imsrcsservice
 
 service hbtp /system/vendor/bin/hbtp_daemon
     class main
@@ -263,19 +258,19 @@ on charger
     setprop persist.sys.usb.config mass_storage
     start hvdcp_opti
 
-service dts_configurator /system/bin/dts_configurator
+service dts_configurator /system/vendor/bin/dts_configurator
     class late_start
     user system
     group media audio
     oneshot
 
-service dtseagleservice /system/bin/dts_eagle_service
+service dtseagleservice /system/vendor/bin/dts_eagle_service
     class late_start
     user system
     group audio media
     disabled
 
-service adsprpcd /system/bin/adsprpcd
+service adsprpcd /system/vendor/bin/adsprpcd
     class main
     user media
     group media
@@ -288,12 +283,12 @@ service hvdcp_opti /system/bin/hvdcp_opti
 on property:init.svc.dts_configurator=stopped
     start dtseagleservice
 
-service per_mgr /system/bin/pm-service
+service per_mgr /system/vendor/bin/pm-service
     class core
     user system
     group system net_raw
 
-service per_proxy /system/bin/pm-proxy
+service per_proxy /system/vendor/bin/pm-proxy
     class core
     user system
     group system
@@ -305,7 +300,7 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-service energy-awareness /system/bin/energy-awareness
+service energy-awareness /system/vendor/bin/energy-awareness
     class main
     user root
     group system
