@@ -137,6 +137,7 @@ bluetooth.hfp.client=1
 #Simulate sdcard on /data/media
 #
 persist.fuse_sdcard=true
+ro.sys.sdcardfs=false
 
 #System property for FM transmitter
 ro.fm.transmitter=false

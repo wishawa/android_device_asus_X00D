@@ -80,9 +80,9 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service-qti \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.0-service.widevine \
-    android.hardware.light@2.0-service \
     android.hardware.power@1.0-service \
-    android.hardware.sensors@1.0-service 
+    android.hardware.sensors@1.0-service \
+    android.hardware.light@2.0-service \
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -168,6 +168,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8953 \
+    libmm-qcamera \
     bspcapability \
     Snap \
     libbson \
@@ -295,14 +296,16 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service
     
 # GPS
+# GPS
 PRODUCT_PACKAGES += \
+    gps.msm8953 \
+    libcurl \
     libgnss \
-    libgps.utils \
-    gps.default \
-    liblocation_api \
-    android.hardware.gnss@1.0 \
+    libgnsspps
+
+PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl-qti \
-    libloc_api-rpc-qc
+    android.hardware.gnss@1.0-service-qti
     
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
@@ -323,6 +326,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
+    
+# ContextHub HAL
+PRODUCT_PACKAGES += \
+    android.hardware.contexthub@1.0 
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -359,6 +366,12 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl
 
 # Media
+PRODUCT_PACKAGES += \
+    libmediandk \
+    libcamera2ndk \
+    libmedia_jni \
+    libmedia_helper \
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media/media_codecs_8953.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_8953.xml \
@@ -452,22 +465,15 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    ipacm \
-    ipacm-diag \
-    IPACM_cfg.xml \
+    libcld80211 \
     libqsap_sdk \
     libQWiFiSoftApCfg \
-    libwcnss_qmi \
     libwpa_client \
-    libwifi-hal-qcom \
     hostapd \
     dhcpcd.conf \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    hs20-osu-client \
-    libcld80211 \
     wificond \
-    wifilogd
+    wpa_supplicant \
+    wpa_supplicant.conf
     
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service

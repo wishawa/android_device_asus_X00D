@@ -5,11 +5,6 @@ service AThermalService /system/bin/sh /system/vendor/etc/init.asus.thermal_conf
         oneshot
         disabled
         
-service onFgAppChanged /system/vendor/bin/onFgAppChanged
-        class core
-        user root
-        oneshot
-        disabled
 # ASUS_BSP--- Show_Cai
 
 # ASUS_BSP+++ Shawn_Huang
@@ -46,11 +41,6 @@ on property:sys.thermal_engine.reset=1
 on property:sys.boot_completed=1
 	start set_deftime
 # ASUS_BSP--- Shawn_Huang set default time
-
-# ASUS_BSP+++ VictorFu "For watching foreground app"
-on property:sys.foregroundapp=*
-	start onFgAppChanged
-# ASUS_BSP--- VictorFu "For watching foreground app"
 
 # ASUS_BSP+++ Shawn_Huang For slpi Software Silent Reset
 on property:sys.asus.ssc.reset=1

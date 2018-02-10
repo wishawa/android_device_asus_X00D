@@ -229,8 +229,6 @@ vendor/lib/libloc_ds_api.so
 #lib/libloc_stub.so
 #lib/libgps.utils.so
 #lib/libgnsspps.so
-vendor/lib/libgnsspps.so
-vendor/lib64/libgnsspps.so
 vendor/lib64/libloc_api_v02.so
 vendor/lib64/libloc_ds_api.so
 #lib64/libloc_core.so
@@ -240,6 +238,8 @@ vendor/lib64/libloc_ds_api.so
 #lib64/libgps.utils.so
 #lib64/libgnsspps.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
+lib/liblocationservice_jni.so
+lib64/liblocationservice_jni.so
 vendor/bin/slim_daemon
 vendor/lib/libalarmservice_jni.so
 vendor/lib/libdataitems.so
@@ -620,6 +620,13 @@ vendor/lib64/sensors.ssc.so
 vendor/lib/hw/activity_recognition.msm8953.so
 vendor/lib64/hw/activity_recognition.msm8953.so
 
+#Services
+vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc
+vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
+vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
+vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
+
 #All HW
 vendor/lib/hw/android.hardware.tests.libhwbinder@1.0-impl.so
 vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
@@ -655,13 +662,6 @@ vendor/lib64/hw/vulkan.msm8953.so
 
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.qdutils_disp@1.0_vendor.so
-
-#Services
-vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc
-vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
-vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
 
 lib/com.qualcomm.qti.ant@1.0.so
 lib/com.qualcomm.qti.bluetooth_audio@1.0.so

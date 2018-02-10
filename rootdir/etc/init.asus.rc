@@ -875,7 +875,6 @@ on property:persist.sys.enableAPD=0
 # --- ASUS_BSP : add for asus boot animation partition
 
 on property:sys.boot_completed=1
-    start reboot_count
 # ASUS Austin_T add for USB Alert +++
     write /sys/class/power_supply/battery/device/boot_completed 1
 # ASUS Austin_T add for USB Alert ---
@@ -887,14 +886,6 @@ on property:persist.rd.special.connector=0
     write /sys/class/power_supply/battery/device/special_connector 0
 # ASUS Austin_T add for special connector ---
 
-on property:sys.shutdown.requested=0
-    start normal_count
-
-on property:sys.shutdown.requested=1
-    start normal_count
-
-on property:persist.asus.clear_count=0
-    start clear_count
 
 #################################
 #
@@ -902,23 +893,6 @@ on property:persist.asus.clear_count=0
 #
 #################################
 #reboot count
-service normal_count /system/bin/reboot_count 0
-    user root
-    group root
-    oneshot
-
-#reboot count
-service reboot_count /system/bin/reboot_count 1
-    user root
-    group root
-    oneshot
-
-#reboot count
-service clear_count /system/bin/reboot_count 9
-    user root
-    group root
-    oneshot
-
 # for sp tool
 service sp /sbin/sp
     user root
@@ -1090,16 +1064,6 @@ on property:debug.write.asuskey=1
 	start writekey
 # --- ASUS BSP : User unlock tool ---
 
-# +++ ASUS BSP : add for verify voucher
-service VerifyVouchers /system/bin/VerifyVouchers
-    class core
-    user root
-    oneshot
-    disabled
-
-on property:sys.boot_completed=1
-    start VerifyVouchers
-# --- ASUS BSP : add for verify voucher
 
 # +++ ASUS_BSP : add for write OS Info
 service writeOsInfo /system/bin/writeosinfo
@@ -1123,19 +1087,6 @@ on property:debug.asus.setfactorydata=1
     write /factory/LaserFocus_CSC_Calibration.txt  "Calibration by CSC"
     mount ext4 /dev/block/bootdevice/by-name/factory /factory remount ro nosuid nodev barrier=1 noauto_da_alloc
 # ASUS_BSP WeiYu---
-
-# ASUS_BSP+++ RTC
-service set_deftime /system/bin/sh /system/etc/init.asus.set_time.sh
-        class core
-        user root
-        oneshot
-        disabled
-# ASUS_BSP--- RTC
-
-# ASUS_BSP+++ RTC
-on property:sys.boot_completed=1
-	start set_deftime
-# ASUS_BSP--- RTC
 
 #ASUS_BSP Deeo : set io_is_busy while benchmark +++
 service StorageBench /system/bin/sh /system/etc/Storage_Benchmark.sh
