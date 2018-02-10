@@ -65,7 +65,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00008000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/asus/Z017
-TARGET_KERNEL_CONFIG := ze520kl-userdebug_defconfig
+TARGET_KERNEL_CONFIG := msm8953-asus_defconfig
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 
 # Audio
