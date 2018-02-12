@@ -27,5 +27,6 @@ LOCAL_SHARED_LIBRARIES := libc libcutils libutils liblog
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libwcnss_qmi
+LOCAL_PROPRIETARY_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)

@@ -1024,6 +1024,7 @@ vendor/etc/firmware/gxfpa.b05
 vendor/etc/firmware/gxfpa.b06
 vendor/etc/firmware/gxfpa.mdt
 #etc/fpservice.sh
+framework/vendor.qti.hardware.fingerprint-V1.0-java.jar
 
 # Radio - factory
 #lib64/libparam.so
@@ -1129,6 +1130,7 @@ vendor/bin/hvdcp_opti
 vendor/bin/install_key_server
 vendor/bin/lightsensor_calibration_start
 vendor/bin/mm-audio-ftm
+vendor/lib/libmm-qcamera.so
 vendor/bin/mm-qcamera-app
 vendor/bin/mm-vidc-omx-test
 vendor/bin/mmi_debug
