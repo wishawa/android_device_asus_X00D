@@ -51,26 +51,10 @@ on fs
     # --- ASUS_BSP : add for write os info 	
 
 on post-fs
-
     chown system system /sys/class/timed_output/vibrator/vmax
     chown system system /sys/class/timed_output/vibrator/vmax_level
-
-
-on property:fingerprint.start=true
-    start fps_hal
-    start fpservice
-
-on property:vold.primary_storage=*
+    
     start fpseek
-
-on property:fingerprint.start=false && property:ro.hardware.fingerprint=gxfpa
-	restart gx_fpd
-
-on property:fingerprint.start=false && property:ro.hardware.fingerprint=gxfp3
-	restart gx_fpd_gxfp3
-
-on property:fingerprint.start=false && property:ro.hardware.fingerprint=gxfp5
-	restart gx_fpd_gxfp3
 
 on post-fs-data
 
@@ -1021,7 +1005,6 @@ service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
     user root
     group system
     oneshot
-    disabled
 
 #ASUS_BSP---: add for fingerprint
 
