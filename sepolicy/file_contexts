@@ -41,3 +41,9 @@
 
 # rmt_storage
 /sys/kernel/debug/rmt_storage(/.*)?             u:object_r:debugfs_rmt_storage:s0
+
+# kcal
+/sys/devices/platform/kcal_ctrl.0(/.*)?			              u:object_r:kcal_dev:s0
+/sys/bus/platform/drivers/kcal_ctrl(/.*)?		              u:object_r:kcal_dev:s0
+
+/cache/org\.omnirom\.device\.dex                                      u:object_r:dalvikcache_data_file:s0

@@ -21,4 +21,13 @@
             android:title="@string/vib_strength_title_head"
             android:summary="@string/vib_strength_summary_head" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/graphics_title">
+	<PreferenceScreen
+	    android:key="kcal"
+	    android:fragment="org.omnirom.device.DisplayCalibration"
+	    android:summary="@string/kcal_summary"
+	    android:title="@string/kcal_title" />
+    </PreferenceCategory>
 </PreferenceScreen>
