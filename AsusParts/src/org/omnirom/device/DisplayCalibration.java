@@ -30,7 +30,7 @@ import android.widget.SeekBar;
 import android.os.Bundle;
 
 import android.app.ActionBar;
-import org.omnirom.device.SeekBarPreference;
+import org.omnirom.device.utils.SeekBarPreference;
 
 public class DisplayCalibration extends PreferenceActivity implements
         OnPreferenceChangeListener {
