@@ -1231,9 +1231,10 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
 #    start logdumpd
 
 service time_daemon /system/vendor/bin/time_daemon
-    class main
+    class late_start
     user root
     group root
+    oneshot
 
 service qdmastatsd /system/vendor/bin/qdmastatsd
     class late_start
