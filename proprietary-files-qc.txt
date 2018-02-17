@@ -108,6 +108,9 @@ vendor/bin/btnvtool
 vendor/bin/hci_qcomm_init
 vendor/lib/libbtnv.so
 vendor/lib64/libbtnv.so
+lib64/libaptXHD_encoder.so
+lib64/libaptX_encoder.so
+
 
 # CNE
 vendor/bin/cnd
