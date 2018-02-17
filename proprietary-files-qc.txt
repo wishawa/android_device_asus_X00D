@@ -172,6 +172,10 @@ lib64/libdpmnsrm.so
 lib64/libdpmtcm.so
 vendor/lib/libdpmqmihal.so
 vendor/lib64/libdpmqmihal.so
+lib/com.qualcomm.qti.dpm.api@1.0.so
+lib64/com.qualcomm.qti.dpm.api@1.0.so
+vendor/lib/com.qualcomm.qti.dpm.api@1.0_vendor.so
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0_vendor.so
 
 # DRM
 vendor/bin/qseecomd
@@ -280,8 +284,16 @@ vendor/lib64/libxtadapter.so
 #lib/hw/gps.default.so
 #lib64/hw/gps.default.so
 
+lib/vendor.qti.gnss@1.0.so
+lib64/vendor.qti.gnss@1.0.so
+vendor/lib64/hw/vendor.qti.gnss@1.0-impl.so
+vendor/etc/init/vendor.qti.gnss@1.0-service.rc
+vendor/lib/hw/vendor.qti.gnss@1.0-impl.so
+vendor/bin/hw/vendor.qti.gnss@1.0-service
+vendor/lib/vendor.qti.gnss@1.0_vendor.so
+vendor/lib64/vendor.qti.gnss@1.0_vendor.so
+
 # Graphics
-vendor/lib/hw/vulkan.msm8953.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -305,13 +317,11 @@ vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
 vendor/lib/libllvm-qgl.so
 vendor/lib/libmm-disp-apis.so
-vendor/lib/libmm-qdcm.so
 vendor/lib64/libmm-dspp-utils.so
 vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
 lib/libsd_sdk_display.so
 -lib/libsdm-disp-apis.so
-vendor/lib64/hw/vulkan.msm8953.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
@@ -334,7 +344,6 @@ vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 vendor/lib64/libllvm-qgl.so
 vendor/lib64/libmm-disp-apis.so
-vendor/lib64/libmm-qdcm.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libscalar.so
@@ -346,6 +355,10 @@ vendor/lib/libsdm-diag.so
 -lib64/libsdm-disp-apis.so
 vendor/lib64/libsdmextension.so
 vendor/lib/libsdmextension.so
+
+# Vulkan
+vendor/lib64/hw/vulkan.msm8953.so
+vendor/lib/hw/vulkan.msm8953.so
 
 # Signed graphics firmware
 vendor/firmware/a225p5_pm4.fw
@@ -475,7 +488,6 @@ vendor/lib64/libdsi_netctrl.so
 vendor/lib64/libdsutils.so
 vendor/lib64/libidl.so
 vendor/lib64/libqcci_legacy.so
-vendor/lib64/libqcmaputils.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqdp.so
 vendor/lib64/libqmi.so
@@ -521,8 +533,6 @@ vendor/etc/qti-logkit/scenarios/default.png
 #-app/QtiTelephonyService/QtiTelephonyService.apk
 #-app/shutdownlistener/shutdownlistener.apk
 vendor/bin/ipacm-diag
-vendor/bin/pm-proxy
-vendor/bin/pm-service
 vendor/bin/netmgrd
 vendor/bin/rmt_storage
 vendor/bin/tftp_server
@@ -538,7 +548,6 @@ vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
 vendor/lib/libnetmgr.so
-vendor/lib/libqcmaputils.so
 vendor/lib/libril-qc-ltedirectdisc.so
 vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qc-radioconfig.so
@@ -619,8 +628,17 @@ vendor/lib64/sensor_calibrate.so
 vendor/lib64/sensors.ssc.so
 vendor/lib/hw/activity_recognition.msm8953.so
 vendor/lib64/hw/activity_recognition.msm8953.so
+vendor/lib/hw/sensors.msm8953_64.so
+vendor/lib64/hw/sensors.msm8953_64.so
 
-#Services
+# Fingerprint
+vendor/lib64/hw/fingerprint.gxfpa.so
+vendor/lib64/hw/fingerprint.gxfp3.so
+vendor/lib64/hw/fingerprint.gxfp5.so
+vendor/lib64/hw/gxfingerprint.default.so
+vendor/lib64/hw/gxfingerprint_gxfp3.default.so
+
+# Additional Services
 lib/vendor.qti.hardware.tui_comm@1.0.so
 lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
@@ -646,83 +664,12 @@ vendor/lib/vendor.qti.hardware.qteeconnector@1.0_vendor.so
 vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0_vendor.so
 
-lib/com.qualcomm.qti.wifidisplayhal@1.0.so
-lib64/com.qualcomm.qti.wifidisplayhal@1.0.so
-vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
-vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
-vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-impl.so
-vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0_vendor.so
-vendor/lib64/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
-vendor/lib64/com.qualcomm.qti.wifidisplayhal@1.0-impl.so
-vendor/lib64/com.qualcomm.qti.wifidisplayhal@1.0_vendor.so
-vendor/bin/wifidisplayhalservice
-vendor/lib/libwfdcommonutils_proprietary.so
-vendor/lib/libwfdhaldsmanager.so
-vendor/lib/libwfdhdcpcp.so
-vendor/lib/libwfdmmservice.so
-vendor/lib/libwfdmodulehdcpsession.so
-vendor/lib64/libwfdcommonutils_proprietary.so
-vendor/lib64/libwfdhaldsmanager.so
-vendor/lib64/libwfdhdcpcp.so
-vendor/lib64/libwfdmmservice.so
-vendor/lib64/libwfdmodulehdcpsession.so
-vendor/lib/libmmosal_proprietary.so
-vendor/lib64/libmmosal_proprietary.so
-
-#All HW
-vendor/lib/hw/android.hardware.tests.libhwbinder@1.0-impl.so
-vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
-vendor/lib/hw/gatekeeper.msm8953.so
-vendor/lib/hw/keystore.msm8953.so
-vendor/lib/hw/local_time.default.so
-vendor/lib/hw/power.qcom.so
-vendor/lib/hw/sensors.msm8953_64.so
-vendor/lib/hw/vendor.qti.gnss@1.0-impl.so
-vendor/lib/hw/vendor.qti.hardware.iop@1.0-impl.so
-vendor/lib/hw/vulkan.msm8953.so
-vendor/lib64/hw/fingerprint.gxfpa.so
-vendor/lib64/hw/android.hardware.tests.libhwbinder@1.0-impl.so
-vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
-vendor/lib64/hw/fingerprint.gxfp3.so
-vendor/lib64/hw/fingerprint.gxfp5.so
-vendor/lib64/hw/gatekeeper.msm8953.so
-vendor/lib64/hw/gxfingerprint.default.so
-vendor/lib64/hw/gxfingerprint_gxfp3.default.so
-vendor/lib64/hw/keystore.msm8953.so
-vendor/lib64/hw/local_time.default.so
-vendor/lib64/hw/power.qcom.so
-vendor/lib64/hw/sensors.msm8953_64.so
-vendor/lib64/hw/vendor.qti.gnss@1.0-impl.so
-vendor/lib64/hw/vendor.qti.hardware.iop@1.0-impl.so
-vendor/lib64/hw/vulkan.msm8953.so
-
 lib/vendor.qti.hardware.qdutils_disp@1.0.so
 lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
 vendor/lib/vendor.qti.hardware.qdutils_disp@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0_vendor.so
-
-lib/com.qualcomm.qti.ant@1.0.so
-lib/com.qualcomm.qti.bluetooth_audio@1.0.so
-lib/com.qualcomm.qti.dpm.api@1.0.so
-lib/com.qualcomm.qti.imscmservice@1.0.so
-lib64/com.qualcomm.qti.ant@1.0.so
-lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
-lib64/com.qualcomm.qti.dpm.api@1.0.so
-lib64/com.qualcomm.qti.imscmservice@1.0.so
-vendor/lib/com.qualcomm.qti.ant@1.0_vendor.so
-vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
-vendor/lib/com.qualcomm.qti.dpm.api@1.0_vendor.so
-vendor/lib/com.qualcomm.qti.imscmservice@1.0_vendor.so
-vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
-vendor/lib64/com.qualcomm.qti.ant@1.0_vendor.so
-vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0_vendor.so
-vendor/lib64/com.qualcomm.qti.imscmservice@1.0_vendor.so
-vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
-
-
 
 # Thermal
 vendor/bin/thermal-engine
@@ -782,7 +729,6 @@ vendor/bin/cnss_diag
 
 vendor/firmware/leia_pfp_470.fw
 vendor/firmware/leia_pm4_470.fw
-
 
 vendor/firmware/adsp.b00
 vendor/firmware/adsp.b01
@@ -1000,10 +946,27 @@ lib64/libwfduibcsink.so
 lib64/libwfduibcsrcinterface.so
 lib64/libwfduibcsrc.so
 etc/wfdconfig.xml
-etc/wfdconfig.xml
-etc/wfdconfigsink.xml
 etc/wfdconfig_720.xml
 etc/wfdconfigsink.xml
+
+lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+lib64/com.qualcomm.qti.wifidisplayhal@1.0.so
+vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-impl.so
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0_vendor.so
+vendor/lib64/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
+vendor/lib64/com.qualcomm.qti.wifidisplayhal@1.0-impl.so
+vendor/lib64/com.qualcomm.qti.wifidisplayhal@1.0_vendor.so
+vendor/bin/wifidisplayhalservice
+vendor/lib/libwfdcommonutils_proprietary.so
+vendor/lib/libwfdhaldsmanager.so
+vendor/lib/libwfdmodulehdcpsession.so
+vendor/lib64/libwfdcommonutils_proprietary.so
+vendor/lib64/libwfdhaldsmanager.so
+vendor/lib64/libwfdmodulehdcpsession.so
+vendor/lib/libmmosal_proprietary.so
+vendor/lib64/libmmosal_proprietary.so
 
 # fm
 #lib64/fm_helium.so
@@ -1049,7 +1012,7 @@ vendor/lib64/libslimclient.so
 vendor/lib/libQTEEConnector_vendor.so
 vendor/lib64/libQTEEConnector_vendor.so
 
-#To Order:
+# Misc
 
 -vendor/lib/libaudio_log_utils.so
 vendor/lib/libqtigef.so
@@ -1074,34 +1037,29 @@ vendor/etc/cne/wqeclient/ROW/ROW_profile7.xml
 -vendor/lib64/com.quicinc.cne.constants@2.0.so
 -vendor/lib64/com.quicinc.cne.server@1.0.so
 -vendor/lib64/com.quicinc.cne.server@2.0.so
+
+# Ant
+lib/com.qualcomm.qti.ant@1.0.so
+lib64/com.qualcomm.qti.ant@1.0.so
+vendor/lib/com.qualcomm.qti.ant@1.0_vendor.so
+vendor/lib64/com.qualcomm.qti.ant@1.0_vendor.so
+vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
+vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
+
 # Charger
 vendor/bin/hvdcp_opti
-vendor/lib/hw/gatekeeper.msm8953.so
-vendor/lib64/hw/gatekeeper.msm8953.so
-lib/vendor.qti.gnss@1.0.so
-lib64/vendor.qti.gnss@1.0.so
-vendor/bin/hw/vendor.qti.gnss@1.0-service
 vendor/bin/xtra-daemon
-vendor/etc/init/vendor.qti.gnss@1.0-service.rc
-vendor/lib/vendor.qti.gnss@1.0_vendor.so
 -vendor/lib64/libloc_api_v02.so
 
-vendor/lib64/vendor.qti.gnss@1.0_vendor.so
-vendor/lib/hw/vulkan.msm8953.so
 vendor/lib/libhdr_tm.so
-lib/libsd_sdk_display.so
 -vendor/lib/libsdm-disp-vndapis.so
 vendor/lib/libtinyxml2_1.so
-vendor/lib64/hw/vulkan.msm8953.so
 vendor/lib64/libhdr_tm.so
 
-lib64/libsd_sdk_display.so
 -vendor/lib64/libsdm-disp-vndapis.so
 vendor/lib64/libtinyxml2_1.so
-# Ipacm
-vendor/lib/hw/keystore.msm8953.so
-vendor/lib64/hw/keystore.msm8953.so
 
+# Ipacm
 vendor/lib/libOmxAmrDec.so
 -vendor/lib/libgpustats.so
 
@@ -1117,6 +1075,8 @@ vendor/bin/hw/vendor.qti.hardware.iop@1.0-service
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
 vendor/etc/init/vendor.qti.hardware.iop@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
+vendor/lib64/hw/vendor.qti.hardware.iop@1.0-impl.so
+vendor/lib/hw/vendor.qti.hardware.iop@1.0-impl.so
 
 vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-iopd-client.so
@@ -1137,7 +1097,6 @@ etc/permissions/telephonyservice.xml
 -framework/QtiTelephonyServicelibrary.jar
 
 -framework/qti-telephony-common.jar
-framework/telephony-ext.jar
 
 vendor/bin/hw/rild
 vendor/lib/libril.so
@@ -1166,19 +1125,12 @@ lib/lib-imsvideocodec.so
 vendor/lib/vendor.display.color@1.0_vendor.so
 vendor/lib/vendor.display.config@1.0_vendor.so
 vendor/lib/vendor.display.postproc@1.0_vendor.so
-vendor/lib/vendor.qti.gnss@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.alarm@1.0.so
-vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
-vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so
-vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.vpp@1.1_vendor.so
 vendor/lib/vendor.qti.hardware.wipower@1.0_vendor.so
 vendor/lib/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib/vendor.qti.imsrtpservice@1.0_vendor.so
 vendor/lib/vendor.qti.voiceprint@1.0.so
-
-lib/android.hidl.manager@1.0.so
-lib64/android.hidl.manager@1.0.so
 
 etc/permissions/qti_libpermissions.xml
 
@@ -1199,15 +1151,12 @@ vendor/bin/imsrcsd
 vendor/lib/com.qualcomm.qti.imscmservice@1.0_vendor.so
 vendor/lib/lib-imscmservice.so
 vendor/lib/lib-uceservice.so
-vendor/lib/vendor.qti.imsrtpservice@1.0-service-Impl.so
-vendor/lib/vendor.qti.imsrtpservice@1.0_vendor.so
 vendor/lib64/com.qualcomm.qti.imscmservice@1.0_vendor.so
 vendor/lib64/lib-imscmservice.so
 vendor/lib64/lib-uceservice.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0_vendor.so
 vendor/etc/thermal-engine.conf
-vendor/lib/mediadrm/libwvdrmengine.so
 
 #FM
 -lib/vendor.qti.hardware.fm@1.0.so
@@ -1218,53 +1167,51 @@ vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
 
 #RAMDISK
-#debugtool
+vendor/bin/init.qcom.early_boot.sh
+vendor/bin/init.qcom.sh
+vendor/bin/init.qcom.sensors.sh
+vendor/bin/init.qcom.class_core.sh
+vendor/bin/init.class_main.sh
+vendor/bin/init.qcom.usb.sh
+vendor/bin/init.asus.usb.sh
+
 etc/init.asus.ramdump.sh
 etc/init.asus.kernelmessage.sh
 etc/init.asus.piq.sh
-etc/savelogmtp.sh
 etc/init.asus.checkdatalog.sh
-etc/saveramdump.sh
 etc/init.asus.check_last.sh
 etc/init.asus.check_asdf.sh
 etc/init.asus.power.onoff.sh
+
+etc/init.asus.audbg.sh
+etc/init.asus.checkaudbg.sh
+etc/asusGaugeInit.sh
+etc/sensors_factory_init.sh
+etc/init.asus.gesture.sh
+etc/rgb_sensor_init.sh
+vendor/etc/init.asus.camera.sh
+vendor/etc/init.asus.thermal_conf.sh
+vendor/bin/init.qcom.wifi.sh
+vendor/etc/ois_init.sh
+
+etc/saveramdump.sh
+etc/savelogmtp.sh
 etc/savelogs.sh
 etc/savelogs_complete.sh
 etc/UTSdumpstate.sh
 etc/init.asus.checklogsize.sh
-etc/init.asus.checkdatalog.sh
 etc/procrankdump.sh
 etc/cscclearlog.sh
 etc/execkernelevt.sh
-#init.asus.rc
 bin/filldata.sh
 bin/fsstress-run.sh
 etc/sensors_init.sh
 etc/asus_dfps.sh
 bin/writekey
 etc/init.asus.set_time.sh
-etc/Storage_Benchmark.sh
-#init.asus.thermald.rc
-vendor/bin/onFgAppChanged
-etc/init.asus.set_time.sh
-#init.asus.usb.rc
-vendor/bin/init.qcom.usb.sh
-vendor/bin/init.asus.usb.sh
-#init.qcom.factory.sh
 vendor/bin/mmi
-#init.qcom.rc
-vendor/bin/init.qcom.early_boot.sh
 vendor/bin/subsystem_ramdump
-vendor/bin/init.qcom.class_core.sh
-vendor/bin/init.class_main.sh
 vendor/bin/dpmQmiMgr
 vendor/bin/ftmdaemon
 vendor/bin/port-bridge
-vendor/bin/fstman
-vendor/bin/mlid
-vendor/bin/init.qcom.sh
-vendor/bin/init.qcom.sensors.sh
 vendor/bin/init.crda.sh
-vendor/bin/ATFWD-daemon
-#init.target.rc
-vendor/bin/gamed

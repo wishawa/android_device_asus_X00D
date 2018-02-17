@@ -161,25 +161,15 @@ vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libseemore.so
 vendor/lib/libSonyIMX298PdafLibrary.so
-lib/libtrueportrait.so
 vendor/lib/libubifocus.so
-vendor/lib/libmmjpeg.so
-vendor/lib/libmmqjpeg_codec.so
-vendor/lib/libmmqjpegdma.so
-vendor/lib/liboptizoom.so
-vendor/lib/libqomx_jpegdec.so
-vendor/lib/libqomx_jpegenc.so
-vendor/lib/libqomx_jpegenc_pipe.so
-vendor/lib/libseemore.so
-lib/libtrueportrait.so
 vendor/lib/libts_detected_face_hal.so
 vendor/lib/libts_face_beautify_hal.so
-vendor/lib/libubifocus.so
 vendor/lib/libasuscameraext_jni.so
 vendor/lib/libasuscameraext_jpeg_hw_encoder.so
 vendor/lib/libcamera_defocus.so
 vendor/lib/libcamera_pano.so
 vendor/lib/libcameraap.so
+lib/libtrueportrait.so
 
 vendor/lib/libjni.so
 lib/libjni_makeupV2.so
@@ -408,7 +398,6 @@ vendor/lib/libchromatix_imx258_cpp_snapshot.so
 vendor/lib/libchromatix_imx258_cpp_video.so
 vendor/lib/libchromatix_imx258_cpp_video_4k.so
 vendor/lib/libchromatix_imx258_default_preview_3a.so
-vendor/lib/libchromatix_imx258_default_video.so
 vendor/lib/libchromatix_imx258_default_video.so
 vendor/lib/libchromatix_imx258_default_video_3a.so
 vendor/lib/libchromatix_imx258_hfr_120.so
@@ -1066,9 +1055,6 @@ lib64/libGVoucher.so
 lib64/libdevicedata.so
 vendor/lib64/libpdmapper.so
 lib/libdevicedata.so
-vendor/lib/libjni.so
-vendor/lib/libjpegHWCompress.so
-vendor/lib/libjpeggifcodec.so
 vendor/lib/libmms_gyro_vstab.so
 vendor/lib/libpdmapper.so
 lib64/libcctapi.so
@@ -1076,24 +1062,14 @@ lib64/libcctapi.so
 #lib/libsparse.so
 #lib/libtinyxml2.so
 
-etc/init.asus.audbg.sh
-etc/init.asus.checkaudbg.sh
 vendor/etc/apdr.conf
-etc/asusGaugeInit.sh
 vendor/bin/btwifimac.sh
 etc/cdma_call_conf.xml
 vendor/etc/drc/drc_cfg_5.1.txt
 vendor/etc/drc/drc_cfg_AZ.txt
-vendor/etc/init.asus.camera.sh
-etc/init.asus.gesture.sh
-vendor/etc/init.asus.thermal_conf.sh
-vendor/bin/init.qcom.wifi.sh
-vendor/etc/ois_init.sh
-etc/rgb_sensor_init.sh
 etc/rndisdiag.sh
 etc/select_mic.sh
 etc/select_output.sh
-etc/sensors_factory_init.sh
 etc/spkampcal.sh
 
 framework/tcmiface.jar
@@ -1130,7 +1106,6 @@ vendor/bin/hvdcp_opti
 vendor/bin/install_key_server
 vendor/bin/lightsensor_calibration_start
 vendor/bin/mm-audio-ftm
-vendor/lib/libmm-qcamera.so
 vendor/bin/mm-qcamera-app
 vendor/bin/mm-vidc-omx-test
 vendor/bin/mmi_debug
@@ -1200,5 +1175,3 @@ vendor/bin/hostapd_cmd
 
 #etc/public.libraries.txt
 vendor/etc/public.libraries.txt
-
-vendor/bin/wcnss_service
