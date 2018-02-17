@@ -74,14 +74,6 @@ PRODUCT_PACKAGES += SSRestartDetector
 #Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
-    
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service \
-    android.hardware.drm@1.0-service \
-    android.hardware.drm@1.0-service.widevine \
-    android.hardware.power@1.0-service \
-    android.hardware.sensors@1.0-service \
-    android.hardware.light@2.0-service \
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -101,14 +93,11 @@ PRODUCT_PACKAGES += \
     tinymix 
     
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0 \
     android.hardware.audio@2.0-impl \
+    android.hardware.audio@2.0-service \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.broadcastradio@1.0-impl \
-    android.hardware.soundtrigger@2.0-impl \
-    android.hardware.audio.common@2.0-util \
-    android.hardware.audio.common@2.0 \
-    android.hardware.audio.effect@2.0
+    android.hardware.soundtrigger@2.0-impl 
 
 PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/configs/audio/aanc_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/aanc_tuning_mixer.txt \
@@ -241,8 +230,9 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.0-service.widevine \
     android.hardware.drm@1.0-impl
-
     
 # Display
 PRODUCT_PACKAGES += \
@@ -278,7 +268,6 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    fingerprintd \
     android.hardware.biometrics.fingerprint@2.1 \
     android.hardware.biometrics.fingerprint@2.1-service
 
@@ -358,7 +347,8 @@ PRODUCT_PACKAGES += \
     lights.msm8953 
     
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service
 
 # Media
 PRODUCT_PACKAGES += \
@@ -394,17 +384,18 @@ PRODUCT_PACKAGES += \
     libmm-omxcore
     
 PRODUCT_PACKAGES += \
-    android.hardware.media.omx \
     android.hardware.media@1.0 \
+    android.hardware.media.omx \
     android.hardware.media.omx@1.0 \
     android.hardware.media.omx@1.0-service
     
 # Power
 PRODUCT_PACKAGES += \
     power.msm8953 \
-    power.default
+    power.default 
     
 PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service \
     android.hardware.power@1.0-impl
 
 # QMI
@@ -436,8 +427,7 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libtar \
     libprotobuf-cpp-lite \
-    android.hardware.radio@1.0 \
-    android.hardware.radio.deprecated@1.0
+    android.hardware.radio@1.0
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -446,7 +436,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0 \
+    android.hardware.sensors@1.0-service \
     android.hardware.sensors@1.0-impl
     
 # Whitelisted app
@@ -545,15 +535,13 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.manager@1.0-java \
-    android.hidl.allocator@1.0-service \
-    android.hidl.allocator@1.0.so
+    android.hidl.allocator@1.0 \
+    android.hidl.manager@1.0-java 
     
-#Additional
+# Thermal
 PRODUCT_PACKAGES += \
-android.hardware.tests.libhwbinder@1.0-impl \
-android.hardware.thermal@1.0-service \
-android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service \
+    android.hardware.thermal@1.0-impl \
 
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
