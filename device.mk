@@ -80,10 +80,8 @@ PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
     audio.primary.msm8953 \
-    audio.primary.default \
     audio.r_submix.default \
     audio.usb.default \
-    libbthost_if \
     libaudio-resampler \
     libqcomvisualizer \
     libqcomvoiceprocessing \
@@ -237,7 +235,6 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     gralloc.msm8953 \
-    gralloc.default \
     copybit.msm8953 \
     hwcomposer.msm8953 \
     memtrack.msm8953 \
@@ -279,7 +276,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
     
-# GPS
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8953 \
@@ -390,13 +386,9 @@ PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0-service
     
 # Power
+   
 PRODUCT_PACKAGES += \
-    power.msm8953 \
-    power.default 
-    
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service \
-    android.hardware.power@1.0-impl
+    android.hardware.power@1.1-service-qti
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -441,7 +433,7 @@ PRODUCT_PACKAGES += \
     
 # Whitelisted app
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qti_whitelist.xml:etc/sysconfig/qti_whitelist.xml
+    $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
 # Wifi
 PRODUCT_PACKAGES += \

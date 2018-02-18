@@ -628,8 +628,6 @@ vendor/lib64/sensor_calibrate.so
 vendor/lib64/sensors.ssc.so
 vendor/lib/hw/activity_recognition.msm8953.so
 vendor/lib64/hw/activity_recognition.msm8953.so
-vendor/lib/hw/sensors.msm8953_64.so
-vendor/lib64/hw/sensors.msm8953_64.so
 
 # Fingerprint
 vendor/lib64/hw/fingerprint.gxfpa.so
@@ -1048,6 +1046,7 @@ vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
 
 # Charger
 vendor/bin/hvdcp_opti
+
 vendor/bin/xtra-daemon
 -vendor/lib64/libloc_api_v02.so
 
