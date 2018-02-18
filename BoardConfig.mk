@@ -133,7 +133,7 @@ BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += \
     hardware/lineage/lineagehw \
     $(DEVICE_PATH)/lineagehw
-TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-3/3-0038/dclick_mode"
+TARGET_TAP_TO_WAKE_NODE := "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/dclick_mode"
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
