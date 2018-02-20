@@ -169,6 +169,7 @@ vendor/lib/libasuscameraext_jpeg_hw_encoder.so
 vendor/lib/libcamera_defocus.so
 vendor/lib/libcamera_pano.so
 vendor/lib/libcameraap.so
+vendor/lib/libremosaic_daemon.so
 lib/libtrueportrait.so
 
 vendor/lib/libjni.so
