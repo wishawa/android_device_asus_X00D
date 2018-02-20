@@ -52,7 +52,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
-
+    
 # Screen density
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_AAPT_CONFIG := normal
@@ -154,8 +154,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bspcapability \
     Snap \
-    libbson \
-    libshim_camera
+    libbson
     
 PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
@@ -469,7 +468,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libcurl \
     tcpdump 
-
+    
 # IMS
 PRODUCT_PACKAGES += \
     libshim_ims
@@ -527,8 +526,7 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.allocator@1.0 \
-    android.hidl.manager@1.0-java 
+    android.hidl.allocator@1.0
     
 # Thermal
 PRODUCT_PACKAGES += \
