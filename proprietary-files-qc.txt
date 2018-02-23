@@ -461,7 +461,7 @@ lib64/libmmparser_lite.so
 
 # Perf
 vendor/bin/energy-awareness
-vendor/bin/msm_irqbalance
+#vendor/bin/msm_irqbalance
 #vendor/etc/msm_irqbalance.conf
 
 # Peripheral manager
