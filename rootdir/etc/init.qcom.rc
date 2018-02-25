@@ -249,6 +249,10 @@ on boot
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/gesture_mode
     setprop persist.asus.gesture.type 0000000
     
+    # Permissions for glove mode
+    chown system system /sys/bus/i2c/devices/i2c-3/3-0038/glove_mode
+    setprop persist.asus.glove 0
+    
     # Permissions for Keypad Mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/keypad_mode
 
