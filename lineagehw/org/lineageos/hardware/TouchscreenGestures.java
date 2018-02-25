@@ -66,11 +66,8 @@ public class TouchscreenGestures {
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() {
-    
-        return false; //Disabled until settings crash is fixed
-        
-        /*return FileUtils.isFileWritable(GESTURE_PATH) &&
-                FileUtils.isFileReadable(GESTURE_PATH); */
+        return FileUtils.isFileWritable(GESTURE_PATH) &&
+                FileUtils.isFileReadable(GESTURE_PATH);
     }
 
     /*
