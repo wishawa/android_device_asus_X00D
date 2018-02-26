@@ -106,8 +106,8 @@ vendor/etc/Tfa98xx.cnt
 # Bluetooth
 vendor/bin/btnvtool
 vendor/bin/hci_qcomm_init
-vendor/lib/libbtnv.so
-vendor/lib64/libbtnv.so
+-vendor/lib/libbtnv.so
+-vendor/lib64/libbtnv.so
 lib64/libaptXHD_encoder.so
 lib64/libaptX_encoder.so
 
@@ -562,8 +562,6 @@ etc/permissions/telephonyservice.xml
 etc/permissions/qcrilhook.xml
 framework/embmslibrary.jar
 -framework/qcrilhook.jar
-framework/qti-telephony-common.jar
-framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib/libconfigdb.so
