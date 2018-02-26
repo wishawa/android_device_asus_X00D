@@ -245,7 +245,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8953 \
     memtrack.msm8953 \
     liboverlay \
-    libjni_livedisplay \
     libtinyxml \
     libgenlock \
     libdisplayconfig
