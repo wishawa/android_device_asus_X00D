@@ -1150,7 +1150,6 @@ vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.iop@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.perf@1.0_vendor.so
 
--app/QtiTelephonyService/QtiTelephonyService.apk
 -framework/QtiTelephonyServicelibrary.jar
 -framework/qti-telephony-common.jar
 
