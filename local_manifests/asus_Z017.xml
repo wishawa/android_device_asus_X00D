@@ -2,6 +2,7 @@
 <manifest>
   <project name="Planet-X/android_device_asus_Z017" path="device/asus/Z017" remote="github" revision="lineage-15.1" />
   <project name="Planet-X/android_kernel_asus_Z017" path="kernel/asus/Z017" remote="github" revision="lineage-15.1" />
+  <project name="Planet-X/proprietary_vendor_asus_Z017" path="vendor/asus/Z017" remote="github" revision="lineage-15.1" />
   <project name="Planet-X/android_hardware_qcom_audio-caf_msm8996_asus" path="hardware/qcom/audio-caf/msm8996/legacy" remote="github" revision="lineage-15.1" />
   
   <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" revision="staging/lineage-15.1" />
