@@ -1151,7 +1151,7 @@ vendor/lib64/vendor.qti.hardware.iop@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.perf@1.0_vendor.so
 
 -framework/QtiTelephonyServicelibrary.jar
--framework/qti-telephony-common.jar
+-framework/qti-telephony-common.jar|7f9b73e99b37339a56f8e74ad5093f4913a1ca32
 
 vendor/lib/vendor.display.color@1.0_vendor.so
 vendor/lib/vendor.display.config@1.0_vendor.so
