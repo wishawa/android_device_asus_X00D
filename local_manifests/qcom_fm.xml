@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remove-project name="LineageOS/android_hardware_qcom_fm" />
-  <project name="LineageOS/android_hardware_qcom_fm" path="vendor/qcom/opensource/fm" remote="github" revision="staging/lineage-15.1" />
+  <project name="LineageOS/android_hardware_qcom_fm" path="vendor/qcom/opensource/fm" remote="github" revision="lineage-15.1" />
 </manifest>
