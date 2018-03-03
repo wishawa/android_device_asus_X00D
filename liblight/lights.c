@@ -241,15 +241,15 @@ static int set_light_battery(__attribute__((unused)) struct light_device_t* dev,
 
     if (is_lit(state)) {
         if (level <= 15) {
-            write_int(RED_LED_BRIGHTNESS_FILE, 255);
+            write_int(RED_LED_BRIGHTNESS_FILE, 50);
             write_int(RED_LED_PWM_FILE, 100);
         } else if (level <= 99) {
-            write_int(GREEN_LED_BRIGHTNESS_FILE, 255);
+            write_int(GREEN_LED_BRIGHTNESS_FILE, 50);
             write_int(GREEN_LED_PWM_FILE, 100);
-            write_int(RED_LED_BRIGHTNESS_FILE, 255);
+            write_int(RED_LED_BRIGHTNESS_FILE, 50);
             write_int(RED_LED_PWM_FILE, 100);
         } else {
-            write_int(GREEN_LED_BRIGHTNESS_FILE, 255);
+            write_int(GREEN_LED_BRIGHTNESS_FILE, 100);
             write_int(GREEN_LED_PWM_FILE, 100);
         }
     }
