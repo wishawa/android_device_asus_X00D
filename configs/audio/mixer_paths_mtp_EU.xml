@@ -1211,6 +1211,10 @@
         <path name="adc3" />
     </path>
 
+    <path name="voice-speaker-protected">
+        <path name="speaker-protected" />
+    </path>
+
     <path name="handset">
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RDAC2 MUX" value="RX1" />
