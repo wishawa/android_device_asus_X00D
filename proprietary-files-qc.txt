@@ -110,7 +110,14 @@ vendor/bin/hci_qcomm_init
 -vendor/lib64/libbtnv.so
 lib64/libaptXHD_encoder.so
 lib64/libaptX_encoder.so
-
+lib/com.qualcomm.qti.bluetooth_audio@1.0.so
+lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
+vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 
 # CNE
 vendor/bin/cnd
