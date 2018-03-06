@@ -943,6 +943,12 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     user root
     disabled
     oneshot
+    
+service charger_led /vendor/bin/init.chargerled.sh
+    class late_start
+    user root
+    disabled
+    oneshot
 
 service wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
     class late_start
@@ -1196,6 +1202,7 @@ on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
     start qcom-post-boot
+    start charger_led
 
 #add poweroffhandler
 service poweroffhandler /system/vendor/bin/poweroffhandler
