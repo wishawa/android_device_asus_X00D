@@ -370,6 +370,7 @@ on charger
 #ASUS BSP +++ Austin_Tseng charger mode country code
     mount ext4 /dev/block/bootdevice/by-name/factory /factory ro nosuid noatime nodev barrier=1 noauto_da_alloc
     service ssn /system/bin/ssn
+    seclabel u:r:asus_ssn:s0
     enabled
     oneshot
 #ASUS BSP --- Austin_Tseng charger mode country code
@@ -731,6 +732,7 @@ service ins_key /system/vendor/bin/install_key_server
     class late_start
     user root
     group root
+    seclabel u:r:install_key_server:s0
     disabled
 
 service widevine /system/vendor/bin/sh /system/vendor/bin/widevine.sh
@@ -876,16 +878,17 @@ on property:persist.rd.special.connector=0
 #       system service
 #
 #################################
-#reboot count
 # for sp tool
 service sp /sbin/sp
     user root
     group root
+    seclabel u:r:asus_sp:s0
     disabled
     oneshot
 
 # for ssn tool
 service ssn /system/bin/ssn
+    seclabel u:r:asus_ssn:s0
     disabled
     oneshot
 
@@ -897,7 +900,7 @@ service umount_apd /system/bin/sh /system/bin/umount_apd.sh
     disabled
 
 service rndisdiagServie /system/bin/sh /system/etc/rndisdiag.sh
-	user root
+    user root
     group root
     disabled
     oneshot
@@ -911,7 +914,9 @@ service FWAuto /system/bin/fw_auto_update.sh
 class late_start
 	user root
 	group root
+	seclabel u:r:asus_touch:s0
 	oneshot
+#seclabel u:r:FWAuto:s0
 #ASUS BSP --- Nancy touch firmware update
 
 # ASUS_BSP+++ Yunchung "add for bluetooth btwifimac service"
@@ -920,6 +925,7 @@ service btwifimac /system/vendor/bin/sh /system/vendor/bin/btwifimac.sh
     user root
     group root
     oneshot
+#    seclabel u:r:btwifimac:s0
 # ASUS_BSP+++ Yunchung "add for bluetooth btwifimac service"
 
 #ASUS_BSP+++ Cumo_Lin "Set audio for FM ATD test"
@@ -936,16 +942,19 @@ service debugprofile /system/bin/sh /system/etc/start_debug.sh
     class late_start
     oneshot
     disabled
+    seclabel u:r:debugprofile:s0
 
 # ASUS jacob add for gesture mode switch
 service asusgesture /system/bin/sh /system/etc/init.asus.gesture.sh
     class core
+    seclabel u:r:asus_touch:s0
     oneshot
 
 service debugonce /system/bin/sh /system/etc/start_debugonce.sh
     class late_start
     oneshot
     disabled
+    seclabel u:r:debugprofile:s0
 
 #ASUS BSP David : sh for rgb sensor init
 service rgb_sensor_init /system/bin/sh /system/etc/rgb_sensor_init.sh
@@ -959,6 +968,7 @@ service rgb_sensor_init /system/bin/sh /system/etc/rgb_sensor_init.sh
 service asusGaugeInit /system/bin/sh /system/etc/asusGaugeInit.sh
         class core
         user root
+	seclabel u:r:asus_gauge:s0
         oneshot
         disabled
 
@@ -1052,6 +1062,7 @@ on property:debug.write.asuskey=1
 service writeOsInfo /system/bin/writeosinfo
     class core
     user root
+    seclabel u:r:asus_wosinfo:s0
     oneshot
     disabled
 
@@ -1071,8 +1082,10 @@ on property:debug.asus.setfactorydata=1
     mount ext4 /dev/block/bootdevice/by-name/factory /factory remount ro nosuid nodev barrier=1 noauto_da_alloc
 # ASUS_BSP WeiYu---
 
+
 #ASUS_BSP Deeo : set io_is_busy while benchmark +++
 service StorageBench /system/bin/sh /system/etc/Storage_Benchmark.sh
+        seclabel u:r:storagebench:s0
         class core
         user root
         oneshot

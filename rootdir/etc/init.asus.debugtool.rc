@@ -64,7 +64,7 @@ service asus_kernelmsg /system/etc/init.asus.kernelmessage.sh
     group root
     disabled
     oneshot
-
+    seclabel u:r:savelogmtp:s0	
 on property:persist.asus.kernelmessage=0
 	start asus_kernelmsg
 
@@ -89,13 +89,14 @@ service savelogmtp /system/etc/savelogmtp.sh
     group sdcard_rw
     oneshot
     disabled
-
+    seclabel u:r:dumpstate:s0
 # ASUS_BSP+++ [thomas]Add savelogmtp services
 
 service check-datalog /system/bin/sh /system/etc/init.asus.checkdatalog.sh
     class late_start
     user root 
     oneshot
+    seclabel u:r:savelogmtp:s0
 
 on property:persist.asus.startlog=1
     setprop logd.klogd true
@@ -118,25 +119,30 @@ service logcat /system/bin/logcat  -b all -r 10000 -n 20 -v threadtime -f /data/
 	class late_start
 	user root
 	disabled
+        seclabel u:r:savelogmtp:s0
 
 #log_radio
 service logcat-radio /system/bin/logcat -r 10000 -b radio -n 10 -v time -f /data/logcat_log/logcat-radio.txt
 	class late_start
 	disabled
+        seclabel u:r:savelogmtp:s0
 
 #log_events
 service logcat-events /system/bin/logcat -r 10000 -b events -n 10 -v threadtime -f /data/logcat_log/logcat-events.txt
 	class late_start
 	disabled
+        seclabel u:r:savelogmtp:s0
 
 service logcat-monkey /system/bin/logcat -b kernel -b main -b system -b crash -r 100000 -n 50 -v threadtime -f /data/logcat_log/monkey_logcat.txt
 	class late_start
 	disabled
+        seclabel u:r:savelogmtp:s0
 
 #log_main to asdf folder
 service logcat-asdf /system/bin/logcat -b kernel -b main -b system  -b crash -r 10000 -n 2 -v threadtime -f /asdf/asdf-logcat.txt
     class late_start
     disabled
+    seclabel u:r:savelogmtp:s0
 	
 service sendevtlog /system/bin/sh /system/etc/sendevtlog.sh
     class late_start
@@ -153,6 +159,7 @@ service check_last /system/bin/sh /system/etc/init.asus.check_last.sh
     user root
     disabled
     oneshot
+    seclabel u:r:savelogmtp:s0
 
 #ASUS_BSP: [ASDF] Check for LastShutdown Logs ---
 #ASUS_BSP: [ASDF] Check for Abnormal Shutdown Logs +++
@@ -161,6 +168,7 @@ service asus_chk_asdf /system/bin/sh /system/etc/init.asus.check_asdf.sh
     group root
     disabled
     oneshot
+    seclabel u:r:savelogmtp:s0
 
 on property:sys.boot_completed=1
     start asus_chk_asdf
@@ -175,6 +183,7 @@ service asus_power_onoff /system/bin/sh /system/etc/init.asus.power.onoff.sh
     group root
     disabled
     oneshot
+    seclabel u:r:dumpstate:s0
 
 on property:sys.boot_completed=1
     start asus_power_onoff
@@ -186,18 +195,21 @@ service savelogs /system/etc/savelogs.sh
 	group sdcard_rw
 	oneshot
 	disabled
+        seclabel u:r:savelogmtp:s0
 
 service savelogscomplete  /system/etc/savelogs_complete.sh
 	user root
         group root
 	oneshot
 	disabled
+        seclabel u:r:zygote:s0
 
 service asusdumpstate /system/etc/UTSdumpstate.sh
 	user root
         group root
 	oneshot
 	disabled
+        seclabel u:r:dumpstate:s0
 
 
 on property:persist.asus.savelogs.complete=1
@@ -227,6 +239,7 @@ service checklogsize /system/etc/init.asus.checklogsize.sh
 	group sdcard_rw
 	oneshot
 	disabled
+        seclabel u:r:savelogmtp:s0
 
 # ASUS BSP: Cheryl Chen - Enable logcat for OOB +++
 on property:ro.boot.logcat=y
@@ -238,24 +251,28 @@ service checkdatalog-oob /system/bin/sh /system/etc/init.asus.checkdatalog.sh
 	user system
 	disabled
 	oneshot
+	seclabel u:r:system_app:s0
+
 # Main log for OOB
 service logcat-oob /system/bin/logcat -b kernel -b main -b system -b crash -r 10000 -n 3 -v threadtime -f /data/logcat_log/logcat-oob.txt
 	class late_start
 	user system
 	disabled
+	seclabel u:r:system_app:s0
 
 # Radio log for OOB
 service logcat-radio-oob /system/bin/logcat -r 10000 -b radio -n 3 -v time -f /data/logcat_log/logcat-radio-oob.txt
 	class late_start
 	user system
 	disabled
+	seclabel u:r:system_app:s0
 
 # Events log for OOB
 service logcat-event-oob /system/bin/logcat -r 10000 -b events -n 3 -v threadtime -f /data/logcat_log/logcat-event-oob.txt
 	class late_start
 	user system
 	disabled
-
+	seclabel u:r:system_app:s0
 # ASUS BSP: Cheryl Chen - Enable logcat for OOB ---
 
 service procrankdump /system/etc/procrankdump.sh
@@ -263,6 +280,7 @@ service procrankdump /system/etc/procrankdump.sh
     group root
     disabled
     oneshot
+    seclabel u:r:savelogmtp:s0
 	
 service cscclearlog /system/bin/sh /system/etc/cscclearlog.sh
     user root
@@ -275,3 +293,4 @@ service execkernelevt /system/etc/execkernelevt.sh
     group root
     disabled
     oneshot
+    seclabel u:r:dumpstate:s0	
