@@ -861,7 +861,6 @@ vendor/etc/hbtp/qtc800s_dsp.bin
 #etc/init.crda.sh
 vendor/bin/init.qcom.coex.sh
 vendor/bin/init.qcom.efs.sync.sh
-vendor/bin/init.qcom.post_boot.sh
 vendor/bin/init.qcom.sdio.sh
 vendor/bin/init.qti.ims.sh
 vendor/bin/qca6234-service.sh
