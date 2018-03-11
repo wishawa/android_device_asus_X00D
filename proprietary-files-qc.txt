@@ -620,6 +620,8 @@ vendor/lib64/vendor.qti.hardware.radio.am@1.0_vendor.so
 vendor/bin/ims_rtp_daemon
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
+framework/com.qualcomm.qti.imscmservice@1.0-java.jar
+etc/permissions/com.qualcomm.qti.imscmservice.xml
 etc/permissions/qti-vzw-ims-internal.xml
 -app/ims/ims.apk
 -app/imssettings/imssettings.apk
