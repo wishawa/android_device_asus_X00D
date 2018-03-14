@@ -5,7 +5,6 @@
 
 # ASDF
 /asdf(/.*)?                             u:object_r:log_file:s0
-/data/everbootup                        u:object_r:log_file:s0
 /dev/block/bootdevice/by-name/asdf      u:object_r:asdf_block_device:s0
 
 # APD, ADF
@@ -25,9 +24,6 @@
 /vendor/etc/Tfa98xx.cnt                 u:object_r:Tfa98xx_cnt_file:s0
 /data/data/tfa9895_cal_log.txt          u:object_r:tfa_log:s0
 
-# Wifi
-#/vendor/bin/Wifilogger_app              u:object_r:wcnss_service_exec:s0
-
 # Filesystem
 /system/bin/exfatck                     u:object_r:fsck_exec:s0
 /system/bin/exfatlabel                  u:object_r:blkid_exec:s0
@@ -46,7 +42,6 @@
 /dev/asusRgbSensor                      u:object_r:rgb_sensor_device:s0
 /dev/LaserSensor                        u:object_r:dev_ioctl_LaserFocus:s0
 /dev/jpeg0                              u:object_r:jpeg_device:s0
-/data/.tmp(/.*)?                        u:object_r:camera_factory_file:s0
 /data/dit_file(/.*)?                    u:object_r:dit_file:s0
 
 # gesture
@@ -55,9 +50,6 @@
 
 # cpuset
 /dev/cpuset(/.*)?                                u:object_r:cpuset_device:s0
-
-# log
-/data/misc/netmgr(/.*)?                          u:object_r:netmgr_log:s0
 
 # sysinfo
 /dev/block/bootdevice/by-name/sysinfo   u:object_r:sysinfo_block_device:s0
