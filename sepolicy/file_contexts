@@ -21,7 +21,7 @@
 /system/etc/select_output.sh            u:object_r:audio_debug_exec:s0
 /system/etc/spkampcal.sh                u:object_r:audio_debug_exec:s0
 /dev/i2c-5                              u:object_r:tfa_i2c_device:s0
-/vendor/etc/Tfa98xx.cnt                 u:object_r:Tfa98xx_cnt_file:s0
+/(vendor|system/vendor)/etc/Tfa98xx.cnt                 u:object_r:Tfa98xx_cnt_file:s0
 /data/data/tfa9895_cal_log.txt          u:object_r:tfa_log:s0
 
 # Filesystem
@@ -32,11 +32,11 @@
 
 # Fingerprint
 /dev/goodix_fp                          u:object_r:asus_fingerprint_device:s0
-/vendor/bin/fpseek                      u:object_r:asus_fingerprint_exec:s0
-/vendor/bin/gx_fpd                      u:object_r:asus_fingerprint_exec:s0
-/vendor/bin/gx_fpd_gxfp3                u:object_r:asus_fingerprint_exec:s0
-/vendor/bin/vfmService                  u:object_r:asus_fingerprint_exec:s0
-/vendor/etc/fpservice.sh                u:object_r:asus_fingerprint_exec:s0
+/(vendor|system/vendor)/bin/fpseek                      u:object_r:asus_fingerprint_exec:s0
+/(vendor|system/vendor)/bin/gx_fpd                      u:object_r:asus_fingerprint_exec:s0
+/(vendor|system/vendor)/bin/gx_fpd_gxfp3                u:object_r:asus_fingerprint_exec:s0
+/(vendor|system/vendor)/bin/vfmService                  u:object_r:asus_fingerprint_exec:s0
+/(vendor|system/vendor)/etc/fpservice.sh                u:object_r:asus_fingerprint_exec:s0
 
 # Camera
 /dev/asusRgbSensor                      u:object_r:rgb_sensor_device:s0
