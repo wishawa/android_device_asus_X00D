@@ -1,1 +1,4 @@
 type factory_block_device, dev_type;
+type bluetooth_loader_exec, exec_type;
+type perfd, dev_type;
+
