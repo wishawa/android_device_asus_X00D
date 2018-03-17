@@ -8,7 +8,6 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src/java)
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := bspcapability
-LOCAL_PROPRIETARY_MODULE := true
 
 include $(BUILD_JAVA_LIBRARY)
 
