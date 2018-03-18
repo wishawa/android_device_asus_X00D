@@ -447,7 +447,6 @@ PRODUCT_PACKAGES += \
     libwcnss_qmi  \
     wcnss_service \
     ipacm \
-    ipacm-diag \
     IPACM_cfg.xml \
     libcld80211 \
     libqsap_sdk \
