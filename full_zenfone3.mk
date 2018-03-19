@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,11 +15,11 @@
 # limitations under the License.
 #
 
-# Inherit from Z017 device
-$(call inherit-product, device/asus/Z017/device.mk)
+# Inherit from zenfone3 device
+$(call inherit-product, device/asus/zenfone3/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := Z017
-PRODUCT_NAME := full_Z017
+PRODUCT_DEVICE := zenfone3
+PRODUCT_NAME := full_zenfone3
 
-$(call inherit-product-if-exists, vendor/asus/Z017/Z017-vendor.mk)
+$(call inherit-product-if-exists, vendor/asus/zenfone3/zenfone3-vendor.mk)
