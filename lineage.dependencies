@@ -1,7 +1,15 @@
 [
   {
-    "repository": "android_device_qcom_common",
-    "target_path": "device/qcom/common"
+    "remote": "github",    
+    "repository": "LineageOS/android_device_qcom_common",
+    "target_path": "device/qcom/common",
+    "branch": "lineage-15.1"
+  },
+  {
+   "remote": "github",
+   "repository": "LineageOS/android_packages_resources_devicesettings",
+   "target_path": "packages/resources/devicesettings",
+   "branch": "lineage-15.1"
   }
 ]
 

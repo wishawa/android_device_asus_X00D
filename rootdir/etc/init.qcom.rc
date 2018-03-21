@@ -162,7 +162,6 @@ on boot
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.wifi    524288,2097152,4194304,262144,524288,1048576
 
-
     setprop ro.telephony.call_ring.multiple false
 
     #enable camera read sensors data
@@ -170,7 +169,6 @@ on boot
 
     #Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
-
 
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
@@ -255,6 +253,9 @@ on boot
     
     # Permissions for Keypad Mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/keypad_mode
+
+    # Amplifier Calibration
+    start spk_amp_cal
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -694,9 +695,6 @@ on property:bluetooth.hciattach=true
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off
 
-on property:bluetooth.hciattach=false
-    setprop bluetooth.status off
-
 service netmgrd /system/vendor/bin/netmgrd
     class main
     disabled
@@ -737,6 +735,13 @@ on property:ro.data.large_tcp_window_size=true
 
 on property:sys.sysctl.tcp_adv_win_scale=*
     write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
+
+service spk_amp_cal /system/bin/SpeakerCalibrationTest 1
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
 
 service amp_init /system/vendor/bin/amploader -i
     class late_start
