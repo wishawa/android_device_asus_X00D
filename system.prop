@@ -360,3 +360,10 @@ ro.qualcomm.bt.hci_transport=smd
 sys.usb.ffs.max_write=524288
 sys.usb.ffs.max_read=524288
 sys.usb.mtp.device_type=3
+
+# IMS
+persist.dbg.ims_volte_enable=1
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+persist.radio.rat_on=combine
