@@ -65,7 +65,7 @@ BOARD_KERNEL_BASE        := 0x80000000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/asus/Z017
+TARGET_KERNEL_SOURCE := kernel/asus/msm8953
 TARGET_KERNEL_CONFIG := msm8953-asus_defconfig
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 
@@ -257,5 +257,5 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # inherit from the proprietary version
--include vendor/asus/Z017/BoardConfigVendor.mk
+-include vendor/asus/zenfone3/BoardConfigVendor.mk
 
