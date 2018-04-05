@@ -60,7 +60,7 @@ void vendor_load_properties()
     if (project == "6") {
         property_override("ro.build.product", "ZE520KL");
         property_override("ro.build.description", "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1712.31-0 release-keys");
-        property_override("ro.build.fingerprint", "asus/WW_Phone/ASUS_Z017D:8.0.0/OPR1.170623.026/15.0410.1712.31-0:user/release-keys");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z017D:8.0.0/OPR1.170623.026/15.0410.1712.31-0:user/release-keys");
         property_override("ro.product.device", "ASUS_Z017D_1");
         property_override("ro.product.model", "ASUS_Z017D");
         property_set("ro.product.carrier", "US-ASUS_Z017D-WW_Phone");
@@ -70,7 +70,7 @@ void vendor_load_properties()
     } else if (project == "7") {
         property_override("ro.build.product", "ZE552KL");
         property_override("ro.build.description", "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1712.31-0 release-keys");
-        property_override("ro.build.fingerprint", "asus/WW_Phone/ASUS_Z012D:8.0.0/OPR1.170623.026/15.0410.1712.31-0:user/release-keys");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z012D:8.0.0/OPR1.170623.026/15.0410.1712.31-0:user/release-keys");
         property_override("ro.product.device", "ASUS_Z012D");
         property_override("ro.product.model", "ASUS_Z012D");
         property_set("ro.product.carrier", "US-ASUS_Z012D-WW_Phone");
