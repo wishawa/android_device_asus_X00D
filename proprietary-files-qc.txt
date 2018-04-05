@@ -1148,7 +1148,7 @@ vendor/lib64/vendor.qti.hardware.perf@1.0_vendor.so
 
 -app/QtiTelephonyService/QtiTelephonyService.apk
 -framework/QtiTelephonyServicelibrary.jar
--framework/qti-telephony-common.jar|7f9b73e99b37339a56f8e74ad5093f4913a1ca32
+-framework/qti-telephony-common.jar|2eba987ae297a892e895ec1e9a302b41dbe0232e
 
 vendor/lib/vendor.display.color@1.0_vendor.so
 vendor/lib/vendor.display.config@1.0_vendor.so
