@@ -51,8 +51,14 @@ on fs
     # --- ASUS_BSP : add for write os info 	
 
 on post-fs
-    chown system system /sys/class/timed_output/vibrator/vmax
+
+    # Vibrator
     chown system system /sys/class/timed_output/vibrator/vmax_level
+    chown system system /sys/class/timed_output/vibrator/vtg_level
+    chown system system /sys/class/timed_output/vibrator/vtg_default
+    chown system system /sys/class/timed_output/vibrator/vtg_max
+    chown system system /sys/class/timed_output/vibrator/vtg_min
+    #
     
     start fpseek
 
