@@ -60,6 +60,9 @@ on post-fs
     chown system system /sys/class/timed_output/vibrator/vtg_min
     #
     
+    # Disable in-kernel proximity check for DT2W
+    write /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/Enable_Proximity_Check 0
+    
     start fpseek
 
 on post-fs-data
