@@ -8,9 +8,11 @@
 #<src>                                                <mnt_point>  <type>  <mnt_flags and options>                     <fs_mgr_flags>
 #Do NOT mount system in this file!
 /dev/block/bootdevice/by-name/userdata                  /data        ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc,discard   wait,check,encryptable=footer,formattable,quota,length=-16384
+/dev/block/bootdevice/by-name/userdata                  /data        f2fs    nosuid,nodev,noatime,inline_xattr,data_flush   wait,check,encryptable=footer,formattable,quota,length=-16384
 /dev/block/bootdevice/by-name/config                    /frp         emmc    defaults                                    defaults
 /dev/block/bootdevice/by-name/misc                      /misc        emmc    defaults                                    defaults
-/dev/block/bootdevice/by-name/cache                     /cache       ext4    noatime,nosuid,nodev,barrier=1              wait
+/dev/block/bootdevice/by-name/cache                     /cache       ext4    noatime,nosuid,nodev,barrier=1              wait,check,formattable
+/dev/block/bootdevice/by-name/cache                     /cache       f2fs    nosuid,nodev,noatime,inline_xattr,flush_merge,data_flush              wait,formattable,check
 /dev/block/bootdevice/by-name/modem                     /firmware    vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=226,fmask=333 wait
 /dev/block/bootdevice/by-name/dsp                       /dsp         ext4    ro,nosuid,nodev,barrier=1                   wait
 
