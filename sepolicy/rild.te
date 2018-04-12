@@ -1,2 +1,0 @@
-allow rild firmware_file:file { read open getattr };
-allow rild firmware_file:dir { search };
