@@ -95,7 +95,7 @@ public class VibratorStrengthPreference extends SeekBarDialogPreference implemen
             return;
         }
 
-        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_VIBSTRENGTH, "2700"); 
+        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_VIBSTRENGTH, "1100"); 
         Utils.writeValue(FILE_LEVEL, storedValue);
     }
 
