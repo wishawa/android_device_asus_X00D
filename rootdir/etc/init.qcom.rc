@@ -238,6 +238,9 @@ on boot
 
     # Create vpp directory
     mkdir /persist/vpp 0770 media media
+    
+    # default country code
+    setprop ro.boot.wificountrycode 00
 
     # Permissions for Touch dclick Mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/dclick_mode
