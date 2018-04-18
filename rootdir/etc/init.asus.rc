@@ -759,14 +759,6 @@ on property:debug.check.keybox=1
 
 #ASUS_BSP --- widevine
 
-# ASUS jacob add for NavigationBar mode switch
-on property:persist.asus.enable_navbar=1
-	setprop qemu.hw.mainkeys 0
-on property:persist.asus.enable_navbar=0
-	setprop qemu.hw.mainkeys 1
-# ASUS jacob ---
-
-
 # ASUS jacob add FP sensor test log collection
 on property:synaprint.start=0
     start fplog

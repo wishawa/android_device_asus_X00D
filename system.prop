@@ -74,8 +74,6 @@ persist.asus.flipcovermode = 0
 # [ASUS BSP] Nancy - ZE552KL default enable touch check proximity before gesture wake up
 persist.asus.chkproximity = 1
 
-# [ASUS BSP] Nancy - ZE552KL default disable touch navbar
-persist.asus.enable_navbar = 0
 qcom.hw.aac.encoder=true
 
 # [ASUS BSP] Nancy - ZE552KL keyboard show properity
