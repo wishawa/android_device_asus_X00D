@@ -1,0 +1,43 @@
+# AsusFW
+/asusfw(/.*)?                    u:object_r:asusfw_file:s0
+
+# Audio
+/dev/i2c-5                       u:object_r:audio_device:s0
+/asusfw/audio/acdbdata(/.*)?     u:object_r:acdbdata_file:s0
+
+# Bluetooth
+/factory/bt_nv.bin               u:object_r:bluetooth_data_file:s0
+
+# Camera
+/system/vendor/lib/DataSet/ispDB/ParameterDB.db           u:object_r:camera_param_file:s0
+/dev/LaserSensor                                          u:object_r:laser_sensor_device:s0
+
+# Factory
+/factory(/.*)?                   u:object_r:factory_file:s0
+
+# Fingerprint
+/system/vendor/bin/fpseek        u:object_r:goodix_fp_file:s0
+/system/vendor/bin/gx_fpd        u:object_r:goodix_fp_file:s0
+/dev/goodix_fp                   u:object_r:goodix_fp_device:s0
+
+# Gesture
+/sys/devices/soc/78b7000.i2c/i2c-3/3-0038(/.*)?           u:object_r:sysfs_gesture_device:s0
+
+# LEDS
+/sys/devices/soc/leds-qpnp-21/leds(/.*)?         u:object_r:sysfs_led_device:s0
+/sys/devices/soc/leds-qpnp-22/leds(/.*)?         u:object_r:sysfs_led_device:s0
+
+# Modem
+/system/vendor/bin/ssr_cfg.sh    u:object_r:modem_shell_file:s0
+
+# Partitions
+/dev/block/mmcblk0p28            u:object_r:factory_block_device:s0
+/dev/block/mmcblk0p53            u:object_r:asdf_block_device:s0
+/dev/block/mmcblk0p60            u:object_r:asusfw_block_device:s0
+/dev/block/mmcblk0p63            u:object_r:apd_block_device:s0
+
+# RGB Sensor
+/dev/asusRgbSensor               u:object_r:rgb_sensor_device:s0
+
+# rmt_storage
+/sys/kernel/debug/rmt_storage(/.*)?             u:object_r:debugfs_rmt_storage:s0

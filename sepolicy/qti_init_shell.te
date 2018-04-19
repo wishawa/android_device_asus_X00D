@@ -1,0 +1,18 @@
+# btnvtool
+allow qti_init_shell btnvtool_exec:file execute_no_trans;
+allow qti_init_shell bluetooth_data_file:file r_file_perms;
+
+# firmware
+allow qti_init_shell vfat:file r_file_perms;
+
+# proc
+allow qti_init_shell proc_dirty_ratio:file { write open };
+
+# serialno
+allow qti_init_shell factory_file:file r_file_perms;
+
+# sysfs
+allow qti_init_shell sysfs_devices_system_cpu:dir write;
+
+# wifi
+allow qti_init_shell factory_file:file getattr;

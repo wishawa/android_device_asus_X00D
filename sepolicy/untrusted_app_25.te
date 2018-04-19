@@ -1,0 +1,4 @@
+allow untrusted_app_25 usermodehelper:file { read open getattr };
+allow untrusted_app_25 proc_zoneinfo:file { read open getattr };
+
+binder_call(untrusted_app_25, hal_memtrack_default);

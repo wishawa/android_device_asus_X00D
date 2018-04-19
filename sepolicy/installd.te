@@ -1,0 +1,3 @@
+allow installd sysfs_leds:dir search;
+allow installd sysfs_graphics:dir search;
+

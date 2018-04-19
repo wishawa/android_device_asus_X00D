@@ -1,0 +1,1 @@
+allow rild vfat:file { read open getattr };

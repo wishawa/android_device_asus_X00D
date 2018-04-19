@@ -1,0 +1,10 @@
+type goodix_fp_device, dev_type;
+type rgb_sensor_device, dev_type;
+type camera_ois_device, dev_type;
+type sysfs_led_device, sysfs_type, dev_type;
+type sysfs_gesture_device, sysfs_type, dev_type;
+type laser_sensor_device, dev_type;
+type factory_block_device, fs_type, dev_type;
+type asusfw_block_device, fs_type, dev_type;
+type asdf_block_device, fs_type, dev_type;
+type apd_block_device, fs_type, dev_type;

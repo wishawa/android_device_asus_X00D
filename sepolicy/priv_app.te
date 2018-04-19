@@ -1,0 +1,2 @@
+allow priv_app proc_interrupts:file { open read getattr };
+allow priv_app proc_stat:file { open read getattr };

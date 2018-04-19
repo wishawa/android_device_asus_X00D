@@ -1,0 +1,28 @@
+# Allow init to use vndbinder
+vndbinder_use(init)
+
+# audio
+allow init audio_device:chr_file { write ioctl };
+
+# factory_file
+allow init factory_file:dir mounton;
+
+# firmware_file
+allow init firmware_file:filesystem associate;
+
+# fingerprint
+allow init goodix_fp_device:file { read write open };
+allow init goodix_fp_device:chr_file { ioctl write };
+
+# ion
+allow init ion_device:chr_file ioctl;
+
+# partitions
+allow init asusfw_block_device:dir mounton;
+
+# socket
+allow init self:netlink_socket { read write getattr connect };
+allow init property_socket:sock_file write;
+
+# qseecom
+allow init tee_device:chr_file { write ioctl };
