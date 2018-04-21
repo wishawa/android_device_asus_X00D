@@ -6,7 +6,6 @@ type camera_temp_file, file_type;
 type camera_param_file, file_type;
 type acdbdata_file, file_type;
 type factory_file, file_type;
-type asusfw_file, file_type;
 
 # proc
 type proc_camera_temp, sysfs_type, file_type;

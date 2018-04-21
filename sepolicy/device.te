@@ -8,3 +8,4 @@ type factory_block_device, fs_type, dev_type;
 type asusfw_block_device, fs_type, dev_type;
 type asdf_block_device, fs_type, dev_type;
 type apd_block_device, fs_type, dev_type;
+type adf_block_device, fs_type, dev_type;

@@ -2,3 +2,4 @@ allow fsck factory_block_device:blk_file rw_file_perms;
 allow fsck asusfw_block_device:blk_file rw_file_perms;
 allow fsck asdf_block_device:blk_file rw_file_perms;
 allow fsck apd_block_device:blk_file rw_file_perms;
+allow fsck adf_block_device:blk_file rw_file_perms;

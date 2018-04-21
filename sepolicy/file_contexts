@@ -1,6 +1,3 @@
-# AsusFW
-/asusfw(/.*)?                    u:object_r:asusfw_file:s0
-
 # Audio
 /dev/i2c-5                       u:object_r:audio_device:s0
 /asusfw/audio/acdbdata(/.*)?     u:object_r:acdbdata_file:s0
@@ -33,8 +30,12 @@
 # Partitions
 /dev/block/mmcblk0p28            u:object_r:factory_block_device:s0
 /dev/block/mmcblk0p53            u:object_r:asdf_block_device:s0
+/asdf(/.*)?                      u:object_r:asdf_block_device:s0
 /dev/block/mmcblk0p60            u:object_r:asusfw_block_device:s0
+/asusfw(/.*)?                    u:object_r:asusfw_block_device:s0
 /dev/block/mmcblk0p63            u:object_r:apd_block_device:s0
+/dev/block/mmcblk0p64            u:object_r:adf_block_device:s0
+/ADF(/.*)?                       u:object_r:adf_block_device:s0
 
 # RGB Sensor
 /dev/asusRgbSensor               u:object_r:rgb_sensor_device:s0
