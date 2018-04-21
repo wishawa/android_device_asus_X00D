@@ -45,6 +45,7 @@
         android:persistent="false"
         android:layout="@layout/slider_preference"
         android:recycleEnabled="false"/>
+<!--  FixMe:
     <org.omnirom.device.utils.SeekBarPreference
         android:key="kcal_contrast"
         android:title="@string/kcal_contrast"
@@ -60,5 +61,5 @@
         android:dependency="kcal_enabled"
         android:persistent="false"
         android:layout="@layout/slider_preference"
-        android:recycleEnabled="false"/>
+        android:recycleEnabled="false"/> -->
 </PreferenceScreen>
