@@ -13,6 +13,9 @@ allow qti_init_shell goodix_fp_service:service_manager add;
 # ion
 allow qti_init_shell ion_device:chr_file { read open ioctl };
 
+# modem
+allow qti_init_shell modem_shell_file:file { r_file_perms execute };
+
 # proc
 allow qti_init_shell proc_dirty_ratio:file { write open };
 

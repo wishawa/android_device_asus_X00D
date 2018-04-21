@@ -1095,7 +1095,7 @@ service ssr_diag /system/vendor/bin/ssr_diag
 on property:persist.sys.modem.restart=*
     restart ssr_cfg
 
-service ssr_cfg /system/vendor/bin/ssr_cfg.sh
+service ssr_cfg /system/vendor/bin/sh /system/vendor/bin/ssr_cfg.sh
 #Set class as core to avoid be killed when Cryptfs running
     class core
     user root
