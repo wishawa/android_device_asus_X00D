@@ -6,7 +6,7 @@ allow qti_init_shell bluetooth_data_file:file r_file_perms;
 allow qti_init_shell vfat:file r_file_perms;
 
 # fingerprint
-allow qti_init_shell goodix_fp_file:file { setattr getattr read open execute_no_trans };
+allow qti_init_shell goodix_fp_exec:file execute;
 allow qti_init_shell goodix_fp_device:chr_file { read write open ioctl };
 allow qti_init_shell goodix_fp_service:service_manager add;
 

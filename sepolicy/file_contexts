@@ -13,7 +13,7 @@
 /factory(/.*)?                   u:object_r:factory_file:s0
 
 # Fingerprint
-/system/vendor/bin/fpseek        u:object_r:goodix_fp_file:s0
+/system/vendor/bin/fpseek        u:object_r:goodix_fp_exec:s0
 /system/vendor/bin/gx_fpd        u:object_r:goodix_fp_file:s0
 /dev/goodix_fp                   u:object_r:goodix_fp_device:s0
 
