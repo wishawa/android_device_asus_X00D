@@ -29,4 +29,5 @@
     <string name="kcal_blue">Blue</string>
     <string name="kcal_saturation">Saturation</string>
     <string name="kcal_contrast">Constrast</string>
+    <string name="menu_reset">Reset</string>
 </resources>

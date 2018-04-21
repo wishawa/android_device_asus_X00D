@@ -32,20 +32,35 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+import android.os.Handler;
+import android.os.Message;
+
 import org.omnirom.device.R;
 
 public class SeekBarPreference extends Preference {
 
-    public static int maximum = 256;
-    public static int interval = 1;
+    public int minimum = 1;
+    public int maximum = 256;
+    public int def = 256;
+    public int interval = 1;
 
-    int currentValue = 256;
+    final int UPDATE = 0;
+ 
+
+    int currentValue = def;
 
     private OnPreferenceChangeListener changer;
 
     public SeekBarPreference(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
-    }
+        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.SeekBarPreference, 0, 0);
+        
+        minimum = typedArray.getInt(R.styleable.SeekBarPreference_min_value, minimum);
+        maximum = typedArray.getInt(R.styleable.SeekBarPreference_max_value, maximum);
+        def = typedArray.getInt(R.styleable.SeekBarPreference_default_value, def);
+
+        typedArray.recycle();
+	}
 
     @Override
     public void setEnabled(boolean enabled) {
@@ -58,8 +73,8 @@ public class SeekBarPreference extends Preference {
 
         monitorBox.setInputType(InputType.TYPE_CLASS_NUMBER);
 
-        bar.setProgress(currentValue);
-        bar.setMax(maximum);
+        bar.setMax(maximum - minimum);
+        bar.setProgress(currentValue - minimum);
 
         monitorBox.setText(String.valueOf(currentValue));
         monitorBox.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -69,7 +84,7 @@ public class SeekBarPreference extends Preference {
                     monitorBox.setSelection(monitorBox.getText().length());
             }
         });
-        monitorBox.setFilters(new InputFilter[]{new InputFilterMinMax(0, maximum)});
+        monitorBox.setFilters(new InputFilter[]{new InputFilterMinMax(minimum, maximum)});
         monitorBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int keyCode, KeyEvent event) {
@@ -78,7 +93,7 @@ public class SeekBarPreference extends Preference {
                     InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                     currentValue = Integer.parseInt(v.getText().toString());
-                    bar.setProgress(currentValue, true);
+                    bar.setProgress(currentValue - minimum, true);
                     changer.onPreferenceChange(SeekBarPreference.this, Integer.toString(currentValue));
                     return true;
                 }
@@ -90,8 +105,8 @@ public class SeekBarPreference extends Preference {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progress = Math.round(((float) progress) / interval) * interval;
-                currentValue = progress;
-                monitorBox.setText(String.valueOf(progress));
+                currentValue = progress + minimum;
+                monitorBox.setText(String.valueOf(currentValue));
             }
 
             @Override
@@ -117,14 +132,14 @@ public class SeekBarPreference extends Preference {
     }
 
     @Override
-    protected Object onGetDefaultValue(TypedArray a, int index) {
-        // TODO Auto-generated method stub
-        return super.onGetDefaultValue(a, index);
-    }
-
-    @Override
     public void setOnPreferenceChangeListener(OnPreferenceChangeListener onPreferenceChangeListener) {
         changer = onPreferenceChangeListener;
         super.setOnPreferenceChangeListener(onPreferenceChangeListener);
+    }
+
+    public int reset() {
+        currentValue = def;
+        notifyChanged();
+        return def;
     }
 }

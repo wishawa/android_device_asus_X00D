@@ -28,9 +28,12 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import android.app.ActionBar;
 import org.omnirom.device.utils.SeekBarPreference;
+import org.omnirom.device.R;
 
 public class DisplayCalibration extends PreferenceActivity implements
         OnPreferenceChangeListener {
@@ -78,28 +81,28 @@ public class DisplayCalibration extends PreferenceActivity implements
         mKcalEnabled.setOnPreferenceChangeListener(this);
 
         mKcalRed = (SeekBarPreference) findPreference(KEY_KCAL_RED);
-        mKcalRed.setInitValue(mPrefs.getInt(KEY_KCAL_RED, 256));
+        mKcalRed.setInitValue(mPrefs.getInt(KEY_KCAL_RED, mKcalRed.def));
         mKcalRed.setOnPreferenceChangeListener(this);
 
         mKcalGreen = (SeekBarPreference) findPreference(KEY_KCAL_GREEN);
-        mKcalGreen.setInitValue(mPrefs.getInt(KEY_KCAL_GREEN, 256));
+        mKcalGreen.setInitValue(mPrefs.getInt(KEY_KCAL_GREEN, mKcalGreen.def));
         mKcalGreen.setOnPreferenceChangeListener(this);
 
         mKcalBlue = (SeekBarPreference) findPreference(KEY_KCAL_BLUE);
-        mKcalBlue.setInitValue(mPrefs.getInt(KEY_KCAL_BLUE, 256));
+        mKcalBlue.setInitValue(mPrefs.getInt(KEY_KCAL_BLUE, mKcalBlue.def));
         mKcalBlue.setOnPreferenceChangeListener(this);
 
         mKcalSaturation = (SeekBarPreference) findPreference(KEY_KCAL_SATURATION);
-        mKcalSaturation.setInitValue(mPrefs.getInt(KEY_KCAL_SATURATION, 256));
+        mKcalSaturation.setInitValue(mPrefs.getInt(KEY_KCAL_SATURATION, mKcalSaturation.def));
         mKcalSaturation.setOnPreferenceChangeListener(this);
 
         mKcalContrast = (SeekBarPreference) findPreference(KEY_KCAL_CONTRAST);
-        mKcalContrast.setInitValue(mPrefs.getInt(KEY_KCAL_CONTRAST, 256));
+        mKcalContrast.setInitValue(mPrefs.getInt(KEY_KCAL_CONTRAST, mKcalContrast.def));
         mKcalContrast.setOnPreferenceChangeListener(this);
 
-        mRed = String.valueOf(mPrefs.getInt(KEY_KCAL_RED, 256));
-        mGreen = String.valueOf(mPrefs.getInt(KEY_KCAL_GREEN, 256));
-        mBlue = String.valueOf(mPrefs.getInt(KEY_KCAL_BLUE, 256));
+        mRed = String.valueOf(mPrefs.getInt(KEY_KCAL_RED, mKcalRed.def));
+        mGreen = String.valueOf(mPrefs.getInt(KEY_KCAL_GREEN, mKcalGreen.def));
+        mBlue = String.valueOf(mPrefs.getInt(KEY_KCAL_BLUE, mKcalBlue.def));
 
     }
 
@@ -131,15 +134,45 @@ public class DisplayCalibration extends PreferenceActivity implements
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.kcal_menu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected (MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 return true;
+            case R.id.menu_reset:
+                reset();
+                return true;
             default:
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void reset() {
+        int red = mKcalRed.reset();
+        int green = mKcalGreen.reset();
+        int blue = mKcalBlue.reset();
+        int saturation = mKcalSaturation.reset();
+        int contrast = mKcalContrast.reset();
+
+        mPrefs.edit().putInt(KEY_KCAL_RED, red).commit();
+        mPrefs.edit().putInt(KEY_KCAL_GREEN, green).commit();
+        mPrefs.edit().putInt(KEY_KCAL_BLUE, blue).commit();
+        mPrefs.edit().putInt(KEY_KCAL_SATURATION, saturation).commit();
+        mPrefs.edit().putInt(KEY_KCAL_CONTRAST, contrast).commit();
+
+        String storedValue = Integer.toString(red) + " " + Integer.toString(green) + " " +  Integer.toString(blue);
+
+        Utils.writeValue(COLOR_FILE, storedValue);
+        Utils.writeValue(COLOR_FILE_SATURATION, Integer.toString(saturation));
+        Utils.writeValue(COLOR_FILE_CONTRAST, Integer.toString(contrast));
     }
 
     @Override

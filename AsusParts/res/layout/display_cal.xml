@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:overScrollMode="never"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,22 +13,15 @@
 
         <ImageView
             android:id="@+id/calibration_pic"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="265dp"
             android:src="@drawable/calibration_png" />
 
-        <LinearLayout
-            android:id="@+id/seekbars"
+        <org.omnirom.device.utils.NonScrollListView
+            android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-            <ListView
-                android:id="@android:id/list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </ListView>
+            android:layout_height="match_parent">
+        </org.omnirom.device.utils.NonScrollListView>
 
         </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+</ScrollView>

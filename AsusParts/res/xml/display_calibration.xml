@@ -12,7 +12,8 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <SwitchPreference
         android:key="kcal_enabled"
@@ -24,42 +25,51 @@
     <org.omnirom.device.utils.SeekBarPreference
         android:key="kcal_red"
         android:title="@string/kcal_red"
-        android:max="256"
         android:dependency="kcal_enabled"
         android:persistent="false"
         android:layout="@layout/slider_preference"
-        android:recycleEnabled="false"/>
+        android:recycleEnabled="false"
+        app:max_value="256"
+        app:min_value="0"
+        app:default_value="256"/>
     <org.omnirom.device.utils.SeekBarPreference
         android:key="kcal_green"
         android:title="@string/kcal_green"
-        android:max="256"
         android:dependency="kcal_enabled"
         android:persistent="false"
         android:layout="@layout/slider_preference"
-        android:recycleEnabled="false"/>
+        android:recycleEnabled="false"
+        app:max_value="256"
+        app:min_value="0"
+        app:default_value="256"/>
     <org.omnirom.device.utils.SeekBarPreference
         android:key="kcal_blue"
         android:title="@string/kcal_blue"
-        android:max="256"
         android:dependency="kcal_enabled"
         android:persistent="false"
         android:layout="@layout/slider_preference"
-        android:recycleEnabled="false"/>
-<!--  FixMe:
+        android:recycleEnabled="false"
+        app:max_value="256"
+        app:min_value="0"
+        app:default_value="256"/>
     <org.omnirom.device.utils.SeekBarPreference
         android:key="kcal_contrast"
         android:title="@string/kcal_contrast"
-        android:max="256"
         android:dependency="kcal_enabled"
         android:persistent="false"
         android:layout="@layout/slider_preference"
-        android:recycleEnabled="false"/>
+        android:recycleEnabled="false"
+        app:max_value="384"
+        app:min_value="128"
+        app:default_value="255"/>
     <org.omnirom.device.utils.SeekBarPreference
         android:key="kcal_saturation"
         android:title="@string/kcal_saturation"
-        android:max="256"
         android:dependency="kcal_enabled"
         android:persistent="false"
         android:layout="@layout/slider_preference"
-        android:recycleEnabled="false"/> -->
+        android:recycleEnabled="false"
+        app:max_value="383"
+        app:min_value="224"
+        app:default_value="256"/>
 </PreferenceScreen>
