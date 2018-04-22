@@ -391,8 +391,12 @@ PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0 \
     android.hardware.media.omx@1.0-service
 
-# Power
+# Perf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/perf/gamedwhitelist.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/gamedwhitelist.xml \
+    $(LOCAL_PATH)/configs/perf/perfboostsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfboostsconfig.xml \
 
+# Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
 
