@@ -114,7 +114,7 @@ public class DisplayCalibration extends PreferenceActivity implements
        boolean storeEnabled = PreferenceManager
                 .getDefaultSharedPreferences(context).getBoolean(DisplayCalibration.KEY_KCAL_ENABLED, false);
        if (storeEnabled) {
-           Utils.writeValue(COLOR_FILE, "1");
+           Utils.writeValue(COLOR_FILE_ENABLE, "1");
            int storedRed = PreferenceManager
                    .getDefaultSharedPreferences(context).getInt(DisplayCalibration.KEY_KCAL_RED, 256);
            int storedGreen = PreferenceManager
