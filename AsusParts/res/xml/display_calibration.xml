@@ -59,7 +59,7 @@
         android:persistent="false"
         android:layout="@layout/slider_preference"
         android:recycleEnabled="false"
-        app:max_value="384"
+        app:max_value="383"
         app:min_value="128"
         app:default_value="255"/>
     <org.omnirom.device.utils.SeekBarPreference
