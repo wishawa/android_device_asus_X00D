@@ -89,23 +89,23 @@ void vendor_load_properties()
     property_set("ro.product.name", "WW_Phone");
     if (project == "6") {
         property_override("ro.build.product", "ZE520KL");
-        property_override("ro.build.description", "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1712.31-0 release-keys");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z017D:8.0.0/OPR1.170623.026/15.0410.1712.31-0:user/release-keys");
+        property_override("ro.build.description", "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1803.53-0 release-keys");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z017D_1:8.0.0/OPR1.170623.026/15.0410.1803.53-0:user/release-keys");
         property_override("ro.product.device", "ASUS_Z017D_1");
         property_override("ro.product.model", "ASUS_Z017D");
         property_set("ro.product.carrier", "US-ASUS_Z017D-WW_Phone");
         property_set("ro.hardware.id", "ZE520KL_MP");
-        property_set("ro.build.csc.version", "WW_ZE520KL-15.0410.1712.31-0");
+        property_set("ro.build.csc.version", "WW_ZE520KL-15.0410.1803.53-0");
         property_set("ro.sf.lcd_density", "423");
     } else if (project == "7") {
         property_override("ro.build.product", "ZE552KL");
-        property_override("ro.build.description", "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1712.31-0 release-keys");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z012D:8.0.0/OPR1.170623.026/15.0410.1712.31-0:user/release-keys");
+        property_override("ro.build.description", "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1803.53-0 release-keys");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z012D:8.0.0/OPR1.170623.026/15.0410.1803.53-0:user/release-keys");
         property_override("ro.product.device", "ASUS_Z012D");
         property_override("ro.product.model", "ASUS_Z012D");
         property_set("ro.product.carrier", "US-ASUS_Z012D-WW_Phone");
         property_set("ro.hardware.id", "ZE552KL_MP");
-        property_set("ro.build.csc.version", "WW_ZE552KL-15.0410.1712.31-0");
+        property_set("ro.build.csc.version", "WW_ZE552KL-15.0410.1803.53-0");
         property_set("ro.sf.lcd_density", "400");
     }
 }
