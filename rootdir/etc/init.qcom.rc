@@ -264,6 +264,7 @@ on boot
     chown system system /sys/devices/platform/kcal_ctrl.0/kcal_hue
     chown system system /sys/devices/platform/kcal_ctrl.0/kcal_min
     chown system system /sys/devices/platform/kcal_ctrl.0/kcal_val
+    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_invert
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_enable
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_cont
@@ -271,6 +272,7 @@ on boot
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_hue
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_min
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_val
+    chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_invert
 
 # msm specific files that need to be created on /data
 on post-fs-data
