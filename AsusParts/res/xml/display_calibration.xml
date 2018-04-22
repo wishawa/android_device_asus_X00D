@@ -63,16 +63,6 @@
         app:min_value="128"
         app:default_value="255"/>
     <org.omnirom.device.utils.SeekBarPreference
-        android:key="kcal_saturation"
-        android:title="@string/kcal_saturation"
-        android:dependency="kcal_greyscale"
-        android:persistent="false"
-        android:layout="@layout/slider_preference"
-        android:recycleEnabled="false"
-        app:max_value="383"
-        app:min_value="224"
-        app:default_value="256"/>
-    <org.omnirom.device.utils.SeekBarPreference
         android:key="kcal_value"
         android:title="@string/kcal_value"
         android:dependency="kcal_enabled"
@@ -81,6 +71,16 @@
         android:recycleEnabled="false"
         app:max_value="383"
         app:min_value="128"
+        app:default_value="255"/>
+    <org.omnirom.device.utils.SeekBarPreference
+        android:key="kcal_saturation"
+        android:title="@string/kcal_saturation"
+        android:dependency="kcal_greyscale"
+        android:persistent="false"
+        android:layout="@layout/slider_preference"
+        android:recycleEnabled="false"
+        app:max_value="383"
+        app:min_value="224"
         app:default_value="255"/>
     <org.omnirom.device.utils.SeekBarPreference
         android:key="kcal_hue"
