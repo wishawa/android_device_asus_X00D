@@ -339,12 +339,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/ASUS_TransKeyboard.kl:system/usr/keylayout/ASUS_TransKeyboard.kl \
     $(LOCAL_PATH)/configs/keylayout/focal-touchscreen.kl:system/usr/keylayout/focal-touchscreen.kl \
-    $(LOCAL_PATH)/configs/keylayout/goodixfp.kl:system/usr/keylayout/goodixfp.kl \
-#    $(LOCAL_PATH)/configs/keylayout/ft5x06_ts.kl:system/usr/keylayout/ft5x06_ts.kl \
-#    $(LOCAL_PATH)/configs/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-#    $(LOCAL_PATH)/configs/keylayout/synaptics_dsx.kl:system/usr/keylayout/synaptics_dsx.kl \
-#    $(LOCAL_PATH)/configs/keylayout/synaptics_dsxv26.kl:system/usr/keylayout/synaptics_dsxv26.kl \
-#    $(LOCAL_PATH)/configs/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl
+    $(LOCAL_PATH)/configs/keylayout/goodixfp.kl:system/usr/keylayout/goodixfp.kl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/focal-touchscreen.idc:system/usr/idc/focal-touchscreen.idc
@@ -362,13 +357,13 @@ PRODUCT_PACKAGES += \
     libmediandk \
     libcamera2ndk \
     libmedia_jni \
-    libmedia_helper \
+    libmedia_helper
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media/media_codecs.xml:system/vendor/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:system/vendor/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media/media_profiles.xml:system/vendor/etc/media_profiles_vendor.xml \
-    $(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
+    $(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
@@ -460,7 +455,7 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     wificond \
     wpa_supplicant \
-    wpa_supplicant.conf \ \
+    wpa_supplicant.conf \
     libwifi-hal-qcom
 
 PRODUCT_PACKAGES += \
@@ -544,8 +539,7 @@ PRODUCT_PACKAGES += \
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-service \
-    android.hardware.thermal@1.0-impl \
-
+    android.hardware.thermal@1.0-impl
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
