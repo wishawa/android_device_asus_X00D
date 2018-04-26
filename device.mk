@@ -83,6 +83,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += libGLES_android
 PRODUCT_PACKAGES += SSRestartDetector
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 #Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
