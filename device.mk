@@ -473,6 +473,10 @@ PRODUCT_PACKAGES += \
     tcpdump \
     AsusParts
 
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_zenfone3
+
 # IMS
 PRODUCT_PACKAGES += \
     libshim_ims \
