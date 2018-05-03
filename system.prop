@@ -97,6 +97,8 @@ ro.vendor.qti.sys.fw.bservice_age=5000
 
 # Fingerprint
 persist.qfp=false
+persist.asus.fp.wakeup_support=true
+persist.asus.fp.wakeup=true
 
 # FM
 ro.fm.transmitter=false
