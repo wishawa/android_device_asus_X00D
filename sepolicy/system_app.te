@@ -1,1 +1,2 @@
 allow system_app sysfs_vibrator:file write;
+allow system_app sysfs_gesture_device:file write;
