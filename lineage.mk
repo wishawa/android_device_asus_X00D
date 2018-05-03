@@ -21,4 +21,6 @@ PRODUCT_NAME := lineage_zenfone3
 PRODUCT_BRAND := asus
 PRODUCT_MANUFACTURER := asus
 
+PRODUCT_GMS_CLIENTID_BASE := android-asus
+
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.name
