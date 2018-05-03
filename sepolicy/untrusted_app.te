@@ -1,2 +1,0 @@
-allow untrusted_app sysfs_zram:dir search;
-allow untrusted_app sysfs_zram:file { read open getattr };
