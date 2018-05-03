@@ -257,9 +257,6 @@ on boot
     # Permissions for Keypad Mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/keypad_mode
 
-    # Amplifier Calibration
-    start spk_amp_cal
-
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
@@ -1304,6 +1301,10 @@ on property:sys.foregroundapp=*
 
 on property:sys.foregroundapp=com.asus.launcher
     write /sys/module/lowmemorykiller/parameters/minfree_lowram "38432,43040,50648,65256,102400,128000"
+
+on property:sys.boot_completed=1
+    # Amplifier Calibration
+    start spk_amp_cal
 
 on property:sys.foregroundapp=com.android.systemui
     write /sys/module/lowmemorykiller/parameters/minfree_lowram "38432,43040,50648,65256,102400,128000"
