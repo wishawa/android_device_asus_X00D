@@ -1,0 +1,3 @@
+allow system_server factory_file:file { open read };
+allow system_server factory_file:dir search;
+
