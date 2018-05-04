@@ -1,3 +1,4 @@
+type tfa9895_device, dev_type;
 type goodix_fp_device, dev_type;
 type rgb_sensor_device, dev_type;
 type camera_ois_device, dev_type;

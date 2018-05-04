@@ -1,6 +1,8 @@
 # Audio
-/dev/i2c-5                       u:object_r:audio_device:s0
-/asusfw/audio/acdbdata(/.*)?     u:object_r:acdbdata_file:s0
+/dev/i2c-5                            u:object_r:tfa9895_device:s0
+/system/vendor/etc/tfa98xx.cnt        u:object_r:tfa9895_vendor_file:s0
+/system/bin/SpeakerCalibrationTest    u:object_r:spk_amp_cal_exec:s0
+/asusfw/audio/acdbdata(/.*)?          u:object_r:acdbdata_file:s0
 
 # Bluetooth
 /factory/bt_nv.bin               u:object_r:bluetooth_data_file:s0

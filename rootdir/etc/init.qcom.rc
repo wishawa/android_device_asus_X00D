@@ -742,6 +742,7 @@ service spk_amp_cal /system/bin/SpeakerCalibrationTest 1
     group root
     disabled
     oneshot
+    seclabel u:r:spk_amp_cal:s0
 
 service amp_init /system/vendor/bin/amploader -i
     class late_start
