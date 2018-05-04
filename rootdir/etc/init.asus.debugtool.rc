@@ -75,10 +75,11 @@ on property:persist.asus.kernelmessage=7
 
 # ASUS_BSP+++ [thomas]Add savelogmtp services
 service piq_sh /system/etc/init.asus.piq.sh
-     user root
-     group root
-     disabled
-     oneshot
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:piq_sh:s0
 
 on property:sys.boot_completed=1
     start piq_sh
