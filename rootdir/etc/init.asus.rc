@@ -71,7 +71,7 @@ on post-fs
     # Disable in-kernel proximity check for DT2W
     write /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/Enable_Proximity_Check 0
     
-    start fpservice
+    start fpseek
 
 on post-fs-data
 
@@ -990,11 +990,32 @@ service ois_init /system/bin/sh /system/etc/ois_init.sh
 #ASUS_BSP --- bill "Implement OIS"
 
 #ASUS_BSP+++: add for fingerprint
-service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
+service gx_fpd /system/vendor/bin/gx_fpd
+    class late_start
+    group system
+    user system
+    oneshot
+    disabled
+
+service gx_fpd_gxfp3 /system/vendor/bin/gx_fpd_gxfp3
+    class late_start
+    group system
+    user system
+    oneshot
+    disabled
+
+service fpseek /system/vendor/bin/fpseek
+    class core
     user root
     group system
     oneshot
     disabled
+
+service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
+    class late_start
+    user root
+    group system
+    oneshot
 
 #ASUS_BSP---: add for fingerprint
 
