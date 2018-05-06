@@ -1,7 +1,5 @@
 #!/system/vendor/bin/sh
 
-/system/vendor/bin/fpseek
-
 FP_module=`getprop ro.hardware.fingerprint`
 
 if [ "$FP_module" == 'gxfp3' ]; then

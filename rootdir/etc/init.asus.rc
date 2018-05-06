@@ -1016,6 +1016,7 @@ service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
     user root
     group system
     oneshot
+    disabled
 
 #ASUS_BSP---: add for fingerprint
 
@@ -1069,6 +1070,7 @@ service writeOsInfo /system/bin/writeosinfo
 
 on property:sys.boot_completed=1
     start writeOsInfo
+    start fpservice
 # --- ASUS_BSP : add for write OS Info
 
 
