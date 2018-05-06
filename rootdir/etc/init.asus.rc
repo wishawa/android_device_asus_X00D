@@ -1010,6 +1010,7 @@ service fpseek /system/vendor/bin/fpseek
     group system
     oneshot
     disabled
+    seclabel u:r:fpservice:s0
 
 service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
     class late_start
@@ -1017,6 +1018,7 @@ service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
     group system
     oneshot
     disabled
+    seclabel u:r:fpservice:s0
 
 #ASUS_BSP---: add for fingerprint
 

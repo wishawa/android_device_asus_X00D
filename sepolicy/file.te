@@ -1,6 +1,4 @@
 type tfa9895_vendor_file, vendor_file_type, file_type;
-type goodix_fp_exec, exec_type, file_type;
-type goodix_fp_file, file_type;
 type modem_shell_file, exec_type, file_type;
 type debugfs_rmt_storage, debugfs_type, fs_type;
 type serialno_file, file_type;

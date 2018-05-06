@@ -5,25 +5,11 @@ allow qti_init_shell bluetooth_data_file:file r_file_perms;
 # firmware
 allow qti_init_shell vfat:file r_file_perms;
 
-# fingerprint
-allow qti_init_shell goodix_fp_exec:file execute;
-allow qti_init_shell goodix_fp_device:chr_file { read write open ioctl };
-allow qti_init_shell goodix_fp_service:service_manager add;
-
-# ion
-allow qti_init_shell ion_device:chr_file { read open ioctl };
-
 # modem
 allow qti_init_shell modem_shell_file:file { r_file_perms execute };
 
 # proc
 allow qti_init_shell proc_dirty_ratio:file { write open };
-
-# qseecom
-allow qti_init_shell tee_device:chr_file { read write open ioctl };
-
-# qti_init_shell
-allow qti_init_shell self:netlink_socket { create bind write read };
 
 # serialno
 allow qti_init_shell factory_file:file r_file_perms;
@@ -31,12 +17,5 @@ allow qti_init_shell factory_file:file r_file_perms;
 # sysfs
 allow qti_init_shell sysfs_devices_system_cpu:dir write;
 
-# toolbox
-allow qti_init_shell toolbox_exec:file { read open getattr execute_no_trans };
-
 # wifi
 allow qti_init_shell factory_file:file getattr;
-
-# others
-vndbinder_use(qti_init_shell)
-binder_call(qti_init_shell, hal_fingerprint_default)

@@ -1,0 +1,16 @@
+type fpservice, domain;
+type fpservice_exec, exec_type, file_type;
+init_daemon_domain(fpservice);
+
+domain_trans(init, rootfs, fpservice)
+
+allow fpservice self:netlink_socket { create bind write read };
+allow fpservice tee_device:chr_file { ioctl read write };
+allow fpservice ion_device:chr_file { read open ioctl };
+allow fpservice goodix_fp_device:chr_file ioctl;
+
+set_prop(fpservice, fp_goodix_prop)
+
+vndbinder_use(fpservice);
+
+binder_call(fpservice, hal_fingerprint_default)
