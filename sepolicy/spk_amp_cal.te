@@ -8,6 +8,3 @@ allow spk_amp_cal audio_device:dir search;
 allow spk_amp_cal audio_device:chr_file { read write open ioctl };
 allow spk_amp_cal shell_exec:file { execute read open getattr execute_no_trans };
 allow spk_amp_cal asusfw_block_device:dir search;
-
-# FIXME
-allow spk_amp_cal self:capability dac_override;

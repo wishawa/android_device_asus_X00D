@@ -741,7 +741,7 @@ on property:sys.sysctl.tcp_adv_win_scale=*
 service spk_amp_cal /system/bin/SpeakerCalibrationTest 1
     class late_start
     user root
-    group root
+    group root audio
     disabled
     oneshot
     seclabel u:r:spk_amp_cal:s0
