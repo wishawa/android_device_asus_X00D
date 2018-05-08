@@ -91,6 +91,33 @@ static void set_serial()
     }
 }
 
+static void set_simcode()
+{
+    int fd, rc;
+    char buf[3];
+    const char *slots;
+    const char *path = "/factory/SIMCODE";
+
+    fd = open(path, O_RDONLY);
+    if (fd < 0) {
+        slots = "S2";
+    }
+
+    if (rc = read(fd, buf, 2) < 0) {
+        slots = "S2";
+    } else {
+        buf[2] = '\0';
+        slots = buf;
+    }
+    close(fd);
+
+    if (strcmp(slots, "S1") == 0) {
+        property_set("persist.radio.multisim.config", "none");
+    } else {
+        property_set("persist.radio.multisim.config", "dsds");
+    }
+}
+
 void check_varient()
 {
     std::string project = android::base::GetProperty("ro.boot.id.prj", "");
@@ -138,6 +165,7 @@ void check_varient()
 void vendor_load_properties()
 {
     set_serial();
+    set_simcode();
     check_varient();
 
     property_set("ro.product.name", "WW_Phone");
