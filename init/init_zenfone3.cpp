@@ -39,6 +39,15 @@
 #include <unistd.h>
 
 using android::init::property_set;
+char const *product;
+char const *description;
+char const *fingerprint;
+char const *device;
+char const *model;
+char const *carrier;
+char const *hwID;
+char const *csc;
+char const *dpi;
 
 void property_override(char const prop[], char const value[])
 {
@@ -81,31 +90,64 @@ static void set_serial()
         property_override("ro.serialno", "UNKNOWNSERIALNO");
     }
 }
+
+void check_varient()
+{
+    std::string project = android::base::GetProperty("ro.boot.id.prj", "");
+    std::string rf = android::base::GetProperty("ro.boot.id.rf", "");
+    if (project == "6") {
+        if (rf ==  "1") {
+            model = "Z017DB"; /* Indonesian Varient */
+        } else if (rf == "2") {
+            model = "Z017DC"; /* Latin American Varient */
+        } else {
+            model = "Z017DA"; /* Default to Z017DA */
+        }
+
+        product = "ZE520KL";
+        fingerprint = "asus/WW_Phone/ASUS_Z017D_1:8.0.0/OPR1.170623.026/15.0410.1803.55-0:user/release-keys";
+        device = "ASUS_Z017D_1";
+        carrier = "US-ASUS_Z017D-WW_Phone"; /* Default to US for now TODO: Split carrier depending value in /factory/COUNTRY */
+        hwID = "ZE520KL_MP";
+        csc = "WW_ZE520KL-15.0410.1803.55-0";
+        dpi = "423";
+    } else {
+        if (rf == "0") {
+            model = "Z012S"; /* Canadian varient */
+        } else if (rf == "1") {
+            model = "Z012DB"; /* Indonesian Varient */
+        } else if (rf == "15") {
+            model = "Z012DE"; /* Chinese Varient */
+        } else {
+            model = "Z012DA"; /* Default to Z012DA */
+        }
+
+        product = "ZE552KL";
+        fingerprint = "asus/WW_Phone/ASUS_Z012D:8.0.0/OPR1.170623.026/15.0410.1803.55-0:user/release-keys";
+        device = "ASUS_Z012D";
+        carrier = "US-ASUS_Z012D-WW_Phone"; /* Default to US for now TODO: Split carrier depending value in /factory/COUNTRY */
+        hwID = "ZE552KL_MP";
+        csc = "WW_ZE552KL-15.0410.1803.55-0";
+        dpi = "400";
+    }
+
+    /* Shared properties */
+    description = "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1803.55-0 release-keys";
+}
+
 void vendor_load_properties()
 {
     set_serial();
+    check_varient();
 
-    std::string project = android::base::GetProperty("ro.boot.id.prj", "");
     property_set("ro.product.name", "WW_Phone");
-    if (project == "6") {
-        property_override("ro.build.product", "ZE520KL");
-        property_override("ro.build.description", "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1803.55-0 release-keys");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z017D_1:8.0.0/OPR1.170623.026/15.0410.1803.55-0:user/release-keys");
-        property_override("ro.product.device", "ASUS_Z017D_1");
-        property_override("ro.product.model", "ASUS_Z017D");
-        property_set("ro.product.carrier", "US-ASUS_Z017D-WW_Phone");
-        property_set("ro.hardware.id", "ZE520KL_MP");
-        property_set("ro.build.csc.version", "WW_ZE520KL-15.0410.1803.55-0");
-        property_set("ro.sf.lcd_density", "423");
-    } else if (project == "7") {
-        property_override("ro.build.product", "ZE552KL");
-        property_override("ro.build.description", "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1803.55-0 release-keys");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "asus/WW_Phone/ASUS_Z012D:8.0.0/OPR1.170623.026/15.0410.1803.55-0:user/release-keys");
-        property_override("ro.product.device", "ASUS_Z012D");
-        property_override("ro.product.model", "ASUS_Z012D");
-        property_set("ro.product.carrier", "US-ASUS_Z012D-WW_Phone");
-        property_set("ro.hardware.id", "ZE552KL_MP");
-        property_set("ro.build.csc.version", "WW_ZE552KL-15.0410.1803.55-0");
-        property_set("ro.sf.lcd_density", "400");
-    }
+    property_override("ro.build.product", product);
+    property_override("ro.build.description", description);
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", fingerprint);
+    property_override("ro.product.device", device);
+    property_override("ro.product.model", model);
+    property_set("ro.product.carrier", carrier);
+    property_set("ro.hardware.id", hwID);
+    property_set("ro.build.csc.version", csc);
+    property_set("ro.sf.lcd_density", dpi);
 }
