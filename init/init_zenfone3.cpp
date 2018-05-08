@@ -143,6 +143,8 @@ void check_varient()
             model = "Z012S"; /* Canadian varient */
         } else if (rf == "1") {
             model = "Z012DB"; /* Indonesian Varient */
+        } else if (rf == "8") {
+            model = "Z012D";  /* Global variant */
         } else if (rf == "15") {
             model = "Z012DE"; /* Chinese Varient */
         } else {
