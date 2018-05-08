@@ -121,14 +121,12 @@ static void set_simcode()
 void check_varient()
 {
     std::string project = android::base::GetProperty("ro.boot.id.prj", "");
-    std::string rf = android::base::GetProperty("ro.boot.id.rf", "");
+    int rf = stoi(android::base::GetProperty("ro.boot.id.rf", ""));
     if (project == "6") {
-        if (rf ==  "1") {
-            model = "Z017DB"; /* Indonesian Varient */
-        } else if (rf == "2") {
-            model = "Z017DC"; /* Latin American Varient */
-        } else {
-            model = "Z017DA"; /* Default to Z017DA */
+        switch(rf){
+            case 1: model = "Z017DB"; break; /* Indonesian Varient */
+            case 2: model = "Z017DC"; break; /* Latin American Varient */
+            default: model = "Z017DA"; break; /* Default to Z017DA */
         }
 
         product = "ZE520KL";
@@ -139,16 +137,12 @@ void check_varient()
         csc = "WW_ZE520KL-15.0410.1803.55-0";
         dpi = "423";
     } else {
-        if (rf == "0") {
-            model = "Z012S"; /* Canadian varient */
-        } else if (rf == "1") {
-            model = "Z012DB"; /* Indonesian Varient */
-        } else if (rf == "8") {
-            model = "Z012D";  /* Global variant */
-        } else if (rf == "15") {
-            model = "Z012DE"; /* Chinese Varient */
-        } else {
-            model = "Z012DA"; /* Default to Z012DA */
+        switch(rf){
+            case 0: model = "Z012S";  break; /* Canadian varient */
+            case 1: model = "Z012DB"; break; /* Indonesian Varient */
+            case 8: model = "Z012D";  break; /* Global variant */
+            case 15: model = "Z012DE"; break; /* Chinese Varient */
+            default: model = "Z012DA"; break; /* Default to Z012DA */
         }
 
         product = "ZE552KL";
