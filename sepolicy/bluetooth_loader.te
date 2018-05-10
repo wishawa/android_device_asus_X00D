@@ -1,0 +1,6 @@
+type bluetooth_loader, domain;
+type bluetooth_loader_exec, exec_type, file_type;
+
+init_daemon_domain(bluetooth_loader)
+
+#TODO: Resolve denials.
