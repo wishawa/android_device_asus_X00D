@@ -156,12 +156,14 @@ vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
 vendor/lib/libois_lc898122.so
 vendor/lib/liboptizoom.so
+vendor/lib64/liboptizoom.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libseemore.so
 vendor/lib/libSonyIMX298PdafLibrary.so
 vendor/lib/libubifocus.so
+vendor/lib64/libubifocus.so
 vendor/lib/libts_detected_face_hal.so
 vendor/lib/libts_face_beautify_hal.so
 vendor/lib64/libts_detected_face_hal.so
@@ -172,6 +174,7 @@ vendor/lib/libcamera_defocus.so
 vendor/lib/libcamera_pano.so
 vendor/lib/libcameraap.so
 vendor/lib/libremosaic_daemon.so
+
 lib/libtrueportrait.so
 
 vendor/lib/libjni.so
@@ -201,6 +204,7 @@ lib64/libjni_pacprocessor.so
 lib64/libjni_seestraight.so
 lib64/libjni_sharpshooter.so
 lib64/libjni_trueportrait.so
+lib64/libtrueportrait.so
 lib64/libtruescanner.so
 lib64/libjni_truescanner_v2.so
 lib64/libjni_ubifocus.so
