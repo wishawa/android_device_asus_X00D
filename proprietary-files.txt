@@ -1230,6 +1230,30 @@ vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
 vendor/firmware/cpp_firmware_v1_10_0.fw
 
+# Camera image correction
+lib/libscveBlobDescriptor.so
+lib/libscveBlobDescriptor_skel.so
+lib/libscveBlobDescriptor_stub.so
+lib/libscveCommon.so
+lib/libscveCommon_stub.so
+lib/libscveImageCorrection.so
+lib/libscveObjectSegmentation.so
+lib/libscveObjectTracker.so
+lib/libscveObjectTracker_stub.so
+lib/libscvePanorama.so
+lib/libscvePanorama_lite.so
+lib/libscveT2T_skel.so
+lib64/libscveBlobDescriptor.so
+lib64/libscveBlobDescriptor_stub.so
+lib64/libscveCommon.so
+lib64/libscveCommon_stub.so
+lib64/libscveImageCorrection.so
+lib64/libscveObjectSegmentation.so
+lib64/libscveObjectTracker.so
+lib64/libscveObjectTracker_stub.so
+lib64/libscvePanorama.so
+lib64/libscvePanorama_lite.so
+
 # Camera sensors
 vendor/lib/libmmcamera_isp_bcc40.so
 vendor/lib/libmmcamera_isp_be_stats44.so
