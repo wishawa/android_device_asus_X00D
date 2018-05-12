@@ -426,6 +426,7 @@ vendor/lib/libOmxAlacDecSw.so
 vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxApeDec.so
 vendor/lib/libOmxApeDecSw.so
+vendor/lib/libOmxDsdDec.so
 vendor/lib/libOmxEvrcDec.so
 lib/libOmxMux.so
 lib/libFileMux.so
