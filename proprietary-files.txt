@@ -1441,6 +1441,7 @@ lib64/libdevicedata.so
 vendor/lib64/libpdmapper.so
 lib/libdevicedata.so
 vendor/lib/libmms_gyro_vstab.so
+vendor/lib/libmms_gyro_vstab_auth.so
 vendor/lib/libpdmapper.so
 lib64/libcctapi.so
 #lib64/libtinyxml2.so
