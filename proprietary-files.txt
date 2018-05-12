@@ -186,6 +186,7 @@ lib/libjni_sharpshooter.so
 lib/libjni_trueportrait.so
 lib/libjni_truescanner_v2.so
 lib/libjni_ubifocus.so
+lib/libtruescanner.so
 lib/libts_detected_face_jni.so
 lib/libts_face_beautify_hal.so
 lib/libts_face_beautify_jni.so
@@ -200,6 +201,7 @@ lib64/libjni_pacprocessor.so
 lib64/libjni_seestraight.so
 lib64/libjni_sharpshooter.so
 lib64/libjni_trueportrait.so
+lib64/libtruescanner.so
 lib64/libjni_truescanner_v2.so
 lib64/libjni_ubifocus.so
 lib64/libts_detected_face_jni.so
