@@ -1,0 +1,15 @@
+type asus_gauge, domain;
+type asus_gauge_exec, exec_type, file_type;
+type asus_ssn, domain;
+type asus_ssn_exec, exec_type, file_type;
+type asus_sp, domain;
+type asus_sp_exec, exec_type, file_type;
+type savelogmtp, domain;
+type savelogmtp_exec, exec_type, file_type;
+
+init_daemon_domain(asus_gauge);
+init_daemon_domain(asus_ssn);
+init_daemon_domain(asus_sp);
+init_daemon_domain(savelogmtp);
+
+# TODO: Resolve denials.
