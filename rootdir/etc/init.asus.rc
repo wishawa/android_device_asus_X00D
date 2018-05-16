@@ -894,20 +894,6 @@ service umount_apd /system/bin/sh /system/bin/umount_apd.sh
     oneshot
     disabled
 
-#----------------------------------------------------------------------
-# touch fw update service
-#----------------------------------------------------------------------
-# ASUS BSP +++Nancy touch firmware update
-service FWAuto /system/bin/fw_auto_update.sh
-#class main
-class late_start
-	user root
-	group root
-	seclabel u:r:asus_touch:s0
-	oneshot
-#seclabel u:r:FWAuto:s0
-#ASUS BSP --- Nancy touch firmware update
-
 # ASUS_BSP+++ Yunchung "add for bluetooth btwifimac service"
 service btwifimac /system/vendor/bin/sh /system/vendor/bin/btwifimac.sh
     class core
