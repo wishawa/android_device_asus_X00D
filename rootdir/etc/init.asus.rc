@@ -166,7 +166,7 @@ on post-fs-data
 	chown system shell /proc/driver/LaserFocus_Status
 	chown media shell /proc/driver/LaserFocus_Status_For_Camera
 	chown system shell /proc/driver/LaserFocus_debug_dump
-	chmod system shell /proc/driver/LaserFocus_register_dump
+	chown system shell /proc/driver/LaserFocus_register_dump
 	chown media shell /proc/driver/LaserFocus_setK
 	chown media shell /proc/driver/LaserFocus_ProductFamily
 	chown system shell /proc/driver/LaserFocus_CSCmode
@@ -378,13 +378,8 @@ on charger
 
 #ASUS BSP +++ Austin_Tseng charger mode country code
     mount ext4 /dev/block/bootdevice/by-name/factory /factory ro nosuid noatime nodev barrier=1 noauto_da_alloc
-    service ssn /system/bin/ssn
-    seclabel u:r:asus_ssn:s0
-    enabled
-    oneshot
+    start ssn
 #ASUS BSP --- Austin_Tseng charger mode country code
-
-	chmod 0777 /system/etc/rndisdiag.sh
 
 #################################
 #
@@ -834,7 +829,6 @@ on property:sys.usb.config=rndis,serial_smd,diag,adb
     write /sys/class/android_usb/android0/enable 1
     start adbd
     setprop sys.usb.state rndis,adb
-    start rndisdiagServie
 
 #ASUS_BSP--- Jeremy "Add QCOM USB Support"
 
@@ -899,12 +893,6 @@ service umount_apd /system/bin/sh /system/bin/umount_apd.sh
     group root
     oneshot
     disabled
-
-service rndisdiagServie /system/bin/sh /system/etc/rndisdiag.sh
-    user root
-    group root
-    disabled
-    oneshot
 
 #----------------------------------------------------------------------
 # touch fw update service
@@ -1019,6 +1007,9 @@ service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
     oneshot
     disabled
     seclabel u:r:fpservice:s0
+    
+on property:sys.boot_completed=1
+    start fpservice
 
 #ASUS_BSP---: add for fingerprint
 
@@ -1060,21 +1051,6 @@ service writekey /system/bin/writekey
 on property:debug.write.asuskey=1
 	start writekey
 # --- ASUS BSP : User unlock tool ---
-
-
-# +++ ASUS_BSP : add for write OS Info
-service writeOsInfo /system/bin/writeosinfo
-    class core
-    user root
-    seclabel u:r:asus_wosinfo:s0
-    oneshot
-    disabled
-
-on property:sys.boot_completed=1
-    start writeOsInfo
-    start fpservice
-# --- ASUS_BSP : add for write OS Info
-
 
 
 # ASUS_BSP +++ WeiYu "Copy Laser calibration data to factory partition in user device"

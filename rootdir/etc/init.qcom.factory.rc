@@ -85,7 +85,6 @@ on mmi
     start qcom-c_main-sh
     start irsc_util
     start qcamerasvr
-    start qcomsysd
     start ptt_ffbm
     start tftp_server
     start cnss-daemon
