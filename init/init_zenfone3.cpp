@@ -124,9 +124,9 @@ void check_varient()
     int rf = stoi(android::base::GetProperty("ro.boot.id.rf", ""));
     if (project == "6") {
         switch(rf){
-            case 1: model = "Z017DB"; break; /* Indonesian Varient */
-            case 2: model = "Z017DC"; break; /* Latin American Varient */
-            default: model = "Z017DA"; break; /* Default to Z017DA */
+            case 1: model = "ASUS_Z017DB"; break; /* Indonesian Varient */
+            case 2: model = "ASUS_Z017DC"; break; /* Latin American Varient */
+            default: model = "ASUS_Z017DA"; break; /* Default to Z017DA */
         }
 
         product = "ZE520KL";
@@ -139,11 +139,11 @@ void check_varient()
         dpi = "423";
     } else {
         switch(rf){
-            case 0: model = "Z012S";  break; /* Canadian varient */
-            case 1: model = "Z012DB"; break; /* Indonesian Varient */
-            case 8: model = "Z012D";  break; /* Global variant */
-            case 15: model = "Z012DE"; break; /* Chinese Varient */
-            default: model = "Z012DA"; break; /* Default to Z012DA */
+            case 0: model = "ASUS_Z012S";  break; /* Canadian varient */
+            case 1: model = "ASUS_Z012DB"; break; /* Indonesian Varient */
+            case 8: model = "ASUS_Z012DA";  break; /* JP/TW variant */
+            case 15: model = "ASUS_Z012DE"; break; /* Chinese Varient */
+            default: model = "ASUS_Z012DA"; break; /* Default to Z012DA */
         }
 
         product = "ZE552KL";
