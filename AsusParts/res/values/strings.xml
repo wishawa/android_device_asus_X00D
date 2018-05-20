@@ -15,7 +15,8 @@
 -->
 <resources>
     <string name="app_name">Asus</string>
-    <string name="advanced_settings">Advanced</string>
+    <string name="advanced_settings">AsusParts</string>
+    <string name="device_settings_summary">Additional hardware settings</string>
     <string name="category_vibrator">Vibrator</string>
     <string name="vib_strength_title_head">Strength</string>
     <string name="vib_strength_summary_head">Define the strength of the vibrator</string>

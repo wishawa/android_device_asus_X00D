@@ -20,10 +20,19 @@
             android:exported="true"
             android:label="@string/advanced_settings" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+                <!--  <category android:name="android.intent.category.LAUNCHER" /> -->
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.device" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_icon" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/device_settings_summary" />
         </activity>
         <receiver android:name="org.omnirom.device.Startup" >
             <intent-filter android:priority="100" >
