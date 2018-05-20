@@ -1,4 +1,5 @@
 type tfa9895_vendor_file, vendor_file_type, file_type;
+type tfa9895_data_file, file_type;
 type modem_shell_file, exec_type, file_type;
 type debugfs_rmt_storage, debugfs_type, fs_type;
 type serialno_file, file_type;
@@ -6,9 +7,14 @@ type camera_temp_file, file_type;
 type camera_param_file, file_type;
 type acdbdata_file, file_type;
 type factory_file, file_type;
+type goodix_fp_exec, exec_type, vendor_file_type, file_type;
+type vendor_bt_exec, exec_type, vendor_file_type, file_type;
+type rild_file, file_type;
+type usb_exec, exec_type, file_type;
 
 # proc
 type proc_camera_temp, sysfs_type, file_type;
 type proc_ois_device, sysfs_type, file_type;
 type proc_camera_module, sysfs_type, file_type;
 type proc_zoneinfo_file, sysfs_type, file_type;
+type proc_asus_debug, sysfs_type, file_type;

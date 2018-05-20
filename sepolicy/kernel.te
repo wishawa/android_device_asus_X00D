@@ -1,2 +1,8 @@
-allow kernel factory_file:file open;
+allow kernel asdf_block_device:file { read write open setattr };
+allow kernel asdf_block_device:dir search;
+
+allow kernel factory_file:dir search;
+allow kernel factory_file:file { read open };
 allow kernel self:capability chown;
+
+allow kernel tmpfs:dir search;

@@ -1,1 +1,3 @@
 allow rild vfat:file { read open getattr };
+allow rild rild_file:file { read open ioctl lock getattr };
+allow rild proc_asus_debug:file write;

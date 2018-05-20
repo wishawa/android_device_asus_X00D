@@ -953,7 +953,7 @@ service fpseek /system/vendor/bin/fpseek
 service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
     class late_start
     user root
-    group system
+    group root system drmrpc
     oneshot
     disabled
     seclabel u:r:fpservice:s0

@@ -26,21 +26,13 @@
 #
 
 #import /vendor/etc/init/hw/init.qcom.usb.rc
-#import /vendor/etc/init/hw/init.msm.usb.configfs.rc
 import /vendor/etc/init/hw/init.asus.usb.rc
 import /vendor/etc/init/hw/init.target.rc
-#+++ ASUS_BSP : Add ASUS user/eng rc
-import init.asus.rc
-# --- ASUS_BSP : Add ASUS user/eng rc
+import /vendor/etc/init/hw/init.asus.rc
 import /vendor/etc/init/hw/init.qcom.factory.rc
+import /vendor/etc/init/hw/init.asus.thermald.rc
+import /vendor/etc/init/hw/init.asus.debugtool.rc
 
-#ASUS_BSP +++ ShowCai "[Thermal] Thermal Service"
-import init.asus.thermald.rc
-#ASUS_BSP --- ShowCai "[Thermal] Thermal Service"
-
-#ASUS_BSP Wei +++
-import init.asus.debugtool.rc
-#ASUS_BSP Wei +++
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
@@ -658,8 +650,7 @@ service qmiproxy /system/bin/qmiproxy
 
 # QMUX must be in multiple groups to support external process connections
 
-service hciattach /vendor/bin/hci_qcomm_init -e
-    class late_start
+service hciattach /system/vendor/bin/hci_qcomm_init -e
     user bluetooth
     group bluetooth net_bt_admin oem_2950 diag radio
     disabled
@@ -668,7 +659,6 @@ service hciattach /vendor/bin/hci_qcomm_init -e
 
 on property:bluetooth.hciattach=true
     start hciattach
-    setprop bluetooth.status on
 
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off
@@ -717,7 +707,7 @@ on property:sys.sysctl.tcp_adv_win_scale=*
 service spk_amp_cal /system/bin/SpeakerCalibrationTest 1
     class late_start
     user root
-    group root audio
+    group root audio media
     disabled
     oneshot
     seclabel u:r:spk_amp_cal:s0
@@ -990,12 +980,13 @@ service battery_monitor /system/bin/battery_monitor
     group system
     disabled
 
-service modem-check /system/vendor/bin/modem_country
+service modem-check /system/vendor/bin/sh /system/vendor/etc/init.modem.sh
     class late_start
     user bluetooth
     group net_bt
     disabled
     oneshot
+    seclabel u:r:vendor_modem:s0
 
 service ril-daemon2 /vendor/bin/hw/rild -c 2
     class main

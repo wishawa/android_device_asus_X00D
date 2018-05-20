@@ -1,3 +1,7 @@
 allow hal_camera_default camera_device:file { read getattr };
 allow hal_camera_default camera_param_file:file { lock getattr read open };
 allow hal_camera_default proc_camera_module:file { read open getattr };
+allow hal_camera_default proc_asus_debug:file { append open getattr };
+
+set_prop(hal_camera_default, asus_cam_prop);
+set_prop(hal_camera_default, asus_debug_prop);

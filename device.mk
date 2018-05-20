@@ -384,6 +384,7 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     init.asus.usb.rc \
     init.chargerled.sh \
+    init.modem.sh \
     init.qcom.post_boot.sh
 
 # RIL

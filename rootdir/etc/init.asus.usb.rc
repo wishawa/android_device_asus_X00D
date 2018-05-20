@@ -13,13 +13,13 @@ on boot
 on charger
     setprop sys.usb.config mass_storage
 
-service qcom-usb-sh /vendor/bin/init.qcom.usb.sh
+service qcom-usb-sh /system/vendor/bin/sh /vendor/bin/init.qcom.usb.sh
     class core
     user root
     oneshot
     disabled
 
-service asus-usb-sh /vendor/bin/init.asus.usb.sh
+service asus-usb-sh /system/vendor/bin/sh /vendor/bin/init.asus.usb.sh
     class main
     user root
     oneshot

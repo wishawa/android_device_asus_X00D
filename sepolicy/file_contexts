@@ -1,11 +1,13 @@
 # Audio
 /dev/i2c-5                            u:object_r:tfa9895_device:s0
 /system/vendor/etc/tfa98xx.cnt        u:object_r:tfa9895_vendor_file:s0
+/data/data/tfa9895_cal_log.txt        u:object_r:tfa9895_data_file:s0
 /system/bin/SpeakerCalibrationTest    u:object_r:spk_amp_cal_exec:s0
 /asusfw/audio/acdbdata(/.*)?          u:object_r:acdbdata_file:s0
 
 # Bluetooth
-/factory/bt_nv.bin               u:object_r:bluetooth_data_file:s0
+/factory/bt_nv.bin                         u:object_r:bluetooth_data_file:s0
+/system/vendor/bin/hci_qcomm_init          u:object_r:vendor_bt_exec:s0
 
 # Camera
 /system/vendor/lib/DataSet/ispDB/ParameterDB.db           u:object_r:camera_param_file:s0
@@ -15,8 +17,11 @@
 /factory(/.*)?                   u:object_r:factory_file:s0
 
 # Fingerprint
+/system/vendor/bin/fpseek             u:object_r:goodix_fp_exec:s0
 /system/vendor/etc/fpservice.sh       u:object_r:fpservice_exec:s0
 /dev/goodix_fp                        u:object_r:goodix_fp_device:s0
+/system/vendor/bin/gx_fpd             u:object_r:goodix_fp_exec:s0
+/system/vendor/bin/gx_fpd_gxfp3       u:object_r:goodix_fp_exec:s0
 
 # Gesture
 /sys/devices/soc/78b7000.i2c/i2c-3/3-0038(/.*)?           u:object_r:sysfs_gesture_device:s0
@@ -26,7 +31,9 @@
 /sys/devices/soc/leds-qpnp-22/leds(/.*)?         u:object_r:sysfs_led_device:s0
 
 # Modem
-/system/vendor/bin/ssr_cfg.sh    u:object_r:modem_shell_file:s0
+/system/vendor/bin/ssr_cfg.sh                        u:object_r:modem_shell_file:s0
+/system/vendor/radio/qcril_database/qcril.db         u:object_r:rild_file:s0
+/system/vendor/bin/modem_country                     u:object_r:modem_shell_file:s0
 
 # Partitions
 /dev/block/mmcblk0p28            u:object_r:factory_block_device:s0
@@ -43,3 +50,6 @@
 
 # rmt_storage
 /sys/kernel/debug/rmt_storage(/.*)?             u:object_r:debugfs_rmt_storage:s0
+
+# usb
+/system/vendor/bin/init.asus.usb.sh            u:object_r:usb_exec:s0
