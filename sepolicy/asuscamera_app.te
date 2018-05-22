@@ -1,0 +1,4 @@
+type asuscamera_app, domain;
+app_domain(asuscamera_app)
+
+# TODO: Resolve denials.
