@@ -43,6 +43,3 @@
 
 # rmt_storage
 /sys/kernel/debug/rmt_storage(/.*)?             u:object_r:debugfs_rmt_storage:s0
-
-# Asus
-/system/bin/ssn                                 u:object_r:asus_ssn_exec:s0

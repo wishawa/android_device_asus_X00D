@@ -384,8 +384,7 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     init.asus.usb.rc \
     init.chargerled.sh \
-    init.qcom.post_boot.sh \
-    sp
+    init.qcom.post_boot.sh
 
 # RIL
 PRODUCT_PACKAGES += \

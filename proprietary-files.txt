@@ -696,7 +696,6 @@ vendor/bin/qseecom_sample_client
 bin/recvkernelevt
 vendor/bin/secure_ui_sample_client
 bin/sigma_dut
-bin/ssn
 vendor/bin/ssr_diag
 vendor/bin/ssr_setup
 bin/touch_function

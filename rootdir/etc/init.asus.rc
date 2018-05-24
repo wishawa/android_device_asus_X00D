@@ -11,11 +11,6 @@
 # ****DO NOT insert any services***     
 #
 #################################
-# for ssn/sp tool
-on firmware_mounts_complete
-    start sp
-    start ssn
-
 on boot
     chmod 0444 /proc/cmdline
 
@@ -375,11 +370,6 @@ on charger
 
     write /proc/asusevtlog "charger: enter charger mode"
 #---ASUS BSP David : mount asdf folder for charger mode log
-
-#ASUS BSP +++ Austin_Tseng charger mode country code
-    mount ext4 /dev/block/bootdevice/by-name/factory /factory ro nosuid noatime nodev barrier=1 noauto_da_alloc
-    start ssn
-#ASUS BSP --- Austin_Tseng charger mode country code
 
 #################################
 #
@@ -873,20 +863,6 @@ on property:persist.rd.special.connector=0
 #       system service
 #
 #################################
-# for sp tool
-service sp /sbin/sp
-    user root
-    group root
-    seclabel u:r:asus_sp:s0
-    disabled
-    oneshot
-
-# for ssn tool
-service ssn /system/bin/ssn
-    seclabel u:r:asus_ssn:s0
-    disabled
-    oneshot
-
 # unmount APD service
 service umount_apd /system/bin/sh /system/bin/umount_apd.sh
     user root
