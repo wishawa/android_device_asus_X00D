@@ -1182,7 +1182,6 @@ etc/init.asus.power.onoff.sh
 
 etc/init.asus.audbg.sh
 etc/init.asus.checkaudbg.sh
-etc/asusGaugeInit.sh
 etc/sensors_factory_init.sh
 etc/init.asus.gesture.sh
 etc/rgb_sensor_init.sh

@@ -151,9 +151,6 @@ on post-fs-data
     chown root camera /dev/asusRgbSensor
     chmod 0660 /dev/asusRgbSensor
 
-#ASUS_BSP David "asus gauge file init"
-    start asusGaugeInit
-
 # ASUS_BSP WeiYu+++ "LaserFocus sensor"
 	chown system shell /proc/driver/LaserFocus_on
 	chown media shell /proc/driver/LaserFocus_value
@@ -911,15 +908,6 @@ service debugonce /system/bin/sh /system/etc/start_debugonce.sh
 service rgb_sensor_init /system/bin/sh /system/etc/rgb_sensor_init.sh
         class core
         user root
-        oneshot
-        disabled
-
-
-#ASUS BSP David : sh for asus gauge init
-service asusGaugeInit /system/bin/sh /system/etc/asusGaugeInit.sh
-        class core
-        user root
-	seclabel u:r:asus_gauge:s0
         oneshot
         disabled
 

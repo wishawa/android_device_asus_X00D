@@ -1,9 +1,6 @@
-type asus_gauge, domain;
-type asus_gauge_exec, exec_type, file_type;
 type savelogmtp, domain;
 type savelogmtp_exec, exec_type, file_type;
 
-init_daemon_domain(asus_gauge);
 init_daemon_domain(savelogmtp);
 
 # TODO: Resolve denials.
