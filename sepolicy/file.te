@@ -18,3 +18,4 @@ type proc_ois_device, sysfs_type, file_type;
 type proc_camera_module, sysfs_type, file_type;
 type proc_zoneinfo_file, sysfs_type, file_type;
 type proc_asus_debug, sysfs_type, file_type;
+type proc_fpmod, sysfs_type, file_type;
