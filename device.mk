@@ -502,6 +502,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
    ZenfoneDoze
 
+# FlipFlap
+PRODUCT_PACKAGES += \
+   FlipFlap
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \

@@ -13,6 +13,12 @@
   },
   {
    "remote": "github",
+   "repository": "LineageOS/android_packages_apps_FlipFlap",
+   "target_path": "packages/apps/FlipFlap"  
+   "branch": "lineage-15.1"  
+  },
+  {
+   "remote": "github",
    "repository": "Planet-X/android_kernel_asus_msm8953",
    "target_path": "kernel/asus/msm8953",
    "branch": "lineage-15.1"
