@@ -1,3 +1,4 @@
 allow system_server factory_file:file { open read };
 allow system_server factory_file:dir search;
+allow system_server sysfs_gesture_device:file write;
 
