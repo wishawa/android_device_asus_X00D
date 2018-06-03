@@ -6,6 +6,7 @@ genfscon proc /driver/ois_status        u:object_r:proc_ois_device:s0
 genfscon proc /driver/FrontModule                      u:object_r:proc_camera_module:s0
 genfscon proc /driver/RearModule                       u:object_r:proc_camera_module:s0
 genfscon proc /driver/rear_otp                         u:object_r:proc_camera_module:s0
+genfscon proc /driver/front_otp                        u:object_r:proc_camera_module:s0
 genfscon proc /driver/LaserFocus_Status_For_Camera     u:object_r:proc_camera_module:s0
 
 genfscon proc /asusdebug-switch        u:object_r:proc_asus_debug:s0

@@ -30,6 +30,9 @@
 /sys/devices/soc/leds-qpnp-21/leds(/.*)?         u:object_r:sysfs_led_device:s0
 /sys/devices/soc/leds-qpnp-22/leds(/.*)?         u:object_r:sysfs_led_device:s0
 
+# Video
+/sys/devices/soc/1b00000\.qcom,msm-cam/video4linux/video0/name         u:object_r:sysfs_video:s0
+
 # Modem
 /(vendor|system/vendor)/bin/ssr_cfg.sh                        u:object_r:modem_shell_file:s0
 /(vendor|system/vendor)/radio/qcril_database/qcril.db         u:object_r:rild_file:s0
@@ -53,3 +56,6 @@
 
 # usb
 /(vendor|system/vendor)/bin/init.asus.usb.sh            u:object_r:usb_exec:s0
+
+# sockets
+/dev/socket/dit                  u:object_r:dit_socket:s0

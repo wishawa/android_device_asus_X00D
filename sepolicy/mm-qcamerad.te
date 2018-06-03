@@ -1,7 +1,7 @@
 allow mm-qcamerad sysfs_graphics:file { read open };
-allow mm-qcamerad socket_device:dir { create_dir_perms add_name };
-allow mm-qcamerad socket_device:chr_file create;
-allow mm-qcamerad socket_device:sock_file { create setattr };
+allow mm-qcamerad dit_socket:dir { create_dir_perms add_name getattr write };
+allow mm-qcamerad dit_socket:chr_file create;
+allow mm-qcamerad dit_socket:sock_file { create setattr };
 allow mm-qcamerad camera_param_file:file r_file_perms;
 allow mm-qcamerad rgb_sensor_device:chr_file rw_file_perms;
 allow mm-qcamerad proc_ois_device:file rw_file_perms;
@@ -11,6 +11,9 @@ allow mm-qcamerad factory_file:dir search;
 allow mm-qcamerad asusfw_block_device:dir search;
 allow mm-qcamerad asusfw_block_device:file { open read };
 allow mm-qcamerad proc_camera_module:file { read open getattr };
+allow mm-qcamerad sysfs_video:file r_file_perms;
+
+allow mm-qcamerad hal_perf_hwservice:hwservice_manager find;
 
 set_prop(mm-qcamerad, asus_debug_prop)
 
