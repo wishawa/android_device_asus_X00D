@@ -136,7 +136,7 @@ void check_varient()
         carrier = "US-ASUS_Z017D-WW_Phone"; /* Default to US for now TODO: Split carrier depending value in /factory/COUNTRY */
         hwID = "ZE520KL_MP";
         csc = "WW_ZE520KL-15.0410.1804.61-0";
-        dpi = "423";
+        dpi = "420";
     } else {
         switch(rf){
             case 0: model = "ASUS_Z012S";  break; /* Canadian varient */
