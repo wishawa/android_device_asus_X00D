@@ -945,7 +945,7 @@ service gx_fpd_gxfp3 /system/vendor/bin/gx_fpd_gxfp3
 service fpseek /system/vendor/bin/fpseek
     class core
     user root
-    group system
+    group system drmrpc
     oneshot
     disabled
     seclabel u:r:fpservice:s0
