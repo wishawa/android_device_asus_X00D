@@ -2,6 +2,7 @@ persist.sys.fp.goodix                 u:object_r:fp_goodix_prop:s0
 persist.sys.fp.vendor                 u:object_r:fp_goodix_prop:s0
 persist.sys.fp.onstart                u:object_r:fp_goodix_prop:s0
 fingerprint.start                     u:object_r:fp_goodix_prop:s0
+ro.hardware.fingerprint               u:object_r:fp_goodix_prop:s0
 
 tfa9895.calibration                   u:object_r:tfa9895_prop:s0
 persist.asus.pvcabc                   u:object_r:asus_cam_prop:s0
