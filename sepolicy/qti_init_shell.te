@@ -28,3 +28,6 @@ allow qti_init_shell usb_exec:file { r_file_perms execute_no_trans };
 
 # wifi
 allow qti_init_shell factory_file:file getattr;
+
+# Property
+set_prop(qti_init_shell, lcd_dpi_prop);
