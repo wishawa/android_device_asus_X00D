@@ -376,7 +376,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     ueventd.qcom.rc \
-    init.asus.debugtool.rc \
     init.asus.rc \
     init.asus.thermald.rc \
     init.qcom.factory.rc \

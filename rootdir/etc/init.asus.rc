@@ -32,6 +32,14 @@ on fs
     chmod 0775 /factory
     chown root shell /factory
 
+    # mount asdf
+    wait /dev/block/bootdevice/by-name/asdf
+    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/asdf
+    mkdir /asdf
+    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid nodev noatime barrier=1
+    chmod 0777 /asdf
+    restorecon_recursive /asdf
+
     mkdir /dev/validity 0760 system root
     chown system root /dev/vfsspi
     chown system root /dev/fingerprint
