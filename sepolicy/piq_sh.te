@@ -1,7 +1,0 @@
-type piq_sh, domain;
-type piq_sh_exec, exec_type, file_type;
-init_daemon_domain(piq_sh);
-
-domain_trans(init, rootfs, piq_sh)
-
-allow piq_sh shell_exec:file { entrypoint getattr };

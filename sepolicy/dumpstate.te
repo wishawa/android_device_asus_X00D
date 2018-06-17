@@ -1,2 +1,0 @@
-allow dumpstate shell_exec:file entrypoint;
-allow dumpstate vendor_toolbox_exec:file execute_no_trans;

@@ -726,26 +726,6 @@ vendor/bin/ssr_cfg.sh
 vendor/bin/ssr_ui.sh
 vendor/xbin/netlog.sh
 
-#etc/init.asus.check_asdf.sh
-#etc/init.asus.check_last.sh
-#etc/init.asus.checkdatalog.sh
-#etc/init.asus.kernelmessage.sh
-#etc/init.asus.ramdump.sh
-#etc/prepare_asusdebug.sh
-#etc/asus_dfps.sh
-#etc/cscclearlog.sh
-#etc/execkernelevt.sh
-#etc/init.asus.checklogsize.sh
-#etc/init.asus.hcidump.sh
-#etc/init.asus.piq.sh
-#etc/init.asus.set_time.sh
-#etc/sensors_init.sh
-#etc/collectfplog.sh
-#bin/RW_test.sh
-#bin/fsstress
-#bin/fsstress-run.sh
-#bin/create_pcbid.sh
-
 vendor/bin/hostapd_cmd
 
 #etc/public.libraries.txt

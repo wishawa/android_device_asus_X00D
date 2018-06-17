@@ -1172,14 +1172,6 @@ vendor/bin/init.class_main.sh
 vendor/bin/init.qcom.usb.sh
 vendor/bin/init.asus.usb.sh
 
-etc/init.asus.ramdump.sh
-etc/init.asus.kernelmessage.sh
-etc/init.asus.piq.sh
-etc/init.asus.checkdatalog.sh
-etc/init.asus.check_last.sh
-etc/init.asus.check_asdf.sh
-etc/init.asus.power.onoff.sh
-
 etc/init.asus.audbg.sh
 etc/init.asus.checkaudbg.sh
 etc/sensors_factory_init.sh
@@ -1190,15 +1182,6 @@ vendor/etc/init.asus.thermal_conf.sh
 vendor/bin/init.qcom.wifi.sh
 vendor/etc/ois_init.sh
 
-etc/saveramdump.sh
-etc/savelogmtp.sh
-etc/savelogs.sh
-etc/savelogs_complete.sh
-etc/UTSdumpstate.sh
-etc/init.asus.checklogsize.sh
-etc/procrankdump.sh
-etc/cscclearlog.sh
-etc/execkernelevt.sh
 bin/filldata.sh
 bin/fsstress-run.sh
 etc/sensors_init.sh
