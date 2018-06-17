@@ -1164,7 +1164,6 @@ etc/permissions/qti_libpermissions.xml
 vendor/etc/thermal-engine.conf
 
 #RAMDISK
-vendor/bin/init.qcom.early_boot.sh
 vendor/bin/init.qcom.sh
 vendor/bin/init.qcom.sensors.sh
 vendor/bin/init.qcom.class_core.sh
