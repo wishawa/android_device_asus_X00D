@@ -4,6 +4,7 @@ init_daemon_domain(fpservice);
 
 domain_trans(init, rootfs, fpservice)
 
+allow fpservice goodix_fp_service:service_manager add;
 allow fpservice self:netlink_socket { create bind write read };
 allow fpservice tee_device:chr_file { ioctl read write open };
 allow fpservice ion_device:chr_file { read open ioctl };
