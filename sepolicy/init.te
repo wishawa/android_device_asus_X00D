@@ -20,6 +20,7 @@ allow init asusfw_block_device:dir mounton;
 allow init asusfw_block_device:file r_file_perms;
 allow init adf_block_device:dir mounton;
 allow init apd_block_device:dir mounton;
+allow init sysinfo_block_device:blk_file setattr;
 
 # socket
 allow init self:netlink_socket { read write getattr connect };
