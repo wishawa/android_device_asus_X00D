@@ -6,3 +6,4 @@ allow fsck apd_block_device:blk_file rw_file_perms;
 allow fsck apd_block_device:dir getattr;
 allow fsck adf_block_device:blk_file rw_file_perms;
 allow fsck adf_block_device:dir getattr;
+allow fsck dsp_block_device:blk_file rw_file_perms;
