@@ -58,8 +58,5 @@
 # rmt_storage
 /sys/kernel/debug/rmt_storage(/.*)?             u:object_r:debugfs_rmt_storage:s0
 
-# usb
-/(vendor|system/vendor)/bin/init.asus.usb.sh            u:object_r:usb_exec:s0
-
 # sockets
 /dev/socket/dit                  u:object_r:dit_socket:s0

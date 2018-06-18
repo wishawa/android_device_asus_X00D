@@ -1169,7 +1169,6 @@ vendor/bin/init.qcom.sensors.sh
 vendor/bin/init.qcom.class_core.sh
 vendor/bin/init.class_main.sh
 vendor/bin/init.qcom.usb.sh
-vendor/bin/init.asus.usb.sh
 
 etc/init.asus.audbg.sh
 etc/init.asus.checkaudbg.sh

@@ -23,8 +23,5 @@ allow qti_init_shell factory_file:dir search;
 allow qti_init_shell sysfs_devices_system_cpu:dir write;
 allow qti_init_shell sysfs:file write;
 
-# usb
-allow qti_init_shell usb_exec:file { r_file_perms execute_no_trans };
-
 # wifi
 allow qti_init_shell factory_file:file getattr;
