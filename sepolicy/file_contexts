@@ -1,6 +1,7 @@
 # Audio
 /dev/i2c-5                                     u:object_r:tfa9895_device:s0
 /(vendor|system/vendor)/etc/tfa98xx.cnt        u:object_r:tfa9895_vendor_file:s0
+/asusfw/audio/Tfa98xx.cnt                      u:object_r:tfa9895_asusfw_file:s0
 /data/data/tfa9895_cal_log.txt                 u:object_r:tfa9895_data_file:s0
 /system/bin/SpeakerCalibrationTest             u:object_r:spk_amp_cal_exec:s0
 /asusfw/audio/acdbdata(/.*)?                   u:object_r:acdbdata_file:s0
