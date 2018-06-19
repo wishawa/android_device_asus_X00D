@@ -27,8 +27,9 @@ on fs
     # mount factory
     wait /dev/block/bootdevice/by-name/factory
     exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/factory
-    mount ext4 /dev/block/bootdevice/by-name/factory /factory ro nosuid nodev noatime  barrier=1 noauto_da_alloc
+    mount ext4 /dev/block/bootdevice/by-name/factory /factory rw nosuid nodev noatime  barrier=1 noauto_da_alloc
     restorecon_recursive /factory
+    mount ext4 /dev/block/bootdevice/by-name/factory /factory remount ro nosuid nodev barrier=1 noauto_da_alloc
     chmod 0775 /factory
     chown root shell /factory
 
