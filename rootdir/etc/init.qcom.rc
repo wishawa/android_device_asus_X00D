@@ -927,8 +927,10 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 service charger_led /vendor/bin/init.chargerled.sh
     class late_start
     user root
+    group root system
     disabled
     oneshot
+    seclabel u:r:charger_led:s0
 
 service wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
     class late_start
