@@ -1,6 +1,5 @@
 # btnvtool
 allow qti_init_shell btnvtool_exec:file execute_no_trans;
-allow qti_init_shell bluetooth_data_file:file r_file_perms;
 
 # firmware
 allow qti_init_shell vfat:file r_file_perms;
