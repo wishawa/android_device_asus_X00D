@@ -1,10 +1,8 @@
 # Audio
 /dev/i2c-5                                     u:object_r:tfa9895_device:s0
 /(vendor|system/vendor)/etc/tfa98xx.cnt        u:object_r:tfa9895_vendor_file:s0
-/asusfw/audio/Tfa98xx.cnt                      u:object_r:tfa9895_asusfw_file:s0
 /data/data/tfa9895_cal_log.txt                 u:object_r:tfa9895_data_file:s0
 /system/bin/SpeakerCalibrationTest             u:object_r:spk_amp_cal_exec:s0
-/asusfw/audio/acdbdata(/.*)?                   u:object_r:acdbdata_file:s0
 
 # Bluetooth
 /(vendor|system/vendor)/bin/hci_qcomm_init          u:object_r:vendor_bt_exec:s0
@@ -45,14 +43,14 @@
 /dev/block/mmcblk0p23            u:object_r:sysinfo_block_device:s0
 /dev/block/mmcblk0p28            u:object_r:factory_block_device:s0
 /dev/block/mmcblk0p53            u:object_r:asdf_block_device:s0
-/asdf(/.*)?                      u:object_r:asdf_block_device:s0
+/asdf(/.*)?                      u:object_r:log_file:s0
 /dev/block/mmcblk0p54            u:object_r:dsp_block_device:s0
 /dev/block/mmcblk0p60            u:object_r:asusfw_block_device:s0
-/asusfw(/.*)?                    u:object_r:asusfw_block_device:s0
-/dev/block/mmcblk0p63            u:object_r:adf_block_device:s0
-/ADF(/.*)?                       u:object_r:adf_block_device:s0
-/dev/block/mmcblk0p64            u:object_r:apd_block_device:s0
-/APD(/.*)?                       u:object_r:apd_block_device:s0
+/asusfw(/.*)?                    u:object_r:factory_file:s0
+/dev/block/mmcblk0p63            u:object_r:demoapp_block_device:s0
+/ADF(/.*)?                       u:object_r:demoapp_file:s0
+/dev/block/mmcblk0p64            u:object_r:demoapp_block_device:s0
+/APD(/.*)?                       u:object_r:demoapp_file:s0
 
 # RGB Sensor
 /dev/asusRgbSensor               u:object_r:rgb_sensor_device:s0

@@ -7,11 +7,11 @@ domain_trans(init, rootfs, spk_amp_cal)
 allow spk_amp_cal audio_device:dir search;
 allow spk_amp_cal audio_device:chr_file { read write open ioctl };
 allow spk_amp_cal shell_exec:file { execute read open getattr execute_no_trans };
-allow spk_amp_cal asusfw_block_device:dir search;
 allow spk_amp_cal system_file:file execute_no_trans;
 allow spk_amp_cal tfa9895_device:chr_file { read write open ioctl };
 allow spk_amp_cal tfa9895_data_file:file { open write getattr };
-allow spk_amp_cal tfa9895_asusfw_file:file r_file_perms;
+allow spk_amp_cal factory_file:dir search;
+allow spk_amp_cal factory_file:file r_file_perms;
 allow spk_amp_cal init:unix_stream_socket connectto;
 
 set_prop(spk_amp_cal, tfa9895_prop)

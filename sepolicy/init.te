@@ -1,9 +1,6 @@
 # audio
 allow init audio_device:chr_file { write ioctl };
 
-# factory_file
-allow init factory_file:dir mounton;
-
 # firmware_file
 allow init firmware_file:filesystem associate;
 
@@ -14,12 +11,11 @@ allow init sysfs_gesture_device:file setattr;
 allow init sysfs_led_device:file setattr;
 
 # partitions
-allow init asdf_block_device:dir mounton;
-allow init asdf_block_device:file r_file_perms;
-allow init asusfw_block_device:dir mounton;
-allow init asusfw_block_device:file r_file_perms;
-allow init adf_block_device:dir mounton;
-allow init apd_block_device:dir mounton;
+allow init factory_file:dir mounton;
+allow init factory_file:file r_file_perms;
+allow init log_file:dir mounton;
+allow init log_file:file r_file_perms;
+allow init demoapp_file:dir mounton;
 allow init sysinfo_block_device:blk_file setattr;
 
 # socket

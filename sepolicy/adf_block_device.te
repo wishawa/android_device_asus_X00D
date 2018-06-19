@@ -1,1 +1,0 @@
-allow adf_block_device rootfs:filesystem associate;

@@ -8,8 +8,6 @@ allow mm-qcamerad proc_ois_device:file rw_file_perms;
 allow mm-qcamerad laser_sensor_device:chr_file { read write open ioctl };
 allow mm-qcamerad factory_file:file { read open lock getattr };
 allow mm-qcamerad factory_file:dir search;
-allow mm-qcamerad asusfw_block_device:dir search;
-allow mm-qcamerad asusfw_block_device:file { open read };
 allow mm-qcamerad proc_camera_module:file { read open getattr };
 allow mm-qcamerad sysfs_video:file r_file_perms;
 

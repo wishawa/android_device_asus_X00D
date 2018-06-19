@@ -8,7 +8,6 @@ type laser_sensor_device, dev_type;
 type factory_block_device, dev_type;
 type asusfw_block_device, dev_type;
 type asdf_block_device, dev_type;
-type apd_block_device, dev_type;
-type adf_block_device, dev_type;
+type demoapp_block_device, dev_type;
 type dsp_block_device, dev_type;
 type sysinfo_block_device, dev_type;
