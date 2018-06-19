@@ -1,2 +1,4 @@
 allow priv_app proc_interrupts:file { open read getattr };
 allow priv_app proc_stat:file { open read getattr };
+allow priv_app hal_memtrack_hwservice:hwservice_manager find;
+allow priv_app hal_memtrack_default:binder call;

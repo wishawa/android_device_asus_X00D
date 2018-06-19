@@ -1,3 +1,4 @@
+allow fsck factory_file:dir getattr;
 allow fsck factory_block_device:blk_file rw_file_perms;
 allow fsck asusfw_block_device:blk_file rw_file_perms;
 allow fsck asusfw_block_device:dir getattr;

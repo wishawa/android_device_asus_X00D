@@ -1,3 +1,4 @@
 allow hal_audio_default acdbdata_file:file { read getattr open };
 allow hal_audio_default acdbdata_file:dir { read open search };
 allow hal_audio_default asusfw_block_device:dir search;
+allow hal_audio_default factory_file:dir search;
