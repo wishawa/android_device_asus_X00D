@@ -337,8 +337,8 @@ vendor/lib/libmm-disp-apis.so
 vendor/lib64/libmm-dspp-utils.so
 vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
-lib/libsd_sdk_display.so
--lib/libsdm-disp-apis.so
+vendor/lib/libsd_sdk_display.so|e1f9b186e1b97f37298dc6991e5fd7626c22f532
+-vendor/lib/libsdm-disp-apis.so|e01777a9f311d5541740058d017c561017e38ba0
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
@@ -364,14 +364,14 @@ vendor/lib64/libmm-disp-apis.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libscalar.so
-lib64/libsd_sdk_display.so
+vendor/lib64/libsd_sdk_display.so|9449e3ddfea84fb94447cb3f95d324cff216491c
 vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-diag.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
--lib64/libsdm-disp-apis.so
-vendor/lib64/libsdmextension.so
-vendor/lib/libsdmextension.so
+-vendor/lib64/libsdm-disp-apis.so|9449e3ddfea84fb94447cb3f95d324cff216491c
+vendor/lib64/libsdmextension.so|deff27743a91bcf94de82d851c75a07903045ca9
+vendor/lib/libsdmextension.so|3191101a6550ee2ce4dc9bf627c6574881dec6a7
 
 # Vulkan
 vendor/lib64/hw/vulkan.msm8953.so
@@ -472,9 +472,6 @@ vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
 # Postprocessing
-etc/permissions/com.qti.snapdragon.sdk.display.xml
-framework/com.qti.snapdragon.sdk.display.jar
--vendor/app/colorservice/colorservice.apk
 vendor/lib64/libdisp-aba.so
 vendor/lib/libmm-qdcm.so
 vendor/lib64/libmm-qdcm.so
@@ -608,6 +605,8 @@ vendor/lib/vendor.qti.hardware.radio.uim@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.uim_remote_server@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.qcrilhook@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.am@1.0_vendor.so
+vendor/lib64/vendor.display.color@1.0_vendor.so|e4d4656f59dfff5cc4ee40714b1d83dac9c6b4fa
+vendor/lib64/vendor.display.postproc@1.0_vendor.so|8b4def2c389c22003a486a01963de2cbacd10d96
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.radio.lpa@1.0_vendor.so
@@ -1013,6 +1012,7 @@ etc/wfdconfigsink.xml
 
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 lib64/com.qualcomm.qti.wifidisplayhal@1.0.so
+vendor/etc/init/vendor.display.color@1.0-service.rc|5ad673f879b3685a0e79b5633437e5499cb94f48
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
 vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
 vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-impl.so
