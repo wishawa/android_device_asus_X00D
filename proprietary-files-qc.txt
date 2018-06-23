@@ -374,8 +374,8 @@ vendor/lib64/libsdmextension.so|deff27743a91bcf94de82d851c75a07903045ca9
 vendor/lib/libsdmextension.so|3191101a6550ee2ce4dc9bf627c6574881dec6a7
 
 # Vulkan
-vendor/lib64/hw/vulkan.msm8953.so
-vendor/lib/hw/vulkan.msm8953.so
+vendor/lib64/hw/vulkan.msm8953.so|137211c12ef18cf750c6daebf2a769c14f09e6aa
+vendor/lib/hw/vulkan.msm8953.so|01c473112b8505d33aca721998a45ef7f7a5669f
 
 # Signed graphics firmware
 vendor/firmware/a225p5_pm4.fw
