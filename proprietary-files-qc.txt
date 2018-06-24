@@ -369,7 +369,7 @@ vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-diag.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
--vendor/lib64/libsdm-disp-apis.so|9449e3ddfea84fb94447cb3f95d324cff216491c
+-vendor/lib64/libsdm-disp-apis.so|fcd5956297da180d9164b55fb92a6ddfece645aa
 vendor/lib64/libsdmextension.so|deff27743a91bcf94de82d851c75a07903045ca9
 vendor/lib/libsdmextension.so|3191101a6550ee2ce4dc9bf627c6574881dec6a7
 
