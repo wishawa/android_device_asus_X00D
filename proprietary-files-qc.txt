@@ -1152,7 +1152,6 @@ vendor/lib64/vendor.qti.hardware.perf@1.0_vendor.so
 -framework/qti-telephony-common.jar|2eba987ae297a892e895ec1e9a302b41dbe0232e
 
 vendor/lib/vendor.display.color@1.0_vendor.so
-vendor/lib/vendor.display.config@1.0_vendor.so
 vendor/lib/vendor.display.postproc@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.alarm@1.0.so
 vendor/lib/vendor.qti.hardware.vpp@1.1_vendor.so
