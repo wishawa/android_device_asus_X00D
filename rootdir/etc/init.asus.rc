@@ -441,10 +441,6 @@ on property:ro.boot.ftm=1
     chmod 0777 /dev/vfsspi
 # ASUS_BSP Jacob ---
 
-#ASUS_BSP+++ Cumo_Lin "link fmtest for ATD test"
-  symlink /system/bin/fmtest /data/data/fmtest
-#ASUS_BSP--- Cumo_Lin "link fmtest for ATD test"
-
 # ASUS_BSP+++ Weihong_Hsu "[Libra][GPS][NA][OTHER] Add GPS Factory Test Tool"
     symlink /system/bin/GpsTest /data/data/GpsTest
 # ASUS_BSP--- Weihong_Hsu "[Libra][GPS][NA][OTHER] Add GPS Factory Test Tool"
@@ -652,14 +648,6 @@ on property:ro.boot.ftm=1
 # ****DO NOT insert any services***     
 #
 #################################
-
-#ASUS_BSP+++ Cumo_Lin "Set audio for FM ATD test"
-on property:hw.fm.fmaudio=0
-  start asus_fmaudio
-
-on property:hw.fm.fmaudio=1
-  start asus_fmaudio
-#ASUS_BSP--- Cumo_Lin "Set audio for FM ATD test"
 
 # ASUS_BSP+++ Yunchung "add for bluetooth DUT mode test"
 on property:init.svc.save-hcidump=stopped
@@ -883,15 +871,6 @@ service btwifimac /system/vendor/bin/sh /system/vendor/bin/btwifimac.sh
     oneshot
 #    seclabel u:r:btwifimac:s0
 # ASUS_BSP+++ Yunchung "add for bluetooth btwifimac service"
-
-#ASUS_BSP+++ Cumo_Lin "Set audio for FM ATD test"
-service asus_fmaudio /system/bin/sh /system/etc/init.asus.fm.sh
-  class late_start
-  user root
-  group root
-  disabled
-  oneshot
-#ASUS_BSP--- Cumo_Lin "Set audio for FM ATD test"
 
 
 service debugprofile /system/bin/sh /system/etc/start_debug.sh

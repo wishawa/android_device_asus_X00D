@@ -147,13 +147,8 @@ PRODUCT_COPY_FILES += \
 
 # FM
 PRODUCT_PACKAGES += \
-    FM2 \
-    libfmjni \
-    libqcomfm_jni \
-    libfm-hci \
-    fm_helium \
-    qcom.fmradio \
-    fmhal_service
+    FMRadio \
+    libfmjni
 
 # Bluetooth
 PRODUCT_PACKAGES += \
