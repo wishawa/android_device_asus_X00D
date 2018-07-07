@@ -13,5 +13,7 @@ allow spk_amp_cal tfa9895_data_file:file { open write getattr };
 allow spk_amp_cal factory_file:dir search;
 allow spk_amp_cal factory_file:file r_file_perms;
 allow spk_amp_cal init:unix_stream_socket connectto;
+allow spk_amp_cal asusfw_block_device:dir search;
+allow spk_amp_cal system_data_file:dir write;
 
 set_prop(spk_amp_cal, tfa9895_prop)

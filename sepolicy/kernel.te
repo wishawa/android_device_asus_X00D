@@ -1,8 +1,12 @@
 allow kernel log_file:file { read write open setattr };
 allow kernel log_file:dir search;
 
+allow kernel asdf_block_device:dir search;
+allow kernel asdf_block_device:file { read open };
 allow kernel factory_file:dir search;
 allow kernel factory_file:file { read open };
+
 allow kernel self:capability chown;
+allow kernel self:socket create;
 
 allow kernel tmpfs:dir search;

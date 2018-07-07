@@ -1,0 +1,1 @@
+allow rfs_access vendor_tombstone_data_file:dir search;
