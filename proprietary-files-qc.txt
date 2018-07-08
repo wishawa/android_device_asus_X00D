@@ -554,7 +554,7 @@ etc/permissions/radioconfiginterface.xml
 etc/permissions/telephonyservice.xml
 etc/permissions/qcrilhook.xml
 framework/embmslibrary.jar
--framework/qcrilhook.jar
+framework/qcrilhook.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib/libconfigdb.so
@@ -1106,8 +1106,8 @@ vendor/lib64/libOmxAmrDec.so
 
 # Modem
 -app/QtiTelephonyService/QtiTelephonyService.apk
--framework/QtiTelephonyServicelibrary.jar
--framework/qti-telephony-common.jar|2eba987ae297a892e895ec1e9a302b41dbe0232e
+framework/QtiTelephonyServicelibrary.jar
+framework/qti-telephony-common.jar|2eba987ae297a892e895ec1e9a302b41dbe0232e
 
 vendor/lib/vendor.display.color@1.0_vendor.so
 vendor/lib/vendor.display.postproc@1.0_vendor.so
