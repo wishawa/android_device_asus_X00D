@@ -1177,6 +1177,9 @@ service time_daemon /system/vendor/bin/time_daemon
     group root
     oneshot
 
+on property:dev.bootcomplete=1
+    setprop sys.io.scheduler "bfq"
+
 # Set vendor-ril lib path based on Meta version
 on property:vendor.rild.libpath=*
     setprop rild.libpath ${vendor.rild.libpath}
