@@ -44,6 +44,7 @@ char const *description;
 char const *fingerprint;
 char const *device;
 char const *model;
+char const *power_profile;
 char const *carrier;
 char const *hwID;
 char const *csc;
@@ -130,6 +131,7 @@ void check_varient()
         }
 
         product = "ZE520KL";
+        power_profile = "power_profile_Z017";
         fingerprint = "asus/WW_Phone/ASUS_Z017D_1:8.0.0/OPR1.170623.026/15.0410.1806.65-0:user/release-keys";
         device = "ASUS_Z017D_1";
         carrier = "US-ASUS_Z017D-WW_Phone"; /* Default to US for now TODO: Split carrier depending value in /factory/COUNTRY */
@@ -146,6 +148,7 @@ void check_varient()
         }
 
         product = "ZE552KL";
+        power_profile = "power_profile_Z012";
         fingerprint = "asus/WW_Phone/ASUS_Z012D:8.0.0/OPR1.170623.026/15.0410.1806.65-0:user/release-keys";
         device = "ASUS_Z012D";
         carrier = "US-ASUS_Z012D-WW_Phone"; /* Default to US for now TODO: Split carrier depending value in /factory/COUNTRY */
@@ -170,6 +173,7 @@ void vendor_load_properties()
     property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", fingerprint);
     property_override("ro.product.device", device);
     property_override("ro.product.model", model);
+    property_set("ro.power_profile.override", power_profile);
     property_set("ro.product.carrier", carrier);
     property_set("ro.hardware.id", hwID);
     property_set("ro.build.csc.version", csc);
