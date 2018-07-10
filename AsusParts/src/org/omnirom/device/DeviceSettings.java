@@ -19,8 +19,10 @@ package org.omnirom.device;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.res.Resources;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v7.preference.ListPreference;
@@ -43,8 +45,12 @@ public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     public static final String KEY_VIBSTRENGTH = "vib_strength";
+    public static final String KEY_SWIPE2WAKE = "swipe2wake";
 
     private VibratorStrengthPreference mVibratorStrength;
+    private TwoStatePreference mSwipe2Wake;
+
+    private static final String SWIPE2WAKE_FILE = "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/swipeup_mode";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -54,6 +60,10 @@ public class DeviceSettings extends PreferenceFragment implements
         if (mVibratorStrength != null) {
             mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
         }
+        
+        mSwipe2Wake = (TwoStatePreference) findPreference(KEY_SWIPE2WAKE);
+        mSwipe2Wake.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_SWIPE2WAKE, false));
+        mSwipe2Wake.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -61,8 +71,19 @@ public class DeviceSettings extends PreferenceFragment implements
         return super.onPreferenceTreeClick(preference);
     }
 
+    public static void restore(Context context) {
+        boolean swipe2WakeData =  PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DeviceSettings.KEY_SWIPE2WAKE, false);
+        Utils.writeValue(SWIPE2WAKE_FILE, swipe2WakeData ? "1" : "0");
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mSwipe2Wake) {
+            Boolean enabled = (Boolean) newValue;
+            SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            prefChange.putBoolean(KEY_SWIPE2WAKE, enabled).commit();
+            Utils.writeValue(SWIPE2WAKE_FILE, enabled ? "1" : "0");
+        }
         return true;
     }
 }

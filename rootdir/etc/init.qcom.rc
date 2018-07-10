@@ -246,6 +246,9 @@ on boot
     # Permissions for Keypad Mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/keypad_mode
 
+    # Permissions for Swipe2Wake
+    chown system system /sys/bus/i2c/devices/i2c-3/3-0038/swipeup_mode
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system

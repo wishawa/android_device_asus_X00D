@@ -1,4 +1,5 @@
-key 116    WAKEUP
+key 143    WAKEUP   # Double-tap
 key 158    BACK               VIRTUAL
 key 139    APP_SWITCH         VIRTUAL
 key 102    HOME               VIRTUAL
+key 257    WAKEUP   # Swipe-up

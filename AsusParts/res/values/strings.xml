@@ -20,4 +20,7 @@
     <string name="category_vibrator">Vibrator</string>
     <string name="vib_strength_title_head">Strength</string>
     <string name="vib_strength_summary_head">Define the strength of the vibrator</string>
+    <string name="touchscreen_title">Touchscreen &amp; Gestures</string>
+    <string name="swipe2wake_title">Swipe2Wake</string>
+    <string name="swipe2wake_summary">Swipe Up to wake screen</string>
 </resources>

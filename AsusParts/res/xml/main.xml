@@ -22,4 +22,15 @@
             android:summary="@string/vib_strength_summary_head"
             android:icon="@drawable/ic_vibrate" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/touchscreen_title">
+        <SwitchPreference
+            android:key="swipe2wake"
+            android:title="@string/swipe2wake_title"
+            android:summary="@string/swipe2wake_summary"
+            android:icon="@drawable/ic_swipe2wake"
+            android:paddingLeft="0dp"
+            android:persistent="false" />
+    </PreferenceCategory>
 </PreferenceScreen>
