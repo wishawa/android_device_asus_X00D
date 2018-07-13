@@ -460,11 +460,6 @@ lib/libmmparser_lite.so
 lib64/libmmparser.so
 lib64/libmmparser_lite.so
 
-# Perf
-vendor/bin/energy-awareness
-#vendor/bin/msm_irqbalance
-#vendor/etc/msm_irqbalance.conf
-
 # Peripheral manager
 vendor/bin/pm-proxy
 vendor/bin/pm-service
@@ -1110,31 +1105,6 @@ vendor/lib64/libOmxAmrDec.so
 -vendor/lib64/libgpustats.so
 
 # Modem
-lib/vendor.qti.hardware.iop@1.0.so
-lib/vendor.qti.hardware.perf@1.0.so
-lib64/vendor.qti.hardware.iop@1.0.so
-lib64/vendor.qti.hardware.perf@1.0.so
-vendor/bin/hw/vendor.qti.hardware.iop@1.0-service
-vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
-vendor/etc/init/vendor.qti.hardware.iop@1.0-service.rc
-vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.iop@1.0-impl.so
-vendor/lib/hw/vendor.qti.hardware.iop@1.0-impl.so
-
-vendor/lib/libperfgluelayer.so
-vendor/lib/libqti-iopd-client.so
-vendor/lib/libqti-iopd.so
-vendor/lib/libqti-perfd-client.so
-vendor/lib64/libperfgluelayer.so
-vendor/lib64/libqti-iopd-client.so
-vendor/lib64/libqti-iopd.so
-vendor/lib64/libqti-perfd-client.so
-
-vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so
-vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so
-vendor/lib64/vendor.qti.hardware.iop@1.0_vendor.so
-vendor/lib64/vendor.qti.hardware.perf@1.0_vendor.so
-
 -app/QtiTelephonyService/QtiTelephonyService.apk
 -framework/QtiTelephonyServicelibrary.jar
 -framework/qti-telephony-common.jar|2eba987ae297a892e895ec1e9a302b41dbe0232e
