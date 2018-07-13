@@ -178,4 +178,5 @@ void vendor_load_properties()
     property_set("ro.hardware.id", hwID);
     property_set("ro.build.csc.version", csc);
     property_set("ro.sf.lcd_density", dpi);
+    property_set("ro.com.google.clientidbase.ms", "android-asus-tpin");
 }
