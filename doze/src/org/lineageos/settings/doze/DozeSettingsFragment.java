@@ -32,6 +32,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 
 public class DozeSettingsFragment extends PreferenceFragment implements
         CompoundButton.OnCheckedChangeListener {
@@ -44,6 +45,7 @@ public class DozeSettingsFragment extends PreferenceFragment implements
     private SwitchPreference mHandwavePreference;
     private SwitchPreference mPickupPreference;
     private SwitchPreference mPocketPreference;
+    private TextView mSwitchBarText;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -82,6 +84,11 @@ public class DozeSettingsFragment extends PreferenceFragment implements
         mSwitch.setChecked(isDozeEnabled());
         mSwitch.setOnCheckedChangeListener(this);
 
+
+        boolean dozeEnabled = isDozeEnabled();
+        mSwitchBarText = (TextView) view.findViewById(R.id.switch_text);
+        mSwitchBarText.setText(getString(dozeEnabled ? R.string.switch_bar_on : R.string.switch_bar_off));
+
         switchBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +110,9 @@ public class DozeSettingsFragment extends PreferenceFragment implements
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         boolean ret = enableDoze(b);
+
+        mSwitchBarText.setText(getString(b ? R.string.switch_bar_on : R.string.switch_bar_off));
+
         if (ret) {
             mHandwavePreference.setEnabled(b);
             mPickupPreference.setEnabled(b);
