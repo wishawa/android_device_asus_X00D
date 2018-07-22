@@ -125,6 +125,7 @@ void check_varient()
     int rf = stoi(android::base::GetProperty("ro.boot.id.rf", ""));
     if (project == "6") {
         switch(rf){
+            case 0: model = "ASUS_Z017D"; break; /* Global Varient */
             case 1: model = "ASUS_Z017DB"; break; /* Indonesian Varient */
             case 2: model = "ASUS_Z017DC"; break; /* Latin American Varient */
             default: model = "ASUS_Z017DA"; break; /* Default to Z017DA */
