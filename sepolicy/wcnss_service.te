@@ -2,4 +2,5 @@ allow wcnss_service self:capability { setgid setuid };
 allow wcnss_service factory_file:file { read getattr open };
 
 allow wcnss_service factory_file:dir search;
+allow wcnss_service unlabeled:dir search;
 allow wcnss_service persist_file:dir write;

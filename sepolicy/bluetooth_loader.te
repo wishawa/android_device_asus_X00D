@@ -9,3 +9,4 @@ allow bluetooth_loader wcnss_prop:file { read open getattr };
 allow bluetooth_loader smd_device:chr_file { read write open ioctl };
 allow bluetooth_loader factory_file:file { ioctl read open };
 allow bluetooth_loader factory_file:dir search;
+allow bluetooth_loader unlabeled:dir search;
