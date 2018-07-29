@@ -185,6 +185,15 @@ lib64/libGPTEE_system.so
 lib64/libQTEEConnector_system.so
 lib64/libsecureuisvc_jni.so
 vendor/bin/qseecomd
+vendor/firmware/cppf.b00
+vendor/firmware/cppf.b01
+vendor/firmware/cppf.b02
+vendor/firmware/cppf.b03
+vendor/firmware/cppf.b04
+vendor/firmware/cppf.b05
+vendor/firmware/cppf.b06
+vendor/firmware/cppf.mdt
+vendor/lib/libcppf.so
 vendor/lib/libGPreqcancel.so
 vendor/lib/libGPreqcancel_svc.so
 vendor/lib/libQSEEComAPI.so
@@ -192,6 +201,7 @@ vendor/lib/libSecureUILib.so
 vendor/lib/libStDrvInt.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
+vendor/lib/liboemcrypto.so
 vendor/lib/libqisl.so
 vendor/lib/librpmb.so
 vendor/lib/libsecureui.so
@@ -739,11 +749,12 @@ vendor/bin/time_daemon
 -vendor/lib64/libtime_genoff.so
 
 # Widevine
-vendor/lib/libcppf.so
-vendor/lib/liboemcrypto.so
+vendor/bin/hw/android.hardware.drm@1.0-service.widevine
+vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
+vendor/lib/libwvhidl.so
 vendor/lib/mediadrm/libwvdrmengine.so
-#vendor/lib/mediadrm/libdrmclearkeyplugin.so
-#vendor/lib64/mediadrm/libdrmclearkeyplugin.so
+# vendor/lib/mediadrm/libdrmclearkeyplugin.so
+# vendor/lib64/mediadrm/libdrmclearkeyplugin.so
 vendor/firmware/widevine.b00
 vendor/firmware/widevine.b01
 vendor/firmware/widevine.b02
@@ -752,14 +763,6 @@ vendor/firmware/widevine.b04
 vendor/firmware/widevine.b05
 vendor/firmware/widevine.b06
 vendor/firmware/widevine.mdt
-vendor/firmware/cppf.b00
-vendor/firmware/cppf.b01
-vendor/firmware/cppf.b02
-vendor/firmware/cppf.b03
-vendor/firmware/cppf.b04
-vendor/firmware/cppf.b05
-vendor/firmware/cppf.b06
-vendor/firmware/cppf.mdt
 vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_1_1.fw
 vendor/firmware/cpp_firmware_v1_12_0.fw
@@ -771,8 +774,6 @@ vendor/firmware/cpp_firmware_v1_5_1.fw
 vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
-vendor/bin/is_keybox_valid
-vendor/bin/widevine.sh
 
 # Wifi
 lib/libwfdnative.so
