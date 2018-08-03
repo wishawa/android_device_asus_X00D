@@ -143,6 +143,7 @@ void check_varient()
         switch(rf){
             case 0: model = "ASUS_Z012S";  break; /* Canadian varient */
             case 1: model = "ASUS_Z012DB"; break; /* Indonesian Varient */
+            case 2: model = "ASUS_Z012DC"; break; /* Latin American variant */
             case 8: model = "ASUS_Z012DA";  break; /* JP/TW variant */
             case 15: model = "ASUS_Z012DE"; break; /* Chinese Varient */
             default: model = "ASUS_Z012DA"; break; /* Default to Z012DA */
