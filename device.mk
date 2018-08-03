@@ -376,7 +376,6 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     init.asus.rc \
     init.asus.thermald.rc \
-    init.qcom.factory.rc \
     init.qcom.rc \
     init.target.rc \
     init.asus.usb.rc \

@@ -25,11 +25,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-#import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.asus.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.asus.rc
-import /vendor/etc/init/hw/init.qcom.factory.rc
 import /vendor/etc/init/hw/init.asus.thermald.rc
 
 on early-init
@@ -37,14 +35,6 @@ on early-init
     chmod 0755 /sys/kernel/debug
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
-#ASUS_BSP Johnny +++ "add tcpdump tool"
-# tcpdump_warp service to save tcpdump to /sdcard
-service tcpdump-warp /system/vendor/bin/sh /system/vendor/xbin/netlog.sh
-    class late_start
-    user root
-    group root
-    disabled
-#ASUS_BSP Johnny --- "add tcpdump tool"
 
 on init
     # Set permissions for persist partition
@@ -72,7 +62,8 @@ on early-boot
     write /sys/kernel/boot_cdsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
     exec u:r:qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
-    setprop ro.asus.alarmboot_support 0
+    chown root audio /sys/kernel/boot_adsp/boot
+
     # set wifi link file.
     setprop wlan.driver.ath 0
     setprop wlan.driver.status unloaded
@@ -96,8 +87,10 @@ on boot
     chown system system /sys/kernel/debug/msm_core/enable
     chown system system /sys/kernel/debug/msm_core/ptable
     chown system system /sys/kernel/boot_slpi/ssr
+    chown system system /sys/module/radio_iris_transport/parameters/fmsmd_set
     chmod 0660 /sys/module/bluetooth_power/parameters/power
     chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
+    chmod 0660 /sys/module/radio_iris_transport/parameters/fmsmd_set
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /proc/bluetooth/sleep/proto
     chown bluetooth net_bt /dev/ttyHS0
@@ -200,27 +193,17 @@ on boot
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
     # Allow access to emmc rawdump block partition and dload sysfs node
-    chown root system /dev/block/bootdevice/by-name/rawdump
-    chmod 0660 /dev/block/bootdevice/by-name/rawdump
+    chown root system /dev/block/bootdevice/by-name/rawdump -p /dev/block/
+    chmod 0660 /dev/block/bootdevice/by-name/rawdump -p /dev/block/
     chown root system /sys/kernel/dload/emmc_dload
     chmod 0660 /sys/kernel/dload/emmc_dload
-    chown root system /dev/block/bootdevice/by-name/ramdump
-    chmod 0660 /dev/block/bootdevice/by-name/ramdump
+    chown root system /dev/block/bootdevice/by-name/ramdump -p /dev/block/
+    chmod 0660 /dev/block/bootdevice/by-name/ramdump -p /dev/block/
     chown root system /sys/kernel/dload/dload_mode
     chmod 0660 /sys/kernel/dload/dload_mode
 
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel0-backlight/max_brightness
-
-    # Allow access to sensors device attributes
-    chown system system /sys/class/sensors/MPU6050-accel/enable
-    chown system system /sys/class/sensors/MPU6050-accel/poll_delay
-    chown system system /sys/class/sensors/MPU6050-gyro/enable
-    chown system system /sys/class/sensors/MPU6050-gyro/poll_delay
-    chown system system /sys/class/sensors/apds9930-light/enable
-    chown system system /sys/class/sensors/apds9930-light/poll_delay
-    chown system system /sys/class/sensors/apds9930-proximity/enable
-    chown system system /sys/class/sensors/apds9930-proximity/poll_delay
 
     # Create directory used for display
     mkdir /persist/display 0770 system graphics
@@ -233,15 +216,12 @@ on boot
 
     # Permissions for Touch dclick Mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/dclick_mode
-    setprop persist.asus.dclick 0
 
     # Permissions for Touch Gesture Mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/gesture_mode
-    setprop persist.asus.gesture.type 0000000
-    
+
     # Permissions for glove mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/glove_mode
-    setprop persist.asus.glove 0
     
     # Permissions for Keypad Mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/keypad_mode
@@ -370,6 +350,9 @@ on post-fs-data
     mkdir /data/vendor/location 0770 gps gps
     mkdir /data/vendor/location/mq 0770 gps gps
     mkdir /data/vendor/location/xtwifi 0770 gps gps
+    mkdir /dev/socket/location 0770 gps gps
+    mkdir /dev/socket/location/mq 0770 gps gps
+    mkdir /dev/socket/location/xtra 0770 gps gps
 
     #Create directory from IMS services
     mkdir /data/shared 0755
@@ -394,7 +377,7 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
     #Create a folder for SRS to be able to create a usercfg file
-    mkdir /data/data/media 0770 media media
+    #mkdir /data/data/media 0770 media media
 
     #Create FM dir for patchdownloader
     mkdir /data/misc/fm 0770 system system
@@ -458,6 +441,18 @@ service iop /system/vendor/bin/iop
     disabled
     socket iop seqpacket 0666 root system
 
+service qcomsysd /system/vendor/bin/qcom-system-daemon
+    class main
+    user root
+    group root diag
+    disabled
+
+on property:persist.vendor.qcomsysd.enabled=1
+    enable qcomsysd
+
+on property:persist.vendor.qcomsysd.enabled=0
+    stop qcomsysd
+
 service ssr_setup /system/vendor/bin/ssr_setup
     oneshot
     disabled
@@ -498,10 +493,6 @@ on property:persist.sys.ssr.enable_ramdumps=0
     write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
     stop ss_ramdump
 
-on property:ro.config.versatility=US
-    setprop ro.asus.phone.tty 1
-    setprop ro.asus.phone.hac 1
-
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
     #Reset read ahead for dm-0 and dm-1 to 512kb
@@ -511,12 +502,6 @@ on property:sys.boot_completed=1
     chown media audio /sys/kernel/wdsp0/boot
     chown media audio /sys/kernel/wcd_cpe0/fw_name
     start modem-check
-
-on property:persist.radio.atfwd.start=false
-    stop atfwd
-
-on property:radio.atfwd.start=false
-    stop atfwd
 
 # corefile limit
 on property:persist.debug.trace=1
@@ -579,7 +564,7 @@ service cnd /system/vendor/bin/cnd
 service dpmQmiMgr /system/vendor/bin/dpmQmiMgr
     class main
     user system
-    group system
+    group radio system
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
@@ -638,6 +623,13 @@ service bt_logger /system/bin/bt_logger
    disabled
    oneshot
 
+service ftmd /system/bin/logwrapper /system/vendor/bin/ftmdaemon
+    class late_start
+    user root
+    group bluetooth net_bt_admin misc diag net_bt
+    disabled
+    oneshot
+
 service port-bridge /system/vendor/bin/port-bridge
     class main
     user radio system
@@ -650,8 +642,6 @@ service qmiproxy /system/bin/qmiproxy
     user radio
     group radio diag
     disabled
-
-# QMUX must be in multiple groups to support external process connections
 
 service hciattach /system/vendor/bin/hci_qcomm_init -e
     user bluetooth
@@ -674,7 +664,7 @@ service ipacm-diag /system/vendor/bin/ipacm-diag
     class main
     user radio
     socket ipacm_log_file dgram 660 radio radio
-    group radio diag
+    group radio diag oem_2901
     disabled
 
 service ipacm /system/vendor/bin/ipacm
@@ -686,7 +676,7 @@ service ipacm /system/vendor/bin/ipacm
 service qti /system/vendor/bin/qti
     class main
     user radio
-    group radio net_raw diag usb net_admin
+    group radio oem_2901 diag usb net_admin
     disabled
 
 service sensors /vendor/bin/sensors.qcom
@@ -738,7 +728,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -I/vendor/etc/wifi/p2p_supplicant_overlay.conf -N \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/vendor/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 \
+    -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 -dd \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
 #   we will start as root and wpa_supplicant will switch to user wifi
 #   after setting up the capabilities required for WEXT
@@ -851,13 +841,15 @@ service cnss_diag /system/vendor/bin/cnss_diag -q -f
     user system
     group system wifi inet net_admin sdcard_rw media_rw diag
     oneshot
+    capabilities NET_ADMIN
 
 service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
     class late_start
     user system
     group system inet net_admin wifi
+    capabilities NET_ADMIN
 
-on property:sys.shutdown.requested=*
+on property:sys.powerctl=*
     stop cnss-daemon
 
 service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
@@ -1076,29 +1068,19 @@ on property:sys.qbcharger.enable=true
 on property:sys.qbcharger.enable=false
     stop qbcharger
 
-#ASUS-BBSP Modify for saving modem log - Control by Property - Send mask cleanup to modem at exit+
-service diag_mdlog_start /system/vendor/bin/diag_mdlog -c
+service diag_mdlog_start /system/vendor/bin/diag_mdlog
     class late_start
     user shell
-    group system diag sdcard_rw sdcard_r media_rw oem_2901
+    group system oem_2901 sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
 service diag_mdlog_stop /system/vendor/bin/diag_mdlog -k
     class late_start
     user shell
-    group system diag sdcard_rw sdcard_r media_rw oem_2901
+    group system oem_2901 sdcard_rw sdcard_r media_rw
     disabled
     oneshot
-
-#ASUS-BBSP Modify for saving modem log - Control by Property+++
-on property:persist.asus.qxdmlog.enable=1
-   #insmod /system/lib/modules/diagchar.ko
-   restart diag_mdlog_start
-       
-on property:persist.asus.qxdmlog.enable=0
-   start diag_mdlog_stop
-#ASUS-BBSP Modify for saving modem log - Control by Property---
 
 service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system
@@ -1142,6 +1124,16 @@ service vendor.LKCore-rel /vendor/bin/LKCore
     user system
     group system log diag
 
+service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
+    class late_start
+    user system
+    group system
+
+service esepmdaemon /system/vendor/bin/esepmdaemon
+    class core
+    user system
+    group nfc
+
 on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
@@ -1156,13 +1148,10 @@ service poweroffhandler /system/vendor/bin/poweroffhandler
     disabled
     oneshot
 
-# bugreport is triggered by developer options
-service bugreport /system/bin/dumpstate -d -p -B -z \
-        -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    
+on property:init.svc.surfaceflinger=restarting
+    stop hwcomposer-2-1
+    start hwcomposer-2-1
+
 # Logcat dump daemon, dumps logs to logdump partition
 #service logdumpd /system/bin/logcat -b all -v threadtime -D -w /dev/block/bootdevice/by-name/logdump
 #    class core
@@ -1175,10 +1164,9 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
 #    start logdumpd
 
 service time_daemon /system/vendor/bin/time_daemon
-    class late_start
+    class main
     user root
     group root
-    oneshot
 
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
@@ -1193,26 +1181,12 @@ service power_off_alarm /vendor/bin/power_off_alarm
     disabled
     oneshot
 
-service hostapd_cmd /system/vendor/bin/hostapd_cmd
-    class main
-    group system wifi
-    user root
-    oneshot
-    disabled
-
-on property:persist.sys.wifi.hostapd.cmd=*
-    start hostapd_cmd
-
-# Dynamic lmk minfree for low ram device
-on property:sys.foregroundapp=*
-    write /sys/module/lowmemorykiller/parameters/minfree_lowram "38432,43040,50648,65256,90296,95640"
-
-on property:sys.foregroundapp=com.asus.launcher
-    write /sys/module/lowmemorykiller/parameters/minfree_lowram "38432,43040,50648,65256,102400,128000"
-
-on property:sys.boot_completed=1
+on preperty:sys.boot_completed=1
     # Amplifier Calibration
     start spk_amp_cal
 
-on property:sys.foregroundapp=com.android.systemui
-    write /sys/module/lowmemorykiller/parameters/minfree_lowram "38432,43040,50648,65256,102400,128000"
+service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot
+    keycodes 114 115 116

@@ -1,6 +1,7 @@
 #! /vendor/bin/sh
 
-# Copyright (c) 2012-2013,2016 The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2013,2016,2018 The Linux Foundation.
+# All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -207,7 +208,7 @@ case "$target" in
         # 196609 is decimal for 0x30001 to report version 3.1
         # 196610 is decimal for 0x30002 to report version 3.2
         case "$soc_hwid" in
-            294|295|296|297|298|313)
+            294|295|296|297|298|313|353|354|363|364)
                 setprop ro.opengles.version 196610
                 ;;
             303|307|308|309|320)
@@ -224,6 +225,15 @@ case "$target" in
         case "$soc_hwplatform" in
             *)
                 setprop persist.graphics.vulkan.disable true
+                setprop ro.opengles.version 196608
+                ;;
+        esac
+        ;;
+    "msm8916")
+        case "$soc_hwplatform" in
+            *)
+                setprop persist.graphics.vulkan.disable true
+                setprop ro.opengles.version 196608
                 ;;
         esac
         ;;
@@ -260,38 +270,112 @@ case "$target" in
         esac
         ;;
     "msm8953")
-        cap_ver=`cat /sys/devices/soc/1d00000.qcom,vidc/capability_version` 2> /dev/null
-        if [ $cap_ver -eq 1 ]; then
-            setprop media.msm8953.version 1
-        fi
+        cap_ver = 1
+                if [ -e "/sys/devices/platform/soc/1d00000.qcom,vidc/capability_version" ]; then
+                    cap_ver=`cat /sys/devices/platform/soc/1d00000.qcom,vidc/capability_version` 2> /dev/null
+                else
+                    cap_ver=`cat /sys/devices/soc/1d00000.qcom,vidc/capability_version` 2> /dev/null
+                fi
+
+                if [ $cap_ver -eq 1 ]; then
+                    setprop media.msm8953.version 1
+                fi
         ;;
+    "msm8952")
+      case "$soc_hwid" in
+              278)
+                  setprop media.msm8956hw 1
+                  if [ -f /sys/devices/soc0/platform_version ]; then
+                     hw_ver=`cat /sys/devices/soc.0/1d00000.qcom,vidc/version` 2> /dev/null
+                     if [ $hw_ver -eq 1 ]; then
+                         setprop media.msm8956.version 1
+                     fi
+                  fi
+                  ;;
+               266|277)
+                    setprop media.msm8956hw 1
+                    if [ -f /sys/devices/soc0/platform_version ]; then
+                        hw_ver=`cat /sys/devices/soc.0/1d00000.qcom,vidc/version` 2> /dev/null
+                        if [ $hw_ver -eq 1 ]; then
+                            setprop media.msm8956.version 1
+                        fi
+                    fi
+                    ;;
+                264)
+                    setprop persist.graphics.vulkan.disable true
+                    ;;
+      esac
+      ;;
 esac
 
-# In mpss AT version is greater than 3.1, need
-# to use the new vendor-ril which supports L+L feature
-# otherwise use the existing old one.
 if [ -f /firmware/verinfo/ver_info.txt ]; then
+    # In mpss AT version is greater than 3.1, need
+    # to use the new vendor-ril which supports L+L feature
+    # otherwise use the existing old one.
     modem=`cat /firmware/verinfo/ver_info.txt |
             sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
-            sed 's/.*AT.\(.*\)/\1/g' | cut -d \- -f 1`
-    zygote=`getprop ro.zygote`
-    case "$zygote" in
-    "zygote64_32")
-        if [ "$modem" \< "3.1" ]; then
-            setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
-        else
-            setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
+            sed 's/.*MPSS.\(.*\)/\1/g' | cut -d \. -f 1`
+    if [ "$modem" = "AT" ]; then
+        version=`cat /firmware/verinfo/ver_info.txt |
+                sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
+                sed 's/.*AT.\(.*\)/\1/g' | cut -d \- -f 1`
+        if [ ! -z $version ]; then
+            zygote=`getprop ro.zygote`
+            case "$zygote" in
+                "zygote64_32")
+                    if [ "$version" \< "3.1" ]; then
+                        setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
+                    else
+                        setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
+                    fi
+                    ;;
+                "zygote32")
+                    if [ "$version" \< "3.1" ]; then
+                        echo "legacy qmi load for TA less than 3.1"
+                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-qmi-1.so"
+                    else
+                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-hal-qmi.so"
+                    fi
+                    ;;
+            esac
         fi
-        ;;
-    "zygote32")
-        if [ "$modem" \< "3.1" ]; then
-            setprop vendor.rild.libpath "/vendor/lib/libril-qc-qmi-1.so"
-        else
-            setprop vendor.rild.libpath "/vendor/lib/libril-qc-hal-qmi.so"
+    # In mpss TA version is greater than 3.0, need
+    # to use the new vendor-ril which supports L+L feature
+    # otherwise use the existing old one.
+    elif [ "$modem" = "TA" ]; then
+        version=`cat /firmware/verinfo/ver_info.txt |
+                sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
+                sed 's/.*TA.\(.*\)/\1/g' | cut -d \- -f 1`
+        if [ ! -z $version ]; then
+            zygote=`getprop ro.zygote`
+            case "$zygote" in
+                "zygote64_32")
+                    if [ "$version" \< "3.0" ]; then
+                        setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
+                    else
+                        setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
+                    fi
+                    ;;
+                "zygote32")
+                    if [ "$version" \< "3.0" ]; then
+                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-qmi-1.so"
+                    else
+                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-hal-qmi.so"
+                    fi
+                    ;;
+            esac
         fi
-        ;;
-    esac
+    fi;
 fi
+
+baseband=`getprop ro.baseband`
+#enable atfwd daemon all targets except sda, apq, qcs
+case "$baseband" in
+    "apq" | "sda" | "qcs" )
+        setprop persist.radio.atfwd.start false;;
+    *)
+        setprop persist.radio.atfwd.start true;;
+esac
 
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
@@ -326,6 +410,9 @@ function setHDMIPermission() {
    set_perms $file/cec/wr_msg system.graphics 0600
    set_perms $file/hdcp/tp system.graphics 0664
    set_perms $file/hdmi_audio_cb audioserver.audio 0600
+   set_perms $file/pll_enable system.graphics 0664
+   set_perms $file/hdmi_ppm system.graphics 0664
+
    ln -s $dev_file $dev_gfx_hdmi
 }
 
