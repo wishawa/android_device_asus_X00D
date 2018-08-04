@@ -169,12 +169,12 @@ void vendor_load_properties()
     set_simcode();
     check_varient();
 
-    property_set("ro.product.name", "WW_Phone");
+    property_override_dual("ro.product.name", "ro.vendor.product.name", "WW_Phone");
     property_override("ro.build.product", product);
     property_override("ro.build.description", description);
     property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", fingerprint);
-    property_override("ro.product.device", device);
-    property_override("ro.product.model", model);
+    property_override_dual("ro.product.device", "ro.vendor.product.device", device);
+    property_override_dual("ro.product.model", "ro.vendor.product.model", model);
     property_set("ro.power_profile.override", power_profile);
     property_set("ro.product.carrier", carrier);
     property_set("ro.hardware.id", hwID);
