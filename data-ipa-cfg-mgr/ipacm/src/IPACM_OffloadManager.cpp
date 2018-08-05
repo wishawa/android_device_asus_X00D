@@ -61,6 +61,7 @@ IPACM_OffloadManager::IPACM_OffloadManager()
 	latest_cache_index = 0;
 	elrInstance = NULL;
 	touInstance = NULL;
+	is_cache = false;
 	return ;
 }
 
@@ -443,6 +444,7 @@ RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& g
 					return FAIL_HARDWARE;
 				}
 			}
+			is_cache = true;
 			return SUCCESS;
 		}
 
