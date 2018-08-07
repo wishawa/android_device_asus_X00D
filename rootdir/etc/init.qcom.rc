@@ -1181,7 +1181,7 @@ service power_off_alarm /vendor/bin/power_off_alarm
     disabled
     oneshot
 
-on preperty:sys.boot_completed=1
+on property:sys.boot_completed=1
     # Amplifier Calibration
     start spk_amp_cal
 
