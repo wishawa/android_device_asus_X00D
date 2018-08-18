@@ -13,13 +13,7 @@ vendor/bin/mm-qcamera-daemon
 vendor/lib/hw/camera.msm8953.so
 vendor/lib/libmmjpeg_interface.so
 vendor/lib/libqomx_core.so
-vendor/lib/libmm-omxcore.so
-vendor/lib/libmm-qdcm.so
-vendor/lib64/libmm-qdcm.so
-vendor/lib64/libmm-omxcore.so
-vendor/lib64/libmm-dspp-utils.so
 vendor/lib/libmm-color-convertor.so
-vendor/lib64/libmm-color-convertor.so
 vendor/lib/libmm-qcamera.so
 vendor/lib/libchromaflash.so
 vendor/lib/libflash_pmic.so
