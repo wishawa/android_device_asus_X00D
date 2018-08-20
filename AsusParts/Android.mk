@@ -16,6 +16,7 @@ LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_AAPT_FLAGS := --auto-add-overlay
+LOCAL_USE_AAPT2 := true
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
 package_resource_overlays := $(strip \
