@@ -15,11 +15,18 @@
 # limitations under the License.
 #
 
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
 # Inherit from zenfone3 device
 $(call inherit-product, device/asus/zenfone3/device.mk)
 
 # Inherit from zenfone3 vendor
 $(call inherit-product-if-exists, vendor/asus/zenfone3/zenfone3-vendor.mk)
+
+# Inherit some common LineageOS stuff.
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 PRODUCT_NAME := lineage_zenfone3
 PRODUCT_DEVICE := zenfone3
