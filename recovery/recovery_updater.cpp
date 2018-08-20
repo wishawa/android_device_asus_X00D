@@ -29,6 +29,7 @@
 
 #include "edify/expr.h"
 #include "updater/install.h"
+#include "otautil/error_code.h"
 
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
 
