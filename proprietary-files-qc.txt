@@ -492,19 +492,17 @@ vendor/lib64/libsmemlog.so
 
 # Radio
 -app/datastatusnotification/datastatusnotification.apk
-#-app/embms/embms.apk
-#-app/fastdormancy/fastdormancy.apk
-#-app/shutdownlistener/shutdownlistener.apk
+-app/embms/embms.apk|ee0897c89a047ccd27ce4b184d09e85ed38b1bbb
 -app/radioconfig/radioconfig.apk
 -app/QtiTelephonyService/QtiTelephonyService.apk
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-#etc/permissions/embms.xml
+etc/permissions/embms.xml
 etc/permissions/lpa.xml
 etc/permissions/qcrilhook.xml
 etc/permissions/radioconfig.xml
 etc/permissions/radioconfiginterface.xml
 etc/permissions/telephonyservice.xml
-#framework/embmslibrary.jar
+framework/embmslibrary.jar:vendor/framework/embmslibrary.jar|7de23dc5b7bd5115d47ce3817163ba865a658cca
 framework/qcrilhook.jar
 framework/QtiTelephonyServicelibrary.jar
 framework/qti-telephony-common.jar|2eba987ae297a892e895ec1e9a302b41dbe0232e
