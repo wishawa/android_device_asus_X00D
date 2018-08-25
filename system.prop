@@ -45,7 +45,7 @@ ro.qc.sdk.audio.ssr=false
 
 # Bluetooth
 bluetooth.hfp.client=1
-qcom.bluetooth.soc=smd
+vendor.qcom.bluetooth.soc=pronto
 ro.qualcomm.bt.hci_transport=smd
 
 # Boot
