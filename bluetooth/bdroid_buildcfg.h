@@ -35,4 +35,5 @@
 
 /* Enable HFP WBS feature */
 #define BTIF_HF_CLIENT_WBS_INCLUDED TRUE
+#undef PROPERTY_VALUE_MAX
 #endif
