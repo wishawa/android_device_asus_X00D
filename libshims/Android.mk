@@ -31,3 +31,12 @@ LOCAL_SHARED_LIBRARIES := libstagefright_foundation
 LOCAL_MODULE := libshim_ims
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
+
+# Gnss
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := GnssShim.cpp
+LOCAL_MODULE := libshim_gnss
+LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
