@@ -50,7 +50,7 @@ public class VibratorStrengthPreference extends Preference implements
         // #define QPNP_HAP_VMAX_MIN_MV		116
         // #define QPNP_HAP_VMAX_MAX_MV		3596
         mMinValue = 116;
-        mMaxValue = 3596;
+        mMaxValue = 2300; // 3596 is too much for our vibrators set max to 2300
 
         mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         setLayoutResource(R.layout.preference_seek_bar);
@@ -72,7 +72,7 @@ public class VibratorStrengthPreference extends Preference implements
     }
 
 	public static String getValue(Context context) {
-		return Utils.getFileValue(FILE_LEVEL, "1100");
+		return Utils.getFileValue(FILE_LEVEL, "1000");
 	}
 
 	private void setValue(String newValue, boolean withFeedback) {
@@ -90,7 +90,7 @@ public class VibratorStrengthPreference extends Preference implements
             return;
         }
 
-        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_VIBSTRENGTH, "1100");
+        String storedValue = PreferenceManager.getDefaultSharedPreferences(context).getString(DeviceSettings.KEY_VIBSTRENGTH, "1000");
         Utils.writeValue(FILE_LEVEL, storedValue);
     }
 
