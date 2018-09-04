@@ -9,3 +9,5 @@ persist.asus.pvcabc                   u:object_r:asus_cam_prop:s0
 persist.np.asus.agps.ntpinjecttime    u:object_r:asus_gps_prop:s0
 persist.vendor.camera.debug.logfile   u:object_r:asus_debug_prop:s0
 debug.HWJPEG.HAL                      u:object_r:asus_debug_prop:s0
+
+sys.listeners.registered            u:object_r:vendor_tee_listener_prop:s0
