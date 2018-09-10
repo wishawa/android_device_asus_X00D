@@ -719,7 +719,7 @@ service ins_key /system/vendor/bin/install_key_server
     class late_start
     user root
     group root
-    seclabel u:r:install_key_server:s0
+#    seclabel u:r:install_key_server:s0
     disabled
 
 service widevine /system/vendor/bin/sh /system/vendor/bin/widevine.sh
@@ -877,19 +877,19 @@ service debugprofile /system/bin/sh /system/etc/start_debug.sh
     class late_start
     oneshot
     disabled
-    seclabel u:r:debugprofile:s0
+#    seclabel u:r:debugprofile:s0
 
 # ASUS jacob add for gesture mode switch
 service asusgesture /system/bin/sh /system/etc/init.asus.gesture.sh
     class core
-    seclabel u:r:asus_touch:s0
+#    seclabel u:r:asus_touch:s0
     oneshot
 
 service debugonce /system/bin/sh /system/etc/start_debugonce.sh
     class late_start
     oneshot
     disabled
-    seclabel u:r:debugprofile:s0
+#    seclabel u:r:debugprofile:s0
 
 #ASUS BSP David : sh for rgb sensor init
 service rgb_sensor_init /system/bin/sh /system/etc/rgb_sensor_init.sh
@@ -935,7 +935,7 @@ service fpseek /system/vendor/bin/fpseek
     group system drmrpc
     oneshot
     disabled
-    seclabel u:r:fpservice:s0
+#    seclabel u:r:fpservice:s0
 
 service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
     class late_start
@@ -943,7 +943,7 @@ service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
     group root system drmrpc
     oneshot
     disabled
-    seclabel u:r:fpservice:s0
+#    seclabel u:r:fpservice:s0
     
 on property:sys.boot_completed=1
     start fpservice
@@ -1003,7 +1003,7 @@ on property:debug.asus.setfactorydata=1
 
 #ASUS_BSP Deeo : set io_is_busy while benchmark +++
 service StorageBench /system/bin/sh /system/etc/Storage_Benchmark.sh
-        seclabel u:r:storagebench:s0
+#        seclabel u:r:storagebench:s0
         class core
         user root
         oneshot
