@@ -608,6 +608,9 @@ vendor/etc/sensors/sensor_def_qcomdev.conf
 vendor/lib/libmms_gyro_vstab.so
 vendor/lib/libmms_gyro_vstab_auth.so
 
+# Skia
+lib/libskia.so:lib/libskia-v26.so
+
 # Speaker
 bin/SpeakerCalibrationTest
 etc/spkampcal.sh
