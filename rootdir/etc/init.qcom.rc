@@ -582,12 +582,6 @@ service tftp_server /vendor/bin/tftp_server
    class core
    user root
 
-on property:wc_transport.start_hci=true
-    start start_hci_filter
-
-on property:wc_transport.start_hci=false
-    stop start_hci_filter
-
 service start_hci_filter /system/vendor/bin/wcnss_filter
     class late_start
     user bluetooth
@@ -642,19 +636,6 @@ service qmiproxy /system/bin/qmiproxy
     user radio
     group radio diag
     disabled
-
-service hciattach /system/vendor/bin/hci_qcomm_init -e
-    user bluetooth
-    group bluetooth net_bt_admin oem_2901 diag radio
-    disabled
-    oneshot
-#    seclabel u:r:bluetooth_loader:s0
-
-on property:vendor.bluetooth.hciattach=true
-    start hciattach
-
-on property:vendor.bluetooth.hciattach=false
-    setprop vendor.bluetooth.status off
 
 service netmgrd /system/vendor/bin/netmgrd
     class main

@@ -84,12 +84,12 @@ vendor/lib64/libscveObjectTracker_stub.so
 vendor/lib64/libscvePanorama.so
 vendor/lib64/libscvePanorama_lite.so
 
-# Ant
+# Ant+
+-lib/libantradio.so
+-lib64/libantradio.so
 lib/com.qualcomm.qti.ant@1.0.so
 lib64/com.qualcomm.qti.ant@1.0.so
-vendor/lib/com.qualcomm.qti.ant@1.0_vendor.so
 vendor/lib64/com.qualcomm.qti.ant@1.0_vendor.so
-vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
 vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
 
 # Audio
@@ -128,13 +128,18 @@ vendor/lib64/soundfx/libqcbassboost.so
 vendor/lib64/soundfx/libqcreverb.so
 vendor/lib64/soundfx/libqcvirt.so
 
-# Bluetooth
--vendor/lib/libbtnv.so
--vendor/lib64/libbtnv.so
+# APTX
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
-vendor/bin/btnvtool
-vendor/bin/hci_qcomm_init
+
+# Bluetooth
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
+vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib64/libbtnv.so
+vendor/lib64/libbt-hidlclient.so
+vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
 
 # Charger
 vendor/bin/hvdcp_opti
