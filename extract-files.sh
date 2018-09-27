@@ -60,7 +60,7 @@ extract "$MY_DIR"/proprietary-files.txt "$SRC"
 DEVICE_BLOBS_PATH="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 
 # Patchelf libjnigraphics.so
-patchelf --replace-needed libskia.so libskia-v26.so $DEVICE_BLOBS_PATH/lib/libjnigraphics.so
-patchelf --replace-needed libskia.so libskia-v26.so $DEVICE_BLOBS_PATH/lib64/libjnigraphics.so
+patchelf --replace-needed libskia.so libskia-v28.so $DEVICE_BLOBS_PATH/lib/libjnigraphics.so
+patchelf --replace-needed libskia.so libskia-v28.so $DEVICE_BLOBS_PATH/lib64/libjnigraphics.so
 
 "$MY_DIR"/setup-makefiles.sh

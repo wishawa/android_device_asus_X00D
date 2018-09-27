@@ -609,7 +609,8 @@ vendor/lib/libmms_gyro_vstab.so
 vendor/lib/libmms_gyro_vstab_auth.so
 
 # Skia
-lib/libskia.so:lib/libskia-v26.so
+lib/libskia-v28.so|a6e15775536558232ecc64d68ce054d025208e27
+lib64/libskia-v28.so|afba213994c5555c4bae64ff7f7d6adb0b5fb9b4
 
 # Speaker
 bin/SpeakerCalibrationTest
