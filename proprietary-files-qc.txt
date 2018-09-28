@@ -658,11 +658,11 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0_vendor.so
 vendor/bin/thermal-engine
 vendor/lib64/libthermalioctl.so
 
-# Time services
--vendor/app/TimeService/TimeService.apk
--vendor/lib/libtime_genoff.so
--vendor/lib64/libtime_genoff.so
-vendor/bin/time_daemon
+# Time services - from Nokia 7 Plus - WW_3_190
+-vendor/app/TimeService/TimeService.apk|25337e4160093a998c0e4cfced1c1a6c51177dff
+-vendor/lib/libtime_genoff.so|a3161ec9ce9eb05e9d8490e28d9ad56dff287a9a
+-vendor/lib64/libtime_genoff.so|de6f521a43174b748043790cc23181e88560fe32
+vendor/bin/time_daemon|757b977a7e6fab2c56b669f0922a74d5af28dd27
 
 # Vulkan - from Bardock - 2.2.0_20180717-0830
 vendor/lib/hw/vulkan.msm8953.so|01d012fe87dfa830f9e308a82869658a12c6b271
