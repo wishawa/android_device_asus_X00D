@@ -1,26 +1,24 @@
-# Adreno - from Bardock - 2.2.0_20180717-0830
-vendor/lib/egl/eglSubDriverAndroid.so|df793571f098118d17791ba41ef6665622537420
-vendor/lib/egl/libEGL_adreno.so|19850eb12e4380deb2d04a0e1835e5aafcc35291
-vendor/lib/egl/libGLESv1_CM_adreno.so|343de28213ae734d68958fa6dd10073361a4fc04
-vendor/lib/egl/libGLESv2_adreno.so|abb5d29d954b62c49c964eb217deb8088298cdfb
-vendor/lib/egl/libq3dtools_adreno.so|d5e24aefea281a38763b74bb897ff4a6af868175
-vendor/lib/egl/libq3dtools_esx.so|66c273ea65d3e6d10e021817ae73f0ea79a21be4
-vendor/lib/egl/libQTapGLES.so|62a4f747d7c9266f40d03d0af252fd9771a7e999
-vendor/lib/libadreno_utils.so|5f5be20be8c35428d76769ad6ed138611fb90b8c
-vendor/lib/librs_adreno.so|0df4614181bc30db84ec464e6ae1da60ac7d8763
-vendor/lib/librs_adreno_sha1.so|99fc07517cc53da463d7fa7c0ba3fbe5b4f6489d
-vendor/lib/libRSDriver_adreno.so|c0551aea7d32e21efde69a6a43b8b45bf69e0528
-vendor/lib64/egl/eglSubDriverAndroid.so|7a51837cf3df8e18d3b305e2f0e7c5981dd39bf3
-vendor/lib64/egl/libEGL_adreno.so|cddfe278d4922a72af8c6936079c4f68d84ce735
-vendor/lib64/egl/libGLESv1_CM_adreno.so|bd5e311e73b32192051f033408f0e9e2a2beeb15
-vendor/lib64/egl/libGLESv2_adreno.so|cadee1dc03189c3c8a2a2a8e00a8b3671a46d03f
-vendor/lib64/egl/libq3dtools_adreno.so|5e02bcc77c594656506bb11ec956f617395ef2a5
-vendor/lib64/egl/libq3dtools_esx.so|ecaf2d130b1574ecadd89329570b2c0b035a8b54
-vendor/lib64/egl/libQTapGLES.so|26fd5a88024c6e2caa4c1e38f558ffef198ee017
-vendor/lib64/libadreno_utils.so|ee975322c46f7ca78c34c96c33664218f2699857
-vendor/lib64/librs_adreno.so|ce5e17ec41d6c8ca61aff22f150a783d5d35aff6
-vendor/lib64/librs_adreno_sha1.so|9f63632a043f2b82777d000dbef66e0d269995e5
-vendor/lib64/libRSDriver_adreno.so|bfb3bc3396f3b94dd3ba4a8d7fa0b6e9c100daae
+# Adreno - from Nokia 7 Plus - WW_3_190
+vendor/lib/egl/eglSubDriverAndroid.so|735a5c66d9e381a44d52765c62b6541339cfe4c1
+vendor/lib/egl/libEGL_adreno.so|07705dff2e127acc1fcfc733e952f9f8649ac45a
+vendor/lib/egl/libGLESv1_CM_adreno.so|c0c8454539c1adfef604c29bbd1dcf1b04b49a28
+vendor/lib/egl/libGLESv2_adreno.so|e5a52b1a9e348f6822110abf5e05a2894c399a1f
+vendor/lib/egl/libq3dtools_adreno.so|a2506b94eb0fe3c2bccc7c8e6d8b8d21bd314ae8
+vendor/lib/egl/libQTapGLES.so|d88bb4b1e8a473e0ad3e1d0dd73a5e01e1e43000
+vendor/lib/libadreno_utils.so|5d5bb10f9fa53f604e68f9adfb766ce0b2d09571
+vendor/lib/librs_adreno_sha1.so|cc57928890c9c008f9e628f8ee54e9dbd43ddc43
+vendor/lib/librs_adreno.so|31ec54b970722ad8cf3845a1f363e7f94c016391
+vendor/lib/libRSDriver_adreno.so|2fb967e8df9554222d0814fa5521ad54cdb87981
+vendor/lib64/egl/eglSubDriverAndroid.so|5a576b88be6a367b8274821ca72cb30e6fdd7156
+vendor/lib64/egl/libEGL_adreno.so|76cce6852a10048b01acc3945abaf445db665082
+vendor/lib64/egl/libGLESv1_CM_adreno.so|c024aa202544631c26f6f5f5406c92d9b0fb9351
+vendor/lib64/egl/libGLESv2_adreno.so|aded73aac22fe5e073dc15d0ac732c9cb8bb5284
+vendor/lib64/egl/libq3dtools_adreno.so|4bd18c19a4d8376311983303b0971a7aa1334897
+vendor/lib64/egl/libQTapGLES.so|3c0faa0179ba0b5f194577a81eb60c5124e577ee
+vendor/lib64/libadreno_utils.so|6227acd25fe5c474c6156e2267c87d63993d5762
+vendor/lib64/librs_adreno_sha1.so|62f9a3da4a0339025493db807101e8d58d651818
+vendor/lib64/librs_adreno.so|4b8f5f5f73dde6325b48d2d4a7e1c486485dc672
+vendor/lib64/libRSDriver_adreno.so|a8675c428b5cb64a13f763442354638bd08e8d64
 
 # ADSP
 vendor/bin/adsprpcd
@@ -333,29 +331,23 @@ vendor/lib64/libulp2.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/vendor.qti.gnss@1.0_vendor.so
 
-# Graphics - from Bardock - 2.2.0_20180717-0830
-vendor/lib/libbccQTI.so|7bfe04f475cdd11cfade9672fabbaff9cad9de20
-vendor/lib/libC2D2.so|c4adece8dc2bf75f1aa0c2368b739d341851a1de
-vendor/lib/libc2d30-a5xx.so|0672672f3fb95eab090ea57553592991c13bc971
-vendor/lib/libc2d30_bltlib.so|9be189906fcd8f35e7c3fdc7ab547afa581d31ea
-vendor/lib/libCB.so|6ca3cfe869b742a4f18da74fe89bf7c3afc8e202
-vendor/lib/libgsl.so|60df05450231002c281e3d9327a23eed15667ecf
-vendor/lib/libllvm-glnext.so|b9932c16410d953f83b2669d0803c9698bc7e734
-vendor/lib/libllvm-qcom.so|91d082fa47a5250d1750919ed4249b6420f8fbdc
-vendor/lib/libllvm-qgl.so|a0ad235c119cc3bffee3d9b4ab286de7a2ca016f
-vendor/lib/libmm-disp-apis.so|2ce644e3fc59af10df76ca98ac75e8514489d5e2
-vendor/lib/libOpenCL.so|8d699bb6d1245596182b89d5f774fde09372fe61
-vendor/lib64/libbccQTI.so|096c6ed5276b37917219dd88019f4cb114de68e2
-vendor/lib64/libC2D2.so|c874c737e986173a443497fe9ec383ae35b1dea0
-vendor/lib64/libc2d30-a5xx.so|9924c8e2f23007e4ba6a7febaec3179b6dc2ec41
-vendor/lib64/libc2d30_bltlib.so|ebb3a38ae89e57346049b931af00fbb0679f815c
-vendor/lib64/libCB.so|9afc316537bd1ed5632ab24b88d7be8d97e6b298
-vendor/lib64/libgsl.so|ff95072fa3874699ddf78def6fd87fda8713faae
-vendor/lib64/libllvm-glnext.so|0e7966e0ebdd67b3ab4f08988ea9d4c86e420843
-vendor/lib64/libllvm-qcom.so|9c0be7c1e411d64246bed21d3fbe5788de589876
-vendor/lib64/libllvm-qgl.so|01ced139ad869422d9ddd844e650aa0a46f26c67
-vendor/lib64/libmm-disp-apis.so|772f21209154701dac8e143b26f42870b45d3e04
-vendor/lib64/libOpenCL.so|f040a46da08ecb13fb2b062aa9d28c44c0d7c16b
+# Graphics - from Nokia 7 Plus - WW_3_190
+vendor/lib/libbccQTI.so|08b78a4e6f85315ac51221b4d283ecca78b3d27a
+vendor/lib/libC2D2.so|c4bd8db1bc07726fbe914e912c56e6bce928f0f9
+vendor/lib/libc2d30_bltlib.so|ecf826abbb4c0fcbf7212de21292b8a6455200e7
+vendor/lib/libCB.so|f5a7dd8386cc9141e3213a0640e457a5482c9c02
+vendor/lib/libgsl.so|9a17b6b2495e582a9c0083db3b19f381f9833343
+vendor/lib/libllvm-glnext.so|e2a60debb7fbb43438c9ffd3c07a786896b403f0
+vendor/lib/libllvm-qcom.so|477d834b3387d83c4b67d85b28b0b479f6377c03
+vendor/lib/libOpenCL.so|fbf2d8e82973ea44583f1ca6a624163759167a73
+vendor/lib64/libbccQTI.so|0f8c070984ee51dc88ea967ca2d3595fe63e01b4
+vendor/lib64/libC2D2.so|2638a3a47da43bce76cbc674151cf4310fdc9e52
+vendor/lib64/libc2d30_bltlib.so|701b25c5616284aa0b753f5419b89d3a33edf2b0
+vendor/lib64/libCB.so|661474b1cf2558c9bd5c8c0a633d54ec049c1c5e
+vendor/lib64/libgsl.so|56af6b97d5ce9dfb4fe0a12f53505e3c0a2332ae
+vendor/lib64/libllvm-glnext.so|59af6a7fcca82d002249d44ff9988caa96d52dcf
+vendor/lib64/libllvm-qcom.so|3fa6c4dff861c53dd17acc357c1e033da4fdd9ef
+vendor/lib64/libOpenCL.so|1e78c9b98378803703835a3e1cbfabf43318f341
 
 # Graphics firmware
 vendor/firmware/a225_pfp.fw
@@ -394,30 +386,29 @@ vendor/lib64/hw/keystore.msm8953.so
 vendor/lib/libadpcmdec.so
 vendor/lib/vendor.qti.voiceprint@1.0.so
 
-# Media - from Bardock - 2.2.0_20180717-0830
--vendor/lib/libgpustats.so|30ab66c16c7e4a6b3c1920835a326c4ed4bb4a82
--vendor/lib64/libgpustats.so|a50ee23f3990405a8be9141108a400d8d22334fe
-lib/libstagefright_soft_flacdec.so
-vendor/lib/libAlacSwDec.so|d39ad1695c84f4ef3bdcf67e904682c92d50e1ab
-vendor/lib/libApeSwDec.so|76eaaccd07099fd77252a0331c5444ecf9e106f4
-vendor/lib/libFlacSwDec.so|7c323ae3576217c0d2b3ad5a518dac2a26ffc3fc
-vendor/lib/libI420colorconvert.so|7dca5526b37c9bcad9c13130bc22ade0288b8fa3
-vendor/lib/libOmxAacDec.so|c020906ff743e8655c2dff8a34c436d099a23def
-vendor/lib/libOmxAlacDec.so|9f9231887a072a2a0cca0f9266d04198201357b8
-vendor/lib/libOmxAlacDecSw.so|32d92e8df2cb73e300e23ab5ed23aeadeedb50b0
-vendor/lib/libOmxAmrDec.so|d51f269a5a05c3b35ac7ff1d96c7a8de335fd950
-vendor/lib/libOmxAmrwbplusDec.so|59f70cbc03179016bd05b15ad508787dd165eb22
-vendor/lib/libOmxApeDec.so|4ad7878d4cb0ebca766adbee3ddc00742a52e827
-vendor/lib/libOmxApeDecSw.so|95dd8b19b5c393bbc95a659a65d299211bc9d88f
-vendor/lib/libOmxDsdDec.so|1e253ca36021871175f786ff7164d9c6ed384f8f
-vendor/lib/libOmxEvrcDec.so|bc06bdcd812e012541dc59a53cae3f1b8fbca250
-vendor/lib/libOmxQcelp13Dec.so|25c7f4a214b9fb18e006bb3368c032a73e9fc729
-vendor/lib/libOmxVideoDSMode.so|169545ced7000f0950c006677c33537aaa70dcec
-vendor/lib/libOmxVpp.so|0520fb82a6692131d4a8be5096d75ea0ee410ed2
-vendor/lib/libOmxWmaDec.so|8b38432b79b29f98f8e90f8a0f54a478a0d75eb0
-vendor/lib/libvpplibrary.so|82aa03ec93cbf1d910aa5e185ee8e08030b7e6a6
-vendor/lib/libvqzip.so|70451e720fb3d5697cf440432c430e3e39e0ad71
-vendor/lib/vendor.qti.hardware.vpp@1.1_vendor.so
+# Media - from Nokia 7 Plus - WW_3_190
+-vendor/lib/libgpustats.so|cb8b3024291ffb97a5621218a18f757ee0d77c02
+-vendor/lib64/libgpustats.so|d5cbfaf117fafaf595bb0e66214d80f6f652c964
+lib/libstagefright_soft_flacdec.so|5a8d861837a217ab26939b861966be2783c0aa88
+vendor/lib/libAlacSwDec.so|a60f990030400c8d75b39bad16251e8108bb2473
+vendor/lib/libApeSwDec.so|9d5b4f3fbd633b51c5396070cfcee6028f5a3fb8
+vendor/lib/libFlacSwDec.so|42f9a5acc85a48693304dc731f17424eba4cb610
+vendor/lib/libI420colorconvert.so|148b7e8d305152c8f81586446ea7fd2cc7ebe818
+vendor/lib/libOmxAacDec.so|a92cee7dde432713ae8d87db06587c0f417fd690
+vendor/lib/libOmxAlacDec.so|f81a4ff65837ececf15fd8058f6da98885b003e3
+vendor/lib/libOmxAlacDecSw.so|f6c3d4aa46e05794550103dbe7da16fdd6664185
+vendor/lib/libOmxAmrDec.so|75bcd1a01770c8daa018a0881a12a94ae84fd713
+vendor/lib/libOmxAmrwbplusDec.so|3e7c65e37a539a9eab60e502cb56a892aa0d1cb0
+vendor/lib/libOmxApeDec.so|1e745b99c9f4b50328a5ea4948c7cfcd128d33ba
+vendor/lib/libOmxApeDecSw.so|0e28a8d8bea169b626fdd505a1b08fc45a12aa7f
+vendor/lib/libOmxDsdDec.so|4c670d76068951117d31f9a19692ced28f68a8c7
+vendor/lib/libOmxEvrcDec.so|71404d14fb89086c6220f5ea3b530e44a9f7362b
+vendor/lib/libOmxQcelp13Dec.so|4a2b5b18e12f31dec17890607ad6bcbb899d02a6
+vendor/lib/libOmxVideoDSMode.so|4ea8e5946bea62b837df4787129874bd7225a56e
+vendor/lib/libOmxVpp.so|42cc01f4ee6068d2d412959076af898e57b529f1
+vendor/lib/libOmxWmaDec.so|292fabacae8283f257a7bc85b00b1b5c137b15a9
+vendor/lib/libvpplibrary.so|fc33228da9d1be65f7244c787e0ce20fc8bee654
+vendor/lib/libvqzip.so|88e4b0722850be25caebe1884a2a6765f8b2acbc
 
 # Peripheral manager
 vendor/bin/pm-proxy
@@ -425,20 +416,16 @@ vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
-# Postprocessing - from Bardock - 2.2.0_20180717-0830
+# Postprocessing - from Nokia 7 Plus - WW_3_190
 etc/permissions/com.qti.snapdragon.sdk.display.xml|0bff16d681e75f203c1e11ff33afba82490e49b3
-framework/com.qti.snapdragon.sdk.display.jar|cc367fe3c3525bc580f0d3ab41e43190dcee60dc
-vendor/bin/hw/vendor.display.color@1.0-service|fec0d808fa0b795bf3afe8cad8afa06dcc3bf6e1
-vendor/bin/mm-pp-dpps|edb83ca84b2dd487c4e324f97cd2cee26e530c92
-vendor/etc/init/vendor.display.color@1.0-service.rc|5ad673f879b3685a0e79b5633437e5499cb94f48
-vendor/lib/libdisp-aba.so|f8ea6bdb191722b875e64711542b8c0c388cc8d2
-vendor/lib/libmm-qdcm.so|82013fd722702f735ea107a7b2d03ef9c0f70045
-vendor/lib/vendor.display.color@1.0_vendor.so|7ca706d322a38084ea2e6b103efe1acd33183400
-vendor/lib/vendor.display.postproc@1.0_vendor.so|a710a9d7f93892961ff71420fe222add0bfcf57e
-vendor/lib64/libdisp-aba.so|5b87c88bab9bbfb51333ded4bd975eea518c3b73
-vendor/lib64/libmm-qdcm.so|a3ba21337d710378d758666eb5cdc945bbe369ae
-vendor/lib64/vendor.display.color@1.0_vendor.so|25c717f3004a5932dcbb2f55d5165c010f7eac1a
-vendor/lib64/vendor.display.postproc@1.0_vendor.so|503ef07fcfbbfcd8db096de79dfd822c8ada5e9b
+framework/com.qti.snapdragon.sdk.display.jar|dd03db37fa4340f73cbad93fdfe6c3bf950d345e
+lib/libsdm-disp-apis.so:vendor/lib/libsdm-disp-apis.so|1607f187c911cb6b296203fd613f73163339bbb1
+lib64/libsdm-disp-apis.so:vendor/lib64/libsdm-disp-apis.so|b038141caecc116eea681497bcbeba208572e48d
+vendor/bin/mm-pp-dpps|9501dcc4c938e7171741be35400d6fa5004b61af
+vendor/lib/libdisp-aba.so|d82b44e9519cd4f55b04f8f475dbd736e39714d9
+vendor/lib/vendor.display.postproc@1.0.so|84e2bec33b405cacc4b9087152f3216ebd8e20ad
+vendor/lib64/libdisp-aba.so|c25a25b33bfb6c7d16f3603c3c6ec8bbfb9db6a0
+vendor/lib64/vendor.display.postproc@1.0.so|de9a0d12dcb4471a02b395878ec80fe9fc19b07c
 
 # Power-off alarm - from tissot - OPM1.171019.026
 -vendor/app/PowerOffAlarm/PowerOffAlarm.apk|ef2832a5261078eb6f9444b7939b1aa819849736
@@ -448,14 +435,6 @@ vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc|c9877b6cae0353d5fdea5bc
 vendor/framework/vendor.qti.hardware.alarm-V1.0-java.jar|d9b2fefcbe0fe30cfd54a5f7622e5964d55e8415
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|cbee74bc88e007490e517ba310defec360ea0cb0
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so|583a062f31e325321e5efce79add7422dc3a4a5b
-
-# QDutils - from Bardock - 2.2.0_20180717-0830
-lib/vendor.qti.hardware.qdutils_disp@1.0.so|a12b9e484ce9f7ab590b3fee91d320cba903badc
-lib64/vendor.qti.hardware.qdutils_disp@1.0.so|182817148907df624dcea5af27fd8d8256e02442
-vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti|dc6ff7d6bdb4bd7ee248eb03e4b1e53bd04f8221
-vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
-vendor/lib/vendor.qti.hardware.qdutils_disp@1.0_vendor.so|04bf21220673630ebaa4c8e7a84adbcdcf08f0dc
-vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0_vendor.so|d101774878c0374ad805d964c3d00c71b44456d9
 
 # QMI
 etc/permissions/qti_libpermissions.xml
@@ -626,22 +605,29 @@ vendor/lib64/vendor.qti.hardware.radio.ims@1.0_vendor.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0_vendor.so
 
-# SDM - from Bardock - 2.2.0_20180717-0830
--vendor/lib/libsdm-disp-vndapis.so|62d364e9632d656f610f0272f1b006692d4f7d31
--vendor/lib64/libsdm-disp-vndapis.so|0770a8dc3ab6b3f385be14cd25e8b89a0e780a2e
-vendor/lib/libsd_sdk_display.so|1d82cdbd844fc0b8a9e45c7daea0f82cb01e1136
-vendor/lib/libsdm-color.so|63e514fbb696234e775ba98d13872fa6e2bb19e8
-vendor/lib/libsdm-diag.so|340c59c6fc3374ae4aa11c7874e6f4d41ababb4f
-vendor/lib/libsdm-disp-apis.so|57422f6469e1e5dd2ff890742a2783237dd19395
-vendor/lib/libsdmextension.so|1b957523a31b14b68b98a4626fc5ef7d7527d1ff
-vendor/lib/libtinyxml2_1.so|3ee768813f5b351b71bd7dd2367b13a3698a591a
-vendor/lib64/libscalar.so|a48bf0845cc4c2cbffc3c4a2fac6e11f3acf48ec
-vendor/lib64/libsd_sdk_display.so|b33360656faf0c905048394823a482373449d5f9
-vendor/lib64/libsdm-color.so|6305527de13c7f33c6cc469f01f6346f5627be82
-vendor/lib64/libsdm-diag.so|73713b128751534fa8f25d00c4d56644e8a7868a
-vendor/lib64/libsdm-disp-apis.so|6a43376f167b146a8b8b571d87235a83af9841e1
-vendor/lib64/libsdmextension.so|d86709f8b29a09085b3d8b5fff551b690474d384
-vendor/lib64/libtinyxml2_1.so|5ffb12fd2162910fc95be463fcde04ab5c427045
+# SDM - from Nokia 7 Plus - WW_3_190
+vendor/bin/hw/vendor.display.color@1.0-service|bb775ca42eaa7f112115a849ec9743638e6660e2
+vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti|84a70f6dd21bfbc97971161e385f905a50693ddf
+vendor/etc/init/vendor.display.color@1.0-service.rc|5ad673f879b3685a0e79b5633437e5499cb94f48
+vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc|69d9cbc54f8ac0a0fb010f92bfa7de5981d643cf
+vendor/lib/libqseed3.so|3068e96424f57aa913fd07b32de7694c988e0147
+vendor/lib/libsdm-color.so|06541b289de8b098dea82522f9e2ec79032f92b7
+vendor/lib/libsdm-diag.so|c39bf51390975615ddaaaba7867fc1546a49d60e
+-vendor/lib/libsdm-disp-vndapis.so|e23fea8088b9169382812ef2ca21eaee81525de2
+vendor/lib/libsdmextension.so|f8597eddcdb953317625efeca36d35b2f9e41323
+vendor/lib/libtinyxml2_1.so|410ef0b073d6930caf3279cba17c1b9301fcbbe4
+vendor/lib/vendor.display.color@1.0.so|c74b9402c4e242e72a41185b49dac51806cd77ee
+vendor/lib/vendor.display.color@1.1.so|5cbf7dbcf436c7b52d2201e7b670d54a2c742994
+vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so|ca1933a8339a22ca006da87142d7933f1a2a2bd0
+vendor/lib64/libqseed3.so|8c45ff3b62f8ed36f6b46bfa030e9e8b8e7e3187
+vendor/lib64/libsdm-color.so|b9fa2cd18220c5f576d34c1c039776e20eb760f4
+vendor/lib64/libsdm-diag.so|90f2b9277824ea9acd4769ca46052dac9570cd5b
+-vendor/lib64/libsdm-disp-vndapis.so|43b8897a7b96f8b82b839404e79c98f961569e0c
+vendor/lib64/libsdmextension.so|f2f170f2d65bb22c07594ac4d08ae8b8357b034e
+vendor/lib64/libtinyxml2_1.so|1cf417716eca9616f5e20b34855862d07a33e8bc
+vendor/lib64/vendor.display.color@1.0.so|0316423c6bf2f4af29c005f59ccd4a6924d1e008
+vendor/lib64/vendor.display.color@1.1.so|2c31ab8c795a6684a01c2a330f5e2942d34ed622
+vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so|12674982b974c4121467564b60bd966c6d884662
 
 # Sensors
 vendor/bin/sensors.qcom
