@@ -60,8 +60,8 @@ persist.vendor.camera.display.lmax=1280x720
 vidc.enc.dcvs.extra-buff-count=2
 
 # CNE/DPM
-persist.cne.feature=1
-persist.dpm.feature = 10
+persist.vendor.cne.feature=1
+persist.vendor.dpm.feature = 10
 
 # CoreSight
 persist.debug.coresight.config=stm-events
