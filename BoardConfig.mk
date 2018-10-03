@@ -229,7 +229,8 @@ USE_SENSOR_MULTI_HAL := true
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /system/lib64/vendor.qti.gnss@1.0.so|libshim_gnss.so \
-    /system/vendor/lib64/vendor.qti.gnss@1.0_vendor.so|libshim_gnss.so
+    /system/vendor/lib64/vendor.qti.gnss@1.0_vendor.so|libshim_gnss.so \
+    /system/lib64/lib-imsvideocodec.so
 
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := true
