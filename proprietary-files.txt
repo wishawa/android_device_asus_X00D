@@ -500,9 +500,7 @@ etc/init.asus.set_time.sh
 etc/rgb_sensor_init.sh
 etc/sensors_factory_init.sh
 etc/sensors_init.sh
-vendor/bin/init.class_main.sh
 vendor/bin/init.crda.sh
-vendor/bin/init.qcom.sensors.sh
 vendor/etc/init.asus.thermal_conf.sh
 vendor/etc/ois_init.sh
 
