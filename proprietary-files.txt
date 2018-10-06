@@ -489,8 +489,6 @@ vendor/bin/StoreKeybox
 vendor/bin/vendor_cmd_tool
 vendor/bin/WifiLogger_app
 vendor/etc/apdr.conf
-vendor/lib/libpdmapper.so
-vendor/lib64/libpdmapper.so
 
 # Multisim
 framework/btmultisimlibrary.jar
