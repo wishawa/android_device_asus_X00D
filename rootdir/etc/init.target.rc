@@ -29,7 +29,6 @@
 
 on early-init
     mkdir /system 0777 root root
-    symlink /data/tombstones /tombstones
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -39,7 +38,6 @@ on fs
     write /proc/sys/vm/swappiness 100
 
 on post-fs-data
-    mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system
