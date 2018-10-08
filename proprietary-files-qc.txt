@@ -271,8 +271,7 @@ lib64/libdpmfdmgr.so|405939951343db041c69da6557a79172d417519f
 lib64/libdpmframework.so|5701fb61b6559c5623b9025dd5aa9dd5b4fee7f1
 lib64/libdpmtcm.so|9a87b9a61f9aead66d1f7eabda9193d29d242ad6
 vendor/bin/dpmQmiMgr|01d5f50ee8e86e03896f342c1a113f9d360bab6a
-vendor/lib/com.qualcomm.qti.dpm.api@1.0.so|ba1feb5ad48042d0d8d12efecf93f6f92f865138
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|ff9f1157b93f7b75a701c714837a8d622f1a8f79
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so:vendor/lib64/com.qualcomm.qti.dpm.api@1.0_vendor.so|ff9f1157b93f7b75a701c714837a8d622f1a8f79
 vendor/lib64/libdpmqmihal.so|25bcb5d6853ccbf30fbe38230f9442049688c49a
 
 # Gatekeeper
