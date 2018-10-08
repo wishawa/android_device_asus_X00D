@@ -424,6 +424,7 @@ vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|cbee74bc88e007490e517ba310
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so|583a062f31e325321e5efce79add7422dc3a4a5b
 
 # QMI
+etc/permissions/qti_libpermissions.xml
 etc/permissions/qti_permissions.xml
 vendor/bin/irsc_util
 vendor/lib/libdiag.so
