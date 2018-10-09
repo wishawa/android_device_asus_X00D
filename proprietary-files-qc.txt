@@ -594,7 +594,7 @@ vendor/lib64/vendor.display.color@1.1.so|2c31ab8c795a6684a01c2a330f5e2942d34ed62
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so|12674982b974c4121467564b60bd966c6d884662
 
 # Sensors
-vendor/bin/sensors.qcom
+vendor/bin/sensors.qcom:vendor/bin/sensors.qti
 vendor/lib/hw/activity_recognition.msm8953.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
