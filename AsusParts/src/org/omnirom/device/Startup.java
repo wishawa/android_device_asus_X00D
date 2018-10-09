@@ -47,6 +47,7 @@ public class Startup extends BroadcastReceiver {
     public void onReceive(final Context context, final Intent bootintent) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        DeviceSettings.restore(context);
         VibratorStrengthPreference.restore(context);
     }
 }
