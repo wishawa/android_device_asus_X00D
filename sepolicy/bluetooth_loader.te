@@ -4,8 +4,6 @@ type bluetooth_loader_exec, exec_type, file_type;
 init_daemon_domain(bluetooth_loader)
 
 allow bluetooth_loader vendor_bt_exec:file { entrypoint execute_no_trans };
-allow bluetooth_loader bluetooth_prop:file { read open getattr };
-allow bluetooth_loader wcnss_prop:file { read open getattr };
 allow bluetooth_loader smd_device:chr_file { read write open ioctl };
 allow bluetooth_loader factory_file:file { ioctl read open };
 allow bluetooth_loader factory_file:dir search;
