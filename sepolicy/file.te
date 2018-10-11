@@ -6,7 +6,6 @@ type serialno_file, file_type;
 type camera_temp_file, file_type;
 type camera_param_file, file_type;
 type goodix_fp_exec, exec_type, vendor_file_type, file_type;
-type vendor_bt_exec, exec_type, vendor_file_type, file_type;
 type rild_file, file_type;
 
 # asdf

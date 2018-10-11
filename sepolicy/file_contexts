@@ -4,9 +4,6 @@
 /data/data/tfa9895_cal_log.txt                 u:object_r:tfa9895_data_file:s0
 /system/bin/SpeakerCalibrationTest             u:object_r:spk_amp_cal_exec:s0
 
-# Bluetooth
-/(vendor|system/vendor)/bin/hci_qcomm_init          u:object_r:vendor_bt_exec:s0
-
 # Camera
 /(vendor|system/vendor)/lib/DataSet/ispDB/ParameterDB.db           u:object_r:camera_param_file:s0
 /dev/LaserSensor                                          u:object_r:laser_sensor_device:s0
