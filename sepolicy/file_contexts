@@ -57,3 +57,8 @@
 
 # sockets
 /dev/socket/dit                  u:object_r:dit_socket:s0
+
+# healthd
+/sys/devices/soc/soc:qcom,bcl/power_supply/bcl/type      u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc/qpnp-typec-9/power_supply/typec/type    u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc/msm-bcl-20/power_supply/fg_adc/type     u:object_r:sysfs_batteryinfo:s0
