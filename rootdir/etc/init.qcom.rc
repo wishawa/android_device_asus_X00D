@@ -71,8 +71,8 @@ on early-boot
     setprop wlan.softap.driver.status unloaded
     setprop persist.debug.wifi_user_list 1
     setprop wlan.driver.config /system/vendor/firmware/wlan/prima/WCNSS_qcom_cfg.ini
-    setprop bt.version.driver WCNSS-PR-4-0-344-125323-1
-    setprop wifi.version.driver WCNSS-PR-4-0-344-125323-1
+    setprop bt.version.driver WCNSS.PR.4.0-00344-M8953BAAAANAZW-1.125323.1.155731.1
+    setprop wifi.version.driver WCNSS.PR.4.0-00344-M8953BAAAANAZW-1.125323.1.155731.1
 
     # for backward compatibility
     chown system system /persist/sensors
