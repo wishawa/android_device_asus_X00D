@@ -24,6 +24,12 @@ allow init asusfw_block_device:file getattr;
 allow init self:netlink_socket { read write getattr connect };
 allow init property_socket:sock_file write;
 
+# tee
+allow init tee_device:chr_file { write ioctl };
+
+# ion
+allow init ion_device:chr_file ioctl;
+
 # device info
  allow init {
   sysfs_devfreq
