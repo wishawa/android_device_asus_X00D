@@ -19,6 +19,18 @@ allow init demoapp_file:dir mounton;
 allow init sysinfo_block_device:blk_file setattr;
 allow init asdf_block_device:file getattr;
 allow init asusfw_block_device:file getattr;
+
 # socket
 allow init self:netlink_socket { read write getattr connect };
 allow init property_socket:sock_file write;
+
+# device info
+ allow init {
+  sysfs_devfreq
+  sysfs_battery_supply
+  sysfs_vadc_dev
+  sysfs_kgsl
+  sysfs_usb_supply
+  sysfs_uio_file
+  sysfs_graphics
+}:lnk_file read;
