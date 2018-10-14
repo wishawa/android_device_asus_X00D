@@ -1,6 +1,9 @@
 # audio
 allow init audio_device:chr_file { write ioctl };
 
+# execmem
+allow init self:process execmem;
+
 # firmware_file
 allow init firmware_file:filesystem associate;
 
