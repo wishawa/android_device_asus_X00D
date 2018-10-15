@@ -35,6 +35,10 @@
 /(vendor|system/vendor)/bin/ssr_cfg.sh                        u:object_r:modem_shell_file:s0
 /(vendor|system/vendor)/radio/qcril_database/qcril.db         u:object_r:rild_file:s0
 /(vendor|system/vendor)/bin/modem_country                     u:object_r:modem_shell_file:s0
+/sys/devices/soc/1de0000.qcom,venus/subsys1/name              u:object_r:sysfs_ssr:s0
+/sys/devices/soc/c200000.qcom,lpass/subsys2/name              u:object_r:sysfs_ssr:s0
+/sys/devices/soc/a21b000.qcom,pronto/subsys3/name             u:object_r:sysfs_ssr:s0
+/sys/devices/soc/4080000.qcom,mss/subsys4/name                u:object_r:sysfs_ssr:s0
 
 # Partitions
 /dev/block/mmcblk0p23            u:object_r:sysinfo_block_device:s0
