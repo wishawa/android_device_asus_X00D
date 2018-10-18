@@ -11,9 +11,6 @@
 # ****DO NOT insert any services***     
 #
 #################################
-on boot
-    chmod 0444 /proc/cmdline
-
 on init
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin:/bin
 
