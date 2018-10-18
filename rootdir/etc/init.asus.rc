@@ -17,12 +17,6 @@ on boot
 on init
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin:/bin
 
-# mount asus partition
-    mkdir /factory 0775 system system
-    mkdir /asusfw 0775 system system
-    mkdir /ADF 0775 system system
-    mkdir /APD 0775 system system
-
 on fs
     # mount factory
     wait /dev/block/bootdevice/by-name/factory
@@ -35,9 +29,7 @@ on fs
     # mount asdf
     wait /dev/block/bootdevice/by-name/asdf
     exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/asdf
-    mkdir /asdf
     mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid nodev noatime barrier=1
-    chmod 0777 /asdf
     restorecon_recursive /asdf
 
     mkdir /dev/validity 0760 system root
@@ -49,8 +41,6 @@ on fs
     chmod 0760 /dev/goodix_fp
 
     # For Absolute Persistence Partition
-    mkdir /persdata 0750 system system
-    mkdir /persdata/absolute 0750 system system
     wait /dev/block/mmcblk0p61
     check_fs /dev/block/mmcblk0p61 ext4
     mount ext4 /dev/block/mmcblk0p61 /persdata/absolute nosuid nodev noatime barrier=1
