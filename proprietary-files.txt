@@ -341,16 +341,6 @@ vendor/lib/libmmcamera_isp_sub_module.so
 vendor/lib/libmmcamera_isp_template.so
 vendor/lib/libmmcamera_isp_wb40.so
 
-# Diag
-etc/rndisdiag.sh
-vendor/bin/athdiag
-vendor/bin/diag_callback_sample
-vendor/bin/diag_dci_sample
-vendor/bin/diag_klog
-vendor/bin/diag_mdlog
-vendor/bin/diag_socket_log
-vendor/bin/diag_uart_log
-
 # DIT
 bin/ditbsp
 bin/LaserFocus_CalStart
@@ -392,14 +382,6 @@ vendor/lib/libxditk_ditBSP_JNI.so
 vendor/lib/libxditk_ISP.so
 vendor/lib/OIS_coefficientFW.mem
 vendor/lib/OIS_programFW.bin
-
-# exfat / ntfs
-bin/exfatck
-bin/exfatlabel
-bin/exfatvsn
-bin/mkexfat
-bin/mkntfs
-bin/ntfsck
 
 # Fingerprint
 vendor/lib64/hw/gxfingerprint_gxfp3.default.so
@@ -450,65 +432,11 @@ vendor/etc/firmware/gxfpa.b06
 vendor/etc/firmware/gxfpa.mdt
 framework/vendor.qti.hardware.fingerprint-V1.0-java.jar
 
-# Hostapd
-vendor/bin/hostapd_cmd
-
-# Misc Asus Stuff // TODO: Remove unneeded ones
-bin/climax_hostSW
-bin/dun-server
-bin/fw_auto_update.sh
-bin/LedTest
-bin/pktlogconf
-bin/recvkernelevt
-bin/sigma_dut
-bin/touch_function
-bin/touch_self_test
-bin/VerifyVouchers
-etc/cdma_call_conf.xml
-framework/tcmiface.jar
-framework/uimlpalibrary.jar
-lib/libdevicedata.so
-lib64/libcctapi.so
-lib64/libdevicedata.so
-lib64/libfilterpack_facedetect.so
-lib64/libGVoucher.so
-vendor/bin/DR_AP_Service
-vendor/bin/e_loop
-vendor/bin/garden_app
-vendor/bin/hal_proxy_daemon
-vendor/bin/hvdcp_opti
-vendor/bin/install_key_server
-vendor/bin/KillMediaserver
-vendor/bin/mm-vidc-omx-test
-vendor/bin/mmi_debug
-vendor/bin/modem_country
-vendor/bin/PktRspTest
-vendor/bin/ptt_socket_app
-vendor/bin/RestoreCalibrationData
-vendor/bin/StoreKeybox
-vendor/bin/vendor_cmd_tool
-vendor/bin/WifiLogger_app
-vendor/etc/apdr.conf
-
-# Multisim
-framework/btmultisimlibrary.jar
-etc/permissions/btmultisim.xml
-
 # Ramdisk
-bin/writekey
-etc/init.asus.set_time.sh
-etc/rgb_sensor_init.sh
-etc/sensors_factory_init.sh
-etc/sensors_init.sh
 vendor/bin/init.crda.sh
 vendor/etc/init.asus.thermal_conf.sh
-vendor/etc/ois_init.sh
 
 # Sensors
-vendor/bin/lightsensor_calibration_start
-vendor/bin/proximity_calibration_start
-vendor/bin/proximity_poll_get_proxm
-vendor/bin/ProximityCalibration
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sensor_def_qcomdev.conf
 vendor/lib/libmms_gyro_vstab.so
@@ -524,10 +452,4 @@ etc/spkampcal.sh
 lib/libtfa98xx.so
 lib64/libtfa98xx.so
 vendor/etc/Tfa98xx.cnt
-
-# SSR
-vendor/bin/ssr_diag
-vendor/bin/ssr_setup
-vendor/bin/ssr_cfg.sh
-vendor/bin/ssr_ui.sh
 
