@@ -1,1 +1,2 @@
 allow ims diag_device:chr_file { read write open };
+allow ims sysfs_kgsl:file { read open };

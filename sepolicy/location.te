@@ -1,0 +1,1 @@
+allow location sysfs_kgsl:file { read open };

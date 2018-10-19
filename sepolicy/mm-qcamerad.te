@@ -13,6 +13,7 @@ allow mm-qcamerad asusfw_block_device:file { open read };
 allow mm-qcamerad proc_camera_module:file { read open getattr };
 allow mm-qcamerad sysfs_video:file r_file_perms;
 allow mm-qcamerad camera_prop:file { open read getattr };
+allow mm-qcamerad sysfs_kgsl:file { read open };
 
 allow mm-qcamerad hal_perf_hwservice:hwservice_manager find;
 

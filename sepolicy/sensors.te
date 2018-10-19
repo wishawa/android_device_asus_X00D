@@ -1,0 +1,1 @@
+allow sensors sysfs_kgsl:file { read open };
