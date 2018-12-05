@@ -150,9 +150,6 @@ TARGET_ENABLE_MEDIADRM_64 := true
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
 
-# exfat
-TARGET_EXFAT_DRIVER := sdfat
-
 # Exclude serif fonts for saving system.img size.
 EXCLUDE_SERIF_FONTS := true
 
