@@ -1,1 +1,2 @@
 allow sensors sysfs_kgsl:file { read open };
+allow sensors self:capability net_raw;
