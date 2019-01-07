@@ -1,2 +1,3 @@
 allow netmgrd sysfs_kgsl:file { read open };
 allow netmgrd property_socket:sock_file write;
+set_prop(netmgrd, vendor_xlat_prop)
