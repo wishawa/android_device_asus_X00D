@@ -444,6 +444,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     textclassifier.smartselection.bundle1
 
+# Trust HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
+
 # USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
