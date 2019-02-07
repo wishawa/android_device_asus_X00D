@@ -85,6 +85,7 @@ persist.hwc.enable_vds=1
 debug.sf.enable_hwc_vds=1
 debug.sf.hw=0
 debug.sf.latch_unsignaled=1
+debug.sf.recomputecrop=0
 debug.egl.hw=0
 dalvik.vm.heapsize=36m
 persist.hwc.mdpcomp.enable=true
@@ -93,6 +94,7 @@ dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 debug.enable.sglscale=1
 debug.gralloc.enable_fb_ubwc=1
+ro.vendor.display.cabl=2
 
 # DRM
 drm.service.enabled=true
@@ -131,15 +133,18 @@ mm.enable.smoothstreaming=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 av.debug.disable.pers.cache=1
-mm.enable.qcom_parser=1048575
+vendor.mm.enable.qcom_parser=1048575
 ro.vendor.gt_library=libqti-gt.so
 ro.vendor.at_library=libqti-at.so
 vendor.vidc.enc.disable_bframes=1
+vendor.video.disable.ubwc=1
 vendor.vidc.disable.split.mode=1
 vendor.vidc.dec.downscalar_width=1920
 vendor.vidc.dec.downscalar_height=1088
 vendor.vidc.enc.disable.pq=true
 sdm.debug.disable_skip_validate=1
+vendor.display.disable_skip_validate=1
+vendor.display.enable_default_color_mode=1
 vendor.audio.hw.aac.encoder=true
 
 # Netmgrd
