@@ -55,7 +55,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/asus.software.zenui.xml:system/etc/permissions/asus.software.zenui.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-oem.xml:system/etc/permissions/privapp-permissions-oem.xml \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml
 
 # Screen density
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
