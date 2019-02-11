@@ -22,6 +22,7 @@
 
 #include "GloveMode.h"
 #include "KeyDisabler.h"
+#include "TouchscreenGesture.h"
 
 using android::OK;
 using android::sp;
@@ -33,10 +34,13 @@ using ::vendor::lineage::touch::V1_0::IGloveMode;
 using ::vendor::lineage::touch::V1_0::implementation::GloveMode;
 using ::vendor::lineage::touch::V1_0::IKeyDisabler;
 using ::vendor::lineage::touch::V1_0::implementation::KeyDisabler;
+using ::vendor::lineage::touch::V1_0::ITouchscreenGesture;
+using ::vendor::lineage::touch::V1_0::implementation::TouchscreenGesture;
 
 int main() {
     sp<GloveMode> gloveMode;
     sp<KeyDisabler> keyDisabler;
+    sp<ITouchscreenGesture> gestureService;
 
     LOG(INFO) << "Touch HAL service is starting.";
 
@@ -52,6 +56,12 @@ int main() {
         goto shutdown;
     }
 
+    gestureService = new TouchscreenGesture();
+    if (gestureService == nullptr) {
+        LOG(ERROR) << "Can not create an instance of Touch HAL TouchscreenGesture Iface, exiting.";
+        goto shutdown;
+    }
+
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
     if (gloveMode->registerAsService() != OK) {
@@ -61,6 +71,11 @@ int main() {
 
     if (keyDisabler->registerAsService() != OK) {
         LOG(ERROR) << "Could not register service for Touch HAL KeyDisabler Iface";
+        goto shutdown;
+    }
+
+    if (gestureService->registerAsService() != OK) {
+        LOG(ERROR) << "Could not register service for Touch HAL TouchscreenGesture Iface";
         goto shutdown;
     }
 
