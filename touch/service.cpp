@@ -20,6 +20,7 @@
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
 
+#include "GloveMode.h"
 #include "KeyDisabler.h"
 
 using android::OK;
@@ -28,14 +29,22 @@ using android::status_t;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
+using ::vendor::lineage::touch::V1_0::IGloveMode;
+using ::vendor::lineage::touch::V1_0::implementation::GloveMode;
 using ::vendor::lineage::touch::V1_0::IKeyDisabler;
 using ::vendor::lineage::touch::V1_0::implementation::KeyDisabler;
 
 int main() {
+    sp<GloveMode> gloveMode;
     sp<KeyDisabler> keyDisabler;
-    status_t status;
 
     LOG(INFO) << "Touch HAL service is starting.";
+
+    gloveMode = new GloveMode();
+    if (gloveMode == nullptr) {
+        LOG(ERROR) << "Can not create an instance of Touch HAL GloveMode Iface, exiting.";
+        goto shutdown;
+    }
 
     keyDisabler = new KeyDisabler();
     if (keyDisabler == nullptr) {
@@ -45,10 +54,13 @@ int main() {
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
-    status = keyDisabler->registerAsService();
-    if (status != OK) {
-        LOG(ERROR) << "Could not register service for Touch HAL KeyDisabler Iface ("
-                   << status << ")";
+    if (gloveMode->registerAsService() != OK) {
+        LOG(ERROR) << "Could not register service for Touch HAL GloveMode Iface";
+        goto shutdown;
+    }
+
+    if (keyDisabler->registerAsService() != OK) {
+        LOG(ERROR) << "Could not register service for Touch HAL KeyDisabler Iface";
         goto shutdown;
     }
 
