@@ -1,34 +1,7 @@
-#################################################################
-#								#
-#   	              ASUS USERD RC				#
-#								#
-#################################################################
-
-#################################
-#
-#   	booting on trigger
-#
-# ****DO NOT insert any services***     
-#
-#################################
 on init
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin:/bin
 
 on fs
-    # mount factory
-    wait /dev/block/bootdevice/by-name/factory
-    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/factory
-    mount ext4 /dev/block/bootdevice/by-name/factory /factory ro nosuid nodev noatime  barrier=1 noauto_da_alloc
-    restorecon_recursive /factory
-    chmod 0775 /factory
-    chown root shell /factory
-
-    # mount asdf
-    wait /dev/block/bootdevice/by-name/asdf
-    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/asdf
-    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid nodev noatime barrier=1
-    restorecon_recursive /asdf
-
     mkdir /dev/validity 0760 system root
     chown system root /dev/vfsspi
     chown system root /dev/fingerprint
@@ -36,17 +9,6 @@ on fs
     chmod 0760 /dev/vfsspi
     chmod 0760 /dev/fingerprint
     chmod 0760 /dev/goodix_fp
-
-    # For Absolute Persistence Partition
-    wait /dev/block/mmcblk0p61
-    check_fs /dev/block/mmcblk0p61 ext4
-    mount ext4 /dev/block/mmcblk0p61 /persdata/absolute nosuid nodev noatime barrier=1
-    restorecon_recursive /persdata/absolute
-
-    # +++ ASUS_BSP : add for write os info 
-    chmod 0775 /dev/block/mmcblk0p23
-    chown system system /dev/block/mmcblk0p23
-    # --- ASUS_BSP : add for write os info
 
 on post-fs
 
@@ -60,59 +22,16 @@ on post-fs
     start fpseek
 
 on post-fs-data
-
-    start CheckProp
-
-# mount asdf
-    start check_last
-
-# mount asusfw
-    wait /dev/block/bootdevice/by-name/asusfw
-    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/asusfw
-    mount ext4 /dev/block/bootdevice/by-name/asusfw /asusfw nosuid nodev noatime  barrier=1 noauto_da_alloc
-    restorecon_recursive /asusfw
-    chmod 0775 /asusfw
-    chown system system /asusfw
-
 # ASUS_BSP+++ RTC
     mkdir /data/vendor/time 0700 system system
 # ASUS_BSP--- RTC
-
-#    start FWAuto
-
-# +++ ASUS_BSP : add for asus boot animation partition
-# mount ADF
-    wait /dev/block/bootdevice/by-name/ADF
-    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/ADF
-    mount ext4 /dev/block/bootdevice/by-name/ADF /ADF nosuid nodev noatime barrier=1
-    chmod 0775 /ADF
-    chmod 0775 /ADF/boot
-    chown system system /ADF
-    restorecon_recursive /ADF
-
-#mount APD
-    wait /dev/block/bootdevice/by-name/APD
-    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/APD
-    mount ext4 /dev/block/bootdevice/by-name/APD /APD nosuid nodev noatime barrier=1
-    chmod 0775 /APD
-    chown system system /APD
-    restorecon_recursive /APD
-# --- ASUS_BSP : add for asus boot animation partition
-
-# +++ ASUS_BSP : adb enable property
-    setprop factory.adbon ${ro.boot.adb.enable}
-# --- ASUS_BSP : adb enable property
-
-#ASUS_BSP+++ [thomas]move from init.asus.debugtool.rc
-	chmod 0775 /data/log
-#ASUS_BSP--- [thomas]move from init.asus.debugtool.rc
 
 #ASUS_BSP+++: add for fingerprint
     mkdir /data/validity
     chown system system /data/validity
     chmod 0775 /data/validity
-
 #ASUS_BSP---: add for fingerprint
+
 # ASUS_BSP +++ Gavin_Chang "storage info for AMAX"
     symlink /sys/bus/mmc/devices/mmc0:0001/emmc_total_size /data/data/emmc_total_size
     chmod 0666 /data/data/emmc_total_size
@@ -140,102 +59,91 @@ on post-fs-data
     chmod 0660 /dev/asusRgbSensor
 
 # ASUS_BSP WeiYu+++ "LaserFocus sensor"
-	chown system shell /proc/driver/LaserFocus_on
-	chown media shell /proc/driver/LaserFocus_value
-	chown system shell /proc/driver/LaserFocus_value_more_info
-	chown system shell /proc/driver/LaserFocus_Status
-	chown media shell /proc/driver/LaserFocus_Status_For_Camera
-	chown system shell /proc/driver/LaserFocus_debug_dump
-	chown system shell /proc/driver/LaserFocus_register_dump
-	chown media shell /proc/driver/LaserFocus_setK
-	chown media shell /proc/driver/LaserFocus_ProductFamily
-	chown system shell /proc/driver/LaserFocus_CSCmode
+    chown system shell /proc/driver/LaserFocus_on
+    chown media shell /proc/driver/LaserFocus_value
+    chown system shell /proc/driver/LaserFocus_value_more_info
+    chown system shell /proc/driver/LaserFocus_Status
+    chown media shell /proc/driver/LaserFocus_Status_For_Camera
+    chown system shell /proc/driver/LaserFocus_debug_dump
+    chown system shell /proc/driver/LaserFocus_register_dump
+    chown media shell /proc/driver/LaserFocus_setK
+    chown media shell /proc/driver/LaserFocus_ProductFamily
+    chown system shell /proc/driver/LaserFocus_CSCmode
 
-	rm /data/data/LaserFocus_on
-	rm /data/data/LaserFocus_value
-	rm /data/data/LaserFocus_value_more_info
-	rm /data/data/LaserFocus_Status
-	rm /data/data/LaserFocus_Status_For_Camera
-	rm /data/data/LaserFocus_debug_dump
-	rm /data/data/LaserFocus_register_dump
-	#rm /data/data/LaserFocus_setK
-	#rm /data/data/LaserFocus_ProductFamily
+    rm /data/data/LaserFocus_on
+    rm /data/data/LaserFocus_value
+    rm /data/data/LaserFocus_value_more_info
+    rm /data/data/LaserFocus_Status
+    rm /data/data/LaserFocus_Status_For_Camera
+    rm /data/data/LaserFocus_debug_dump
+    rm /data/data/LaserFocus_register_dump
 
-	symlink /system/bin/LaserFocus_on /data/data/LaserFocus_on
-	symlink /proc/driver/LaserFocus_value /data/data/LaserFocus_value
-	symlink /proc/driver/LaserFocus_value_more_info /data/data/LaserFocus_value_more_info
-	symlink /proc/driver/LaserFocus_Status /data/data/LaserFocus_Status
-	symlink /proc/driver/LaserFocus_Status_For_Camera /data/data/LaserFocus_Status_For_Camera
-	symlink /proc/driver/LaserFocus_debug_dump /data/data/LaserFocus_debug_dump
-	symlink /proc/driver/LaserFocus_register_dump /data/data/LaserFocus_register_dump
-	#symlink /proc/driver/LaserFocus_debug_dump /data/data/LaserFocus_setK
-	#symlink /proc/driver/LaserFocus_register_dump /data/data/LaserFocus_ProductFamily
+    symlink /system/bin/LaserFocus_on /data/data/LaserFocus_on
+    symlink /proc/driver/LaserFocus_value /data/data/LaserFocus_value
+    symlink /proc/driver/LaserFocus_value_more_info /data/data/LaserFocus_value_more_info
+    symlink /proc/driver/LaserFocus_Status /data/data/LaserFocus_Status
+    symlink /proc/driver/LaserFocus_Status_For_Camera /data/data/LaserFocus_Status_For_Camera
+    symlink /proc/driver/LaserFocus_debug_dump /data/data/LaserFocus_debug_dump
+    symlink /proc/driver/LaserFocus_register_dump /data/data/LaserFocus_register_dump
 
 #ASUS_BSP Mike add for Invensense EIS config file+++
-	rm /data/data/VStab_176x144_30_0.conf
-	rm /data/data/VStab_176x144_30_1.conf
+    rm /data/data/VStab_176x144_30_0.conf
+    rm /data/data/VStab_176x144_30_1.conf
+
+    rm /data/data/VStab_320x240_30_0.conf
+    rm /data/data/VStab_320x240_30_1.conf
+
+    rm /data/data/VStab_352x288_30_0.conf
+    rm /data/data/VStab_352x288_30_1.conf
 	
-	rm /data/data/VStab_320x240_30_0.conf
-	rm /data/data/VStab_320x240_30_1.conf
+    rm /data/data/VStab_640x480_30_0.conf
+    rm /data/data/VStab_640x480_30_1.conf
 	
-	rm /data/data/VStab_352x288_30_0.conf
-	rm /data/data/VStab_352x288_30_1.conf
+    rm /data/data/VStab_720x480_30_0.conf
+    rm /data/data/VStab_720x480_30_1.conf
 	
-	rm /data/data/VStab_640x480_30_0.conf
-	rm /data/data/VStab_640x480_30_1.conf
+    rm /data/data/VStab_1280x720_30_0.conf
+    rm /data/data/VStab_1280x720_30_1.conf
 	
-	rm /data/data/VStab_720x480_30_0.conf
-	rm /data/data/VStab_720x480_30_1.conf
-	
-	rm /data/data/VStab_1280x720_30_0.conf
-	rm /data/data/VStab_1280x720_30_1.conf
-	
-	rm /data/data/VStab_1920x1080_30_0.conf
-	rm /data/data/VStab_1920x1080_30_1.conf
+    rm /data/data/VStab_1920x1080_30_0.conf
+    rm /data/data/VStab_1920x1080_30_1.conf
 	
 #ASUS_BSP Mike add for Invensense EIS config file---
 
 #ASUS_BSP Mike add for Invensense EIS config file+++
- symlink /system/vendor/etc/camera/Invensense/VStab_176x144_30_0.conf	/data/data/VStab_176x144_30_0.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_176x144_30_1.conf	/data/data/VStab_176x144_30_1.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_320x240_30_0.conf	/data/data/VStab_320x240_30_0.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_320x240_30_1.conf	/data/data/VStab_320x240_30_1.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_352x288_30_0.conf	/data/data/VStab_352x288_30_0.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_352x288_30_1.conf	/data/data/VStab_352x288_30_1.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_640x480_30_0.conf	/data/data/VStab_640x480_30_0.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_640x480_30_1.conf	/data/data/VStab_640x480_30_1.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_720x480_30_0.conf	/data/data/VStab_720x480_30_0.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_720x480_30_1.conf	/data/data/VStab_720x480_30_1.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_1280x720_30_0.conf	/data/data/VStab_1280x720_30_0.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_1280x720_30_1.conf	/data/data/VStab_1280x720_30_1.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_1920x1080_30_0.conf	/data/data/VStab_1920x1080_30_0.conf
- symlink /system/vendor/etc/camera/Invensense/VStab_1920x1080_30_1.conf	/data/data/VStab_1920x1080_30_1.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_176x144_30_0.conf	/data/data/VStab_176x144_30_0.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_176x144_30_1.conf	/data/data/VStab_176x144_30_1.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_320x240_30_0.conf	/data/data/VStab_320x240_30_0.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_320x240_30_1.conf	/data/data/VStab_320x240_30_1.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_352x288_30_0.conf	/data/data/VStab_352x288_30_0.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_352x288_30_1.conf	/data/data/VStab_352x288_30_1.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_640x480_30_0.conf	/data/data/VStab_640x480_30_0.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_640x480_30_1.conf	/data/data/VStab_640x480_30_1.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_720x480_30_0.conf	/data/data/VStab_720x480_30_0.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_720x480_30_1.conf	/data/data/VStab_720x480_30_1.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_1280x720_30_0.conf	/data/data/VStab_1280x720_30_0.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_1280x720_30_1.conf	/data/data/VStab_1280x720_30_1.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_1920x1080_30_0.conf	/data/data/VStab_1920x1080_30_0.conf
+    symlink /system/vendor/etc/camera/Invensense/VStab_1920x1080_30_1.conf	/data/data/VStab_1920x1080_30_1.conf
 #ASUS_BSP Mike add for Invensense EIS config file---
 
+    chown shell camera /dev/LaserSensor	
+    chmod 0660 /dev/LaserSensor
+    chmod 0660 /data/data/LaserFocus_on
+    chmod 0660 /data/data/LaserFocus_value
+    chmod 0660 /data/data/LaserFocus_value_more_info
+    chmod 0660 /data/data/LaserFocus_Status
+    chmod 0660 /data/data/LaserFocus_Status_For_Camera
+    chmod 0660 /data/data/LaserFocus_debug_dump
+    chmod 0660 /data/data/LaserFocus_register_dump
 
-
-	chown shell camera /dev/LaserSensor	
-	chmod 0660 /dev/LaserSensor
-	chmod 0660 /data/data/LaserFocus_on
-	chmod 0660 /data/data/LaserFocus_value
-	chmod 0660 /data/data/LaserFocus_value_more_info
-	chmod 0660 /data/data/LaserFocus_Status
-	chmod 0660 /data/data/LaserFocus_Status_For_Camera
-	chmod 0660 /data/data/LaserFocus_debug_dump
-	chmod 0660 /data/data/LaserFocus_register_dump
-	#chmod 0660 /data/data/LaserFocus_setK
-	#chmod 0660 /data/data/LaserFocus_ProductFamily
-
-	chown system shell /data/data/LaserFocus_on
-	chown system shell /data/data/LaserFocus_value
-	chown system shell /data/data/LaserFocus_value_more_info
-	chown system shell /data/data/LaserFocus_Status
-	chown system shell /data/data/LaserFocus_Status_For_Camera
-	chown system shell /data/data/LaserFocus_debug_dump
-	chown system shell /data/data/LaserFocus_register_dump
-	#chown system shell /data/data/LaserFocus_setK
-	#chown system shell /data/data/LaserFocus_ProductFamily
-
+    chown system shell /data/data/LaserFocus_on
+    chown system shell /data/data/LaserFocus_value
+    chown system shell /data/data/LaserFocus_value_more_info
+    chown system shell /data/data/LaserFocus_Status
+    chown system shell /data/data/LaserFocus_Status_For_Camera
+    chown system shell /data/data/LaserFocus_debug_dump
+    chown system shell /data/data/LaserFocus_register_dump
 
 #CSC calibration
 	chown system shell /proc/driver/LaserFocus_CalStart
@@ -296,7 +204,6 @@ on post-fs-data
 	chmod 0660 /data/data/LaserFocus_HPTG_hw
 	chmod 0660 /data/data/LaserFocus_data_position
 
-
 	chown system shell /data/data/LaserFocus_CalStart
 	chown system shell /data/data/LaserFocus_log_value1
 	chown system shell /data/data/LaserFocus_log_value2
@@ -320,16 +227,12 @@ on post-fs-data
     mkdir /dev/socket/dit 0777 cameraserver audio
 
  # ASUS_BSP +++ srhuang "Gsensor after SMMI"
-	chmod 0700 /persist/sensors/sns.reg
+    chmod 0700 /persist/sensors/sns.reg
 # ASUS_BSP --- srhuang "Gsensor after SMMI"
 
-#ASUS_BSP +++ srhuang "sensors init"
-	start sensors_init
-#ASUS_BSP --- srhuang "sensors init"
-
 #ASUS_BSP Lucien +++: Change for jpegHWCompress
-	chmod 0666 /dev/jpeg0
-	chmod 0666 /dev/video1
+    chmod 0666 /dev/jpeg0
+    chmod 0666 /dev/video1
 #ASUS_BSP Lucien ---: Change for jpegHWCompress
 #ASUS_BSP+++ YuHeng_Wei "[GPS][NA][Spec] move SUPL cert file for injection"
     mkdir /data/SuplCert
@@ -346,273 +249,8 @@ on post-fs-data
     chmod 777 /data/misc/aw/route_path.info
 #Bruno++
 
-#+++ASUS BSP David : mount asdf folder for charger mode log
-on charger
-#mount asdf
-    wait /dev/block/bootdevice/by-name/asdf
-    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid noatime nodev barrier=1
-    restorecon_recursive /asdf
-
-    write /proc/asusevtlog "charger: enter charger mode"
-#---ASUS BSP David : mount asdf folder for charger mode log
-
-#################################
-#
-#   others property trigger
-#
-# ****DO NOT insert any services***     
-#
-#################################
-
-# ASUS_BSP+++ Yunchung "add for bluetooth DUT mode test"
-on property:init.svc.save-hcidump=stopped
-    setprop debug.bluetooth.btsnoop false
-    chmod 775 /data/logcat_log
-# ASUS_BSP--- Yunchung "add for bluetooth DUT mode test"
-
-# ASUS jacob add for glove mode switch
-on property:persist.asus.glove=0
-	write /sys/bus/i2c/devices/i2c-3/3-0038/glove_mode 0
-on property:persist.asus.glove=1
-	write /sys/bus/i2c/devices/i2c-3/3-0038/glove_mode 1
-# ASUS jacob ---
-
-# ASUS jacob add for double click mode switch
-on property:persist.asus.dclick=0
-	write /sys/bus/i2c/devices/i2c-3/3-0038/dclick_mode 0
-on property:persist.asus.dclick=1
-	write /sys/bus/i2c/devices/i2c-3/3-0038/dclick_mode 1
-# ASUS jacob ---
-
-# ASUS nancy add for swipeup mode switch
-on property:persist.asus.swipeup=0
-	write /sys/bus/i2c/devices/i2c-3/3-0038/swipeup_mode 0
-on property:persist.asus.swipeup=1
-	write /sys/bus/i2c/devices/i2c-3/3-0038/swipeup_mode 1
-# ASUS nancy ---
-
-# ASUS nancy add for keybord enable switch
-#on property:persist.asus.keyboard.enable=0 
-#	write /sys/bus/i2c/devices/i2c-3/3-0038/keyboard_enable 0
-#on property:persist.asus.keyboard.enable=1
-#	write /sys/bus/i2c/devices/i2c-3/3-0038/keyboard_enable 1
-# ASUS nancy ---
-
-# ASUS jacob add for flipcover mode switch
-on property:persist.asus.flipcovermode=0
-	write /sys/bus/i2c/devices/i2c-3/3-0038/cover_mode 0
-on property:persist.asus.flipcovermode=1
-	write /sys/bus/i2c/devices/i2c-3/3-0038/cover_mode 1
-# ASUS jacob ---
-
-on property:persist.asus.gesture.type=*
-	start asusgesture
-# ASUS jacob ---
-
-# ASUS jacob add for enable touch check proximity before gesture wake up
-on property:persist.asus.chkproximity=0
-	write /sys/bus/i2c/devices/i2c-3/3-0038/Enable_Proximyty_Check 0
-on property:persist.asus.chkproximity=1
-	write /sys/bus/i2c/devices/i2c-3/3-0038/Enable_Proximyty_Check 1
-# ASUS jacob ---
-
-on property:persist.asus.debugprofile=1
-    start debugprofile
-
-on property:persist.asus.debugprofile=0
-    stop debugprofile
-
-on property:persist.asus.debugoneshot=1
-    start debugonce
-
-on property:persist.asus.debugoneshot=0
-    stop debugonce
-
-#ASUS_BSP +++ widevine
-
-service ins_key /system/vendor/bin/install_key_server
-    class late_start
-    user root
-    group root
-    seclabel u:r:install_key_server:s0
-    disabled
-
-service widevine /system/vendor/bin/sh /system/vendor/bin/widevine.sh
-    class late_start
-    user root
-    group root
-    disabled
-    oneshot
-
-on property:atd.start.key.install=1
-    start ins_key
-
-on property:debug.check.keybox=1
-    start widevine
-
-#ASUS_BSP --- widevine
-
-# ASUS jacob add FP sensor test log collection
-on property:synaprint.start=0
-    start fplog
-    start vfmService
-on property:synaprint.start=1
-    stop vfmService
-
-on property:ro.hardware.fingerprint=snfp
-    symlink /system/bin/synatest /data/data/FingerPrintTest
-    chmod 0777 /data/data/FingerPrintTest
-# ASUS jacob ---
-
-#ASUS_BSP+++ Deeo "filldata stress"
-service filldata /system/bin/filldata.sh
-    user root
-    group root
-    disabled
-    oneshot
-
-on property:persist.boot.filldata=1
-    start filldata
-
-on property:persist.boot.filldata=0
-    stop filldata
-#ASUS_BSP--- Deeo "filldata stress"
-
-#ASUS_BSP+++ Deeo "add fsstress"
-service fsstress /system/bin/fsstress-run.sh
-    user root
-    group root
-    disabled
-    oneshot
-
-on property:persist.boot.runfsstress=1
-    start fsstress
-
-on property:persist.boot.runfsstress=0
-    stop fsstress
-#ASUS_BSP--- Deeo "add fsstress"
-
-#ASUS_BSP+++ Jeremy "Add QCOM USB Support"
-on property:persist.usb.diag=0
-    write /sys/class/android_usb/android0/diag $persist.usb.diag
-    setprop sys.usb.config $persist.sys.usb.config
-    
-on property:persist.usb.diag=1
-    write /sys/class/android_usb/android0/diag $persist.usb.diag
-    setprop sys.usb.config diag,serial_smd,rmnet_ipa,adb
-    
-on property:persist.usb.diag=2 && property:sys.boot_completed=1
-	write /sys/class/android_usb/android0/diag $persist.usb.diag
-    setprop sys.usb.config rndis,serial_smd,diag,adb
-
-on property:sys.usb.config=diag,serial_smd,rmnet_ipa,adb
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 05C6
-    write /sys/class/android_usb/android0/idProduct 9091
-    write /sys/class/android_usb/android0/f_diag/clients diag
-    write /sys/class/android_usb/android0/f_serial/transports smd
-    write /sys/class/android_usb/android0/f_rmnet/transports qti,bam2bam_ipa
-    write /sys/class/android_usb/android0/functions diag,serial,rmnet,adb
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
-    setprop sys.usb.state ${sys.usb.config}
-
-on property:sys.usb.config=rndis,serial_smd,diag,adb
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 05C6
-    write /sys/class/android_usb/android0/idProduct 90B6
-    write /sys/class/android_usb/android0/f_diag/clients diag
-    write /sys/class/android_usb/android0/f_serial/transports smd
-    write /sys/class/android_usb/android0/functions rndis,serial,diag,adb
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
-    setprop sys.usb.state rndis,adb
-
-#ASUS_BSP--- Jeremy "Add QCOM USB Support"
-
-# +++ ASUS_BSP : add for asus boot animation partition
-#mount APD
-on property:persist.sys.enableAPD=1
-    wait /dev/block/bootdevice/by-name/APD
-    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/APD
-    mount ext4 /dev/block/bootdevice/by-name/APD /APD nosuid noatime nodev barrier=1
-    chmod 0775 /APD
-    chown system system /APD
-    restorecon_recursive /APD
-# ASUS BSP Austin_T : add for demo app charger policy
-    write /sys/class/power_supply/battery/device/demo_app_property 1
-
-#unmount APD
-on property:persist.sys.enableAPD=0
-    start umount_apd
-# ASUS BSP Austin_T : add for demo app charger policy
-    write /sys/class/power_supply/battery/device/demo_app_property 0
-
-# Disable demoapp by default
-#on property:sys.boot_completed=1
-#    setprop persist.sys.enableAPD 0
-# --- ASUS_BSP : add for asus boot animation partition
-
 on property:sys.boot_completed=1
-# ASUS Austin_T add for USB Alert +++
     write /sys/class/power_supply/battery/device/boot_completed 1
-# ASUS Austin_T add for USB Alert ---
-
-# ASUS Austin_T add for special connector +++
-on property:persist.rd.special.connector=1
-    write /sys/class/power_supply/battery/device/special_connector 1
-on property:persist.rd.special.connector=0
-    write /sys/class/power_supply/battery/device/special_connector 0
-# ASUS Austin_T add for special connector ---
-
-
-#################################
-#
-#       system service
-#
-#################################
-# unmount APD service
-service umount_apd /system/bin/sh /system/bin/umount_apd.sh
-    user root
-    group root
-    oneshot
-    disabled
-
-# ASUS_BSP+++ Yunchung "add for bluetooth btwifimac service"
-service btwifimac /system/vendor/bin/sh /system/vendor/bin/btwifimac.sh
-    class core
-    user root
-    group root
-    oneshot
-#    seclabel u:r:btwifimac:s0
-# ASUS_BSP+++ Yunchung "add for bluetooth btwifimac service"
-
-
-service debugprofile /system/bin/sh /system/etc/start_debug.sh
-    class late_start
-    oneshot
-    disabled
-    seclabel u:r:debugprofile:s0
-
-# ASUS jacob add for gesture mode switch
-service asusgesture /system/bin/sh /system/etc/init.asus.gesture.sh
-    class core
-    seclabel u:r:asus_touch:s0
-    oneshot
-
-service debugonce /system/bin/sh /system/etc/start_debugonce.sh
-    class late_start
-    oneshot
-    disabled
-    seclabel u:r:debugprofile:s0
-
-#ASUS_BSP +++ srhuang "sensors init"
- service sensors_init /system/bin/sh /system/etc/sensors_init.sh
-    class core
-    user root
-    oneshot
-    disabled
-#ASUS_BSP --- srhuang "sensors init"
 
 #ASUS_BSP+++: add for fingerprint
 service gx_fpd /system/vendor/bin/gx_fpd
@@ -649,66 +287,3 @@ on property:sys.boot_completed=1
     start fpservice
 
 #ASUS_BSP---: add for fingerprint
-
-#ASUS_BSP+++: add for dfps
-
-service asus_dfps /system/bin/sh /system/etc/asus_dfps.sh
-	user root
-	group root
-	disabled
-	oneshot
-
-on property:persist.asus.dfps=1
-	start asus_dfps
-
-on property:persist.asus.dfps=0
-	start asus_dfps
-
-#ASUS_BSP---: add for dfps
-
-#ASUS_BSP +++ Deka "Disable qcom display lowpower when using camera"
-service camera_prop /system/bin/sh /system/etc/init.asus.camera.sh
-	user root
-	group root
-	disabled
-	oneshot
-
-on property:camera.prop.command=*
-	start camera_prop
-
-#ASUS_BSP --- Deka "Disable qcom display lowpower when using camera"
-
-
-# +++ ASUS BSP : User unlock tool +++
-service writekey /system/bin/writekey
-	class core
-	oneshot
-	disabled
-
-on property:debug.write.asuskey=1
-	start writekey
-# --- ASUS BSP : User unlock tool ---
-
-
-# ASUS_BSP +++ WeiYu "Copy Laser calibration data to factory partition in user device"
-on property:debug.asus.setfactorydata=1
-    mount ext4 /dev/block/bootdevice/by-name/factory /factory remount rw nosuid nodev barrier=1 noauto_da_alloc
-    copy /data/media/0/laura_cal_data.txt /factory/laura_cal_data.txt
-    chown media shell /factory/laura_cal_data.txt
-    chmod 0664 /factory/laura_cal_data.txt
-    write /factory/LaserFocus_CSC_Calibration.txt  "Calibration by CSC"
-    mount ext4 /dev/block/bootdevice/by-name/factory /factory remount ro nosuid nodev barrier=1 noauto_da_alloc
-# ASUS_BSP WeiYu---
-
-
-#ASUS_BSP Deeo : set io_is_busy while benchmark +++
-service StorageBench /system/bin/sh /system/etc/Storage_Benchmark.sh
-        seclabel u:r:storagebench:s0
-        class core
-        user root
-        oneshot
-        disabled
-
-on property:sys.storage.bchmode=*
-	start StorageBench
-#ASUS_BSP Deeo : set io_is_busy while benchmark ---

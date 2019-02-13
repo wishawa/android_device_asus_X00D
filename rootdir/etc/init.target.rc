@@ -38,18 +38,6 @@ on fs
     mount_all /vendor/etc/fstab.qcom
     write /proc/sys/vm/swappiness 100
 
-    # Keeping following partitions outside fstab file. As user may not have
-    # these partition flashed on the device. Failure to mount any partition in fstab file
-    # results in failure to launch late-start class.
-
-    wait /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist noatime nosuid nodev barrier=1
-    mkdir /persist/data 0700 system system
-    mkdir /persist/bms 0700 root system
-    restorecon_recursive /persist
-
-    #write /sys/kernel/boot_adsp/boot 1
-
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
@@ -93,11 +81,6 @@ service qseecomd /vendor/bin/qseecomd
    class core
    user root
    group root
-
-#service aostlmd /system/bin/aostlmd
-#   class late_start
-#   user system
-#   group system net_raw
 
 service perfd /system/vendor/bin/perfd
    class main
@@ -183,33 +166,6 @@ service hbtp /system/vendor/bin/hbtp_daemon
     user system
     group system
     disabled
-
-#ASUS BSP Display +++
-#service ppd /system/vendor/bin/mm-pp-dpps
-#    class late_start
-#    disabled
-#    user system
-#    socket pps stream 0660 system system
-#    group system graphics
-
-#on property:init.svc.surfaceflinger=stopped
-#    stop ppd
-
-#on property:init.svc.surfaceflinger=running
-#    start ppd
-
-#on property:init.svc.surfaceflinger=restarting
-#    stop ppd
-
-#on property:init.svc.zygote=stopped
-#    stop ppd
-
-#on property:init.svc.zygote=running
-#    start ppd
-
-#on property:init.svc.zygote=restarting
-#    stop ppd
-#ASUS BSP Display ---
 
 on charger
     wait /dev/block/bootdevice/by-name/system
