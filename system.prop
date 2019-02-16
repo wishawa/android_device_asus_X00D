@@ -126,6 +126,10 @@ persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 persist.radio.rat_on=combine
 
+# Logging
+log.tag.FingerGoodix=W
+log.tag.qti_sensors_hal=F
+
 # Media
 qcom.hw.aac.encoder=true
 media.msm8956hw=0
