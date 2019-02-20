@@ -249,8 +249,19 @@ on post-fs-data
     chmod 777 /data/misc/aw/route_path.info
 #Bruno++
 
+    # Thermal
+    setprop sys.create.thermal_link 1
+    start AThermalService
+
 on property:sys.boot_completed=1
     write /sys/class/power_supply/battery/device/boot_completed 1
+
+    # Thermal
+    setprop sys.create.thermal_link 1
+    start AThermalService
+
+on property:sys.thermal_engine.reset=1
+    start AThermalService
 
 #ASUS_BSP+++: add for fingerprint
 service gx_fpd /system/vendor/bin/gx_fpd
@@ -287,3 +298,9 @@ on property:sys.boot_completed=1
     start fpservice
 
 #ASUS_BSP---: add for fingerprint
+
+service AThermalService /system/vendor/bin/sh /system/vendor/etc/init.asus.thermal_conf.sh
+    class core
+    user root
+    oneshot
+    disabled

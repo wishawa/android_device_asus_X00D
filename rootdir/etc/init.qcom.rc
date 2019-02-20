@@ -28,7 +28,6 @@
 import /vendor/etc/init/hw/init.asus.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.asus.rc
-import /vendor/etc/init/hw/init.asus.thermald.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
