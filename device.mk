@@ -332,10 +332,6 @@ PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0 \
     android.hardware.media.omx@1.0-service
 
-# Perf
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/perf/perfboostsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfboostsconfig.xml \
-
 # Powerhint
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:system/etc/powerhint.xml \
