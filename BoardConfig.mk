@@ -125,9 +125,6 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/soc/78b7000.i2c/i2c-3/3-0038/dclick_mode"
 
-# Lineage Hardware
-JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
-
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 
