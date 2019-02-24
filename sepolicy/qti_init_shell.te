@@ -18,9 +18,5 @@ allow qti_init_shell rild_file:file getattr;
 allow qti_init_shell factory_file:file r_file_perms;
 allow qti_init_shell factory_file:dir search;
 
-# sysfs
-allow qti_init_shell sysfs_devices_system_cpu:dir write;
-allow qti_init_shell sysfs:file write;
-
 # wifi
 allow qti_init_shell factory_file:file getattr;
