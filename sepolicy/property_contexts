@@ -6,6 +6,7 @@ ro.hardware.fingerprint               u:object_r:fp_goodix_prop:s0
 
 tfa9895.calibration                   u:object_r:tfa9895_prop:s0
 persist.asus.pvcabc                   u:object_r:asus_cam_prop:s0
+camera.app.asuscamera                 u:object_r:asus_cam_prop:s0
 persist.np.asus.agps.ntpinjecttime    u:object_r:asus_gps_prop:s0
 persist.vendor.camera.debug.logfile   u:object_r:asus_debug_prop:s0
 debug.HWJPEG.HAL                      u:object_r:asus_debug_prop:s0
