@@ -1,7 +1,7 @@
 vndbinder_use(hal_fingerprint_default)
 
 allow hal_fingerprint_default fingerprintd_data_file:file { read open getattr append };
-allow hal_fingerprint_default fingerprintd_data_file:dir { write read open };
+allow hal_fingerprint_default fingerprintd_data_file:dir { write read open search };
 
 allow hal_fingerprint_default goodix_fp_service:service_manager find;
 get_prop(hal_fingerprint_default, fp_goodix_prop)
