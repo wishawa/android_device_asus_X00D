@@ -3,3 +3,4 @@ type tfa9895_prop, property_type;
 type asus_cam_prop, property_type;
 type asus_gps_prop, property_type;
 type asus_debug_prop, property_type;
+type thermal_prop, property_type;

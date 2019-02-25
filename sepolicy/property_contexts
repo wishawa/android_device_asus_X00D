@@ -12,3 +12,5 @@ debug.HWJPEG.HAL                      u:object_r:asus_debug_prop:s0
 
 sys.listeners.registered            u:object_r:vendor_tee_listener_prop:s0
 persist.net.doxlat                  u:object_r:vendor_xlat_prop:s0
+
+sys.create.thermal_link             u:object_r:thermal_prop:s0

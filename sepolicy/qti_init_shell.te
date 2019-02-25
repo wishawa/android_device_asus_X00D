@@ -18,5 +18,8 @@ allow qti_init_shell rild_file:file getattr;
 allow qti_init_shell factory_file:file r_file_perms;
 allow qti_init_shell factory_file:dir search;
 
+#thermal
+set_prop(qti_init_shell, thermal_prop);
+
 # wifi
 allow qti_init_shell factory_file:file getattr;
