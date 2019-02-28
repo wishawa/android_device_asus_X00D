@@ -33,7 +33,7 @@ start_sensors()
 {
     chmod -h 664 /persist/sensors/sensors_settings
     chown -h -R system.system /persist/sensors
-    start vendor.sensors.qcom
+    start vendor.sensors.qti
 
     # Only for SLPI
     if [ -c /dev/msm_dsps -o -c /dev/sensors ]; then
