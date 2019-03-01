@@ -130,6 +130,10 @@ persist.radio.rat_on=combine
 log.tag.FingerGoodix=W
 log.tag.qti_sensors_hal=F
 
+# Modem Info
+bt.version.driver=WCNSS.PR.4.0-00344-M8953BAAAANAZW-1.125323.1.155731.1
+wifi.version.driver=WCNSS.PR.4.0-00344-M8953BAAAANAZW-1.125323.1.155731.1
+
 # Media
 qcom.hw.aac.encoder=true
 media.msm8956hw=0
