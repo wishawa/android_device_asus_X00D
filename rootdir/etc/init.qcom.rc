@@ -730,8 +730,8 @@ service vendor.sensors /vendor/bin/sscrpcd
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
-    user root
-    group root
+    user system
+    group system
     disabled
 
 on property:ro.vendor.use_data_netmgrd=false
