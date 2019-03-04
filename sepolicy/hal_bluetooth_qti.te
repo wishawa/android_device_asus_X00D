@@ -1,4 +1,0 @@
-allow hal_bluetooth_qti {
-  factory_file
-  unlabeled
-}:file { read open };

@@ -1,1 +1,0 @@
-allow cnd sysfs_kgsl:file { read open };

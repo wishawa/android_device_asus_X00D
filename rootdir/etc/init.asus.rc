@@ -111,20 +111,20 @@ on post-fs-data
 #ASUS_BSP Mike add for Invensense EIS config file---
 
 #ASUS_BSP Mike add for Invensense EIS config file+++
-    symlink /system/vendor/etc/camera/Invensense/VStab_176x144_30_0.conf	/data/data/VStab_176x144_30_0.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_176x144_30_1.conf	/data/data/VStab_176x144_30_1.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_320x240_30_0.conf	/data/data/VStab_320x240_30_0.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_320x240_30_1.conf	/data/data/VStab_320x240_30_1.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_352x288_30_0.conf	/data/data/VStab_352x288_30_0.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_352x288_30_1.conf	/data/data/VStab_352x288_30_1.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_640x480_30_0.conf	/data/data/VStab_640x480_30_0.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_640x480_30_1.conf	/data/data/VStab_640x480_30_1.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_720x480_30_0.conf	/data/data/VStab_720x480_30_0.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_720x480_30_1.conf	/data/data/VStab_720x480_30_1.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_1280x720_30_0.conf	/data/data/VStab_1280x720_30_0.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_1280x720_30_1.conf	/data/data/VStab_1280x720_30_1.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_1920x1080_30_0.conf	/data/data/VStab_1920x1080_30_0.conf
-    symlink /system/vendor/etc/camera/Invensense/VStab_1920x1080_30_1.conf	/data/data/VStab_1920x1080_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_176x144_30_0.conf	/data/data/VStab_176x144_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_176x144_30_1.conf	/data/data/VStab_176x144_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_320x240_30_0.conf	/data/data/VStab_320x240_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_320x240_30_1.conf	/data/data/VStab_320x240_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_352x288_30_0.conf	/data/data/VStab_352x288_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_352x288_30_1.conf	/data/data/VStab_352x288_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_640x480_30_0.conf	/data/data/VStab_640x480_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_640x480_30_1.conf	/data/data/VStab_640x480_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_720x480_30_0.conf	/data/data/VStab_720x480_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_720x480_30_1.conf	/data/data/VStab_720x480_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_1280x720_30_0.conf	/data/data/VStab_1280x720_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_1280x720_30_1.conf	/data/data/VStab_1280x720_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_1920x1080_30_0.conf	/data/data/VStab_1920x1080_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_1920x1080_30_1.conf	/data/data/VStab_1920x1080_30_1.conf
 #ASUS_BSP Mike add for Invensense EIS config file---
 
     chown shell camera /dev/LaserSensor	
@@ -264,42 +264,40 @@ on property:sys.thermal_engine.reset=1
     start AThermalService
 
 #ASUS_BSP+++: add for fingerprint
-service gx_fpd /system/vendor/bin/gx_fpd
+service gx_fpd /vendor/bin/gx_fpd
     class late_start
     group system
     user system
     oneshot
     disabled
 
-service gx_fpd_gxfp3 /system/vendor/bin/gx_fpd_gxfp3
+service gx_fpd_gxfp3 /vendor/bin/gx_fpd_gxfp3
     class late_start
     group system
     user system
     oneshot
     disabled
 
-service fpseek /system/vendor/bin/fpseek
+service fpseek /vendor/bin/fpseek
     class core
     user root
     group system drmrpc
     oneshot
     disabled
-    seclabel u:r:fpservice:s0
 
-service fpservice /system/vendor/bin/sh /system/vendor/etc/fpservice.sh
+service fpservice /vendor/bin/sh /vendor/etc/fpservice.sh
     class late_start
     user root
     group root system drmrpc
     oneshot
     disabled
-    seclabel u:r:fpservice:s0
     
 on property:sys.boot_completed=1
     start fpservice
 
 #ASUS_BSP---: add for fingerprint
 
-service AThermalService /system/vendor/bin/sh /system/vendor/etc/init.asus.thermal_conf.sh
+service AThermalService /vendor/bin/sh /vendor/etc/init.asus.thermal_conf.sh
     class core
     user root
     oneshot

@@ -1,4 +1,0 @@
-allow hal_wifi_supplicant_default wpa_socket:dir { setattr write remove_name add_name rmdir };
-allow hal_wifi_supplicant_default wpa_socket:sock_file { write unlink create setattr };
-allow hal_wifi_supplicant_default wifi_vendor_data_file:dir { write remove_name };
-allow hal_wifi_supplicant_default wifi_vendor_data_file:sock_file { create setattr write unlink };

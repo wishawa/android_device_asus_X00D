@@ -1,1 +1,0 @@
-allow time_daemon sysfs_kgsl:file { read open };

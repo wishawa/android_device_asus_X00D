@@ -1,4 +1,0 @@
-allow thermal-engine proc_camera_temp:file r_file_perms;
-allow thermal-engine sysfs_vadc_dev:dir r_dir_perms;
-allow thermal-engine sysfs_vadc_dev:file r_file_perms;
-allow thermal-engine proc_asus_debug:file { open read write };

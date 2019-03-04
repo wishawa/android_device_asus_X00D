@@ -1,1 +1,0 @@
-allow hal_esepowermanager_qti vfat:dir search;

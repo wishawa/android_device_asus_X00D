@@ -1,4 +1,0 @@
-allow hal_gnss_qti property_socket:sock_file write;
-allow hal_gnss_qti init:unix_stream_socket connectto;
-allow hal_gnss_qti sysfs_kgsl:file { read open };
-set_prop(hal_gnss_qti, asus_gps_prop)

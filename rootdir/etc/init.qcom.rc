@@ -369,12 +369,12 @@ on property:vold.decrypt=trigger_restart_framework
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service vendor.cnd /system/vendor/bin/cnd
+service vendor.cnd /vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
 
-service dpmQmiMgr /system/vendor/bin/dpmQmiMgr
+service dpmQmiMgr /vendor/bin/dpmQmiMgr
     class main
     user system
     group system
@@ -401,7 +401,7 @@ service vendor.tftp_server /vendor/bin/tftp_server
    class core
    user root
 
-service vendor.netmgrd /system/vendor/bin/netmgrd
+service vendor.netmgrd /vendor/bin/netmgrd
     class main
 
 service vendor.ipacm /vendor/bin/ipacm
@@ -409,7 +409,7 @@ service vendor.ipacm /vendor/bin/ipacm
     user radio
     group radio inet
 
-service vendor.dataqti /system/vendor/bin/qti
+service vendor.dataqti /vendor/bin/qti
     class main
     user radio
     group radio oem_2901 diag usb net_admin
@@ -437,7 +437,6 @@ service spk_amp_cal /system/bin/SpeakerCalibrationTest 1
     group root system audio media
     disabled
     oneshot
-    seclabel u:r:spk_amp_cal:s0
 
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -O/data/vendor/wifi/sockets -puse_p2p_group_interface=1 \
@@ -453,7 +452,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
-service loc_launcher /system/vendor/bin/loc_launcher
+service loc_launcher /vendor/bin/loc_launcher
     class late_start
     group gps inet diag wifi
 
@@ -476,7 +475,6 @@ service charger_led /vendor/bin/init.chargerled.sh
     group root system
     disabled
     oneshot
-    seclabel u:r:charger_led:s0
 
 on property:sys.boot_completed=1
     start qcom-post-boot
@@ -489,14 +487,6 @@ service vendor.atfwd /vendor/bin/ATFWD-daemon
     user system
     group system radio
 
-service modem-check /system/vendor/bin/sh /system/vendor/etc/init.modem.sh
-    class late_start
-    user bluetooth
-    group net_bt
-    disabled
-    oneshot
-    seclabel u:r:vendor_modem:s0
-
 service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
     user radio
@@ -508,7 +498,7 @@ service charger /charger
     group system graphics
     seclabel u:r:healthd:s0
 
-service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
+service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
     class core
     user root
     group root
@@ -527,7 +517,7 @@ on property:init.svc.surfaceflinger=restarting
 on property:vendor.display.lcd_density=*
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
 
-service time_daemon /system/vendor/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
     class main
     user root
     group root

@@ -1,9 +1,0 @@
-allow system_app {
-  sysfs_vibrator
-  sysfs_gesture_device
-}:file { write open getattr };
-
-allow system_app {
-  sysfs_vibrator
-  sysfs_gesture_device
-}:dir search;
