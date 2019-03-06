@@ -238,11 +238,6 @@ include device/qcom/sepolicy/sepolicy.mk
 # Sensors
 USE_SENSOR_MULTI_HAL := true
 
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /system/lib64/vendor.qti.gnss@1.0.so|libshim_gnss.so \
-    /vendor/lib64/vendor.qti.gnss@1.0_vendr.so|libshim_gnss.so
-
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 TARGET_COPY_OUT_VENDOR := vendor
