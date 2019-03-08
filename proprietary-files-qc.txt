@@ -138,68 +138,21 @@ vendor/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so|063298fa29ad1d8491853051
 vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so|dd4aebcdd0f711b15ef173601ec121e7a91c5c63
 vendor/lib64/vendor.qti.latency@2.0.so|68fd46a6f26e2e101a6ecb0c40643fd5e137d716
 
-# DRM
-lib/libGPTEE_system.so
-lib/libQTEEConnector_system.so
-lib/libsecureuisvc_jni.so
-lib/vendor.qti.hardware.qteeconnector@1.0.so
-lib64/libGPTEE_system.so
-lib64/libQTEEConnector_system.so
-lib64/libsecureuisvc_jni.so
-lib64/vendor.qti.hardware.qteeconnector@1.0.so
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
-vendor/bin/qseecomd
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/firmware/cppf.b00
-vendor/firmware/cppf.b01
-vendor/firmware/cppf.b02
-vendor/firmware/cppf.b03
-vendor/firmware/cppf.b04
-vendor/firmware/cppf.b05
-vendor/firmware/cppf.b06
-vendor/firmware/cppf.mdt
-vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib/libcppf.so
-vendor/lib/libdrmfs.so
-vendor/lib/libdrmtime.so
-vendor/lib/libGPreqcancel.so
-vendor/lib/libGPreqcancel_svc.so
-vendor/lib/libGPTEE_vendor.so
-vendor/lib/liboemcrypto.so
-vendor/lib/libpvr.so
-vendor/lib/libqisl.so
-vendor/lib/libQSEEComAPI.so
-vendor/lib/libQTEEConnector_vendor.so
-vendor/lib/librmp.so
-vendor/lib/librpmb.so
-vendor/lib/libsecureui.so
-vendor/lib/libsecureui_svcsock.so
-vendor/lib/libSecureUILib.so
-vendor/lib/libsi.so
-vendor/lib/libssd.so
-vendor/lib/libStDrvInt.so
-vendor/lib/libtzdrmgenprov.so
-vendor/lib/vendor.qti.hardware.qteeconnector@1.0_vendor.so
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libpvr.so
-vendor/lib64/libqisl.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/libQTEEConnector_vendor.so
-vendor/lib64/librmp.so
-vendor/lib64/librpmb.so
-vendor/lib64/libsecureui.so
-vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libSecureUILib.so
-vendor/lib64/libsi.so
-vendor/lib64/libssd.so
-vendor/lib64/libStDrvInt.so
-vendor/lib64/libtzdrmgenprov.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0_vendor.so
+# DRM - from Tissot - V10.0.5.0
+vendor/bin/qseecomd|14eaa0752ac0eb2308708056d094a05d9e5129b8
+vendor/lib/libQSEEComAPI.so|3a4de1c673d0e196c553fbfcec0ee4a3275915af
+vendor/lib64/libGPreqcancel.so|942e96e6c1706b52e0b2f898c5947f16f8612994
+vendor/lib64/libGPreqcancel_svc.so|699c1d86af3a0fe58ff3b9cc927f001ed10ee745
+vendor/lib64/libQSEEComAPI.so|1e695dcc9197c685c294d426822d2cb4e4c9c592
+vendor/lib64/libSecureUILib.so|d1bb44ffb30ab0efbc9d05ad729bac8b71dc28f5
+vendor/lib64/libStDrvInt.so|61eb3821f61fb5b8e5a23f961111f09c93208918
+vendor/lib64/libdrmfs.so|e20cc71ac84a7998626e600f4dd9dfe356a1436a
+vendor/lib64/libdrmtime.so|4efeb1449809aa172e68fe5bf5aa68be0f21387d
+vendor/lib64/libqisl.so|54d0ba8662dcc8bb664c2acc7315fb9bfffc773f
+vendor/lib64/librpmb.so|ba775205529284dc5d2233f11462037538f763af
+vendor/lib64/libsecureui.so|66befbd91628d464b71e1cd523eb111d517a5b84
+vendor/lib64/libsecureui_svcsock.so|ab9ec06666c6c63e4a30b2fe503e6088aab3629d
+vendor/lib64/libssd.so|0e988e6ef7b1d356f4b92a26a61b96a840de1d20
 
 # DPM - from Nokia 7 Plus - WW_3_190
 bin/dpmd|985cdaedd7524abb646535954f860db24893ff20
@@ -220,9 +173,8 @@ vendor/bin/dpmQmiMgr|01d5f50ee8e86e03896f342c1a113f9d360bab6a
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so:vendor/lib64/com.qualcomm.qti.dpm.api@1.0_vendor.so|ff9f1157b93f7b75a701c714837a8d622f1a8f79
 vendor/lib64/libdpmqmihal.so|25bcb5d6853ccbf30fbe38230f9442049688c49a
 
-# Gatekeeper
-vendor/lib/hw/gatekeeper.msm8953.so
-vendor/lib64/hw/gatekeeper.msm8953.so
+# Gatekeeper - from Tissot - V10.0.5.0
+vendor/lib64/hw/gatekeeper.msm8953.so|c1b386547234815a0d6116b5e4756de66075cd3f
 
 # GPS - from Tissot - V10.0.5.0
 vendor/bin/hw/vendor.qti.gnss@1.0-service|cf96777743a552d87c2a8b1a7d7ae25420c606a4
@@ -297,9 +249,8 @@ vendor/firmware/a540_gpmu.fw2
 vendor/lib/libhdr_tm.so|9f191fda6909c92b29ac15c3d2cbf65c2db94b13
 vendor/lib64/libhdr_tm.so|9a61ddbece993d3329d337265f7be5278c237833
 
-# Keystore
-vendor/lib/hw/keystore.msm8953.so
-vendor/lib64/hw/keystore.msm8953.so
+# Keystore - From Tissot - V10.0.5.0
+vendor/lib64/hw/keystore.msm8953.so|f71f1439c9c356ce05d88b876253b4e3dcb10f4b
 
 # Listen - From Tissot - V10.0.5.0
 vendor/lib/hw/sound_trigger.primary.msm8953.so|0e716aae6fe6fc4a8b9553953765f64614647e7d
@@ -542,13 +493,13 @@ vendor/lib64/sensor_calibrate.so
 vendor/lib64/sensors.ALSPS.so
 vendor/lib64/sensors.ssc.so
 
-# Tui
-vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
-vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
-lib/vendor.qti.hardware.tui_comm@1.0.so
-lib64/vendor.qti.hardware.tui_comm@1.0.so
-vendor/lib/vendor.qti.hardware.tui_comm@1.0_vendor.so
-vendor/lib64/vendor.qti.hardware.tui_comm@1.0_vendor.so
+# Tui - from Tissot - V10.0.5.0
+lib/vendor.qti.hardware.tui_comm@1.0.so|2380fd3814008cfb70e7fed4158a050e0c259e90
+lib64/vendor.qti.hardware.tui_comm@1.0.so|acbbf758ec18b79b7fa0b557a55fd700fa76d577
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|86c327a8310fcc42f69c85ec0868c630903c7d79
+vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e1579374f001c94588fae7835a12ffc
+vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|2380fd3814008cfb70e7fed4158a050e0c259e90
+vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|acbbf758ec18b79b7fa0b557a55fd700fa76d577
 
 # Thermal
 -vendor/lib/libthermalclient.so
@@ -566,19 +517,10 @@ vendor/bin/time_daemon|757b977a7e6fab2c56b669f0922a74d5af28dd27
 vendor/lib/hw/vulkan.msm8953.so|869fab7525e1b116e926268636ea09ee0f563226
 vendor/lib64/hw/vulkan.msm8953.so|e029f01a236297998d3a86ab73abac9e0fdbf62a
 
-# Widevine
-vendor/bin/hw/android.hardware.drm@1.0-service.widevine
-vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
-vendor/firmware/widevine.b00
-vendor/firmware/widevine.b01
-vendor/firmware/widevine.b02
-vendor/firmware/widevine.b03
-vendor/firmware/widevine.b04
-vendor/firmware/widevine.b05
-vendor/firmware/widevine.b06
-vendor/firmware/widevine.mdt
-vendor/lib/libwvhidl.so
-vendor/lib/mediadrm/libwvdrmengine.so
+# Widevine - from Tissot - V10.0.5.0
+vendor/bin/hw/android.hardware.drm@1.1-service.widevine|458b57eadd116b32d1d288447d3537d00761f506
+vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc|458dd241f5f8536eccb57f012b3eba0061736e8e
+vendor/lib/libwvhidl.so|8e6513b7e2ad780ced0f55909911e76ab6a7ae49
 
 # Wifi
 vendor/bin/cnss-daemon
