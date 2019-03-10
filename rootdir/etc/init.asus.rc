@@ -22,6 +22,7 @@ on post-fs
     start fpseek
 
 on post-fs-data
+    symlink /factory/bt_nv.bin /persist/bluetooth/.bt_nv.bin
 # ASUS_BSP+++ RTC
     mkdir /data/vendor/time 0700 system system
 # ASUS_BSP--- RTC
