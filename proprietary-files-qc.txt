@@ -485,11 +485,11 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e157937
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|2380fd3814008cfb70e7fed4158a050e0c259e90
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|acbbf758ec18b79b7fa0b557a55fd700fa76d577
 
-# Thermal
--vendor/lib/libthermalclient.so
--vendor/lib64/libthermalclient.so
-vendor/bin/thermal-engine
-vendor/lib64/libthermalioctl.so
+# Thermal - from Tissot - V10.0.5.0
+vendor/bin/thermal-engine|bbf772d4acf6c11413d2f728140aae63a49d3eae
+vendor/lib/libthermalclient.so|523476e106337823696f0600b48f057d8c629465
+vendor/lib64/libthermalclient.so|796c3e071fe9d6fa57598e1205a762cb55720f88
+vendor/lib64/libthermalioctl.so|6eed5b8ca6989809eac27abd4af19bbd6f3845ee
 
 # Time services - from Nokia 7 Plus - WW_3_190
 -vendor/app/TimeService/TimeService.apk|25337e4160093a998c0e4cfced1c1a6c51177dff

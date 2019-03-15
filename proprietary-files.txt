@@ -368,10 +368,6 @@ vendor/etc/firmware/gxfpa.b06
 vendor/etc/firmware/gxfpa.mdt
 framework/vendor.qti.hardware.fingerprint-V1.0-java.jar
 
-# Ramdisk
-vendor/bin/init.crda.sh
-vendor/etc/init.asus.thermal_conf.sh
-
 # Sensors
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sensor_def_qcomdev.conf
