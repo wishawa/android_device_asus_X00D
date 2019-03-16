@@ -138,7 +138,7 @@ vendor/lib/libmmcamera_tuning_lookup.so
 vendor/lib/libmmcamera_ubifocus_lib.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmjpeg_interface.so
-vendor/lib/libmmqjpeg_codec.so
+vendor/lib/libmmqjpeg_codec.so|8e4ca17a83fd31f368c5f55607746c6d8651abe3
 vendor/lib/libmmqjpegdma.so
 vendor/lib/libois_lc898122.so
 vendor/lib/liboptizoom.so
