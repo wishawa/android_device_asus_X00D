@@ -176,9 +176,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Netmgrd
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.use_data_netmgrd=true \
+    ro.vendor.use_data_netmgrd=true \
     persist.data.netmgrd.qos.enable=true \
-    persist.data.mode=concurrent
+    persist.vendor.data.mode=concurrent
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -191,7 +191,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ril.subscription.types=RUIM,RUIM \
     DEVICE_PROVISIONED=1 \
     ro.telephony.default_network=22,20 \
-    ro.telephony.default_network=9,9 \
     persist.vendor.radio.rat_on=combine \
     persist.radio.flexmap_type=dds \
     telephony.lteOnCdmaDevice=1 \
@@ -199,10 +198,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.aosp_usr_pref_sel=true \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.custom_ecc=0
-
-# Sta
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.mm.sta.enable=0
 
 # TCP
 PRODUCT_PROPERTY_OVERRIDES += \

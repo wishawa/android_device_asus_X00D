@@ -375,7 +375,9 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libtar \
     libprotobuf-cpp-lite \
-    android.hardware.radio@1.0
+    android.hardware.radio@1.0 \
+    android.hardware.radio.config@1.0 \
+    android.hardware.secure_element@1.0
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
