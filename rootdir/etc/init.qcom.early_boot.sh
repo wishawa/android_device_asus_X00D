@@ -131,7 +131,7 @@ fi
 
 boot_reason=`cat /proc/sys/kernel/boot_reason`
 reboot_reason=`getprop ro.boot.alarmboot`
-power_off_alarm_file=`cat /persist/alarm/data | tail -c 2 | head -c 1`
+power_off_alarm_file=`cat /mnt/vendor/persist/alarm/data | tail -c 2 | head -c 1`
 if [ "$boot_reason" = "3" ] || [ "$reboot_reason" = "true" ]; then
     if [ "$power_off_alarm_file" = "1" ]
     then

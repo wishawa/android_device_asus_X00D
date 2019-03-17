@@ -22,7 +22,7 @@ on post-fs
     start fpseek
 
 on post-fs-data
-    symlink /factory/bt_nv.bin /persist/bluetooth/.bt_nv.bin
+    symlink /factory/bt_nv.bin /mnt/vendor/persist/bluetooth/.bt_nv.bin
 # ASUS_BSP+++ RTC
     mkdir /data/vendor/time 0700 system system
 # ASUS_BSP--- RTC
@@ -228,7 +228,7 @@ on post-fs-data
     mkdir /dev/socket/dit 0777 cameraserver audio
 
  # ASUS_BSP +++ srhuang "Gsensor after SMMI"
-    chmod 0700 /persist/sensors/sns.reg
+    chmod 0700 /mnt/vendor/persist/sensors/sns.reg
 # ASUS_BSP --- srhuang "Gsensor after SMMI"
 
 #ASUS_BSP Lucien +++: Change for jpegHWCompress
