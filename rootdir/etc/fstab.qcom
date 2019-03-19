@@ -25,7 +25,6 @@
 /dev/block/bootdevice/by-name/asdf                      /asdf        ext4    nosuid,nodev,noatime,barrier=1              wait
 /dev/block/mmcblk0p61                                   /persdata/absolute    ext4    nosuid,nodev,noatime,barrier=1     wait
 /dev/block/bootdevice/by-name/ADF                       /ADF         ext4    nosuid,nodev,noatime,barrier=1              wait
-/dev/block/bootdevice/by-name/APD                       /APD         ext4    nosuid,nodev,noatime,barrier=1              wait
 /dev/block/bootdevice/by-name/asusfw                    /asusfw      ext4    nosuid,nodev,noatime,barrier=1,noauto_da_alloc          wait
 
 /devices/soc/7864900.sdhci/mmc_host*                    auto         auto    nosuid,nodev                                wait,voldmanaged=sdcard1:auto,encryptable=userdata
