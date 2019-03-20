@@ -275,7 +275,7 @@ service fpseek /vendor/bin/fpseek
     oneshot
     disabled
 
-service fpservice /vendor/bin/sh /vendor/etc/fpservice.sh
+service fpservice /vendor/bin/sh /vendor/bin/fpservice.sh
     class late_start
     user root
     group root system drmrpc
