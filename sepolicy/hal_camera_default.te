@@ -1,0 +1,4 @@
+allow hal_camera_default proc_camera:file r_file_perms;
+allow hal_camera_default vendor_camera_file:file lock;
+allow hal_camera_default dit_socket:dir getattr;
+allow hal_camera_default dit_socket:sock_file write;

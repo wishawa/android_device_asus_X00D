@@ -1,0 +1,4 @@
+# Factory/asusfw partition
+allow init factory_file:dir mounton;
+allow init factory_file:filesystem { relabelfrom relabelto mount };
+allow factory_file self:filesystem associate;

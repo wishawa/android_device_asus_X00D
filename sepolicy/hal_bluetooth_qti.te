@@ -1,0 +1,4 @@
+allow hal_bluetooth_qti factory_file:dir r_dir_perms;
+allow hal_bluetooth_qti factory_file:file r_file_perms;
+
+allow hal_bluetooth_qti persist_bluetooth_file:lnk_file r_file_perms;

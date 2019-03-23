@@ -1,0 +1,24 @@
+type goodix_fp, domain;
+type goodix_fp_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(goodix_fp)
+
+vndbinder_use(goodix_fp)
+
+binder_call(goodix_fp, hal_fingerprint_default)
+
+set_prop(goodix_fp, fingerprint_prop)
+
+allow goodix_fp goodix_fp_vndservice:service_manager add;
+allow goodix_fp proc_goodix_fp:file { read open };
+allow goodix_fp tee_device:chr_file { read write ioctl open };
+allow goodix_fp ion_device:chr_file { read open ioctl };
+allow goodix_fp goodix_fp_device:chr_file rw_file_perms;
+allow goodix_fp vendor_toolbox_exec:file rx_file_perms;
+allow goodix_fp goodix_fp_exec:file rx_file_perms;
+
+allow goodix_fp self:netlink_socket create_socket_perms_no_ioctl;
+
+allow goodix_fp sysfs_graphics:dir r_dir_perms;
+allow goodix_fp sysfs_graphics:file r_file_perms;
+allow goodix_fp sysfs_leds:dir r_dir_perms;

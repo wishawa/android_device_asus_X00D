@@ -1,0 +1,15 @@
+# Amplifier
+tfa9895.calibration                    u:object_r:debug_prop:s0
+
+# Camera
+persist.vendor.camera.debug.logfile    u:object_r:camera_prop:s0
+persist.asus.pvcabc                    u:object_r:camera_prop:s0
+camera.app.asuscamera		       u:object_r:camera_prop:s0
+debug.HWJPEG.HAL                       u:object_r:camera_prop:s0
+
+# Fingerprint
+fingerprint.start                      u:object_r:fingerprint_prop:s0
+ro.hardware.fingerprint                u:object_r:fingerprint_prop:s0
+persist.sys.fp.goodix                  u:object_r:fingerprint_prop:s0
+persist.sys.fp.vendor                  u:object_r:fingerprint_prop:s0
+persist.sys.fp.onstart                 u:object_r:fingerprint_prop:s0

@@ -1,0 +1,9 @@
+vndbinder_use(hal_fingerprint_default)
+
+typeattribute hal_fingerprint_default data_between_core_and_vendor_violators;
+
+binder_call(hal_fingerprint_default, goodix_fp)
+
+allow hal_fingerprint_default goodix_fp_vndservice:service_manager find;
+allow hal_fingerprint_default fingerprintd_data_file:file create_file_perms;
+allow hal_fingerprint_default fingerprintd_data_file:dir rw_dir_perms;

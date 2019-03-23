@@ -1,0 +1,9 @@
+allow system_app {
+  sysfs_vibrator
+  sysfs_touchpanel
+}:file { write open getattr };
+
+allow system_app {
+  sysfs_vibrator
+  sysfs_touchpanel
+}:dir search;

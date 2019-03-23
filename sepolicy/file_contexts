@@ -1,0 +1,35 @@
+# Amplifier
+/dev/i2c-5                                                            u:object_r:audio_device:s0
+/vendor/etc/tfa98xx\.cnt                                              u:object_r:tfa98xx_vendor_file:s0
+/data/data/tfa9895_cal_log\.txt                                       u:object_r:tfa98xx_data_file:s0
+/vendor/bin/SpeakerCalibrationTest                                    u:object_r:tfa98xx_exec:s0
+
+# Camera
+/vendor/lib/DataSet/ispDB/ParameterDB.db                              u:object_r:vendor_camera_file:s0
+/dev/socket/dit                                                       u:object_r:dit_socket:s0
+
+# Fingerprint
+/dev/goodix_fp                                                        u:object_r:goodix_fp_device:s0
+/vendor/bin/fpseek                                                    u:object_r:goodix_fp_exec:s0
+/vendor/bin/fpservice\.sh                                             u:object_r:goodix_fp_exec:s0
+/vendor/bin/gx_fpd                                                    u:object_r:goodix_fp_exec:s0
+/vendor/bin/gx_fpd_gxfp3                                              u:object_r:goodix_fp_exec:s0
+
+# Hals
+/vendor/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey          u:object_r:hal_drm_clearkey_exec:s0
+/vendor/bin/hw/android\.hardware\.drm@1\.1-service\.widevine          u:object_r:hal_drm_widevine_exec:s0
+/vendor/bin/hw/android\.hardware\.sensors@1\.0-service\.asus_8953     u:object_r:hal_sensors_default_exec:s0
+/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.asus_8953         u:object_r:hal_lineage_touch_default_exec:s0
+
+# Input
+/vendor/usr/idc/focal-touchscreen\.idc                                u:object_r:vendor_input_file:s0
+/vendor/usr/keylayout/ASUS_TransKeyboard\.kl                          u:object_r:vendor_input_file:s0
+/vendor/usr/keylayout/focal-touchscreen\.kl                           u:object_r:vendor_input_file:s0
+/vendor/usr/keylayout/goodixfp\.kl                                    u:object_r:vendor_input_file:s0
+
+# Leds
+/vendor/bin/init.chargerled\.sh                                       u:object_r:init_led_exec:s0
+
+# Sensors
+/dev/asusRgbSensor                                                    u:object_r:sensors_device:s0
+/dev/LaserSensor                                                      u:object_r:sensors_device:s0

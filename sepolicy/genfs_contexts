@@ -1,0 +1,34 @@
+# Battery
+genfscon sysfs /devices/soc/soc:qcom,bcl/power_supply                   u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/qpnp-typec-9/power_supply                   u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/msm-bcl-20/power_supply                     u:object_r:sysfs_batteryinfo:s0
+
+# Camera
+genfscon proc /driver/camera_temp                                       u:object_r:proc_camera:s0
+genfscon proc /driver/FrontModule                                       u:object_r:proc_camera:s0
+genfscon proc /driver/RearModule                                        u:object_r:proc_camera:s0
+genfscon proc /driver/front_otp                                         u:object_r:proc_camera:s0
+genfscon proc /driver/rear_otp                                          u:object_r:proc_camera:s0
+genfscon proc /driver/LaserFocus_Status_For_Camera                      u:object_r:proc_camera:s0
+genfscon proc /driver/ois_device                                        u:object_r:proc_camera:s0
+genfscon proc /driver/ois_status                                        u:object_r:proc_camera:s0
+
+# Fingerprint
+genfscon proc /fpmod                                                    u:object_r:proc_goodix_fp:s0
+
+# Leds
+genfscon sysfs /devices/soc/leds-qpnp-21/leds/red                       u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/soc/leds-qpnp-22/leds/green                     u:object_r:sysfs_leds:s0
+
+# Sensors
+genfscon sysfs /devices/virtual/sensors                                 u:object_r:sysfs_sensors:s0
+
+# Touchscreen
+genfscon sysfs /devices/soc/78b7000.i2c/i2c-3/3-0038/dclick_mode        u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /devices/soc/78b7000.i2c/i2c-3/3-0038/gesture_mode       u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /devices/soc/78b7000.i2c/i2c-3/3-0038/glove_mode         u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /devices/soc/78b7000.i2c/i2c-3/3-0038/keypad_mode        u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /devices/soc/78b7000.i2c/i2c-3/3-0038/swipeup_mode       u:object_r:sysfs_touchpanel:s0
+
+# Wifi
+genfscon sysfs /devices/soc/a000000.qcom,wcnss-wlan/net                 u:object_r:sysfs_net:s0

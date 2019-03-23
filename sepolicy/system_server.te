@@ -1,0 +1,2 @@
+allow system_server sysfs_vibrator:file read;
+allow system_server vendor_input_file:file { read open getattr };

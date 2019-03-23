@@ -1,0 +1,19 @@
+# Camera
+type proc_camera, proc_type, fs_type;
+type vendor_camera_file, vendor_file_type, file_type;
+type dit_socket, file_type;
+
+# Factory partition
+type factory_file, file_type;
+
+# Fingerprint
+type proc_goodix_fp, proc_type, fs_type;
+
+# Input
+type vendor_input_file, vendor_file_type, file_type;
+
+# Leds
+type init_led_exec, exec_type, vendor_file_type, file_type;
+
+# Touchscreen
+type sysfs_touchpanel, sysfs_type, fs_type;
