@@ -75,13 +75,6 @@ void property_override_dual(char const system_prop[], char const vendor_prop[], 
     property_override(vendor_prop, value);
 }
 
-void property_override_triple(char const system_prop[], char const vendor_prop[], char const bootimg_prop[], char const value[])
-{
-    property_override(system_prop, value);
-    property_override(vendor_prop, value);
-    property_override(bootimg_prop, value);
-}
-
 static void set_serial()
 {
     std::string ssnValue;
@@ -125,12 +118,11 @@ void check_varient()
 
         product = "ZE520KL";
         power_profile = "power_profile_Z017";
-        fingerprint = "asus/WW_Phone/ASUS_Z017D_1:8.0.0/OPR1.170623.026/15.0410.1804.61-0:user/release-keys";
-        description = "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1804.61-0 release-keys";
+        fingerprint = "asus/WW_Phone/ASUS_Z017D_1:8.0.0/OPR1.170623.026/15.0410.1806.68-0:user/release-keys";
         device = "ASUS_Z017D_1";
         carrier = "US-ASUS_Z017D-WW_Phone"; /* Default to US for now TODO: Split carrier depending value in /factory/COUNTRY */
         hwID = "ZE520KL_MP";
-        csc = "WW_ZE520KL-15.0410.1804.61-0";
+        csc = "WW_ZE520KL-15.0410.1806.68-0";
         dpi = "420";
     } else {
         switch(rf){
@@ -144,14 +136,16 @@ void check_varient()
 
         product = "ZE552KL";
         power_profile = "power_profile_Z012";
-        fingerprint = "asus/WW_Phone/ASUS_Z012D:8.0.0/OPR1.170623.026/15.0410.1804.60-0:user/release-keys";
-        description = "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1804.60-0 release-keys";
+        fingerprint = "asus/WW_Phone/ASUS_Z012D:8.0.0/OPR1.170623.026/15.0410.1806.68-0:user/release-keys";
         device = "ASUS_Z012D";
         carrier = "US-ASUS_Z012D-WW_Phone"; /* Default to US for now TODO: Split carrier depending value in /factory/COUNTRY */
         hwID = "ZE552KL_MP";
-        csc = "WW_ZE552KL-15.0410.1804.60-0";
+        csc = "WW_ZE552KL-15.0410.1806.68-0";
         dpi = "400";
     }
+
+    /* Shared props */
+    description = "WW_Phone-user 8.0.0 OPR1.170623.026 15.0410.1806.68-0 release-keys";
 }
 
 void vendor_load_properties()
@@ -163,7 +157,7 @@ void vendor_load_properties()
     property_override_dual("ro.product.name", "ro.vendor.product.name", "WW_Phone");
     property_override("ro.build.product", product);
     property_override("ro.build.description", description);
-    property_override_triple("ro.build.fingerprint", "ro.vendor.build.fingerprint", "ro.bootimg.build.fingerprint", fingerprint);
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", fingerprint);
     property_override_dual("ro.product.device", "ro.vendor.product.device", device);
     property_override_dual("ro.product.model", "ro.vendor.product.model", model);
     property_set("ro.power_profile.override", power_profile);
