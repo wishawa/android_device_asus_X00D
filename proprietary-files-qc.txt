@@ -514,7 +514,7 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0_vendor.so|e9bcbdf65
 vendor/radio/qcril_database/qcril.db|8405d20c8e1184c79eba1c4f19ecfb92d7529bdf
 
 # Radio - IMS - from Mido
--app/ims/ims.apk|406f0c50b44480789072222a6ba120894dc02394
+-app/ims/ims.apk|3b01e73410424abaae98b15dd2dd60bdf4c046c3
 etc/permissions/qti-vzw-ims-internal.xml|3e41b645dd4ad8bad6775c103a34bfd7a507a4f7
 lib/com.qualcomm.qti.imscmservice@1.0.so|22b7b530065f73cf7c97f4add71985e01fb72527
 lib/lib-imscamera.so|68bca76365f59f964862aaa339c2483bdd637b0b
