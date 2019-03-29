@@ -258,6 +258,7 @@ on post-fs-data
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
+    restorecon_recursive /mnt/vendor/persist
     chown system system /mnt/vendor/persist/WCNSS_qcom_wlan_nv.bin
     chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
