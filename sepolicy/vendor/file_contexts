@@ -1,9 +1,3 @@
-# Amplifier
-/dev/i2c-5                                                            u:object_r:audio_device:s0
-/vendor/etc/tfa98xx\.cnt                                              u:object_r:tfa98xx_vendor_file:s0
-/data/data/tfa9895_cal_log\.txt                                       u:object_r:tfa98xx_data_file:s0
-/vendor/bin/SpeakerCalibrationTest                                    u:object_r:tfa98xx_exec:s0
-
 # Camera
 /vendor/lib/DataSet/ispDB/ParameterDB.db                              u:object_r:vendor_camera_file:s0
 /dev/socket/dit                                                       u:object_r:dit_socket:s0

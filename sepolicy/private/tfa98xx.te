@@ -1,5 +1,5 @@
-type tfa98xx, domain;
-type tfa98xx_exec, exec_type, vendor_file_type, file_type;
+type tfa98xx, coredomain, domain;
+type tfa98xx_exec, exec_type, file_type;
 type tfa98xx_vendor_file, vendor_file_type, file_type;
 type tfa98xx_data_file, core_data_file_type, data_file_type, file_type;
 
@@ -14,11 +14,11 @@ allow tfa98xx audio_device:dir search;
 allow tfa98xx audio_device:chr_file { read write ioctl open };
 allow tfa98xx tfa98xx_data_file:file { create write open getattr };
 allow tfa98xx system_data_file:dir { write add_name };
-allow tfa98xx vendor_shell_exec:file execute_no_trans;
+allow tfa98xx shell_exec:file rx_file_perms;
 
 # Attempt to search for firmware in /asusfw
 allow tfa98xx factory_file:dir r_dir_perms;
 allow tfa98xx factory_file:file r_file_perms;
 
 # Tinymix execution
-allow tfa98xx vendor_file:file execute_no_trans;
+allow tfa98xx system_file:file execute_no_trans;
