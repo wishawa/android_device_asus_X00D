@@ -375,8 +375,8 @@ vendor/lib/libmms_gyro_vstab.so
 vendor/lib/libmms_gyro_vstab_auth.so
 
 # Speaker
-vendor/bin/tinymix|f4692f62d722c1511517b0dc265edb65cd503cb6
-bin/SpeakerCalibrationTest:vendor/bin/SpeakerCalibrationTest
-lib/libtfa98xx.so:vendor/lib/libtfa98xx.so
-lib64/libtfa98xx.so:vendor/lib64/libtfa98xx.so
+bin/SpeakerCalibrationTest
+etc/spkampcal.sh
+lib/libtfa98xx.so
+lib64/libtfa98xx.so
 vendor/etc/Tfa98xx.cnt

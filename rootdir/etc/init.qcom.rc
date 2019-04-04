@@ -409,7 +409,7 @@ on property:ro.data.large_tcp_window_size=true
 on property:sys.sysctl.tcp_adv_win_scale=*
     write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
 
-service spk_amp_cal /vendor/bin/SpeakerCalibrationTest 1
+service spk_amp_cal /system/bin/SpeakerCalibrationTest 1
     class late_start
     user root
     group root system audio media
