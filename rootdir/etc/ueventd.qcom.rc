@@ -284,12 +284,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/lsensor              0660   system     system
 /dev/psensor              0660   system     system
 
-# Proximity sensor
-/dev/input/event3         0660   system     system
-
-# Light sensor
-/dev/input/event4         0660   system     system
-
 # vm_bms
 /dev/vm_bms               0660   system     system
 /dev/battery_data         0660   system     system
