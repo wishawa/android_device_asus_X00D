@@ -27,3 +27,5 @@
 # Sensors
 /dev/asusRgbSensor                                                    u:object_r:sensors_device:s0
 /dev/LaserSensor                                                      u:object_r:sensors_device:s0
+/dev/lsensor                                                          u:object_r:sensors_device:s0
+/dev/psensor                                                          u:object_r:sensors_device:s0
