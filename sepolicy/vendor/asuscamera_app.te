@@ -1,0 +1,33 @@
+type asuscamera_app, domain, mlstrustedsubject;
+app_domain(asuscamera_app)
+
+allow asuscamera_app app_data_file:file execute;
+allow asuscamera_app vendor_toolbox_exec:file execute_no_trans;
+
+allow asuscamera_app vendor_camera_file:file lock;
+
+allow asuscamera_app proc_camera:file { getattr open read };
+
+allow asuscamera_app dit_socket:dir getattr;
+
+allow asuscamera_app bg_daemon_prop:file read;
+allow asuscamera_app cnd_vendor_prop:file read;
+allow asuscamera_app console_silent_prop:file read;
+allow asuscamera_app ctl_LKCore_prop:file read;
+allow asuscamera_app ctl_atfwd_prop:file read;
+
+allow asuscamera_app cameraserver_service:service_manager find;
+allow asuscamera_app activity_service:service_manager find;
+allow asuscamera_app audio_service:service_manager find;
+allow asuscamera_app audioserver_service:service_manager find;
+allow asuscamera_app autofill_service:service_manager find;
+allow asuscamera_app device_policy_service:service_manager find;
+allow asuscamera_app drmserver_service:service_manager find;
+allow asuscamera_app location_service:service_manager find;
+allow asuscamera_app mediaextractor_service:service_manager find;
+allow asuscamera_app mediametrics_service:service_manager find;
+allow asuscamera_app mediaserver_service:service_manager find;
+allow asuscamera_app sensorservice_service:service_manager find;
+allow asuscamera_app surfaceflinger_service:service_manager find;
+allow asuscamera_app trust_service:service_manager find;
+allow asuscamera_app usb_service:service_manager find;
