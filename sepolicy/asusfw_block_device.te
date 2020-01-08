@@ -1,0 +1,1 @@
+allow asusfw_block_device rootfs:filesystem associate;

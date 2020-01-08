@@ -1,0 +1,2 @@
+add_lunch_combo LineageOS_X00D-userdebug
+add_lunch_combo LineageOS_X00D-eng

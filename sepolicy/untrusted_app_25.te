@@ -1,0 +1,2 @@
+allow untrusted_app_25 vendor_shell_exec:file execute_no_trans;
+allow untrusted_app_25 vendor_toolbox_exec:file execute_no_trans;

@@ -1,0 +1,8 @@
+ro.build.model=ASUS_X00DDA
+ro.build.product=X00D
+ro.product.device=ASUS_X00DD
+ro.product.name=OPEN_Phone
+ro.build.asus.sku=WW
+# may remove later
+ro.build.device=X00D
+
