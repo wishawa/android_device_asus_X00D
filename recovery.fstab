@@ -12,7 +12,7 @@
 /dev/block/bootdevice/by-name/system                        /system                 ext4    ro                                                                                              wait,recoveryonly  
 /dev/block/bootdevice/by-name/userdata                      /data                   ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc,discard                                          wait,check,forceencrypt=footer,formattable,quota
 /dev/block/bootdevice/by-name/userdata                      /data                   f2fs    nosuid,nodev,noatime,inline_xattr,data_flush                                                    wait,check,forceencrypt=footer,formattable,quota
-/dev/block/bootdevice/by-name/misc                          /misc                   emmc    defaults                                                                                        defaults
+#/dev/block/bootdevice/by-name/misc                          /misc                   emmc    defaults                                                                                        defaults
 /dev/block/bootdevice/by-name/cache                         /cache                  ext4    noatime,nosuid,nodev,barrier=1                                                                  wait,check,formattable
 /dev/block/bootdevice/by-name/cache                         /cache                  f2fs    nosuid,nodev,noatime,inline_xattr,flush_merge,data_flush                                        wait,formattable,check
 /dev/block/bootdevice/by-name/modem                         /vendor/firmware_mnt    vfat    ro,context=u:object_r:firmware_file:s0,shortname=lower,uid=1000,gid=1000,dmask=226,fmask=333    wait
