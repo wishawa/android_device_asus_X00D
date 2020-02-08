@@ -65,7 +65,7 @@ KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 
 #TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
-# CROSS_COMPILE := ~/lineageos15/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
+#CROSS_COMPILE := ~/lineageos15/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
 
 TARGET_KERNEL_SOURCE := kernel/asus/msm8937
 TARGET_KERNEL_CONFIG := msm8937-perf_defconfig
@@ -124,7 +124,7 @@ TW_NO_EXFAT_FUSE := true
 # don't have enough space
 #TW_EXTRA_LANGUAGES := true
 RECOVERY_SDCARD_ON_DATA := true
-TW_TARGET_USES_QCOM_BSP := true
+#TW_TARGET_USES_QCOM_BSP := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_EXCLUDE_SUPERSU := true
 TW_SCREEN_BLANK_ON_BOOT := true
