@@ -431,6 +431,8 @@ vendor/etc/sensors/sensor_def_qcomdev.conf
 vendor/bin/ssr_diag
 vendor/bin/ssr_setup
 
+# USB - from Stock
+etc/firmware/ice40.bin|a29bdcdbfda7f7dae24a3c8921abe2bcda6ae38e
 
 # from diff
 
@@ -835,4 +837,3 @@ vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so
 vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
 vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so
 vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
-

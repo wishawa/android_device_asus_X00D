@@ -611,12 +611,16 @@ vendor/firmware/widevine.b05
 vendor/firmware/widevine.b06
 vendor/firmware/widevine.mdt
 vendor/lib/libwvhidl.so
+
 # Wifi
 vendor/bin/cnss-daemon
 vendor/bin/cnss_diag
 vendor/bin/mmi
 vendor/firmware/leia_pfp_470.fw
 vendor/firmware/leia_pm4_470.fw
+vendor/bin/wcnss_filter
+vendor/bin/wcnss_service
+
 # Wifi Display
 -app/WfdService/WfdService.apk
 bin/wfdservice
