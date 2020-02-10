@@ -430,7 +430,7 @@ etc/permissions/telephonyservice.xml
 framework/embmslibrary.jar:vendor/framework/embmslibrary.jar
 framework/qcrilhook.jar
 framework/QtiTelephonyServicelibrary.jar
-framework/qti-telephony-common.jar
+#framework/qti-telephony-common.jar
 vendor/bin/ipacm-diag
 vendor/bin/netmgrd
 vendor/bin/port-bridge

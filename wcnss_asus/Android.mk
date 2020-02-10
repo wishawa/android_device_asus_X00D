@@ -14,13 +14,15 @@
 # limitations under the License.
 #
 
+#$(call project-set-path,wlan,hardware/qcom/wlan)
+
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := wcnss_asus_client.c
 
-#LOCAL_C_INCLUDES += $(call project-path-for,wlan)/wcnss_service
+LOCAL_C_INCLUDES += $(call project-path-for,wlan)/wcnss_service
 LOCAL_CFLAGS += -Wall
 
 LOCAL_SHARED_LIBRARIES := libc libcutils libutils liblog
