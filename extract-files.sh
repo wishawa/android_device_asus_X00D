@@ -52,10 +52,6 @@ fi
 
 # Initialize the helper
 setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
-echo "extracting proprietary-files-qc"
-extract "$MY_DIR"/proprietary-files-qc.txt "$SRC"
-echo "extracting proprietary-files-qc-perf"
-extract "$MY_DIR"/proprietary-files-qc-perf.txt "$SRC"
 echo "extracting proprietary-files"
 extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
