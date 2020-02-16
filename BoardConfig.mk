@@ -68,7 +68,7 @@ KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 #CROSS_COMPILE := ~/lineageos15/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
 
 TARGET_KERNEL_SOURCE := kernel/asus/msm8937
-TARGET_KERNEL_CONFIG := msm8937-perf_defconfig
+TARGET_KERNEL_CONFIG := X00D_defconfig
 
 #BOARD_KERNEL_SEPARATED_DT := true
 #TARGET_CUSTOM_DTBTOOL := dtbToolCM
