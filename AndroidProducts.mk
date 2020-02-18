@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/LineageOS_X00D.mk
+    $(LOCAL_DIR)/lineage_X00D.mk
