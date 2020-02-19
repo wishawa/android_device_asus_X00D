@@ -176,6 +176,10 @@ TARGET_TS_MAKEUP := true
 # Cpusets
 ENABLE_CPUSETS := true
 
+# HIDL
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
+
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_X00D
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
