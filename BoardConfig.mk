@@ -70,21 +70,13 @@ KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/asus/msm8937
 TARGET_KERNEL_CONFIG := X00D_defconfig
 
-#BOARD_KERNEL_SEPARATED_DT := true
-#TARGET_CUSTOM_DTBTOOL := dtbToolCM
-#BOARD_DTBTOOL_ARGS := --force-v3
-
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-#BOARD_KERNEL_LZ4C_DT := true
 
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
-
-#TARGET_PREBUILT_KERNEL := device/asus/X00D/kernel
-
 TARGET_LDPRELOAD := libNimsWrap.so
 
-#Qualcomm
+# Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
 TARGET_POWERHAL_VARIANT := qcom
@@ -146,7 +138,7 @@ TW_RECOVERY_ADDITIONAL_RELINK_FILES := \
 TARGET_UNIFIED_DEVICE := true
 TARGET_SYSTEM_PROP := device/asus/X00D/system.prop
 
-#Hardware
+# Hardware
 BOARD_HARDWARE_CLASS += \
     $(DEVICE_PATH)/lineagehw
 
@@ -165,8 +157,16 @@ USE_OPENGL_RENDERER := true
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
 
-#Lights
+# Lights
 TARGET_PROVIDES_LIBLIGHT := true
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BLUETOOTH_HCI_USE_MCT := true
+QCOM_BT_USE_BTNV := true
+QCOM_BT_USE_SMD_TTY := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -175,6 +175,10 @@ TARGET_TS_MAKEUP := true
 
 # Cpusets
 ENABLE_CPUSETS := true
+
+# HIDL
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_X00D
