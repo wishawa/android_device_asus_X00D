@@ -5,6 +5,8 @@ This is a work in progress porting LineageOS to the Zenfone 3 Max (Model X00DD).
 
 Asus Zenfone 3 Max (codenamed "X00D") is a mid-range smartphone from Asus.
 
+Kernel here: https://github.com/wishawa/android_kernel_asus_msm8937
+
 ## Spec Sheet
 
 | Feature                 | Specification                                                                       |
@@ -25,11 +27,11 @@ Camera Photo Capture	| Not working
 Fingerprint				| Not working
 Bluetooth				| Working
 Speaker					| Not working
-Wifi					| Not working
+Wifi					| Somewhat working; I can't connect to my home Wi-Fi, but can connect to my other phone's hotspot.
 GPS						| Not working
 Touchkey				| Not working
 FM Radio				| Not working
 USB switch				| Not working
 USB tethering			| Not working
-Wifi Hotspot			| Not working
+Wifi Hotspot			| Working
 
