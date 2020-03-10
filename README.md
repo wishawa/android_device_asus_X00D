@@ -27,7 +27,7 @@ Camera Photo Capture	| Not working
 Fingerprint				| Not working
 Bluetooth				| Working
 Speaker					| Not working
-Wifi					| Somewhat working; I can't connect to my home Wi-Fi, but can connect to my other phone's hotspot.
+Wifi					| 2.4GHz works, 5GHz doesn't.
 GPS						| Not working
 Touchkey				| Not working
 FM Radio				| Not working
