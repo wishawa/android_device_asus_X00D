@@ -265,8 +265,6 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1 \
     android.hardware.biometrics.fingerprint@2.1-service
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fpservice.sh:$(TARGET_COPY_OUT_VENDOR)/etc/fpservice.sh
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
@@ -395,15 +393,28 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     ueventd.qcom.rc \
-    init.asus.rc \
-    init.asus.thermald.rc \
+    init.msm.usb.configfs.rc \
+    init.qcom.factory.rc \
     init.qcom.rc \
+    init.qcom.usb.rc \
     init.target.rc \
-    init.asus.usb.rc \
-    init.chargerled.sh \
-    init.modem.sh \
+    init.class_main.sh \
+    init.crda.sh \
+    init.mdm.sh \
+    init.qcom.class_core.sh \
+    init.qcom.coex.sh \
+    init.qcom.crashdata.sh \
     init.qcom.early_boot.sh \
-    init.qcom.post_boot.sh
+    init.qcom.efs.sync.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
+    init.qcom.sensors.sh \
+    init.qcom.sh \
+    init.qcom.syspart_fixup.sh \
+    init.qcom.usb.sh \
+    init.qti.fm.sh \
+    init.qti.ims.sh
+    
 
 # RIL
 PRODUCT_PACKAGES += \
