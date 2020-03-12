@@ -65,6 +65,15 @@ on early-boot
     exec u:r:qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
     chown root audio /sys/kernel/boot_adsp/boot
 
+    # set wifi link file.
+    setprop wlan.driver.ath 0
+    setprop wlan.driver.status unloaded
+    setprop wlan.softap.driver.status unloaded
+    setprop persist.debug.wifi_user_list 1
+    setprop wlan.driver.config /system/vendor/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+    setprop bt.version.driver WCNSS-PR-4-0-344-125323-1
+    setprop wifi.version.driver WCNSS-PR-4-0-344-125323-1
+    
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
@@ -179,6 +188,9 @@ on boot
 
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
+    
+    # Fix wifi activation:
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
 
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
@@ -982,6 +994,7 @@ service sensor-sh /vendor/bin/init.qcom.sensors.sh
 service crashdata-sh /vendor/bin/init.qcom.crashdata.sh
     class late_start
     user root
+    disabled
     oneshot
 
 service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
