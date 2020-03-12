@@ -21,17 +21,18 @@ Known Issue             | Descripton
 Boots					| Yes
 Ril						| Very likely not, though I haven't test with the latest build.
 Sensor					| Auto-rotate works, so at least some sensors must work.
-Camera					| Not working
+Camera					| Working, but resolution seems wrong.
 Camera Video Recording	| Not working
-Camera Photo Capture	| Not working
+Camera Photo Capture	| Working, but resolution seems wrong.
 Fingerprint				| Not working
-Bluetooth				| Working
+Bluetooth				| Working buggily
 Speaker					| Not working
 Wifi					| 2.4GHz works, 5GHz doesn't.
 GPS						| Not working
 Touchkey				| Not working
 FM Radio				| Not working
+USB     				| Working
 USB switch				| Not working
-USB tethering			| Not working
+USB tethering			| Working
 Wifi Hotspot			| Working
 
