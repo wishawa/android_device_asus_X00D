@@ -392,7 +392,7 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    ueventd.qcom.rc \
+    ueventd.rc \
     init.msm.usb.configfs.rc \
     init.qcom.factory.rc \
     init.qcom.rc \
