@@ -1,7 +1,6 @@
 #! /vendor/bin/sh
 
-# Copyright (c) 2012-2013,2016,2018 The Linux Foundation.
-# All rights reserved.
+# Copyright (c) 2012-2013,2016 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -62,6 +61,24 @@ else
     log -t DRM_BOOT -p w "file: '$vbfile' or perms doesn't exist"
 fi
 
+function set_density_by_fb() {
+    #put default density based on width
+    if [ -z $fb_width ]; then
+        setprop ro.sf.lcd_density 320
+    else
+        if [ $fb_width -ge 1440 ]; then
+           setprop ro.sf.lcd_density 560
+        elif [ $fb_width -ge 1080 ]; then
+           setprop ro.sf.lcd_density 480
+        elif [ $fb_width -ge 720 ]; then
+           setprop ro.sf.lcd_density 320 #for 720X1280 resolution
+        elif [ $fb_width -ge 480 ]; then
+            setprop ro.sf.lcd_density 240 #for 480X854 QRD resolution
+        else
+            setprop ro.sf.lcd_density 160
+        fi
+    fi
+}
 target=`getprop ro.board.platform`
 case "$target" in
     "msm7630_surf" | "msm7630_1x" | "msm7630_fusion")
@@ -208,7 +225,7 @@ case "$target" in
         # 196609 is decimal for 0x30001 to report version 3.1
         # 196610 is decimal for 0x30002 to report version 3.2
         case "$soc_hwid" in
-            294|295|296|297|298|313|353|354|363|364)
+            294|295|296|297|298|313)
                 setprop ro.opengles.version 196610
                 ;;
             303|307|308|309|320)
@@ -225,15 +242,6 @@ case "$target" in
         case "$soc_hwplatform" in
             *)
                 setprop persist.graphics.vulkan.disable true
-                setprop ro.opengles.version 196608
-                ;;
-        esac
-        ;;
-    "msm8916")
-        case "$soc_hwplatform" in
-            *)
-                setprop persist.graphics.vulkan.disable true
-                setprop ro.opengles.version 196608
                 ;;
         esac
         ;;
@@ -269,17 +277,11 @@ case "$target" in
                 ;;
         esac
         ;;
-    "msm8937")
-        cap_ver = 1
-                if [ -e "/sys/devices/platform/soc/1d00000.qcom,vidc/capability_version" ]; then
-                    cap_ver=`cat /sys/devices/platform/soc/1d00000.qcom,vidc/capability_version` 2> /dev/null
-                else
-                    cap_ver=`cat /sys/devices/soc/1d00000.qcom,vidc/capability_version` 2> /dev/null
-                fi
-
-                if [ $cap_ver -eq 1 ]; then
-                    setprop media.msm8937.version 1
-                fi
+    "msm8953")
+        cap_ver=`cat /sys/devices/soc/1d00000.qcom,vidc/capability_version` 2> /dev/null
+        if [ $cap_ver -eq 1 ]; then
+            setprop media.msm8953.version 1
+        fi
         ;;
     "msm8952")
       case "$soc_hwid" in
@@ -368,14 +370,11 @@ if [ -f /firmware/verinfo/ver_info.txt ]; then
     fi;
 fi
 
-baseband=`getprop ro.baseband`
-#enable atfwd daemon all targets except sda, apq, qcs
-case "$baseband" in
-    "apq" | "sda" | "qcs" )
-        setprop persist.radio.atfwd.start false;;
-    *)
-        setprop persist.radio.atfwd.start true;;
-esac
+#set default lcd density
+#Since lcd density has read only
+#property, it will not overwrite previous set
+#property if any target is setting forcefully.
+set_density_by_fb
 
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
@@ -478,7 +477,7 @@ fi
 
 boot_reason=`cat /proc/sys/kernel/boot_reason`
 reboot_reason=`getprop ro.boot.alarmboot`
-power_off_alarm_file=`cat /persist/alarm/data | tail -c 2 | head -c 1`
+power_off_alarm_file=`cat /persist/alarm/powerOffAlarmSet`
 if [ "$boot_reason" = "3" ] || [ "$reboot_reason" = "true" ]; then
     if [ "$power_off_alarm_file" = "1" ]
     then
