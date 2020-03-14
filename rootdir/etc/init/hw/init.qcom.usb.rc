@@ -1673,3 +1673,5 @@ on property:sys.usb.config=diag,adb,uac2,video && property:sys.usb.configfs=0
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
+on property:sys.usb.otg.mode=auto
+    write /proc/msm_otg/mode auto
