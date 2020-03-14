@@ -1558,7 +1558,7 @@ vendor/lib/libril-qc-hal-qmi.so
 vendor/lib/libswvdec.so
 vendor/lib/libwebrtc_audio_preprocessing.so
 vendor/lib/libxtwifi_ulp_adaptor.so
-# vendor/lib/vendor.qti.hardware.data.latency@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.data.latency@1.0_vendor.so
 # vendor/lib/vendor.qti.hardware.improvetouch.blobmanager@1.0-service.so
 # vendor/lib/vendor.qti.hardware.improvetouch.blobmanager@1.0_vendor.so
 # vendor/lib/vendor.qti.hardware.improvetouch.gesturemanager@1.0-service.so
@@ -1588,7 +1588,7 @@ vendor/lib64/libril-qc-hal-qmi.so
 vendor/lib64/libselinux_vendor.so
 vendor/lib64/libswvdec.so
 vendor/lib64/libwebrtc_audio_preprocessing.so
-# vendor/lib64/vendor.qti.hardware.data.latency@1.0_vendor.so
+vendor/lib64/vendor.qti.hardware.data.latency@1.0_vendor.so
 # vendor/lib64/vendor.qti.hardware.improvetouch.blobmanager@1.0-service.so
 # vendor/lib64/vendor.qti.hardware.improvetouch.blobmanager@1.0_vendor.so
 # vendor/lib64/vendor.qti.hardware.improvetouch.gesturemanager@1.0-service.so
