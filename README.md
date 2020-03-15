@@ -28,7 +28,7 @@ Fingerprint				| Not working
 Bluetooth				| Working buggily
 Speaker					| Not working
 Wifi					| 2.4GHz works, 5GHz doesn't.
-GPS						| Not working
+GPS						| Working
 Touchkey				| Not working
 FM Radio				| Not working
 USB     				| Working
