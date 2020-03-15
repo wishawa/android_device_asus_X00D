@@ -4,14 +4,16 @@
 	    <library name="icepower" path="libicepower.so"/>
         <library name="bundle" path="libbundlewrapper.so"/>
         <library name="reverb" path="libreverbwrapper.so"/>
+        <library name="qcbassboost" path="libqcbassboost.so"/>
+        <library name="qcvirt" path="libqcvirt.so"/>
+        <library name="qcreverb" path="libqcreverb.so"/>
         <library name="visualizer_sw" path="libvisualizer.so"/>
         <library name="visualizer_hw" path="libqcomvisualizer.so"/>
-        <library name="fmas" path="libfmas.so"/>
+        <library name="downmix" path="libdownmix.so"/>
         <library name="loudness_enhancer" path="libldnhncr.so"/>
         <library name="proxy" path="libeffectproxy.so"/>
         <library name="offload_bundle" path="libqcompostprocbundle.so"/>
         <library name="qcom_pre_processing" path="libqcomvoiceprocessing.so"/>
-        <library name="volume_listener" path="libvolumelistener.so"/>
     </libraries>
     <effects>
 	    <effect name="icepower_algo" library="icepower" uuid="f1c02420-777f-11e3-981f-0800200c9a66"/>
