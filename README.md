@@ -32,7 +32,6 @@ GPS						| Working
 Touchkey				| Not working
 FM Radio				| Not working
 USB     				| Working
-USB switch				| Not working
 USB tethering			| Working
 Wifi Hotspot			| Working
 
