@@ -20,7 +20,7 @@ Known Issue             | Descripton
 :---------------------- | :-----------------------------------------------------------------------------------
 Boots					| Yes
 Ril						| Very likely not, though I haven't test with the latest build.
-Sensor					| Auto-rotate works, so at least some sensors must work.
+Sensor					| Working (tested Gyroscope, Magnetometer, Accelerometer)
 Camera					| Working, but resolution seems wrong.
 Camera Video Recording	| Not working
 Camera Photo Capture	| Working, but resolution seems wrong.
