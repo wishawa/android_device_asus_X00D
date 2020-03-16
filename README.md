@@ -29,7 +29,7 @@ Bluetooth				| Working buggily
 Speaker					| Not working
 Wifi					| 2.4GHz works, 5GHz doesn't.
 GPS						| Working
-Touchkey				| Not working
+Touchkey				| Working
 FM Radio				| Not working
 USB     				| Working
 USB tethering			| Working
