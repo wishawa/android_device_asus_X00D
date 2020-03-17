@@ -350,9 +350,13 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
+    libOmxSwVdec \
+    libOmxSwVencMpeg4 \
+    libOmxSwVencHevc \
     libOmxVdec \
     libOmxVenc \
     libOmxVidcCommon \
+    libqomx_core \
     libstagefrighthw \
     libmm-omxcore
 
