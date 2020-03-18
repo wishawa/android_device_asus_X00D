@@ -9,25 +9,25 @@ Kernel here: https://github.com/wishawa/android_kernel_asus_msm8937
 
 ## Spec Sheet
 
-| Feature                 | Specification                                                                       |
-| :---------------------- | :-----------------------------------------------------------------------------------|
-| Chipset                 | Qualcomm MSM8937 Snapdragon 430                                                     |
-| GPU                     | Adreno 505                                                                          |
+Feature                 | Specification                                                                       |
+:---------------------- | :-----------------------------------------------------------------------------------|
+Chipset                 | Qualcomm MSM8937 Snapdragon 430                                                     |
+GPU                     | Adreno 505                                                                          |
 
 ## Progress
 
-Known Issue             | Descripton
+### Features
+Feature                 | Status
 :---------------------- | :-----------------------------------------------------------------------------------
-Boots					| Yes
-Ril						| Very likely not, though I haven't test with the latest build.
-Sensor					| Working (tested Gyroscope, Magnetometer, Accelerometer)
-Camera					| Working, but resolution seems wrong.
-Camera Video Recording	| Not working
-Camera Photo Capture	| Working, but resolution seems wrong.
+Ril						| Maybe. Haven't tested.
+Sensors					| Working
+Camera					| Working
+Camera Video Recording	| Working
+Camera Photo Capture	| Working
 Fingerprint				| Not working
-Bluetooth				| Working buggily
-Speaker					| Not working
-Wifi					| 2.4GHz works, 5GHz doesn't.
+Bluetooth				| Very buggy
+Speaker					| Working
+Wifi					| Working
 GPS						| Working
 Touchkey				| Working
 FM Radio				| Not working
@@ -35,3 +35,22 @@ USB     				| Working
 USB tethering			| Working
 Wifi Hotspot			| Working
 
+### Issues
+Issue                   | Description
+:---------------------- | :-----------------------------------------------------------------------------------
+Camera Laser Focus      | Not sure if working or not. Throws errors very rapidly, yet the errors include the correct focus distance. Hmmm...
+Screen Recording        | Resulting videos are broken (either unplayable or filled with encoding artifacts).
+Bluetooth               | Not getting proper MAC address. Transfers fail often. Can't pair properly.
+
+### Notes
+Note                    | Status
+:---------------------- | :-----------------------------------------------------------------------------------
+Battery Life            | 5%-10% idle (only wifi on) overnight. Not great, but much better than before.
+
+
+
+## This Repo
+
+ROM issues? Open an GitHUb issue, comment on [XDA thread](https://forum.xda-developers.com/zenfone-3/how-to/lineageos-zenfone-3-max-zc553kl-t4032769), or email me.
+
+Contributions and helps are welcomed.
