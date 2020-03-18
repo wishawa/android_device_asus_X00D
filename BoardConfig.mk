@@ -70,6 +70,9 @@ TARGET_TS_MAKEUP := true
 # Charger
 WITH_LINEAGE_CHARGER := false
 
+# CNE and DPM
+BOARD_USES_QCNE := true
+
 # Cpusets
 ENABLE_CPUSETS := true
 
