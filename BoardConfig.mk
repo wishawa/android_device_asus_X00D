@@ -214,6 +214,7 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_NO_SCREEN_BLANK := true
 TW_USE_TOOLBOX := true
 TW_INCLUDE_CRYPTO := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
 
 TW_BRIGHTNESS_PATH := "/sys/devices/soc/1a00000.qcom\x2mdss_mdp/1a00000.qcom\x2mdss_mdp:qcom\x2mdss_fb_primary/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
