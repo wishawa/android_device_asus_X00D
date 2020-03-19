@@ -1622,3 +1622,6 @@ vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 #_Audio_Fix
 vendor/lib/libaudio_log_utils.so
 vendor/lib64/libaudio_log_utils.so
+
+vendor/lib/libmmi.so
+vendor/lib64/libmmi.so
