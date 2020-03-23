@@ -446,12 +446,12 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-service.asus_8953 \
+    android.hardware.sensors@1.0-service.asus_8937 \
     android.hardware.sensors@1.0-impl
 
 # Touch HAL
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.asus_8953
+    vendor.lineage.touch@1.0-service.asus_8937
 
 # Whitelisted app
 PRODUCT_COPY_FILES += \

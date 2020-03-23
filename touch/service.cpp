@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.touch@1.0-service.asus_8953"
+#define LOG_TAG "vendor.lineage.touch@1.0-service.asus_8937"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
