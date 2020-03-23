@@ -19,7 +19,7 @@
 set -e
 
 # Required!
-DEVICE=zenfone3
+DEVICE=X00D
 VENDOR=asus
 
 INITIAL_COPYRIGHT_YEAR=2016
@@ -46,35 +46,6 @@ write_headers
 # The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt true
 
-# Qualcomm BSP blobs - we put a conditional around here
-# in case the BSP is actually being built
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$PRODUCTMK"
-printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
-
-write_makefiles "$MY_DIR"/proprietary-files-qc.txt true
-
-# Qualcomm performance blobs - conditional as well
-# in order to support Cyanogen OS builds
-cat << EOF >> "$PRODUCTMK"
-endif
-
--include vendor/extra/devices.mk
-ifneq (\$(call is-qc-perf-target),true)
-EOF
-
-cat << EOF >> "$ANDROIDMK"
-endif
-
-ifneq (\$(TARGET_HAVE_QC_PERF),true)
-EOF
-
-write_makefiles "$MY_DIR"/proprietary-files-qc-perf.txt true
-
-echo "endif" >> "$PRODUCTMK"
-
-cat << EOF >> "$ANDROIDMK"
-
-endif
 EOF
 
 # We are done!
