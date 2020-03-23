@@ -1,23 +1,41 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
+
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
+$(call inherit-product, device/asus/X00D/hwui-memory.mk)
+$(call inherit-product, device/asus/X00D/dalvik-heap.mk)
+
+
+#TWRP
+PRODUCT_COPY_FILES += device/asus/X00D/twrp.fstab:recovery/root/etc/recovery.fstab
+
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+# PREBUILTS
+PRODUCT_PACKAGES += \
+    QtiTelephonyService
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -71,6 +89,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
+
 # Dalvik heap
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapstartsize=8m \
@@ -95,7 +114,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
-    audio.primary.msm8953 \
+    audio.primary.msm8937 \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
@@ -127,9 +146,24 @@ PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/configs/audio/audio_platform_info_extcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_extcodec.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml \
-    $(LOCAL_PATH)/configs/audio/mixer_paths_mtp_EU.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp_EU.xml
+    $(LOCAL_PATH)/configs/audio/mixer_paths_qrd_sku1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_sku1.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_qrd_sku2_br.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_sku2_br.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_qrd_sku2_eu.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_sku2_eu.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_qrd_sku2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_sku2.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_qrd_skuhf.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_skuhf.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_qrd_skuh.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_skuh.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_qrd_skui.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_skui.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_qrd_skum.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_skum.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_qrd_skun.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_skun.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_skuk.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_skuk.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_wcd9306.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9306.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_wcd9326.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9326.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_wcd9330.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9330.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths_wcd9335.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_wcd9335.xml \
+    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_steps=25 \
@@ -167,25 +201,47 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0_vendor
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_352x288_30_1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_352x288_30_1.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_640x480_30_0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_640x480_30_0.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_720x480_30_1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_720x480_30_1.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_1920x1080_30_0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_1920x1080_30_0.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_1280x720_30_0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_1280x720_30_0.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_176x144_30_1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_176x144_30_1.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_352x288_30_0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_352x288_30_0.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_640x480_30_1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_640x480_30_1.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_1920x1080_30_1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_1920x1080_30_1.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_1280x720_30_1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_1280x720_30_1.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_320x240_30_1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_320x240_30_1.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_320x240_30_0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_320x240_30_0.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_176x144_30_0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_176x144_30_0.conf \
-    $(LOCAL_PATH)/configs/camera/Invensense/VStab_720x480_30_0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Invensense/VStab_720x480_30_0.conf \
     $(LOCAL_PATH)/configs/camera/camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_config.xml \
     $(LOCAL_PATH)/configs/camera/csidtg_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/csidtg_camera.xml \
     $(LOCAL_PATH)/configs/camera/csidtg_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/csidtg_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx214_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx214_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx230_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx230_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx230_qc2002_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx230_qc2002_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx230_qc2002_with_gyro_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx230_qc2002_with_gyro_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx258_bear_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx258_bear_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx258_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx258_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx258_mono_bear_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx258_mono_bear_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx258_mono_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx258_mono_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/imx298_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx298_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov8856_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov8856_chromatix.xml
+    $(LOCAL_PATH)/configs/camera/ov8856_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov8856_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx298_gt24c64_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx298_gt24c64_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx318_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx318_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx362_chromatix_bear.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx362_chromatix_bear.xml \
+    $(LOCAL_PATH)/configs/camera/imx362_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx362_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx378_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx378_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov13850_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov13850_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov13850_q13v06k_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov13850_q13v06k_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov2281_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov2281_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov2680_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov2680_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov4688_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov4688_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov5670_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov5670_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov5670_f5670bq_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov5670_f5670bq_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov5695_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov5695_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov7251_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov7251_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov8856_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov8856_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov8858_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov8858_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov8865_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov8865_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k2l7_8953_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l7_8953_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k2l7_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l7_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3l8_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3l8_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3l8_f3l8yam_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3l8_f3l8yam_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3l8_mono_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3l8_mono_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3m2xm_chromatix_bear.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3m2xm_chromatix_bear.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3m2xm_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3m2xm_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3m2xx_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3m2xx_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3p3_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3p3_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3p3sm_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3p3sm_chromatix.xml
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/bspcapability.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bspcapability.xml \
@@ -204,10 +260,10 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    gralloc.msm8953 \
-    copybit.msm8953 \
-    hwcomposer.msm8953 \
-    memtrack.msm8953 \
+    gralloc.msm8937 \
+    copybit.msm8937 \
+    hwcomposer.msm8937 \
+    memtrack.msm8937 \
     liboverlay \
     libtinyxml \
     libgenlock \
@@ -292,15 +348,12 @@ PRODUCT_COPY_FILES += \
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/ASUS_TransKeyboard.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ASUS_TransKeyboard.kl \
-    $(LOCAL_PATH)/configs/keylayout/focal-touchscreen.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/focal-touchscreen.kl \
-    $(LOCAL_PATH)/configs/keylayout/goodixfp.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/goodixfp.kl
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/idc/focal-touchscreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/focal-touchscreen.idc
+    $(LOCAL_PATH)/configs/keylayout/fts_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/fts_ts.kl \
+    $(LOCAL_PATH)/configs/keylayout/goodix-ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/goodix-ts.kl
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8953
+    lights.msm8937
 
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
@@ -324,9 +377,13 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
+    libOmxSwVdec \
+    libOmxSwVencMpeg4 \
+    libOmxSwVencHevc \
     libOmxVdec \
     libOmxVenc \
     libOmxVidcCommon \
+    libqomx_core \
     libstagefrighthw \
     libmm-omxcore
 
@@ -359,16 +416,18 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    ueventd.qcom.rc \
-    init.asus.rc \
+    ueventd.rc \
+    init.qcom.factory.rc \
     init.qcom.rc \
+    init.qcom.usb.rc \
     init.target.rc \
-    init.asus.usb.rc \
-    init.chargerled.sh \
-    fpservice.sh \
+    init.class_main.sh \
+    init.qcom.class_core.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
-    init.qcom.sh
+    init.qcom.sensors.sh \
+    init.qcom.sh \
+    init.qcom.usb.sh
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -423,8 +482,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libcurl \
-    tcpdump \
-    AsusParts
+    tcpdump
 
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
@@ -432,7 +490,7 @@ PRODUCT_BOOT_JARS += \
 
 # Recovery
 PRODUCT_PACKAGES += \
-    librecovery_updater_zenfone3
+    librecovery_updater_X00D
 
 # IMS
 PRODUCT_PACKAGES += \
