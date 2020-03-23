@@ -1,5 +1,5 @@
 #
-# system.prop for zenfone3
+# system.prop for X00D
 #
 
 # Asus
@@ -146,11 +146,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     log.tag.FingerGoodix=W \
     log.tag.qti_sensors_hal=F
-
-# Modem Info
-PRODUCT_PROPERTY_OVERRIDES += \
-    bt.version.driver=WCNSS.PR.4.0-00344-M8953BAAAANAZW-1.125323.1.155731.1 \
-    wifi.version.driver=WCNSS.PR.4.0-00344-M8953BAAAANAZW-1.125323.1.155731.1
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -22,7 +22,7 @@
 #include <cutils/properties.h>
 #include <string.h>
 
-#define BTM_DEF_LOCAL_NAME "ZenFone 3"
+#define BTM_DEF_LOCAL_NAME "ZenFone 3 Max"
 // Disables read remote device feature
 #define MAX_ACL_CONNECTIONS   16
 #define MAX_L2CAP_CHANNELS    16
