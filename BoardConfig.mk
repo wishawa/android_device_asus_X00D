@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE_PATH := device/asus/zenfone3
+DEVICE_PATH := device/asus/X00D
 
 BOARD_VENDOR := asus-qcom
 
