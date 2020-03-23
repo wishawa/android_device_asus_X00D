@@ -46,11 +46,6 @@ write_headers
 # The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt true
 
-
-cat << EOF >> "$PRODUCTMK"
-
--include vendor/extra/devices.mk
-
 cat << EOF >> "$ANDROIDMK"
 EOF
 
