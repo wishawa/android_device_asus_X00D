@@ -12,14 +12,13 @@
 # Hals
 /vendor/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey          u:object_r:hal_drm_clearkey_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@1\.1-service\.widevine          u:object_r:hal_drm_widevine_exec:s0
-/vendor/bin/hw/android\.hardware\.sensors@1\.0-service\.asus_8953     u:object_r:hal_sensors_default_exec:s0
-/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.asus_8953         u:object_r:hal_lineage_touch_default_exec:s0
+/vendor/bin/hw/android\.hardware\.sensors@1\.0-service\.asus_8937     u:object_r:hal_sensors_default_exec:s0
+/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.asus_8937         u:object_r:hal_lineage_touch_default_exec:s0
 
 # Input
-/vendor/usr/idc/focal-touchscreen\.idc                                u:object_r:vendor_input_file:s0
 /vendor/usr/keylayout/ASUS_TransKeyboard\.kl                          u:object_r:vendor_input_file:s0
-/vendor/usr/keylayout/focal-touchscreen\.kl                           u:object_r:vendor_input_file:s0
-/vendor/usr/keylayout/goodixfp\.kl                                    u:object_r:vendor_input_file:s0
+/vendor/usr/keylayout/fts_ts\.kl                                      u:object_r:vendor_input_file:s0
+/vendor/usr/keylayout/goodix-ts\.kl                                   u:object_r:vendor_input_file:s0
 
 # Leds
 /vendor/bin/init.chargerled\.sh                                       u:object_r:init_led_exec:s0
