@@ -14,4 +14,8 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_zenfone3.mk
+    $(LOCAL_DIR)/lineage_X00D.mk
+
+COMMON_LUNCH_CHOICES := \
+    lineage_X00D-userdebug \
+    lineage_X00D-eng
