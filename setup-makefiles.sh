@@ -48,7 +48,6 @@ write_makefiles "$MY_DIR"/proprietary-files.txt true
 
 
 cat << EOF >> "$PRODUCTMK"
-endif
 
 -include vendor/extra/devices.mk
 
