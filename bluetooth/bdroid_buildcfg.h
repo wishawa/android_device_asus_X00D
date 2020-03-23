@@ -40,7 +40,4 @@
 
 #pragma pop_macro("PROPERTY_VALUE_MAX")
 
-
-
-#undef PROPERTY_VALUE_MAX
 #endif
