@@ -1,0 +1,15 @@
+cc_library_static {
+    name: "libinit_X00D",
+    include_dirs: [
+        "system/core/base/include",
+        "system/core/init",
+    ],
+    cflags: [
+        "-Wall",
+        "-DANDROID_TARGET=\"$(TARGET_BOARD_PLATFORM)\"",
+    ],
+    srcs: ["init_X00D.cpp"],
+    whole_static_libs: ["libbase"],
+    recovery_available: true,
+}
+
