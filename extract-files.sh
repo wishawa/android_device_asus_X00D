@@ -18,7 +18,7 @@
 
 set -e
 
-DEVICE=zenfone3
+DEVICE=X00D
 VENDOR=asus
 
 # Load extractutils and do some sanity checks
@@ -52,9 +52,7 @@ fi
 
 # Initialize the helper
 setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
-
-extract "$MY_DIR"/proprietary-files-qc.txt "$SRC"
-extract "$MY_DIR"/proprietary-files-qc-perf.txt "$SRC"
+echo "extracting proprietary-files"
 extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
 DEVICE_BLOBS_PATH="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
