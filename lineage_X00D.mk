@@ -19,20 +19,21 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from zenfone3 device
-$(call inherit-product, device/asus/zenfone3/device.mk)
+# Inherit from X00D device
+$(call inherit-product, device/asus/X00D/device.mk)
 
-# Inherit from zenfone3 vendor
-$(call inherit-product-if-exists, vendor/asus/zenfone3/zenfone3-vendor.mk)
+# Inherit from X00D vendor
+$(call inherit-product-if-exists, vendor/asus/X00D/X00D-vendor.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_zenfone3
-PRODUCT_DEVICE := zenfone3
+PRODUCT_NAME := lineage_X00D
+PRODUCT_DEVICE := X00D
 PRODUCT_BRAND := asus
 PRODUCT_MANUFACTURER := asus
 
 PRODUCT_GMS_CLIENTID_BASE := android-asus
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.name
+
