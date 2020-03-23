@@ -1,4 +1,4 @@
-# Camera
+ # Camera
 type proc_camera, proc_type, fs_type;
 type vendor_camera_file, vendor_file_type, file_type;
 type dit_socket, file_type;
@@ -14,3 +14,10 @@ type init_led_exec, exec_type, vendor_file_type, file_type;
 
 # Touchscreen
 type sysfs_touchpanel, sysfs_type, fs_type;
+
+# Root folders
+type adf_file, file_type;
+type apd_file, file_type;
+type persdata_file, file_type;
+# Root symlinks
+type dsp_file, file_type;

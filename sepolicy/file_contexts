@@ -1,8 +1,19 @@
+
+# Root folders
+/ADF(/.*)?                  u:object_r:adf_file:s0
+/APD(/.*)?                  u:object_r:apd_file:s0
+/asdf(/.*)?                 u:object_r:factory_file:s0
+/asusfw(/.*)?               u:object_r:factory_file:s0
+/factory(/.*)?              u:object_r:factory_file:s0
+/persdata(/.*)?             u:object_r:persdata_file:s0
+# Root symlinks
+/dsp(/.*)?                  u:object_r:dsp_file:s0
+/firmware(/.*)?             u:object_r:firmware_file:s0
+
 # Amplifier
 /dev/i2c-5                                                            u:object_r:audio_device:s0
 /(vendor|system/vendor)/etc/tfa98xx\.cnt                              u:object_r:tfa98xx_vendor_file:s0
 /data/data/tfa9895_cal_log\.txt                                       u:object_r:tfa98xx_data_file:s0
-/system/bin/SpeakerCalibrationTest                                    u:object_r:tfa98xx_exec:s0
 
 # Camera
 /(vendor|system/vendor)/lib/DataSet/ispDB/ParameterDB\.db             u:object_r:vendor_camera_file:s0
@@ -18,8 +29,8 @@
 # Hals
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey          u:object_r:hal_drm_clearkey_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine          u:object_r:hal_drm_widevine_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service\.asus_8953     u:object_r:hal_sensors_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.asus_8953         u:object_r:hal_lineage_touch_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service\.asus_8937     u:object_r:hal_sensors_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.asus_8937         u:object_r:hal_lineage_touch_default_exec:s0
 
 # Leds
 /(vendor|system/vendor)/bin/init.chargerled\.sh                       u:object_r:init_led_exec:s0
