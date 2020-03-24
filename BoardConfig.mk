@@ -63,7 +63,7 @@ TARGET_CPU_CORTEX_A53 := true
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci 
 BOARD_KERNEL_CMDLINE += loop.max_part=7
-# BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME  := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE    := 2048
 BOARD_KERNEL_BASE        := 0x80000000
@@ -224,19 +224,18 @@ TARGET_USES_OLD_MNC_FORMAT := true
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Recovery
+TARGET_RECOVERY_VARIANT := TWRP
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_X00D
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 BOARD_HAS_LARGE_FILESYSTEM := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-#TARGET_KERNEL_HAVE_EXFAT := true
+TARGET_KERNEL_HAVE_EXFAT := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Sensors
 USE_SENSOR_MULTI_HAL := true
