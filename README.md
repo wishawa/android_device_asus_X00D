@@ -19,7 +19,7 @@ GPU                     | Adreno 505                                            
 ### Features
 Feature                 | Status
 :---------------------- | :-----------------------------------------------------------------------------------
-Ril						| Maybe. Haven't tested.
+Ril						| Not working
 Sensors					| Working
 Camera					| Working
 Camera Video Recording	| Working
