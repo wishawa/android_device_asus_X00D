@@ -1,0 +1,288 @@
+on init
+    export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin:/bin
+
+on fs
+    mkdir /dev/validity 0760 system root
+    chown system root /dev/vfsspi
+    chown system root /dev/fingerprint
+    chown system root /dev/goodix_fp
+    chmod 0760 /dev/vfsspi
+    chmod 0760 /dev/fingerprint
+    chmod 0760 /dev/goodix_fp
+
+on post-fs
+
+    # Vibrator
+    chown system system /sys/class/timed_output/vibrator/vmax_level
+    chown system system /sys/class/timed_output/vibrator/vtg_level
+    chown system system /sys/class/timed_output/vibrator/vtg_default
+    chown system system /sys/class/timed_output/vibrator/vtg_max
+    chown system system /sys/class/timed_output/vibrator/vtg_min
+    
+    start fpseek
+
+on post-fs-data
+    symlink /factory/bt_nv.bin /mnt/vendor/persist/bluetooth/.bt_nv.bin
+# ASUS_BSP+++ RTC
+    mkdir /data/vendor/time 0700 system system
+# ASUS_BSP--- RTC
+
+#ASUS_BSP+++: add for fingerprint
+    mkdir /data/validity
+    chown system system /data/validity
+    chmod 0775 /data/validity
+#ASUS_BSP---: add for fingerprint
+
+# ASUS_BSP +++ Gavin_Chang "storage info for AMAX"
+    symlink /sys/bus/mmc/devices/mmc0:0001/emmc_total_size /data/data/emmc_total_size
+    chmod 0666 /data/data/emmc_total_size
+# ASUS_BSP --- Gavin_Chang "storage info for AMAX"
+
+#ASUS_BSP Deeo : chown LED attribute +++
+    chmod 0664 /sys/class/leds/red/brightness
+    chmod 0664 /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/red/pwm_us
+    chmod 0664 /sys/class/leds/red/pwm_us
+    chown system system /sys/class/leds/green/pwm_us
+    chmod 0664 /sys/class/leds/green/pwm_us
+#ASUS_BSP Deeo : chown LED attribute ---
+
+#ASUS_BSP+++ Austin "link BLTest for ATD test"
+    chmod 0666 /sys/class/leds/lcd-backlight/brightness
+    symlink /sys/class/leds/lcd-backlight/brightness /data/data/BLTest
+    chmod 777 /data/data/BLTest
+#ASUS_BSP--- Austin "link BLTest for ATD test"
+
+#ASUS_BSP David "rgb sensor permission & symlink"
+    chown root camera /proc/driver/asusRgbDebug
+    chown root root /proc/driver/asusRgbCalibEnable
+    chown root camera /dev/asusRgbSensor
+    chmod 0660 /dev/asusRgbSensor
+
+# ASUS_BSP WeiYu+++ "LaserFocus sensor"
+    chown system shell /proc/driver/LaserFocus_on
+    chown media shell /proc/driver/LaserFocus_value
+    chown system shell /proc/driver/LaserFocus_value_more_info
+    chown system shell /proc/driver/LaserFocus_Status
+    chown media shell /proc/driver/LaserFocus_Status_For_Camera
+    chown system shell /proc/driver/LaserFocus_debug_dump
+    chown system shell /proc/driver/LaserFocus_register_dump
+    chown media shell /proc/driver/LaserFocus_setK
+    chown media shell /proc/driver/LaserFocus_ProductFamily
+    chown system shell /proc/driver/LaserFocus_CSCmode
+
+    rm /data/data/LaserFocus_on
+    rm /data/data/LaserFocus_value
+    rm /data/data/LaserFocus_value_more_info
+    rm /data/data/LaserFocus_Status
+    rm /data/data/LaserFocus_Status_For_Camera
+    rm /data/data/LaserFocus_debug_dump
+    rm /data/data/LaserFocus_register_dump
+
+    symlink /system/bin/LaserFocus_on /data/data/LaserFocus_on
+    symlink /proc/driver/LaserFocus_value /data/data/LaserFocus_value
+    symlink /proc/driver/LaserFocus_value_more_info /data/data/LaserFocus_value_more_info
+    symlink /proc/driver/LaserFocus_Status /data/data/LaserFocus_Status
+    symlink /proc/driver/LaserFocus_Status_For_Camera /data/data/LaserFocus_Status_For_Camera
+    symlink /proc/driver/LaserFocus_debug_dump /data/data/LaserFocus_debug_dump
+    symlink /proc/driver/LaserFocus_register_dump /data/data/LaserFocus_register_dump
+
+#ASUS_BSP Mike add for Invensense EIS config file+++
+    rm /data/data/VStab_176x144_30_0.conf
+    rm /data/data/VStab_176x144_30_1.conf
+
+    rm /data/data/VStab_320x240_30_0.conf
+    rm /data/data/VStab_320x240_30_1.conf
+
+    rm /data/data/VStab_352x288_30_0.conf
+    rm /data/data/VStab_352x288_30_1.conf
+	
+    rm /data/data/VStab_640x480_30_0.conf
+    rm /data/data/VStab_640x480_30_1.conf
+	
+    rm /data/data/VStab_720x480_30_0.conf
+    rm /data/data/VStab_720x480_30_1.conf
+	
+    rm /data/data/VStab_1280x720_30_0.conf
+    rm /data/data/VStab_1280x720_30_1.conf
+	
+    rm /data/data/VStab_1920x1080_30_0.conf
+    rm /data/data/VStab_1920x1080_30_1.conf
+	
+#ASUS_BSP Mike add for Invensense EIS config file---
+
+#ASUS_BSP Mike add for Invensense EIS config file+++
+    symlink /vendor/etc/camera/Invensense/VStab_176x144_30_0.conf	/data/data/VStab_176x144_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_176x144_30_1.conf	/data/data/VStab_176x144_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_320x240_30_0.conf	/data/data/VStab_320x240_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_320x240_30_1.conf	/data/data/VStab_320x240_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_352x288_30_0.conf	/data/data/VStab_352x288_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_352x288_30_1.conf	/data/data/VStab_352x288_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_640x480_30_0.conf	/data/data/VStab_640x480_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_640x480_30_1.conf	/data/data/VStab_640x480_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_720x480_30_0.conf	/data/data/VStab_720x480_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_720x480_30_1.conf	/data/data/VStab_720x480_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_1280x720_30_0.conf	/data/data/VStab_1280x720_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_1280x720_30_1.conf	/data/data/VStab_1280x720_30_1.conf
+    symlink /vendor/etc/camera/Invensense/VStab_1920x1080_30_0.conf	/data/data/VStab_1920x1080_30_0.conf
+    symlink /vendor/etc/camera/Invensense/VStab_1920x1080_30_1.conf	/data/data/VStab_1920x1080_30_1.conf
+#ASUS_BSP Mike add for Invensense EIS config file---
+
+    chown shell camera /dev/LaserSensor	
+    chmod 0660 /dev/LaserSensor
+    chmod 0660 /data/data/LaserFocus_on
+    chmod 0660 /data/data/LaserFocus_value
+    chmod 0660 /data/data/LaserFocus_value_more_info
+    chmod 0660 /data/data/LaserFocus_Status
+    chmod 0660 /data/data/LaserFocus_Status_For_Camera
+    chmod 0660 /data/data/LaserFocus_debug_dump
+    chmod 0660 /data/data/LaserFocus_register_dump
+
+    chown system shell /data/data/LaserFocus_on
+    chown system shell /data/data/LaserFocus_value
+    chown system shell /data/data/LaserFocus_value_more_info
+    chown system shell /data/data/LaserFocus_Status
+    chown system shell /data/data/LaserFocus_Status_For_Camera
+    chown system shell /data/data/LaserFocus_debug_dump
+    chown system shell /data/data/LaserFocus_register_dump
+
+#CSC calibration
+	chown system shell /proc/driver/LaserFocus_CalStart
+	chown system shell /proc/driver/LaserFocus_log_value1
+	chown system shell /proc/driver/LaserFocus_log_value2
+	chown system shell /proc/driver/LaserFocus_log_value3
+	chown system shell /proc/driver/LaserFocus_log_value4
+	chown system shell /proc/driver/LaserFocus_log_value5
+	chown system shell /proc/driver/LaserFocus_log_value6
+	chown system shell /proc/driver/LaserFocus_log_value7
+	chown system shell /proc/driver/LaserFocus_log_value8
+	chown system shell /proc/driver/LaserFocus_log_value9
+	chown system shell /proc/driver/LaserFocus_log_value10
+	chown system shell /proc/driver/LaserFocus_HPTG_hw
+	chown system shell /proc/driver/LaserFocus_data_position
+
+	rm /data/data/LaserFocus_CalStart
+	rm /data/data/LaserFocus_log_value1
+	rm /data/data/LaserFocus_log_value2
+	rm /data/data/LaserFocus_log_value3
+	rm /data/data/LaserFocus_log_value4
+	rm /data/data/LaserFocus_log_value5
+	rm /data/data/LaserFocus_log_value6
+	rm /data/data/LaserFocus_log_value7
+	rm /data/data/LaserFocus_log_value8
+	rm /data/data/LaserFocus_log_value9
+	rm /data/data/LaserFocus_log_value10
+	rm /data/data/LaserFocus_HPTG_hw
+	rm /data/data/LaserFocus_data_position
+
+
+	symlink /system/bin/LaserFocus_CalStart /data/data/LaserFocus_CalStart
+	symlink /proc/driver/LaserFocus_log_value1 /data/data/LaserFocus_log_value1
+	symlink /proc/driver/LaserFocus_log_value2 /data/data/LaserFocus_log_value2
+	symlink /proc/driver/LaserFocus_log_value3 /data/data/LaserFocus_log_value3
+	symlink /proc/driver/LaserFocus_log_value4 /data/data/LaserFocus_log_value4
+	symlink /proc/driver/LaserFocus_log_value5 /data/data/LaserFocus_log_value5
+	symlink /proc/driver/LaserFocus_log_value6 /data/data/LaserFocus_log_value6
+	symlink /proc/driver/LaserFocus_log_value7 /data/data/LaserFocus_log_value7
+	symlink /proc/driver/LaserFocus_log_value8 /data/data/LaserFocus_log_value8
+	symlink /proc/driver/LaserFocus_log_value9 /data/data/LaserFocus_log_value9
+	symlink /proc/driver/LaserFocus_log_value10 /data/data/LaserFocus_log_value10
+	symlink /proc/driver/LaserFocus_HPTG_hw /data/data/LaserFocus_HPTG_hw
+	symlink /proc/driver/LaserFocus_data_position /data/data/LaserFocus_data_position
+
+
+	chmod 0660 /data/data/LaserFocus_CalStart
+	chmod 0660 /data/data/LaserFocus_log_value1
+	chmod 0660 /data/data/LaserFocus_log_value2
+	chmod 0660 /data/data/LaserFocus_log_value3
+	chmod 0660 /data/data/LaserFocus_log_value4
+	chmod 0660 /data/data/LaserFocus_log_value5
+	chmod 0660 /data/data/LaserFocus_log_value6
+	chmod 0660 /data/data/LaserFocus_log_value7
+	chmod 0660 /data/data/LaserFocus_log_value8
+	chmod 0660 /data/data/LaserFocus_log_value9
+	chmod 0660 /data/data/LaserFocus_log_value10
+	chmod 0660 /data/data/LaserFocus_HPTG_hw
+	chmod 0660 /data/data/LaserFocus_data_position
+
+	chown system shell /data/data/LaserFocus_CalStart
+	chown system shell /data/data/LaserFocus_log_value1
+	chown system shell /data/data/LaserFocus_log_value2
+	chown system shell /data/data/LaserFocus_log_value3
+	chown system shell /data/data/LaserFocus_log_value4
+	chown system shell /data/data/LaserFocus_log_value5
+	chown system shell /data/data/LaserFocus_log_value6
+	chown system shell /data/data/LaserFocus_log_value7
+	chown system shell /data/data/LaserFocus_log_value8
+	chown system shell /data/data/LaserFocus_log_value9
+	chown system shell /data/data/LaserFocus_log_value10
+	chown system shell /data/data/LaserFocus_HPTG_hw
+	chown system shell /data/data/LaserFocus_data_position
+
+#CSC calibration
+
+# ASUS_BSP WeiYu--- "LaserFocus sensor"
+
+#ASUS_BSP PJ "add file path for DITNetworkFile"
+    mkdir /data/dit_file 0771 camera camera
+    mkdir /dev/socket/dit 0777 cameraserver audio
+
+ # ASUS_BSP +++ srhuang "Gsensor after SMMI"
+    chmod 0700 /mnt/vendor/persist/sensors/sns.reg
+# ASUS_BSP --- srhuang "Gsensor after SMMI"
+
+#ASUS_BSP Lucien +++: Change for jpegHWCompress
+    chmod 0666 /dev/jpeg0
+    chmod 0666 /dev/video1
+#ASUS_BSP Lucien ---: Change for jpegHWCompress
+#ASUS_BSP+++ YuHeng_Wei "[GPS][NA][Spec] move SUPL cert file for injection"
+    mkdir /data/SuplCert
+    chmod 777 /data/SuplCert
+    copy /data/media/0/SuplRootCert /data/SuplCert/SuplRootCert
+    chmod 666 /data/SuplCert/SuplRootCert
+    rm /data/media/0/SuplRootCert
+#ASUS_BSP--- YuHeng_Wei "[GPS][NA][Spec] move SUPL cert file for injection"
+
+#Bruno++
+    mkdir /data/misc/aw 0777 audio audio
+    write /data/misc/aw/route_path.info 0
+    restorecon_recursive /data/misc/aw/route_path.info
+    chmod 777 /data/misc/aw/route_path.info
+#Bruno++
+
+on property:sys.boot_completed=1
+    write /sys/class/power_supply/battery/device/boot_completed 1
+
+#ASUS_BSP+++: add for fingerprint
+service gx_fpd /vendor/bin/gx_fpd
+    class late_start
+    group system
+    user system
+    oneshot
+    disabled
+
+service gx_fpd_gxfp3 /vendor/bin/gx_fpd_gxfp3
+    class late_start
+    group system
+    user system
+    oneshot
+    disabled
+
+service fpseek /vendor/bin/fpseek
+    class core
+    user root
+    group system drmrpc
+    oneshot
+    disabled
+
+service fpservice /vendor/bin/fpservice.sh
+    class late_start
+    user root
+    group root system drmrpc
+    oneshot
+    disabled
+
+on property:sys.boot_completed=1
+    start fpservice
+
+#ASUS_BSP---: add for fingerprint
