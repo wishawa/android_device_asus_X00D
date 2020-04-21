@@ -37,10 +37,10 @@ fi
 . "$HELPER"
 
 # Initialize the helper for common
-setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
+setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" true
 
 # Copyright headers and guards
-write_headers "land santoni"
+write_headers "X00D"
 
 # The standard common blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt true
