@@ -209,7 +209,8 @@ vendor/lib/libactuator_lc898212xd.so
 vendor/lib/libactuator_lc898212xd_qc2002.so
 vendor/lib/libactuator_lc898217xc.so
 vendor/lib/libactuator_pseudo.so
-vendor/lib/libactuator_rohm_bu64243gwz.sovendor/lib/libchromaflash.so
+vendor/lib/libactuator_rohm_bu64243gwz.so
+vendor/lib/libchromaflash.so
 vendor/lib/libchromatix_csidtg_common.so
 vendor/lib/libchromatix_csidtg_cpp_preview.so
 vendor/lib/libchromatix_csidtg_postproc.so
