@@ -54,6 +54,7 @@ fi
 setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
 echo "extracting proprietary-files"
 extract "$MY_DIR"/proprietary-files.txt "$SRC"
+extract "$MY_DIR"/proprietary-files-qc.txt "$SRC"
 
 DEVICE_BLOBS_PATH="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 
