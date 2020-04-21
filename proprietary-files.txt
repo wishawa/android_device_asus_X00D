@@ -179,7 +179,6 @@ lib64/libts_face_beautify_hal.so
 lib64/libts_face_beautify_jni.so
 vendor/bin/mm-qcamera-app
 vendor/bin/mm-qcamera-daemon
-vendor/lib/libmm-color-convertor.so
 vendor/lib/libmm-qcamera.so
 vendor/lib/libmmcamera_atmel_at24c32e_eeprom.so
 vendor/lib/libmmcamera_dw9761b_2d_eeprom.so
@@ -355,9 +354,6 @@ vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
 vendor/firmware/cpp_firmware_v1_10_0.fw
 
-#_Charger
-vendor/bin/hvdcp_opti
-
 #_DRM_firmware
 vendor/firmware/cppf.b00
 vendor/firmware/cppf.b01
@@ -367,17 +363,8 @@ vendor/firmware/cppf.b04
 vendor/firmware/cppf.b05
 vendor/firmware/cppf.b06
 vendor/firmware/cppf.mdt
-vendor/firmware/widevine.b00
-vendor/firmware/widevine.b01
-vendor/firmware/widevine.b02
-vendor/firmware/widevine.b03
-vendor/firmware/widevine.b04
-vendor/firmware/widevine.b05
-vendor/firmware/widevine.b06
-vendor/firmware/widevine.mdt
 
 #_DRM
-vendor/lib/libcppf.so
 vendor/lib/liboemcrypto.so
 
 #_Fingerprint
@@ -399,14 +386,6 @@ etc/firmware/goodixfp.mdt
 #_Sensors
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sensor_def_qcomdev.conf
-vendor/lib/libsensor1.so
-vendor/lib/libsensor_reg.so
-vendor/lib/sensor_calibrate.so
-vendor/lib/sensors.ssc.so
-vendor/lib64/libsensor1.so
-vendor/lib64/libsensor_reg.so
-vendor/lib64/sensor_calibrate.so
-vendor/lib64/sensors.ssc.so
 
 #_USB_firmware
 etc/firmware/ice40.bin
