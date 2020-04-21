@@ -25,6 +25,9 @@ $(call inherit-product, device/asus/X00D/device.mk)
 # Inherit from X00D vendor
 $(call inherit-product-if-exists, vendor/asus/X00D/X00D-vendor.mk)
 
+# Inherit from msm8996 vendor
+$(call inherit-product-if-exists, vendor/qcom/msm8996/msm8996-vendor.mk)
+
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
