@@ -1,4 +1,3 @@
-# From Santoni
 
 #_ADSP_-_from_TA-1024
 vendor/bin/adsprpcd
@@ -29,12 +28,18 @@ vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib/vendor.qti.hardware.alarm@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
+-vendor/app/PowerOffAlarm/PowerOffAlarm.apk
+vendor/bin/power_off_alarm
 
 #_ANT+_-_from_TA-1024
 lib/com.qualcomm.qti.ant@1.0.so
 lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
 vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
+
+#_APTX
+lib64/libaptX_encoder.so
+lib64/libaptXHD_encoder.so
 
 #_Audio_-_from_TA-1024
 lib/libqct_resampler.so
@@ -128,6 +133,9 @@ vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 vendor/lib/vendor.qti.hardware.data.latency@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.data.latency@1.0_vendor.so
+framework/cneapiclient.jar
+framework/com.quicinc.cne.jar
+-priv-app/CNEService/CNEService.apk
 
 #_Charger_-_from_TA-1024
 vendor/bin/hvdcp_opti
@@ -198,8 +206,10 @@ vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libQTEEConnector_vendor.so
 vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+-priv-app/dpmserviceapp/dpmserviceapp.apk
 
 #_DRM_(Widevine)_-_from_TA-1024
+vendor/lib/libwvhidl.so
 
 #_DRM_(Widevine_firmware)_-_from_TA-1024
 vendor/firmware/widevine.b00
@@ -284,6 +294,7 @@ vendor/lib64/libulp2.so
 vendor/lib64/libslimclient.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/libxtwifi_ulp_adaptor.so
+vendor/lib64/libloc_api_v02.so
 
 #_Graphics_-_from_TA-1024
 vendor/lib/egl/eglSubDriverAndroid.so
@@ -346,6 +357,8 @@ vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
+-vendor/lib/libsdm-disp-vndapis.so
+-vendor/lib64/libsdm-disp-vndapis.so
 
 #_Graphics_firmware_-_from_TA-1024
 vendor/firmware/a530_gpmu.fw2
@@ -518,6 +531,7 @@ vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libqmiservices.so
+etc/permissions/qti_libpermissions.xml
 
 #_Radio_-_from_Panther
 etc/permissions/lpa.xml
@@ -564,6 +578,13 @@ vendor/lib64/librilqmiservices.so
 vendor/lib64/libsettings.so
 vendor/lib64/libsystem_health_mon.so
 vendor/radio/qcril_database/qcril.db
+-app/datastatusnotification/datastatusnotification.apk
+-app/QtiTelephonyService/QtiTelephonyService.apk
+framework/qcrilhook.jar
+framework/qti-telephony-common.jar
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+vendor/etc/data/netmgr_config.xml
+
 
 #_Radio_-_QTI_Extension_-_from_sakura
 
@@ -622,6 +643,7 @@ vendor/lib64/lib-rtpdaemoninterface.so
 vendor/lib64/lib-rtpsl.so
 vendor/lib64/lib-uceservice.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
+-app/uceShimService/uceShimService.apk
 
 #_Sensors_-_from_TA-1024
 lib/libsensor1.so
@@ -643,9 +665,14 @@ vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
 #_Thermal_-_from_TA-1024
 vendor/bin/thermal-engine
+vendor/lib/libthermalclient.so
+vendor/lib64/libthermalclient.so
+vendor/lib64/libthermalioctl.so
 
 #_Time_services_-_from_TA-1024
 vendor/bin/time_daemon
+-vendor/app/TimeService/TimeService.apk
+vendor/lib64/libtime_genoff.so
 
 #_TUI_-_from_TA-1024
 lib/vendor.qti.hardware.tui_comm@1.0.so
@@ -687,57 +714,5 @@ vendor/lib/libwfdhaldsmanager.so
 vendor/lib/libwfdhdcpcp.so
 vendor/lib/libwfdmmservice.so
 vendor/lib/libwfdmodulehdcpsession.so
-
-# From Zenfone3
-
-#_APTX
-lib64/libaptX_encoder.so
-lib64/libaptXHD_encoder.so
-
-#_CNE
-framework/cneapiclient.jar
-framework/com.quicinc.cne.jar
--priv-app/CNEService/CNEService.apk
-
-#_DPM
--priv-app/dpmserviceapp/dpmserviceapp.apk
-
-#_GPS
-vendor/lib64/libloc_api_v02.so
-
-#_Power-off_alarm
--vendor/app/PowerOffAlarm/PowerOffAlarm.apk
-vendor/bin/power_off_alarm
-
-#_QMI
-etc/permissions/qti_libpermissions.xml
-
-#_Radio
--app/datastatusnotification/datastatusnotification.apk
--app/QtiTelephonyService/QtiTelephonyService.apk
-framework/qcrilhook.jar
-framework/qti-telephony-common.jar
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-vendor/etc/data/netmgr_config.xml
-
-#_Radio_-_IMS
--app/uceShimService/uceShimService.apk
-
-#_SDM_-_from_kuntao_-_LA.UM.7.5.r1-03700-8x96.0
--vendor/lib/libsdm-disp-vndapis.so
--vendor/lib64/libsdm-disp-vndapis.so
-
-#_Thermal
-vendor/lib/libthermalclient.so
-vendor/lib64/libthermalclient.so
-vendor/lib64/libthermalioctl.so
-
-#_Time_services
--vendor/app/TimeService/TimeService.apk
-vendor/lib64/libtime_genoff.so
-
-#_Widevine
-vendor/lib/libwvhidl.so
-
-#_Wi-Fi_Display
 -framework/WfdCommon.jar
+
