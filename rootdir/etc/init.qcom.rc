@@ -166,6 +166,9 @@ on boot
     # Permissions for Keypad Mode
     chown system system /sys/bus/i2c/devices/i2c-3/3-0038/keypad_mode
 
+    # Permissions for Swipe2Wake
+    chown system system /sys/bus/i2c/devices/i2c-3/3-0038/swipeup_mode
+
     # Amplifier Calibration
     start spk_amp_cal
 
@@ -236,12 +239,12 @@ on post-fs-data
     chown radio radio /data/vendor/connectivity
 
     # Create directory used by audio subsystem
-    mkdir /data/vendor/audio 0770 audio audio
+    mkdir /data/vendor/misc/audio 0770 audio audio
     mkdir /data/vendor/audio 0770 audio audio
 
     # Create directory for audio delta files
-    mkdir /data/vendor/audio/acdbdata 0770 media audio
-    mkdir /data/vendor/audio/acdbdata/delta 0770 media audio
+    mkdir /data/vendor/misc/audio/acdbdata 0770 media audio
+    mkdir /data/vendor/misc/audio/acdbdata/delta 0770 media audio
     mkdir /data/vendor/audio/acdbdata 0770 media audio
     mkdir /data/vendor/audio/acdbdata/delta 0770 media audio
 
@@ -336,7 +339,9 @@ service qcom-c_main-sh /vendor/bin/init.class_main.sh
 
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
-    restart vendor.camera-provider-2-4
+    stop vendor.camera-provider-2-4
+    start vendor.camera-provider-2-4
+    start wcnss-service
     start cnss_diag
 
 on property:persist.env.fastdorm.enabled=true
@@ -480,7 +485,8 @@ on charger
     start charger_led
 
 on property:init.svc.surfaceflinger=restarting
-    restart vendor.hwcomposer-2-1
+    stop  vendor.hwcomposer-2-1
+    start vendor.hwcomposer-2-1
 
 on property:vendor.display.lcd_density=*
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
@@ -504,7 +510,5 @@ service power_off_alarm /vendor/bin/power_off_alarm
     oneshot
 
 on property:sys.boot_completed=1
-    # Disable/Enable UART
-    write /proc/driver/audio_debug ${sys.uart.enable}
     # Amplifier Calibration
     start spk_amp_cal
