@@ -103,7 +103,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.demo.hdmirotationlock=false \
     debug.enable.sglscale=1 \
     debug.gralloc.enable_fb_ubwc=1 \
-    ro.vendor.display.cabl=2
+    ro.vendor.display.cabl=2 \
+    ro.sf.lcd_density=400
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
