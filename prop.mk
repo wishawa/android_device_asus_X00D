@@ -222,3 +222,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # ZRam
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.config.zram=true
+
+# Hacks
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.keymaster.loaded=true
