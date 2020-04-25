@@ -558,6 +558,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
+    thermal.msm8937 \
     android.hardware.thermal@1.0-service \
     android.hardware.thermal@1.0-impl
 
