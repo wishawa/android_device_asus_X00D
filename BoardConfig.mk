@@ -14,12 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Hacks
-TARGET_USES_QMAA := true
-TARGET_USES_QMAA_OVERRIDE_DATA := false
-
-# End Hacks
-
 DEVICE_PATH := device/asus/X00D
 
 BOARD_VENDOR := asus-qcom
