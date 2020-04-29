@@ -456,10 +456,18 @@ PRODUCT_PACKAGES += \
     wcnss_service \
     ipacm \
     IPACM_cfg.xml \
+    libcld80211 \
+    libqsap_sdk \
+    libQWiFiSoftApCfg \
     libwpa_client \
     hostapd \
+    dhcpcd.conf \
+    wificond \
+    wifilogd \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    libwifi-hal-qcom \
+    lib_driver_cmd_qcwcn
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service

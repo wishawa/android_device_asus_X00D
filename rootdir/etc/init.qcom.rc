@@ -124,6 +124,11 @@ on boot
     setprop wifi.interface wlan0
 
     setprop ro.telephony.call_ring.multiple false
+    
+    #Create directories for wifihal services
+    mkdir /dev/socket/wifihal 0770 wifi wifi
+    chmod 2770 /dev/socket/wifihal
+
 
     #enable camera read sensors data
     setprop persist.camera.gyro.disable 0
