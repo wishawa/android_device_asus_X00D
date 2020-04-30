@@ -142,13 +142,10 @@ lib64/libjni_truescanner_v2.so
 lib64/libjni_ubifocus.so
 lib64/libts_detected_face_jni.so
 lib64/libts_face_beautify_jni.so
-vendor/bin/mm-qcamera-app
 vendor/bin/mm-qcamera-daemon
-vendor/lib/libmm-qcamera.so
 vendor/lib/libmmcamera_atmel_at24c32e_eeprom.so
 vendor/lib/libmmcamera_dw9761b_2d_eeprom.so
 vendor/lib/libmmcamera_imx298.so
-vendor/lib/libmmcamera_interface.so
 vendor/lib/libmmcamera_le2464c_eeprom.so
 vendor/lib/libmmcamera_le2464c_master_eeprom.so
 vendor/lib/libmmcamera_onsemi_cat24c16_eeprom.so
@@ -167,10 +164,8 @@ vendor/lib/libmmcamera_sunny_q13v06k_eeprom.so
 vendor/lib/libmmcamera_sunny_q5v41b_eeprom.so
 vendor/lib/libmmcamera_truly_cma481_eeprom.so
 vendor/lib/libmmcamera_truly_cmb433_eeprom.so
-vendor/lib/libmmjpeg_interface.so
 vendor/lib/libmmosal_proprietary.so
 vendor/lib/libois_lc898122.so
-vendor/lib/libqomx_core.so
 vendor/lib/libremosaic_daemon.so
 vendor/lib/libts_face_beautify_hal.so
 vendor/lib64/libmmcamera2_frame_algorithm.so
