@@ -1,8 +1,13 @@
 
+
 # ADSP - firmware
+
 # Audio
 vendor/lib/libacdbloader.so
+vendor/lib/libaudio_log_utils.so
 vendor/lib64/libacdbloader.so
+vendor/lib64/libaudio_log_utils.so
+
 # Arcsoft
 vendor/etc/style.cng
 vendor/lib/libarcsoft_beautyshot.so
@@ -11,6 +16,7 @@ vendor/lib/libarcsoft_hdr.so
 vendor/lib/libarcsoft_night_shot.so
 vendor/lib/libarcsoft_piczoom.so
 vendor/lib/libmpbase.so
+
 # Camera
 lib/libtrueportrait.so
 lib/libtruescanner.so
@@ -79,13 +85,17 @@ vendor/lib/libremosaic_daemon.so
 vendor/lib/libseemore.so
 vendor/lib/libts_face_beautify_hal.so
 vendor/lib/libubifocus.so
+
 # Camera eeprom
 vendor/lib/libmmcamera_sony_imx298_eeprom.so
+
 # Camera actuators
 vendor/lib/libois_lc898122.so
 vendor/lib/libactuator_lc898122.so
+
 # Charger
 vendor/bin/hvdcp_opti
+
 # Chromatix
 vendor/lib/libchromatix_csidtg_common.so
 vendor/lib/libchromatix_csidtg_cpp_preview.so
@@ -143,8 +153,10 @@ vendor/lib/libchromatix_ov8856_preview.so
 vendor/lib/libchromatix_ov8856_snapshot.so
 vendor/lib/libchromatix_ov8856_zsl_preview.so
 vendor/lib/libchromatix_ov8856_zsl_video.so
+
 # Camera firmware
 vendor/firmware/cpp_firmware_v1_5_0.fw
+
 # Camera sensors
 vendor/lib/libmmcamera2_isp_modules.so
 vendor/lib/libmmcamera_isp_abf40.so
@@ -181,11 +193,14 @@ vendor/lib/libmmcamera_isp_sce40.so
 vendor/lib/libmmcamera_isp_sub_module.so
 vendor/lib/libmmcamera_isp_template.so
 vendor/lib/libmmcamera_isp_wb40.so
+
 # DIT
 vendor/lib/libxditk_ditBSP.so
+
 # DRM
 vendor/lib/libcppf.so
 vendor/lib/liboemcrypto.so
+
 # DRM firmware
 vendor/firmware/cppf.b00
 vendor/firmware/cppf.b01
@@ -203,14 +218,47 @@ vendor/firmware/widevine.b04
 vendor/firmware/widevine.b05
 vendor/firmware/widevine.b06
 vendor/firmware/widevine.mdt
+vendor/firmware/cpp_firmware_v1_1_1.fw
+vendor/firmware/cpp_firmware_v1_1_6.fw
+vendor/firmware/cpp_firmware_v1_2_0.fw
+vendor/firmware/cpp_firmware_v1_4_0.fw
+vendor/firmware/cpp_firmware_v1_5_1.fw
+vendor/firmware/cpp_firmware_v1_5_2.fw
+vendor/firmware/cpp_firmware_v1_6_0.fw
+vendor/firmware/cpp_firmware_v1_8_0.fw
+vendor/firmware/cpp_firmware_v1_10_0.fw
+vendor/firmware/cpp_firmware_v1_12_0.fw
+
 # Fingerprint
 vendor/lib64/hw/gxfingerprint.default.so
 vendor/lib64/libfp_client.so
 vendor/lib64/libfpservice.so
 vendor/bin/gx_fpd
+
+# Fingerprint firmware
+etc/firmware/goodixfp.mdt
+etc/firmware/goodixfp.b00
+etc/firmware/goodixfp.b01
+etc/firmware/goodixfp.b02
+etc/firmware/goodixfp.b03
+etc/firmware/goodixfp.b04
+etc/firmware/goodixfp.b05
+etc/firmware/goodixfp.b06
+
 # Graphics firmware
 vendor/firmware/a530_pfp.fw
 vendor/firmware/a530_pm4.fw
+vendor/firmware/a530v3_seq.fw2
+vendor/firmware/a530v2_seq.fw2
+vendor/firmware/a530v1_pm4.fw
+vendor/firmware/a540_gpmu.fw2
+vendor/firmware/a530v3_gpmu.fw2
+vendor/firmware/a530_gpmu.fw2
+vendor/firmware/a530v1_pfp.fw
+
+# Ice firmware
+etc/firmware/ice40.bin
+
 # Sensors
 vendor/bin/sensors.qcom:vendor/bin/sensors.qti
 vendor/etc/sensors/hals.conf
@@ -225,7 +273,9 @@ vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
 vendor/lib64/sensor_calibrate.so
 vendor/lib64/sensors.ssc.so
+
 # Speaker
+
 # Wifi
 vendor/bin/cnss-daemon
 vendor/firmware/leia_pfp_470.fw
