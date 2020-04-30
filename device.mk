@@ -189,7 +189,6 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
     camera.device@3.3-impl \
-    camera.msm8937 \
     libmmcamera_interface \
     libmmjpeg_interface \
     mm-qcamera-app \
@@ -485,8 +484,6 @@ PRODUCT_PACKAGES += \
     tcpdump
 
 # Wi-Fi Display
-PRODUCT_BOOT_JARS += \
-    WfdCommon
 
 # Recovery
 PRODUCT_PACKAGES += \
